@@ -5,5 +5,81 @@ Adding new admin
 {% endblock %}
 
 {% block body %}
-<h1>test</h1>
+	<style>
+		.table_price {
+			border-collapse: collapse;
+			border-left: 3px solid black;
+			border-right: 3px solid black;
+			border-bottom: 3px solid black;
+			border-top: 3px solid black;
+			font-family: "Lucida Grande", sans-serif;
+			width: 100%;
+		}
+
+		.table_price td{
+			padding: 10px;
+		}
+
+		.table_price tr:nth-child(2n) {
+		  background: #56ADE7;
+		}
+
+		.table_price td:last-of-type {
+		  text-align: center;
+		}
+
+		.table_price a {
+			display: inline-block;
+			padding: 5px 10px;
+			background: #3BE7D9;
+			position: relative;
+		}
+
+		.table_price a:hover {
+			text-decoration: none;
+			background-color: silver;
+			transform: scale(1.2);
+		}
+
+	</style>
+
+	<table class="table_price">
+		<tr>
+			<td>№</td>
+			<td>Им'я</td>
+			<td>Почта</td>
+			<td>Забанен/Не забанен</td>
+			<td>Админ/Не админ</td>
+			<td>Уровень админки</td>
+		</tr>
+		{% for user in users %}
+			<tr>
+				<td>{{ loop.index }}</td>
+				<td>{{ user.username }}</td>
+				<td>{{ user.email }}</td>
+
+				{% if not user.is_banned %}
+				    <td>Не забанен</td>
+				{% else %}
+				  	<td>Забанен</td>
+				{% endif %}
+
+				{% if not user.is_admin %}
+				  	{% if current_user.lvl_of_admin > 1 %}
+				      	<td><a>Сделать админом</a></td>
+				  	{% else %}
+				  	  	<td><a>Не админ</a></td>
+				  	{% endif %}
+
+				{% else %}
+				  	{% if current_user.lvl_of_admin > user.lvl_of_admin %}
+				  	  	<td><a>Снять с админки</a></td>
+				  	{% else %}
+				  	  	<td><a>Админ</a></td>
+				  	{% endif %}
+				{% endif %}
+				<td>{{ user.lvl_of_admin }}</td>
+			</tr>
+		{% endfor %}
+	</table>
 {% endblock %}

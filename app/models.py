@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
 	email = db.Column(db.String(100), nullable=False, unique=True)
 	password_hash = db.Column(db.String(100), nullable=False)
 	is_admin = db.Column(db.Boolean(), default=False)
+	lvl_of_admin = db.Column(db.Integer(), default=0)
 	is_banned = db.Column(db.Boolean(), default=False)
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow,  onupdate=datetime.utcnow)	
