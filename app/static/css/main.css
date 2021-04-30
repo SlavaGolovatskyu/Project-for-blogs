@@ -5,7 +5,6 @@ body {
 }
 
 .header {
-	width: 100%;
 	text-align: center;
 	display: block;
 	flex-direction: row;

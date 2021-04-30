@@ -15,9 +15,8 @@ from wtforms.validators import (
 )
 
 class SearchNeedPeopleForm(FlaskForm):
-	username = StringField("Your name: ", validators=[DataRequired(), Length(min=1, max=40, message=None)],
-						   render_kw={"placeholder": "username"})
-	email = StringField("Email: ", validators=[Email(), DataRequired()], render_kw={"placeholder": "email"})
+	username = StringField("Your name: ", render_kw={"placeholder": "username"})
+	email = StringField("Email: ", render_kw={"placeholder": "email"})
 	submit = SubmitField("Искать")
 
 

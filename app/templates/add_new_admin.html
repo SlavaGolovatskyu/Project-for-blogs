@@ -6,14 +6,14 @@ Adding new admin
 
 {% block body %}
 	<style>
+		body {
+			min-width: 690px;
+		}
+
 		.table_price {
-			border-collapse: collapse;
-			border-left: 3px solid black;
-			border-right: 3px solid black;
-			border-bottom: 3px solid black;
-			border-top: 3px solid black;
-			font-family: "Lucida Grande", sans-serif;
 			width: 100%;
+			border: 5px solid black;
+			font-family: "Lucida Grande", sans-serif;
 		}
 
 		.table_price td{
@@ -41,45 +41,117 @@ Adding new admin
 			transform: scale(1.2);
 		}
 
+		.information_from_user {
+			display: flex;
+			text-align: center;
+			justify-content: space-between;
+			flex-direction: row;
+		}
+
+		.container__admin {
+			width: 50%;
+			margin: 0 auto;
+		}
 	</style>
+	<form action="" method="post">
+		<div class="container__admin">	
+			{{ form.csrf_token }}
+			<div class='information_from_user'>
+				<p>
+					<p>
+						{{ form.username() }}
+					</p>
+					{% if form.username.errors %}
+						{% for error in form.username.errors %}
+							{{ error }}
+						{% endfor %}
+				    {% endif %}
+				</p>
+				<p>
+					<p>
+						{{ form.email() }}
+					</p>
+					{% if form.email.errors %}
+						{% for error in form.email.errors %}
+							{{ error }}
+						{% endfor %}
+					{% endif %}
+				</p>
+				<p>
+					{{ form.submit() }}
+				</p>
+			</div>
+		</div>
+	</form>
+	<div class='container__table' style="overflow-x:auto;">
+			<table class="table_price">
+				<tr>
+					<td>№</td>
+					<td>Им'я</td>
+					<td>Почта</td>
+					<td>Дата регистрации</td>
+					<td>Забанен/Не забанен</td>
+					<td>Админ/Не админ</td>
+					<td>Уровень админки</td>
+					<td>Удаление аккаунта</td>
+				</tr>
+				{% for user in users %}
+					<tr>
+						<td>{{ loop.index + current_page * max_users - max_users }}</td>
+						<td>{{ user.username }}</td>
+						<td>{{ user.email }}</td>
+						<td>{{ user.created_on.strftime('%Y-%m-%d %H:%M:%S') }}</td>
 
-	<table class="table_price">
-		<tr>
-			<td>№</td>
-			<td>Им'я</td>
-			<td>Почта</td>
-			<td>Забанен/Не забанен</td>
-			<td>Админ/Не админ</td>
-			<td>Уровень админки</td>
-		</tr>
-		{% for user in users %}
-			<tr>
-				<td>{{ loop.index }}</td>
-				<td>{{ user.username }}</td>
-				<td>{{ user.email }}</td>
+						{% if not user.is_banned %}
+							<td>Не забанен</td>
+						{% else %}
+							<td>Забанен</td>
+						{% endif %}
 
-				{% if not user.is_banned %}
-				    <td>Не забанен</td>
-				{% else %}
-				  	<td>Забанен</td>
+						{% if not user.is_admin %}
+							{% if current_user.lvl_of_admin > 1 %}
+							    <td><a>Сделать админом</a></td>
+							{% else %}
+							  	<td><a>Не админ</a></td>
+							{% endif %}
+						{% else %}
+							{% if current_user.lvl_of_admin > user.lvl_of_admin %}
+							  	<td><a>Снять с админки</a></td>
+							{% else %}
+							  	<td><a>Админ</a></td>
+							{% endif %}
+						{% endif %}
+
+						{% if user.is_admin %}
+							<td>{{ user.lvl_of_admin }}</td>
+						{% else %}
+							<td>--</td>
+						{% endif %}
+
+						{% if current_user.lvl_of_admin > user.lvl_of_admin and current_user.lvl_of_admin != user.lvl_of_admin %}
+							<td><a>Удалить</a></td>
+						{% else %}
+							<td>Нет доступа</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</table>
+	</div>
+	<br>
+	{% if count_dynamic_pages > 1 %}
+		<div class="alert alert-info text-align-center">
+			{% if current_page != 1 %}
+				<a href="/add-new-admin/1" class="btn btn-success">1</a>
+				<a href="/add-new-admin/{{ current_page - 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Back</a>
+			{% endif %}
+			{% if count_dynamic_pages != current_page %}
+				<a href="/add-new-admin/{{ current_page + 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Next</a>
+				{% if count_dynamic_pages != current_page + 1 %}
+					<a href="/add-new-admin/{{ count_dynamic_pages }}?username={{ username }}&email={{ email }}" class="btn btn-success">{{ count_dynamic_pages }}</a>
 				{% endif %}
-
-				{% if not user.is_admin %}
-				  	{% if current_user.lvl_of_admin > 1 %}
-				      	<td><a>Сделать админом</a></td>
-				  	{% else %}
-				  	  	<td><a>Не админ</a></td>
-				  	{% endif %}
-
-				{% else %}
-				  	{% if current_user.lvl_of_admin > user.lvl_of_admin %}
-				  	  	<td><a>Снять с админки</a></td>
-				  	{% else %}
-				  	  	<td><a>Админ</a></td>
-				  	{% endif %}
-				{% endif %}
-				<td>{{ user.lvl_of_admin }}</td>
-			</tr>
-		{% endfor %}
-	</table>
+			{% endif %}
+		</div>
+		</br>
+	{% endif %}
+	<br><br>
 {% endblock %}
