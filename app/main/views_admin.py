@@ -68,17 +68,13 @@ def add_new_admin(page):
 	username = request.args.get('username', '')
 	email = request.args.get('email', '')
 
-	users_need = False
+	users_need = []
 
-	count_all_user = False
+	count_all_user = []
 
 	if username or email or username and email:
-		if username and email:
-			users_need = User.query.filter(User.username.like(f'%{username}%'), 
-										   User.email.like(f'%{email}%')).all()
-		else:
-			users_need = User.query.filter(User.username.like(f'%{username}%') if username
-										   else User.email.like(f'%{email}%')).all()
+		users_need = User.query.filter(User.username.like(f'%{username}%'), 
+									   User.email.like(f'%{email}%')).all()
 	else:
 		users_need = User.query.order_by(User.created_on.desc()).all() 
 
@@ -93,7 +89,7 @@ def add_new_admin(page):
 	count_dynamic_pages = ceil(count_all_user / MAX_COUNT_USERS_ON_PAGE)
 
 
-	if page['page'] > count_dynamic_pages or page['page'] <= 0:
+	if page['page'] > count_dynamic_pages or page['page'] == 0:
 		page = page['page']
 		flash(f'Страницы {page} несуществует.')
 		return redirect('/add-new-admin/1')
