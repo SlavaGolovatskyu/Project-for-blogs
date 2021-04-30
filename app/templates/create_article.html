@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление статьи
+{% endblock %}
+
+{% block body %}
+<style>
+	.form-sign {
+		margin-top: 100px;
+	}
+</style>
+<div class="container">
+	<main class="form-sign text-center">
+	    <h1>Создание статьи</h1>
+		<form method="post">
+			<input type="text" name="title" id = 'title' class = 'form-control' placeholder="Введите название" required="TITLE"><br>
+			<textarea name="intro" id = 'intro' class = 'form-control' placeholder="Введите анонс" required="INTRO"></textarea><br>
+			<textarea name="text" id = 'text' class = 'form-control' placeholder="Введите текст" required="TEXT"></textarea><br>
+			<input type="submit" class = 'btn btn-success' value='Создать'><br>
+		</form>
+	</main>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+body {
+	width: 100%;
+	min-width: 420px;
+	background: silver;
+}
+
+.header {
+	width: 100%;
+	text-align: center;
+	display: block;
+	flex-direction: row;
+}
+
+.header__btn {
+	height: 100%;
+	width: 18%;
+}
+
+.header__btn:hover {
+	background-color: silver;
+	transform: scale(1.04);
+}
+
+.header__user__img {
+	width: 3.65%;
+	border-radius: 45%;
+}
+
+.header__user__img:hover {
+	background-color: silver;
+	transform: scale(1.1);
+}
+
+.alert-info {
+	word-wrap: break-word;
+}
+
+.text-align-center {
+	text-align: center;
+	width: 40%;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 680px) {
+	.header__user__img {
+		width: 10%;
+	}
+
+	.text-align-center {
+		width: 70%;
+	}
+}

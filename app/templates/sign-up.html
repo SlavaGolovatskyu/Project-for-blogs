@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block body %}
+<style>
+	.form-sign {
+		margin-top: 100px;
+	}
+</style>
+<div class="container">
+	<main class="form-sign text-center">
+	    <form action="" method="post">
+			{{ form.csrf_token }}
+			<h1>Регистрация</h1>
+			<p>
+			    <p>
+			    	{{ form.username() }}
+				</p>
+				{% if form.username.errors %}
+					{% for error in form.username.errors %}
+				    	{{ error }}
+					{% endfor %}
+			    {% endif %}
+			</p>
+			<p>
+			    <p>
+			    	{{ form.email() }}
+				</p>
+				{% if form.email.errors %}
+					{% for error in form.email.errors %}
+				    	{{ error }}
+					{% endfor %}
+			    {% endif %}
+			</p>
+			<p>
+			    <p>
+			    	{{ form.password() }}
+			    </p>
+			    {% if form.password.errors %}
+					{% for error in form.password.errors %}
+				    	{{ error }}
+					{% endfor %}
+			    {% endif %}
+			</p>
+			<p>
+			    {{ form.remember() }}
+			    {{ form.remember.label() }}
+			</p>
+			<p>
+			    {{ form.submit() }}
+			</p>
+	    </form>
+	</main>
+</div>
+{% endblock %}

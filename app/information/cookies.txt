@@ -1,0 +1,51 @@
+"""
+	Настройка куки
+	Во Flask для настройки куки используется метод объекта ответа set_cookie(). 
+	Синтаксис set_cookie() следующий:
+
+	set_cookie(key, value="", max_age=None)
+	key — обязательный аргумент, это название куки. value — данные, которые нужно сохранить в куки. 
+	По умолчанию это пустая строка. max_age — это срок действия куки в секундах. Если не указать срок, 
+	срок истечет при закрытии браузера пользователем.
+
+	Откроем main2.py, чтобы добавить следующий код после функции представления contact():
+
+	from flask import Flask, render_template, request, redirect, url_for, flash, make_response
+	#...
+	@app.route('/cookie/')
+	def cookie():
+	    res = make_response("Setting a cookie")
+	    res.set_cookie('foo', 'bar', max_age=60*60*24*365*2)
+	    return res
+	#...
+"""
+
+По умолчанию куки сессии существуют до тех пор, пока не закроется браузер. Чтобы продлить жизнь куки сессии, нужно установить значение True для атрибута permanent объекта session. Когда значение permanent равно True, срок куки сессии будет равен permanent_session_lifetime. permanent_session_lifetime — это атрибут datetime.timedelta объекта Flask. Его значение по умолчанию равно 31 дню. Изменить его можно, выбрав новое значение для атрибута permanent_session_lifetime, используя ключ настройки PERMANENT_SESSION_LIFETIME.
+
+import datetime
+
+app = Flask(__name__)
+app.permanent_session_lifetime = datetime.timedelta(days=365)
+# app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=365)
+
+
+
+Изменение данных сессии
+Примечание: перед тем как следовать инструкции, нужно удалить куки, установленные локальным хостом.
+
+Большую часть времени объект session автоматически подхватывает изменения. Но бывают случаи, например изменение структуры изменяемых данных, которые не подхватываются автоматически. Для таких ситуаций нужно установить значение True для атрибута modified объекта session. Если этого не сделать, Flask не будет отправлять обновленные куки клиенту. Следующий код показывает, как использовать атрибут modified объекта session. Откроем файл main2.py, чтобы добавить следующий код перед функцией представления delete_visitis().
+
+#...
+@app.route('/session/')
+def updating_session():
+    res = str(session.items())
+
+    cart_item = {'pineapples': '10', 'apples': '20', 'mangoes': '30'}
+    if 'cart_item' in session:
+	session['cart_item']['pineapples'] = '100'
+	session.modified = True
+    else:
+	session['cart_item'] = cart_item
+
+    return res
+#...

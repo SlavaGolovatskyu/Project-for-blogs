@@ -1,0 +1,302 @@
+#16 Миграции базы данных с помощью Alembic
+
+Alembic — это инструмент для миграции базы данных, используемый в SQLAlchemy. Миграция базы данных — это что-то похожее на систему контроля версий для баз данных. Стоит напомнить, что метод create_all() в SQLAlchemy лишь создает недостающие таблицы из моделей. Когда таблица уже создана, он не меняет ее схему, основываясь на изменениях в модели.
+
+При разработке приложения распространена практика изменения схемы таблицы. Здесь и приходит на помощью Alembic. Он, как и другие подобные инструменты, позволяет менять схему базы данных при развитии приложения. Он также следит за изменениями самой базы, так что можно двигаться туда и обратно. Если не использовать Alembic, то за всеми изменениями придется следить вручную и менять схему с помощью Alter.
+
+Flask-Migrate — это расширение, которое интегрирует Alembic в приложение Flask. Установить его можно с помощью следующей команды.
+
+(env) gvido@vm:~/flask_app$  pip install flask-migrate
+Для интеграции Flask-Migrate с приложением нужно импортировать классы Migrate и MigrateCommand из пакета flask_package, а также создать экземпляр класса Migrate, передав экземпляр приложения (app) и объект SQLAlchemy (db):
+
+#...
+from flask_migrate import Migrate, MigrateCommand
+app = Flask(__name__)
+app.debug = True
+app.config['SECRET_KEY'] = 'a really really really really long secret key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:pass@localhost/flask_app_db'
+manager = Manager(app)
+db = SQLAlchemy(app)
+migrate = Migrate(app,  db)
+manager.add_command('db', MigrateCommand)
+#...
+Класс MigrateCommand определяет некоторые команды миграции базы данных, доступные во Flask-Script. На 12 строке эти команды выводятся с помощью аргумента командной строки db. Чтобы посмотреть созданные команды, нужно вернуться обратно в терминал и ввести следующую команду:
+
+(env) gvido@vm:~/flask_app$ python main2.py
+positional arguments:
+  {db,faker,foo,shell,runserver}
+    db			Perform database migrations
+    faker		A command to add fake data to the tables
+    foo 		Just a simple command
+    shell 		Runs a Python shell inside Flask application context.
+    runserver 		Runs the Flask development server i.e. app.run()
+    
+optional arguments:
+  -?, --help		show this help message and exit
+
+(env) gvido@vm:~/flask_app$
+Так, можно видеть, что новая команда db используется для миграций базы данных. Чтобы посмотреть полный список подкоманд для dv, нужно ввести следующее:
+
+(env) gvido@vm:~/flask_app$ python main2.py db -?
+Perform database migrations
+
+positional arguments:
+  {init,revision,migrate,edit,merge,upgrade,downgrade,show,history,heads,branche 
+s,current,stamp}
+    init 		Creates a new migration repository
+    revision 		Create a new revision file.
+    migrate 		Alias for 'revision --autogenerate'
+    edit 		Edit current revision.
+    merge 		Merge two revisions together. Creates a new migration
+			file
+    upgrade 		Upgrade to a later version
+    downgrade 		Revert to a previous version
+    show 		Show the revision denoted by the given symbol.
+    history 		List changeset scripts in chronological order.
+    heads 		Show current available heads in the script directory
+    branches 		Show current branch points
+    current 		Display the current revision for each database.
+    stamp 		'stamp' the revision table with the given revision;
+			don't run any migrations
+
+optional arguments:
+  -?, --help 		show this help message and exit
+Это реальные команды, которые будут использоваться для миграций базы данных.
+
+Перед тем как Alembic начнет отслеживать изменения, нужно установить репозиторий миграции. Репозиторий миграции — это всего лишь папка, которая содержит настройки Alembic и скрипты миграции. Для создания репозитория нужно исполнить команду init:
+
+(env) gvido@vm:~/flask_app$ python main2.py db init
+Creating directory /home/gvido/flask_app/migrations ... done
+Creating directory /home/gvido/flask_app/migrations/versions  ...  done
+Generating /home/gvido/flask_app/migrations/README ... done
+Generating /home/gvido/flask_app/migrations/env.py ... done
+Generating /home/gvido/flask_app/migrations/alembic.ini ... done
+Generating  /home/gvido/flask_app/migrations/script.py.mako ... done
+Please edit configuration/connection/logging settings in
+'/home/gvido/flask_app/migrations/alembic.ini' before proceeding.
+(env) gvido@vm:~/flask_app$
+#16 Миграции базы данных с помощью Alembic#16 Миграции базы данных с помощью Alembic#16 Миграции базы данных с помощью Alembic#16 Миграции базы данных с помощью Alembic#16 Миграции базы данных с помощью Alembic#16 Миграции базы данных с помощью Alembic
+Эта команда создаст папку “migrations” внутри папки flask_app. Структура папки migrations следующая:
+
+migrations
+├── alembic.ini
+├── env.py
+├── README
+├── script.py.mako
+└── versions
+Краткое описание каждой папки и файла:
+
+alembic.ini — файл с настройки Alembic.
+env.py — файл Python, который запускается каждый раз, когда вызывается Alembic. Он соединяется с базой данных, запускает транзакцию и вызывает движок миграции.
+README — файл README.
+script.py.mako — файл шаблона Mako, который будет использоваться для создания скриптов миграции.
+version — папка для хранения скриптов миграции.
+Создание скрипта миграции
+Alembic хранит миграции базы данных в скриптах миграции, которые представляют собой обычные файлы Python. Скрипт миграции определяет две функции: upgrade() и downgrade(). Задача upgrade() — применить изменения к базе данных, а downgrade() — откатить их обратно. Когда миграция применяется, вызывается функция upgrade(). При возврате обратно — downgrade().
+
+Alembic предлагает два варианта создания миграций:
+
+Вручную с помощью команды revision.
+Автоматически с помощью команды migrate.
+Ручная миграция
+Ручная или пустая миграция создает скрипт миграции с пустыми функциями upgrade() и downgrade(). Задача — заполнить их с помощью инструкций Alembic, которые и будет применять изменения к базе данных. Ручная миграция используется тогда, когда нужен полный контроль над процессом миграции. Для создания пустой миграции нужно ввести следующую команду:
+
+(env) gvido@vm:~/flask_app$ python main2.py db revision -m  "Initial migration"
+Эта команда создаст новый скрипт миграции в папке migrations/version. Название файла должно быть в формате someid_initial_migration.py. Файл должен выглядеть вот так:
+
+"""Initial migration
+
+Revision ID: 945fc7313080
+Revises:
+Create Date: 2019-06-03 14:39:27.854291
+
+"""
+from alembic import op
+import sqlalchemy as sa
+
+
+# идентификаторы изменений, используемые Alembic.
+revision = '945fc7313080'
+down_revision = None
+branch_labels = None
+depends_on = None
+
+
+def upgrade():
+    pass
+    
+
+def downgrade():
+    pass
+Он начинается с закомментированной части, которая содержит сообщение, заданное с помощью метки -m, ID изменения и времени, когда файл был создан. Следующая важная часть — идентификаторы изменения. Каждый скрипт миграции получает уникальный ID изменения, который хранится в переменной revision. На следующей строке есть переменная down_revision со значением None. Alembic использует переменную down_revision, чтобы определить, какую миграцию запускать и в каком порядке. Переменная down_revision указывает на идентификатор изменения родительской миграции. В этом случае его значение — None, потому что это только первый скрипт миграции. В конце файла есть пустые функции upgrade() и downgrade().
+
+Теперь нужно отредактировать файл миграции, чтобы добавить операции создания и удаления таблицы для функций upgrade() и downgrade(), соответственно.
+
+В функции upgrade() используется инструкция create_table() Alembic. Инструкция create_table() использует оператор CREATE TABLE.
+
+В функции downgrade() инструкция drop_table() задействует оператор DROP TABLE.
+
+При первом запуске миграции будет создана таблица users, а при откате — эта же миграция удалит таблицу users.
+
+Теперь можно выполнить первую миграцию. Для этого нужно ввести следующую команду:
+
+(env) gvido@vm:~/flask_app$ python main2.py db upgrade
+]
+Эта команда исполнит функцию upgrade() скрипта миграции. Команда db upgrade вернет базу данных к последней миграции. Стоит заметить, что db upgrade не только запускает последнюю миграции, но все, которые еще не были запущены. Это значит, что если миграций было создано несколько, то db upgrade запустит их все вместе в порядке создания.
+
+Вместо запуска последней миграции можно также передать идентификатор изменения нужной миграции. В таком случае db upgrade остановится после запуска конкретной миграции и не будет выполнять последующие.
+
+(env) gvido@vm:~/flask_app$ python main2.py db upgrade 945fc7313080
+Поскольку миграция запускается первый раз, Alembic также создаст таблицу alembic_version. Она состоит из одной колонки version_num, которая хранит идентификатор изменения последней запущенной миграции. Именно так Alembic знает текущее состояние миграции, и откуда ее нужно исполнять. Сейчас таблица alembic_version выглядит вот так:
+
+таблица 
+Профессия Data‌ ‌ScientistПрофессия Data‌ ‌ScientistПрофессия Data‌ ‌ScientistПрофессия Data‌ ‌Scientist
+Определить последнюю примененную миграцию можно с помощью команды db current. Она вернет идентификатор изменения последней миграции. Если таковой не было, то ничего не вернется.
+
+(env) gvido@vm:~/flask_app$  python main2.py  db current
+INFO [alembic.runtime.migration] Context impl MySQLImpl.
+INFO [alembic.runtime.migration] Will assume non-transactional DDL.
+945fc7313080 (head)
+(env) gvido@vm:~/flask_app$
+Вывод показывает, что текущая миграция — 945fc7313080. Также нужно обратить внимание на строку (head) после идентификатора изменения, которая указывает на то, что 945fc7313080 — последняя миграция.
+
+Создадим еще одну пустую миграцию с помощью команды db revision:
+
+(env) gvido@vm:~/flask_app$ python main2.py db revision -m  "Second migration"
+Дальше нужно снова запустить команду db current. В этот раз идентификатор изменения будет отображаться без строки (head), потому что миграция 945fc7313080 — не последняя.
+
+(env) gvido@vm:~/flask_app$  python main2.py db current
+INFO [alembic.runtime.migration] Context impl MySQLImpl.
+INFO [alembic.runtime.migration] Will assume non-transactional DDL.
+945fc7313080
+
+(env) gvido@vm:~/flask_app$
+Чтобы посмотреть полный список миграций (запущенных и нет), нужно использовать команду db history. Она вернет список миграций в обратном хронологическом порядке (последняя миграция будет отображаться первой).
+
+(env) gvido@vm:~/flask_app$ python main2.py db history
+945fc7313080 -> b0c1f3d3617c (head), Second migration
+<base> -> 945fc7313080, Initial migration
+
+(env) gvido@vm:~/flask_app$
+Вывод показывает, что 945fc7313080 — первая миграция, а следом за ней идет b0c1f3d3617 — последняя миграция. Как и обычно, (head) указывает на последнюю миграцию.
+
+Таблица users был создана исключительно в целях тестирования. Вернуть базу данных к исходному состоянию, которое было до исполнения команды db upgrade, можно с помощью отката миграции. Чтобы откатиться к последней миграции, используется команда db downgrade.
+
+(env) gvido@vm:~/flask_app$  python main2.py db downgrade
+INFO [alembic.runtime.migration]  Context impl MySQLImpl.
+INFO [alembic.runtime.migration]  Will assume non-transactional DDL.
+INFO [alembic.runtime.migration]  Running downgrade  945fc7313080  -> , Initial mi
+gration
+
+(env) gvido@vm:~/flask_app$
+Она выполнит метод downgrade() миграции 945fc7313080, которая удалит таблицу users из базы данных. Как и в случае с командой db upgrade, можно передать идентификатор изменения миграции, к которому нужно откатиться. Например, чтобы откатиться к миграции 645fc5113912, нужно использовать следующую команду.
+
+(env) gvido@vm:~/flask_app$ python main2.py db downgrade  645fc5113912
+Чтобы вернуть все принятые миграции, нужно использовать следующую команду:
+
+(env) gvido@vm:~/flask_app$ python main2.py db downgrade base
+Сейчас к базе данных не применено ни единой миграции. Убедиться в этом можно, запустив команду db current:
+
+(env) gvido@vm:~/flask_app$ python main2.py db current
+INFO [alembic.runtime.migration] Context impl MySQLImpl.
+INFO [alembic.runtime.migration] Will assume non-transactional DDL.
+
+(env) gvido@vm:~/flask_app$
+Как видно, вывод не возвращает идентификатор изменения. Стоит обратить внимание, что откат миграции лишь отменяет изменения базы данных, но не удаляет сам скрипт миграции. В результате команда db history покажет два скрипта миграции.
+
+(env) gvido@vm:~/flask_app$ python main2.py db history
+945fc7313080  ->  b0c1f3d3617c (head), Second migration
+<base> -> 945fc7313080, Initial migration
+(env) gvido@vm:~/flask_app$
+Что будет, если сейчас запустить команду db upgrade?
+
+Команда db upgrade в первую очередь запустит миграцию 945fc7313080, а следом за ней — b0c1f3d3617.
+
+База данных снова в изначальном состоянии, а поскольку изменения в скриптах миграции не требуются, их можно удалить.
+
+Автоматическая миграция
+Примечание: перед тем как двигаться дальше, нужно убедиться, что миграции из прошлого раздела удалены.
+
+Автоматическая миграция создает код для функций upgrade() и downgrade() после сравнения моделей с текущей версией базы данных. Для создания автоматической миграции используется команда migrate, которая по сути повторяет то, что делает revision --autogenerate. В терминале нужно ввести команду migrate:
+
+Важно обратить внимание, что на последней строчке вывода написано ”No changes in schema detected.”. Это значит, что модели синхронизированы с базой данных.
+
+Откроем main2.py, чтобы добавить модель Employee после модели Feedback:
+
+#...
+class Employee(db.Model):
+    __tablename__ = 'employees'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    designation = db.Column(db.String(255), nullable=False)
+    doj = db.Column(db.Date(), nullable=False)
+#...
+Дальше нужно снова запустить команду db migrate. В этот раз Alembic определит, что была добавлена новая таблица employees и создаст скрипт миграции с функциями для последующего создания и удаления таблицы employees.
+
+(env) gvido@vm:~/flask_app$ python main2.py db migrate -m  "Adding employees table"
+Скрипт миграции, созданный с помощью предыдущей команды, должен выглядеть вот так:
+
+"""Adding employees table
+
+Revision ID: 6e059688f04e
+Revises:
+Create Date: 2019-06-03 16:01:28.030320
+
+"""
+from alembic import op
+
+import sqlalchemy as sa
+
+
+# идентификаторы изменений, используемые Alembic.
+revision = '6e059688f04e'
+down_revision = None
+branch_labels = None
+depends_on  = None
+
+
+def upgrade():
+    # ### автоматически генерируемые команды Alembic - пожалуйста, настройте! ###
+    op.create_table('employees',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(length=255), nullable=False),
+    sa.Column('designation', sa.String(length=255),  nullable=False),
+    sa.Column('doj', sa.Date(), nullable=False),
+    sa.PrimaryKeyConstraint('id')
+)
+    # ### конец команд Alembic ###
+
+
+def downgrade():
+    # ### автоматически генерируемые команды Alembic - пожалуйста, настройте! ###
+    op.drop_table('employees')
+    # ### конец команд Alembic ###
+Ничего нового здесь нет. Функция upgrade() использует инструкцию create_table для создания таблицы, а функция downgrade() — инструкцию drop_table для ее удаления.
+
+Запустим миграцию с помощью команды db upgrade:
+
+(env) gvido@vm:~/flask_app$ python main2.py db upgrade
+INFO [alembic.runtime.migration] Context impl MySQLImpl.
+INFO [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO [alembic.runtime.migration] Running upgrade  ->  6e059688f04e, Adding emplo
+yees table
+
+(env) gvido@vm:~/flask_app$
+Это добавит таблицу employees в базу данных.
+
+Ограничения автоматической миграции
+Автоматическая миграция не идеальна. Она не определяет все возможные изменения.
+
+Операции, которые Alembic умеет выявлять:
+
+Добавление и удаление таблиц
+Добавление и удаление колонок
+Изменения во внешних ключах
+Изменения в типах колонок
+Изменения в индексах и использованных уникальных ограничениях
+Изменения, которые Alembic не определяет:
+
+Имени таблицы
+Имени колонки
+Ограничения с отдельно указанными именами
+Для создания скриптов миграции для операций, которые Alembic не умеет выявлять, нужно создать пустой скрипт миграции и заполнить функции upgrade() и downgrade() соответствующим образом.

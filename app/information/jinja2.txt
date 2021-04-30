@@ -1,0 +1,404 @@
+"""
+	Если render_template() нужно передать много аргументов, можно не разделять их запятыми (,), 
+	а создать словарь и использовать оператор **, чтобы передать аргументы-ключевые слова функции. Например:
+	name, age, profession = "Jerry", 24, 'Programmer'
+    template_context = dict(name=name, age=age, profession=profession)
+    return render_template('index.html', **template_context)
+
+
+    В Jinja двойные фигурные скобки {{ }} позволяют получить результат выражение, 
+    переменную или вызвать функцию и вывести значение в шаблоне. Например:
+
+	Определение выражения
+	>>> from jinja2 import Template
+	>>>
+	>>> Template("{{ 10 + 3 }}").render()
+	'13'
+	>>> Template("{{ 10 - 3 }}").render()
+	'7'
+
+
+	Вызов функции
+	В Jinja для определения функции ее нужно просто вызвать.
+
+	>>> def foo():
+	...     return "foo() called"
+	...
+	>>>
+	>>> Template("{{ foo() }}").render(foo=foo)
+	'foo() called'
+
+
+	Комментарии
+	В Jinja используется следующий синтаксис для добавления комментариев в одну или несколько строк:
+
+	{# комментарий #}
+
+	{#
+	    это
+	    многострочный
+	    комментарий
+	#}
+
+	Внутри шаблона можно задать переменную с помощью инструкции set.
+
+	{% set fruit = 'apple' %}
+
+	{% set name, age = 'Tom', 20 %}
+
+
+	Инструкция if
+	Инструкция if в Jinja имитирует выражение if в Python, а значение условия определяет набор инструкции. Например:
+
+	{% if bookmarks %}
+	    <p>User has some bookmarks</p>
+	{% endif %}
+
+
+	Также можно использовать условия elif и else, как в обычном коде Python. Например:
+
+	{% if user.newbie %}
+	    <p>Display newbie stages</p>
+	{% elif user.pro %}
+	    <p>Display pro stages</p>
+	{% elif user.ninja %}
+	    <p>Display ninja stages</p>
+	{% else %}
+	    <p>You have completed all stages</p>
+	{% endif %}
+
+	{{ "User is logged in" if loggedin else "User is not logged in" }} ТЕРНАРНЫЙ ОПЕРАТОР
+
+
+	{% for user in user_list %}
+	    <li>{{ user }}</li>
+	{% endfor %}
+
+	<ul>
+	{% for user in user_list %}
+	    <li>{{ loop.index }} - {{ user }}</li>
+	{% endfor %}
+	</ul>
+	loop.index внутри цикла for начинает отсчет с 1. В таблице упомянуты остальные широко используемые атрибуты переменной loop.
+
+	Метод	Значение
+	loop.index()	то же самое что и loop.index, но с индексом 0, то есть, начинает считать с 0, а не с 1.
+	loop.revindex	возвращает номер итерации с конца цикла (считает с 1).
+	loop.revindex0	возвращает номер итерации с конца цикла (считает с 0).
+	loop.first	возвращает True, если итерация первая. В противном случае — False.
+	loop.last	возвращает True, если итерация последняя. В противном случае — False.
+	loop.length	возвращает длину цикла(количество итераций).
+	Примечание: полный список есть в документации Flask.
+
+
+	Фильтры
+	Фильтры изменяют переменные до процесса рендеринга. Синтаксис использования фильтров следующий:
+
+	variable_or_value|filter_name
+	Вот пример:
+
+	{{ comment|title }}
+	Фильтр title делает заглавной первую букву в каждом слове. Если значение переменной comment — "dust in the wind", то вывод будет "Dust In The Wind".
+
+	Можно использовать несколько фильтров, чтобы точнее настраивать вывод. Например:
+
+	{{ full_name|striptags|title }}
+	Фильтр striptags удалит из переменной все HTML-теги. В приведенном выше коде сначала будет применен фильтр striptags, а затем — title.
+
+	У некоторых фильтров есть аргументы. Чтобы передать их фильтру, нужно вызвать фильтр как функцию. Например:
+
+	{{ number|round(2) }}
+	Фильтр round округляет число до конкретного количества символов.
+
+	В следующей таблице указаны широко используемые фильтры.
+
+	Название	Описание
+	upper	делает все символы заглавными
+	lower	приводит все символы к нижнему регистру
+	capitalize	делает заглавной первую букву и приводит остальные к нижнему регистру
+	escape	экранирует значение
+	safe	предотвращает экранирование
+	length	возвращает количество элементов в последовательности
+	trim	удаляет пустые символы в начале и в конце
+	random	возвращает случайный элемент последовательности
+
+
+	Макросы
+	Макросы в Jinja напоминают функции в Python. Суть в том, чтобы сделать код,
+	 который можно использовать повторно, просто присвоив ему название. Например:
+
+	{% macro render_posts(post_list, sep=False) %}
+	    <div>
+	        {% for post in post_list %}
+	            <h2>{{ post.title }}</h2>
+	            <article>
+	                {{ post.html|safe }}
+	            </article>
+	        {% endfor %}
+	        {% if sep %}<hr>{% endif %}
+	    </div>
+	{% endmacro %}
+	В этом примере создан макрос render_posts, который принимает обязательный аргумент
+	 post_list и необязательный аргумент sep. 
+	Использовать его нужно следующим образом:
+
+	{{ render_posts(posts) }}
+	Определение макроса должно идти до первого вызова, иначе выйдет ошибка.
+
+	Вместо того чтобы использовать макросы прямо в шаблоне, лучше хранить их в отдельном файле 
+	и импортировать по надобности.
+
+	Предположим, все макросы хранятся в файле macros.html в папке templates. Чтобы импортировать 
+	их из файла, нужно использовать инструкцию import:
+
+	{% import "macros.html" as  macros %}
+	Теперь можно ссылаться на макросы в файле macros.html с помощью переменной macros. Например:
+
+	{{ macros.render_posts(posts) }}
+	Инструкция {% import “macros.html” as macros %} импортирует все макросы и переменные (определенные 
+	на высшем уровне) из файла macros.html в шаблон. Также можно импортировать определенные макросы с 
+	помощью from:
+
+	{% from "macros.html" import render_posts %}
+	При использовании макросов будут ситуации, когда потребуется передать им произвольное число аргументов.
+
+	По аналогии с *args и **kwargs в Python внутри макросов можно получить доступ к varargs и kwargs.
+
+	varags: сохраняет дополнительные позиционные аргументы, переданные макросу, в виде кортежа.
+
+	lwargs: сохраняет дополнительные позиционные аргументы, переданные макросу, в виде словаря.
+
+	Хотя к ним можно получить доступ внутри макроса, объявлять их отдельно в заголовке макроса не нужно. 
+	Вот пример:
+
+	{% macro custom_renderer(para) %}
+	    <p>{{ para }}</p>
+	    <p>varargs: {{ varargs }}</p>
+	    <p>kwargs: {{ kwargs }}</p>
+	{%  endmacro  %}
+
+	{{ custom_renderer("some content", "apple", name='spike', age=15) }}
+	В этом случае дополнительный позиционный аргумент, "apple", присваивается varargs, 
+	а дополнительные аргументы-ключевые слова (name=’spike’, age=15) — kwargs.
+
+
+	Экранирование
+	Jinja по умолчанию автоматически экранирует вывод переменной в целях безопасности. Поэтому если переменная содержит, например, такой HTML-код: "<p>Escaping in Jinja</p>", он отрендерится в виде "&lt;p&gt;Escaping in Jinja&lt;/p&gt;". Благодаря этому HTML-коды будут отображаться в браузере, а не интерпретироваться. Если есть уверенность, что данные безопасны и их точно можно рендерить, стоит воспользоваться фильтром safe. Например:
+
+	{% set html = "<p>Escaping in Jinja</p>" %}
+	{{ html|safe }}
+	Вывод:
+
+	<p>Escaping in Jinja</p>
+	Использовать фильтр safe в большом блоке кода будет неудобно, поэтому в Jinja есть оператор autoescape, 
+	который используется, чтобы отключить экранирование для большого объема данных. Он может принимать 
+	аргументы true или false для включения и отключения экранирования, соответственно. Например
+	{% autoescape true %}
+	    Escaping enabled
+	{% endautoescape %}
+
+	{% autoescape false %}
+	    Escaping disabled
+	{% endautoescape %}
+	Все между {% autoescape false %} и {% endautoescape %} отрендерится без экранирования символов. Если нужно экранировать отдельные символы при выключенном экранировании, стоит использовать фильтр escape. Например:
+
+	{% autoescape false %}
+	    <div class="post">
+	        {% for post in post_list %}
+	            <h2>{{ post.title }}</h2>
+	            <article>
+	                {{ post.html }}
+	            </article>
+	        {% endfor %}
+	    </div>
+	    <div>
+	        {% for comment in comment_list %}
+	            <p>{{ comment|escape }}</p> # escaping is on for comments
+	        {% endfor %}
+	    </div>
+	{% endautoescape %}
+
+	Вложенные шаблоны
+	Инструкция include рендерит шаблон внутри другого шаблона. Она широко 
+	используется, чтобы рендерить статический раздел, который повторяется в 
+	разных местах сайта. Вот синтаксис include:
+
+	Предположим, что навигационное меню хранится в файле nav.html, сохраненном в папке templates:
+
+	<nav>
+	    <a href="/home">Home</a>
+	    <a href="/blog">Blog</a>
+	    <a href="/contact">Contact</a>
+	</nav>
+	Чтобы добавить это меню в home.html, нужно использовать следующий код:
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Title</title>
+	</head>
+	<body>
+
+	    {# добавляем панель навигации из nav.html #}
+	    {% include 'nav.html' %}
+
+	</body>
+	</html>
+	Вывод:
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Title</title>
+	</head>
+	<body>
+
+	<nav>
+	    <a href="/home">Home</a>
+	    <a href="/blog">Blog</a>
+	    <a href="/contact">Contact</a>
+	</nav>
+
+	</body>
+	</html>
+	Наследование шаблонов
+	Наследование шаблонов — один из самых мощных элементов шаблонизатора Jinja. 
+	Его принцип похож на ООП (объектно-ориентированное программирование). Все 
+	начинается с создания базового шаблона, который содержит в себе скелет HTML 
+	и отдельные маркеры, которые дочерние шаблоны смогут переопределять. Маркеры 
+	создаются с помощью инструкции block. Дочерние шаблоны используют инструкцию 
+	extends для наследования или расширения основного шаблона. Вот пример:
+
+	{# Это шаблон templates/base.html #}
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>{% block title %}Default Title{% endblock %}</title>
+	</head>
+	<body>
+
+	    {% block nav %}
+	        <ul>
+	            <li><a href="/home">Home</a></li>
+	            <li><a href="/api">API</a></li>
+	        </ul>
+	    {% endblock %}
+	    
+	    {% block content %}
+	    
+	    {% endblock %}
+	</body>
+	</html>
+	Это базовый шаблон base.html. Он создает три блока с помощью block, которые 
+	впоследствии будут заполнены дочерними шаблонами. Инструкция block принимает 
+	один аргумент — название блока. Внутри шаблона это название должно быть уникальным, 
+	иначе возникнет ошибка.
+
+	Дочерний шаблон — это шаблон, который растягивает базовый шаблон. Он может 
+	добавлять, перезаписывать или оставлять элементы родительского блока. Вот 
+	как можно создать дочерний шаблон.
+
+	{# Это шаблон templates/child.html #}
+	{% extends 'base.html' %}
+
+
+	{% block content %}
+	    {% for bookmark in bookmarks %}
+	        <p>{{ bookmark.title }}</p>
+	    {% endfor %}
+	{% endblock %}
+	Инструкция extends сообщает Jinja, что child.html — это дочерний элемент, наследник 
+	base.html. Когда Jinja обнаруживает инструкцию extends, он загружает базовый шаблон, 
+	то есть base.html, а затем заменяет блоки контента внутри родительского шаблона блоками 
+	с теми же именами из дочерних шаблонов. Если блок с соответствующим названием не найден, 
+	используется блок родительского шаблона.
+
+	Стоит отметить, что в дочернем шаблоне перезаписывается только блок content, так что 
+	содержимое по умолчанию из title и nav будет использоваться при рендеринге дочернего 
+	шаблона. Вывод должен выглядеть следующим образом:
+
+	<!DOCTYPE html>
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Default Title</title>
+	</head>
+	<body>
+
+	    <ul>
+	        <li><a href="/home">Home</a></li>
+	        <li><a href="/api">API</a></li>
+	    </ul>
+
+	    <p>Bookmark title 1</p>
+	    <p>Bookmark title 2</p>
+	    <p>Bookmark title 3</p>
+	    <p>Bookmark title 4</p>
+
+
+	</body>
+	</html>
+	Если нужно, можно поменять заголовок по умолчанию, переписав блок title в child.html:
+
+	{# Это шаблон templates/child.html #}
+	{% extends 'base.html' %}
+
+	{% block title %}
+	    Child Title
+	{% endblock %}
+
+	{% block content %}
+	    {% for bookmark in bookmarks %}
+	        <p>{{ bookmark.title }}</p>
+	    {% endfor %}
+	{% endblock %}
+	После перезаписи блока на контент из родительского шаблона все еще можно ссылаться 
+	с помощью функции super(). Обычно она используется, когда в дополнение к контенту 
+	дочернего шаблона нужно добавить содержимое из родительского. Например:
+
+	{# Это шаблон templates/child.html #}
+	{% extends 'base.html' %}
+
+	{% block title %}
+	    Child Title
+	{% endblock %}
+
+	{% block nav %}
+	    {{ super() }} {# referring to the content in the parent templates #}
+	    <li><a href="/contact">Contact</a></li>
+	    <li><a href="/career">Career</a></li>
+	{% endblock %}
+
+	{% block content %}
+	    {% for bookmark in bookmarks %}
+	        <p>{{ bookmark.title }}</p>
+	    {% endfor %}
+	{% endblock %}
+	Вывод:
+
+	<!DOCTYPE html>
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Child Title</title>
+	</head>
+	<body>
+
+	    <ul>
+	        <li><a href="/home">Home</a></li>
+	        <li><a href="/api">API</a></li>
+	        <li><a href="/contact">Contact</a></li>
+	        <li><a href="/career">Career</a></li>
+	    </ul>
+
+	    <p>Bookmark title 1</p>
+	    <p>Bookmark title 2</p>
+	    <p>Bookmark title 3</p>
+	    <p>Bookmark title 4</p>
+
+
+	</body>
+	</html>
+	Это все, что нужно знать о шаблонах Jinja. 
+	В следующих уроках эти знания будут использованы для созданы крутых шаблонов.

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Админка
+{% endblock %}
+
+{% block body %}
+<style>
+	@media screen and (min-width: 1500px) {
+		.mind-container {
+			width: 35%;
+		}
+	}
+
+	@media screen and (min-width: 750px) and (max-width: 1500px) {
+		.mind-container {
+			width: 25%;
+		}
+	}
+
+	@media screen and (max-width: 750px) {
+		.mind-container {
+			width: 47%;
+		}
+	}
+
+	.alert {
+		display: block;
+	}
+
+	.alert-info > a {
+		text-decoration: none;
+		text-align: center;
+	}
+
+	.menu {
+		font-size: 20px;
+		color: green;
+		display: block;
+	}
+
+	.menu:hover {
+		background-color: #88DAA7;
+	}
+
+</style>
+<div class="body">
+	<div class="mind-container">
+		<div class='alert alert-info'>
+		    <a href="" class='menu'>adding new admin</a>
+		    <a href="" class='menu'>delete account user</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

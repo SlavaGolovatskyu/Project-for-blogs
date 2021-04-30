@@ -1,0 +1,10 @@
+{
+    "modules": [
+        "flask",
+        "flask_migrate",
+        "flask_script",
+        "flask_login",
+        "flask_wtf",
+        "email_validator"
+    ]
+}

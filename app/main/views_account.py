@@ -1,0 +1,113 @@
+from app import db
+from . import main
+
+from flask import (
+	render_template, 
+	url_for, 
+	redirect, 
+	flash, 
+	session
+)
+
+from flask_login import (
+	login_required,
+	login_user, 
+	logout_user,
+	current_user
+)
+
+from .forms import (
+	LoginForm,
+	RegistrationForm
+)
+
+from .validators import Validators
+from app.models import User, Article
+
+
+#-----------------All actions with accounts, login, registration, logout----------------
+
+#-------------LOGOUT FROM ACCOUNT-----------------
+@main.route('/logout/', methods=['post', 'get'])
+@login_required
+def logout():
+	logout_user()
+	flash("You have been logged out.")
+	return redirect(url_for('.login'))
+
+
+#----------------SIGN-UP ACCOUNT-----------------------
+@main.route('/sign-up/', methods=['post', 'get'])
+def sign_up():
+	if current_user.is_authenticated:
+		if current_user.is_admin:
+			return redirect(url_for('.admin'))
+		else:
+			return redirect(url_for('.user_profile'))
+
+	email = False
+	username = False
+	form = RegistrationForm()
+	if form.validate_on_submit():
+
+		try:
+			email = db.session.query(User).filter(User.email == form.email.data).first()
+			username = db.session.query(User).filter(User.username == form.username.data).first()
+		except:
+			pass
+
+		if not email and not username:
+			person = User(username=form.username.data, email=form.email.data)
+			person.set_password(form.password.data)
+
+			try:
+				db.session.add(person)
+				db.session.commit()
+				user = db.session.query(User).filter(User.email == form.email.data).first()
+				login_user(user, remember=form.remember.data)
+				return redirect(url_for('.user_profile'))
+			except:
+				flash('Ошибка. Не удалось зарегистрировать аккаунт.')
+				return redirect(url_for('.sign_up'))
+		else:
+			flash("Аккаунт с таким логином или почтой уже существует.")
+			return redirect(url_for('.sign_up'))
+
+	return render_template('sign-up.html', form=form)
+#-------------------------------------------------------
+
+
+
+#----------------SIGN-IN ACCOUNT------------------------
+@main.route('/login/', methods=['post', 'get'])
+def login():
+	if current_user.is_authenticated:
+		if current_user.is_admin:
+			return redirect(url_for('.admin'))
+		else:
+			return redirect(url_for('.user_profile'))
+
+	form = LoginForm()
+	if form.validate_on_submit():
+
+		user = db.session.query(User).filter(User.email == form.email.data).first()
+		if user and user.check_password(form.password.data):
+
+			login_user(user, remember=form.remember.data)
+
+			if user.is_admin:
+				return redirect(url_for('.admin'))
+			else:
+				return redirect(url_for('.user_profile'))
+
+		flash("Invalid email/password", 'error')
+		return redirect(url_for('.login'))
+
+	return render_template('login.html', form=form)
+
+
+@main.route('/profile/')
+@login_required
+def user_profile():
+	user = User.query.get(current_user.id)
+	return render_template('profile.html', user=user)

@@ -1,0 +1,291 @@
+"""
+SQLAlchemy и Flask-SQLAchemy
+SQLAlchemy – это фреймворк для работы, который на практике используется для работы с реляционными базами данных в Python. Он был создан Майком Байером в 2005 году. SQLAlchemy поддерживает следующие базы данных: MySQL, PostgreSQL, Oracle, MS-SQL, SQLite и другие.
+
+SQLAchemy поставляется с мощным ORM (технология объектно-реляционного отображения), который позволяет работать с разными базами данных с помощью объектно-ориентированного кода, а не сырого SQL (языка структурированных запросов). Конечно, это не обязывает использовать только ORM. В любой момент можно задействовать возможности SQL.
+
+Flask-SQLAlchemy – это расширение, которое интегрирует SQLAlchemy во фреймворк Flask. Он также предлагает дополнительные методы, благодаря которым работать с SQLAlchemy становится немного проще. Установить Flask-SQLAlchemy вместе с дополнительными модулями можно с помощью следующей команды:
+
+(env) gvido@vm:~/flask_app$  pip install flask-sqlalchemy
+Для использования Flask-SQLAlchemy нужно импортировать класс SQLAlchemy из пакета flask_sqlalchemy и создать экземпляр объекта SQLAlchemy, передав ему экземпляр приложения. Откроем файл main2.py, чтобы изменить код следующим образом:
+
+"""
+from forms import ContactForm
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.debug = True
+app.config['SECRET_KEY'] = 'a really really really really long secret key'
+
+manager = Manager(app)
+db = SQLAlchemy(app)
+
+class Faker(Command):
+
+
+"""
+Экземпляр db объекта SQLAlchemy предоставляет доступ к функциям SQLAlchemy.
+
+Дальше нужно сообщить SQLAlchemy местоположение базы данных в виде URI. Формат URI базы данных следующий:
+
+dialect+driver://username:password@host:port/database
+dialect ссылается на имя базы данных, такое как mysql, mssql, postgresql и так далее.
+
+driver ссылается на DBAPI, который он использует, чтобы соединяться с базой данных. По умолчанию SQLAlchemy работает только с SQLite без дополнительных драйверов. Чтобы работать с другими базами данных, нужно установить конкретный драйвер для базы данных, совместимый с DBAPI.
+
+Что такое DBAPI?
+
+DBAPI – это всего лишь стандарт, определяющий API Python для доступа к базам данных от разных производителей.
+
+Следующая таблица содержит некоторые базы данных и драйвера для них, совместимые с DBAPI:
+
+База данных	Драйвер DBAPI
+MySQL	PyMysql
+PostgreSQL	Psycopg 2
+MS-SQL	pyodbc
+Oracle	cx_Oracle
+Username и password указываются только при необходимости. Если указаны, они будут использоваться для авторизации в базе данных.
+
+host — местоположение сервера базы данных.
+
+port — порт сервера базы данных.
+
+database — имя базы данных.
+
+Вот некоторые примеры URL баз данных для самых популярных типов:
+
+# URL базы данных для MySQL с использованием драйвера PyMysql
+'mysql+pymysql://root:pass@localhost/my_db'
+
+# URL базы данных для PostgreSQL с использованием psycopg2
+'postgresql+psycopg2://root:pass@localhost/my_db'
+
+# URL базы данных для MS-SQL с использованием драйвера pyodbc
+'mssql+pyodbc://root:pass@localhost/my_db'
+
+# URL базы данных для Oracle с использованием драйвера cx_Oracle
+'oracle+cx_oracle://root:pass@localhost/my_db'
+Формат URL базы данных для SQLite слегка отличается. Поскольку SQLite – это база данных, основанная на файле,
+ и она не требует имени пользователя и пароля, в URL базы данных указывается только путь к файлу базы.
+
+# Для Unix / Mac мы используем 4 слеша
+sqlite:////absolute/path/to/my_db.db
+
+# Для Windows мы используем 3 слеша
+sqlite:///c:/absolute/path/to/mysql.db
+Flask-SQLAlchemy использует конфигурационный ключ SQLALCHEMY_DATABASE_URI для определения URI базы данных. Откроем main2.py, чтобы добавить SQLALCHEMY_DATABASE_URI :
+
+#...
+app = Flask(__name__)
+app.debug = True
+app.config['SECRET_KEY'] = 'a really really really really long secret key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:pass@localhost/flask_app_db'
+
+manager = Manager(app)
+db = SQLAlchemy(app)
+#...
+В этом курсе будет использоваться база данных MySQL. Поэтому прежде чем переходить к следующему разделу, нужно убедиться, что MySQL работает на компьютере.
+
+Создание моделей
+Модель — это класс в Python, который представляет собой таблицу базы данных. Ее атрибуты сопоставляются со столбцами таблицы. Класс модели наследуется из db.Model и определяет колонки как экземпляры класса db.Column. Откроем main2.py, чтобы добавить следующий класс перед функцией представления updating_session():
+
+"""
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer(), primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    slug = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text(), nullable=False)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+    """
+    Тут был определен метод __repr__(). Он не необходим, но если есть, то создает строчное представление объекта.
+    """
+    def __repr__(self):
+		return "<{}:{}>".format(self.id,  self.title[:10])
+
+
+
+Здесь создается модель Post с 5 переменными класса. Каждая переменная класса, кроме __tablename__, — это экземпляр класса db.Column. __tablename__ — это специальная переменная класса, используемая для определения имени таблицы базы данных. По умолчанию SQLAlchemy не следует соглашению о создании имен во множественном числе, поэтому название таблицы здесь — это название модели. Если на хочется опираться на такое поведение, следует использовать переменную __tablename__, чтобы явно указать название таблицы.
+
+Первый аргумент конструктора db.Column() — это тип колонки, которая создается. SQLAlchemy предлагает большое количество типов колонок, а если их недостаточно, то можно создать свои. Следующая таблица описывает основные типы колонок в SQLAlchemy и их соответствующие типы в Python и SQL.
+
+SQLAlchemy	Python	        SQL
+
+BigInteger	int	            BIGINT
+Boolean	    bool	        BOOLEAN или SMALLINT
+Date	    datetime.date	DATE
+DateTime	datetime.date	DATETIME
+Integer	    int	            INTEGER
+Float	    float	        FLOAT или REAL
+Numeric	    decimal.Decimal	NUMERIC
+Text	    str	            TEXT
+
+
+Также можно задать дополнительные ограничения для колонки, передав их в виде аргументов-ключевых слов конструктору db.Column. Следующая таблица включает некоторые широко используемые ограничения:
+
+Ограничение	Описание
+nullable	Когда значение равно False, делает колонку обязательной. Значение по умолчанию — True.
+default	Создает значение по умолчанию для колонки.
+index	Логический атрибут. Если True, создает индексированную колонку.
+onupdate	Создает значение по умолчанию для колонки при обновлении записи.
+primary_key	Логический атрибут. Если True, отмечает колонку основным ключом таблицы.
+unique	Логический атрибут. Если True, каждая колонка должна быть уникальной.
+
+Можно было заметить, что значениями по умолчанию для created_on и updated_on выбрано название метода (datetime.utcnow), а не его вызов (datetime.utcnow()). Так сделано, потому что при исполнении кода вызывать метод datetime.utcnow() нет необходимости. Вместо этого его стоит вызывать, когда запись добавляется или обновляется.
+
+
+Отношение один-ко-многим
+Для создания отношения один-ко-многим нужно разместить внешний ключ в дочерней таблице. Это самый распространенный тип отношений. Для создания отношения один-ко-многим в SQLAlchemy нужно выполнить следующие шаги:
+
+Создать новый экземпляр db.Column с помощью ограничения db.ForeignKey в дочернем классе.
+Определить новое свойство с помощью инструкции db.relationship в родительском классе. Это свойство будет использоваться для получения доступа к связанным объектам.
+Откроем main2.py, чтобы изменить модели Post и Catеgory:
+
+#...
+class Category(db.Model):
+    # ...
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    posts = db.relationship('Post', backref='category')
+
+class Post(db.Model):
+    # ...
+    updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    category_id = db.Column(db.Integer(), db.ForeignKey('categories.id'))
+#...
+Здесь для модели Post в Category были добавлены два новых атрибута: posts и category_id.
+
+db.ForeignKey() принимает имя столбца, внешний ключ которого используется. Здесь значение categories.id передается исключению db.ForeignKey(). Это значит, что атрибут category_id у Post может принимать значение только у колонки id таблицы categories.
+
+Далее в модели Catagory имеется атрибут posts, определенный инструкцией db.relationship(). db.relationship() используется для добавления двунаправленной связи. Другими словами, она добавляет атрибут классу модели для доступа к связанным объектам. Простыми словами, она принимает как минимум один позиционный аргумент, который является именем класса на другой стороне отношений.
+
+class Category(db.Model):
+    # ...
+    posts = db.relationship('Post')
+Например, если есть объект Category (скажем, c), тогда доступ ко всем постам можно получить с помощью c.posts. А что, если нужно получить данные с другой стороны, то есть, получить категорию у объекта поста? Для этого используется backref. Так, код:
+
+posts = db.relationship('Post', backref='category')
+добавляет атрибут category объекту Post. Это значит, что если есть объект Post (например, p), тогда доступ к категории можно получать с помощью p.category.
+
+Атрибуты category и posts у объектов Post и Category существуют только для удобства. Они не являются реальными колонками в таблице.
+
+Стоит отметить, что в отличие от атрибута, представленного внешним ключом (который должен быть определен на стороне «много» в отношениях), db.relationship() можно определять с любой стороны.
+
+Отношение один-к-одному
+Создание отношения один-к-одному в SQLAlchemy – это почти то же самое, что и отношение один-ко-многим. Единственное отличие — то, что инструкции db.relationship() передается дополнительный аргумент uselist=False. Например:
+
+class  Employee(db.Model):
+    __tablename__ = 'employees'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    designation = db.Column(db.String(255), nullable=False)
+    doj = db.Column(db.Date(), nullable=False)
+    dl = db.relationship('DriverLicense', backref='employee', uselist=False)
+
+class DriverLicense(db.Model):
+    __tablename__ = 'driverlicense'
+    id = db.Column(db.Integer(), primary_key=True)
+    license_number = db.Column(db.String(255), nullable=False)
+    renewed_on = db.Column(db.Date(), nullable=False)
+    expiry_date = db.Column(db.Date(), nullable=False)
+    employee_id = db.Column(db.Integer(), db.ForeignKey('employees.id'))  # Foreign key
+Примечание: в этих класса предполагается, что у сотрудника (employee) не может быть большого одного водительского удостоверения (driver license). Поэтому отношения между сотрудником и правами — один-к-одному.
+
+С объектом Employee можно использовать e.dl, чтоб вернуть объект DriverLicense. Если не передать инструкции db.relationship() значение uselist=False, тогда между Employee и DriverLicense будет установлено отношение один-ко-многим, и e.dl вернет список объектов DriverLicense, вместо одного объекта. При этом аргумент uselist=False не повлияет на атрибут employee объекта DriverLicense. Как и обычно, он вернет один объект.
+
+Отношение многие-ко-многим
+Отношение многие-ко-многим требует дополнительной ассоциативной таблицы. В качестве примера можно взять блог.
+
+Пост в блоге обычно имеет один или несколько тегов. Аналогичным образом один тег может ассоциироваться с одним или несколькими постами. Так образовывается отношение между posts и tags. Недостаточно добавить внешний ключ, ссылающийся на id постов, потому что у тега может быть один или несколько постов.
+
+В качестве решения нужно создать новую таблицу ассоциаций, определив 2 внешних ключа, ссылающихся на колонки post.id и tag.id.
+
+
+Первое такое отношение установлено между таблицами posts и post_tags, второе — между tags и post_tags. Следующий код демонстрирует, как создать отношение многие-ко-многим в SQLAlchemy. Откроем файл main2.py, чтобы добавить следующий код.
+
+# ...
+class Category(db.Model):
+    # ...
+    def __repr__(self):
+	return "<{}:{}>".format(id, self.name)
+	
+post_tags = db.Table('post_tags',
+    db.Column('post_id', db.Integer, db.ForeignKey('posts.id')),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tags.id'))
+)
+
+class Post(db.Model):
+    # ...
+    
+class Tag(db.Model):
+    # ...
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    posts = db.relationship('Post', secondary=post_tags, backref='tags')
+#...
+На строках 7-10 таблица ассоциаций определяется в виде объекта db.Table(). Первый аргумент таблицы db.Table() — имя таблицы, а дополнительные аргументы — это колонки, представленные экземплярами db.Column(). Синтаксис для создания таблицы ассоциаций может показаться странным, если сравнивать с процессом создания класса модели. Это потому что таблица ассоциаций создается с помощью SQLAlchemy Core – еще одного элемента SQLAlchemy.
+
+Дальше нужно сообщить классу модели о таблице ассоциаций, которая будет использоваться. За это отвечает аргумент-ключевое слово secondary. На 18 строке db.relationship() вызывается с аргументом secondary, значение которого — post_tags. Хотя отношение было определено в модели Tag, его можно так же просто определить в модели Post.
+
+Если есть, например, объект p класса Post, тогда доступ ко всем его тегам можно получить с помощью p.tags. С помощью объекта класса Tag (t), доступ к постам можно получить командой t.posts.
+
+Пришло время создать базу данных и таблицы.
+
+Создание таблиц
+Чтобы выполнить все шаги урока, нужно убедиться, что MySQL установлен на компьютере.
+
+Стоит напомнить, что по умолчанию SQLAlchemy работает только с базой данных SQLite. Для работы с другими базами данных нужно установить драйвер, совместимый с DBAPI. Для использования MySQL подойдет драйвер PyMySql.
+
+(env) gvido@vm:~/flask_app$ pip install pymysql
+После этого необходимо авторизоваться на сервере MySQL и создать базу данных flask_app_db с помощью следующей команды:
+
+(env) gvido@vm:~/flask_app$ mysql -u root -p
+mysql>
+mysql> CREATE DATABASE flask_app_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+Query OK, 1 row affected (0.26 sec)
+mysql> \q
+Bye
+(env) gvido@vm:~/flask_app$
+Эта команда создает базу данных flask_app_db с полной поддержкой Unicode.
+
+Для создания необходимых таблицы нужно запустить метод create_all() объекта SQLAlchemy — db. Далее нужно запустить оболочку Python и выполнить следующую команду:
+
+(env) gvido@vm:~/flask_app$ python main2.py shell
+>>>
+>>> from main2 import db
+>>>
+>>> db.create_all()
+>>>
+Метод create_all() создает таблицы только в том случае, если их нет в базе данных. Поэтому запускать его можно несколько раз. Также этот метод не берет во внимание изменения моделей при создании таблиц. Это значит, что если запустить метод create_all() после изменения его метода, когда таблица уже создана, то он не поменяет схему таблицы. Чтобы сделать это, нужно воспользоваться инструментом переноса Alembic. О том, как переносить базы данных с помощью Alembic, будет рассказано в отдельном уроке «Перенос базы данных с помощью Alembic».
+
+Чтобы посмотреть созданные таблицы, нужно авторизоваться на сервере MySQL и выполнить следующую команду:
+
+mysql>
+mysql> use flask_app_db
+Database changed
+mysql>
+mysql> show tables;
++------------------------+
+| Tables_in_flask_app_db |
++------------------------+
+|  categories 		 |
+|  post_tags 		 |
+|  posts  		 |
+|  tags 		 |
++------------------------+
+4 rows in set (0.02 sec)
+
+mysql>
+Еще один способ посмотреть таблицы — использовать инструмент администрирования базы данных, такой как HeidiSQL. HeidiSQL – это кроссплатформенное ПО с открытым исходным кодом для управления базами данных MySQL, MS-SQL и PostgreSQL. Оно позволяет просматривать и редактировать данные, смотреть схему, менять таблицу и делать многое другое без единой строчки SQL. Скачать HeidiSQL можно отсюда.
+
+Установив HeidiSQL поверх базы данных flask_app_db, можно получить приблизительно следующий список таблиц:
+
+База данных flask_app_db имеет 4 таблицы. Таблицы с названиями categories, posts и tags созданы прямо из моделей, а post_tags — это таблица ассоциаций, которая представляет собой отношение многие-ко-многим между моделями Post и Tag.
+
+Класс SQLAlchemy также определяет метод drop_all(), который используется для удаления всех таблиц в базе данных. Стоит помнить, что метод drop_all() не учитывает, есть ли данные в таблице или нет. Он удаляет все данные, поэтому использовать его нужно с умом.
+
+Все таблицы на месте. Пора добавить в них какие-то данные.

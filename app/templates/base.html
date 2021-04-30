@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	{% block before_bootstrap %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">-->
+	{% block after_bootstrap %}{% endblock %}
+	<title>{% block title %}{% endblock %}</title>
+	<style>
+		{% if current_user.is_admin %}
+			.header__btn {
+				width: 15%;
+			}
+		{% endif %}
+	</style>
+</head>
+<body>
+	<header class="header border-bottom shadow-sm">
+		<nav class="nav__header">
+		    <a class="header__btn btn" href="{{ url_for('.index') }}">Главная</a>
+		    <a class="header__btn btn" href="/posts/page/1">Статьи</a>
+		    {% if current_user.is_authenticated %}
+				{% if current_user.is_admin %}
+					<a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
+				{% endif %}
+				<a href="/user/posts/1" class="header__btn btn">Мои статьи</a>
+				<a href="{{ url_for('.create_article') }}" class="header__btn btn">Создать статью</a>
+				<a href="{{ url_for('.user_profile') }}"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
+		    {% else %}
+			    <a href="{{ url_for('.login') }}" class="header__btn btn">Войти</a>
+			    <a href="{{ url_for('.sign_up') }}" class="header__btn btn">Регистрация</a>
+		    {% endif %}
+		</nav>
+	</header>
+	<br>
+	<div class="container">
+		<main class="form-sign text-center">
+			{% if get_flashed_messages(with_categories=true) %}
+				<div class="alert alert-info">
+					{% for category, message in get_flashed_messages(with_categories=true) %}
+						<spam class="{{ category }}">{{ message }}</spam>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</main>
+	</div>
+	{% block body %}{% endblock %}
+	<script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

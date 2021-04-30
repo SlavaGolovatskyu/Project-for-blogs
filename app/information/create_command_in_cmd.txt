@@ -1,0 +1,30 @@
+"""
+	Создание команд с помощью класса Command
+	В файле main2.py добавим класс Faker:
+
+	#...
+	from flask_script import Manager, Command
+	#...
+
+	manager = Manager(app)
+
+	class Faker(Command):
+	    'Команда для добавления поддельных данных в таблицы'
+	    def run(self):
+	        # логика функции
+	        print("Fake data entered")
+	       
+	@app.route('/')
+	#...
+	Команда Faker была создана с помощью наследования класса Command. Метод run() вызывается при исполнении команды. Чтобы выполнить команду через командную строку, ее нужно добавить в экземпляр Manager с помощью метода add_command():
+
+	#...
+	class Faker(Command):
+	    'Команда для добавления поддельных данных в таблицы'
+	    def run(self):
+	        # логика функции
+	        print("Fake data entered")
+	       
+	manager.add_command("faker", Faker())
+	#...
+"""

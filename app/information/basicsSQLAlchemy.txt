@@ -1,0 +1,630 @@
+Добавление данных
+Чтобы создать новую запись с данными с помощью SQLAlchemy, нужно выполнить следующие шаги:
+
+Создать объект
+Добавить объект в сессию
+Загрузить (сделать коммит) сессию
+В SAQLAlchemy взаимодействие с базой данных происходит с помощью сессии. К счастью, ее не нужно создавать вручную. Это делает Flask-SQLAlchemy. Доступ к объекту сессии можно получить с помощью db.session. Это объект сессии, которые отвечает за подключение к базе данных. Он же отвечает за процесс транзакции. По умолчанию транзакция запускается и остается открытой до тех пор, пока выполняются коммиты и откаты.
+
+Запустим оболочку Python для создания некоторых объектов модели:
+
+(env) gvido@vm:~/flask_app$ python main2.py shell
+>>>
+>>> from main2 import db, Post, Tag, Category
+>>>
+>>>
+>>>  c1 = Category(name='Python',  slug='python')
+>>>  c2 = Category(name='Java',  slug='java')
+>>>
+Были созданы два объекта Category. Получить доступ к их атрибутам можно с помощью оператора точки (.):
+
+>>>
+>>> c1.name, c1.slug
+('Python', 'python')
+>>>
+>>> c2.name, c2.slug
+('Java', 'java')
+>>>
+Дальше необходимо добавить объекты в сессию.
+
+>>>
+>>> db.session.add(c1)
+>>> db.session.add(c2)
+>>>
+Добавление объектов не записывает их в базу данных , этот процесс лишь готовит их для сохранения при следующей коммите. Удостовериться в этом можно, проверив первичный ключ объектов.
+
+>>>
+>>> print(c1.id)
+None
+>>>
+>>> print(c2.id)
+None
+>>>
+Значение атрибута id обоих объектов — None. Это значит, что объекты не сохранены в базе данных.
+
+Вместо добавления по одному объекту в сессию каждый раз, можно использовать метод add_all(). Метод add_all() принимает список объектов, которые нужно добавить в сессию.
+
+>>>
+>>> db.session.add_all([c1, c1])
+>>>
+
+Если попытаться добавить объект в сессию несколько раз, ошибок не возникнет. В любой момент можно посмотреть все объекты сессии с помощью db.session.new.
+
+>>>
+>>> db.session.new
+IdentitySet([<None:Python>, <None:java>])
+>>>
+Наконец, для сохранения объектов в базе данных нужно вызвать метод commit():
+
+>>>
+>>> db.session.commit()
+>>>
+Если обратиться к атрибуту id объекта Category сейчас, то он вернет первичный ключ, а не None.
+
+>>>
+>>> print(c1.id)
+1
+>>>
+>>> print(c2.id)
+2
+>>>
+
+
+Новые категории пока не связаны с постами. Поэтому c1.posts и c2.posts вернут пустой список.
+
+>>>
+>>> c1.posts
+[]
+>>>
+>>> c2.posts
+[]
+>>>
+Стоит попробовать создать несколько постов.
+
+>>>
+>>> p1 = Post(title='Post 1', slug='post-1',  content='Post 1', category=c1)
+>>> p2 = Post(title='Post 2', slug='post-2',  content='Post 2', category=c1)
+>>> p3 = Post(title='Post 3', slug='post-3',  content='Post 3', category=c2)
+>>>
+Вместо того чтобы передавать категорию при создании объекта Post, можно выполнить следующую команду:
+
+>>>
+>>> p1.category = c1
+>>>
+Дальше нужно добавить объекты в сессию и сделать коммит.
+
+>>>
+>>> db.session.add_all([p1,  p2,  p3])
+>>> db.session.commit()
+>>>
+Если сейчас попробовать получить доступ к атрибуту posts объекта Category, то он вернет не-пустой список:
+
+>>>
+>>> c1.posts
+[<1:Post 1>, <2:Post 2>]
+>>>
+>>> c2.posts
+[<3:Post 3>]
+>>>
+С другой стороны отношения, можно получить доступ к объекту Category, к которому относится пост, с помощью атрибута category у объекта Post.
+
+>>>
+>>> p1.category
+<1:Python>
+>>>
+>>> p2.category
+<1:Python>
+>>>
+>>> p3.category
+<2:Java>
+>>>
+Стоит напомнить, что все это возможно благодаря инструкции relationship() в модели Category. Сейчас в базе данных есть три поста, но ни один из них не связан с тегами.
+
+>>>
+>>> p1.tags, p2.tags, p3.tags
+([], [], [])
+>>>
+Пришло время создать теги. Это можно сделать в оболочке следующим образом:
+
+>>>
+>>> t1 = Tag(name="refactoring", slug="refactoring")
+>>> t2 = Tag(name="snippet", slug="snippet")
+>>> t3 = Tag(name="analytics", slug="analytics")
+>>>
+>>> db.session.add_all([t1, t2, t3])
+>>> db.session.commit()
+>>>
+Этот код создает три объекта тегов и делает их коммит в базу данных. Посты все еще не привязаны к тегам. Вот как можно связать объект Post с объектом Tag.
+
+>>>
+>>> p1.tags.append(t1)
+>>> p1.tags.extend([t2, t3])
+>>> p2.tags.append(t2)
+>>> p3.tags.append(t3)
+>>>
+>>> db.session.add_all([p1, p2, p3])
+>>>
+>>> db.session.commit()
+>>>
+Этот коммит добавляет следующие пять записей в таблицу post_tags.
+
+
+Посты теперь связаны с одним или большим количеством тегов:
+
+>>>
+>>> p1.tags
+[<1:refactoring>, <2:snippet>, <3:analytics>]
+>>>
+>>> p2.tags
+[<2:snippet>]
+>>>
+>>> p3.tags
+[<3:analytics>]
+>>>
+С другой стороны можно получить доступ к постам, которые относятся к конкретному тегу:
+
+>>>
+>>> t1.posts
+[<1:Post 1>]
+>>>
+>>> t2.posts
+[<1:Post 1>, <2:Post 2>]
+>>>
+>>> t3.posts
+[<1:Post 1>, <3:Post 3>]
+>>>
+>>>
+Важно отметить, что вместо изначального коммита объектов Tag и последующей их связи с объектами Post, все это можно сделать и таким способом:
+
+>>>
+>>> t1 = Tag(name="refactoring", slug="refactoring")
+>>> t2 = Tag(name="snippet", slug="snippet")
+>>> t3 = Tag(name="analytics", slug="analytics")
+>>>
+>>> p1.tags.append(t1)
+>>> p1.tags.extend([t2, t3])
+>>> p2.tags.append(t2)
+>>> p3.tags.append(t3)
+>>>
+>>> db.session.add(p1)
+>>> db.session.add(p2)
+>>> db.session.add(p3)
+>>>
+>>> db.session.commit()
+>>>
+Важно обратить внимание, что на строках 11-13 в сессию добавляются только объекты Post. Объекты Tag и Post связаны отношением многие-ко-многим. В результате, добавление объекта Post в сессию влечет за собой добавление связанных с ним объектов Tag. Но даже если сейчас вручную добавить объекты Tag в сессию, ошибки не будет.
+
+Обновление данных
+Для обновления объекта нужно всего лишь передать его атрибуту новое значение, добавить объект в сессию и сделать коммит.
+
+>>>
+>>> p1.content # начальное значение
+'Post 1'
+>>>
+>>> p1.content = "This is content for post 1"  # задаем новое значение
+>>> db.session.add(p1)
+>>>
+>>> db.session.commit()
+>>>
+>>> p1.content  # обновленное значение
+'This is content for post 1'
+>>>
+Удаление данных
+Для удаления объекта нужно использовать метод delete() объекта сессии. Он принимает объект и отмечает, что тот подлежит удалению при следующем коммите.
+
+Создадим новый временный тег seo и свяжем его с постами p1 и p2:
+
+>>>
+>>> tmp = Tag(name='seo', slug='seo')  # создание временного объекта Tag
+>>>
+>>> p1.tags.append(tmp)
+>>> p2.tags.append(tmp)
+>>>
+>>> db.session.add_all([p1, p2])
+>>> db.session.commit()
+>>>
+Этот коммит добавляет всего 3 строки: одну в таблицу table и еще две — в таблицу post_tags. В базе данных эти три строки выглядят следующим образом:
+
+Теперь нужно удалить тег seo:
+
+>>>
+>>> db.session.delete(tmp)
+>>> db.session.commit()
+>>>
+Этот коммит удаляет все три строки, добавленные в предыдущем шаге. Тем не менее он не удаляет пост, с которым тег был связан.
+
+По умолчанию при удалении объекта в родительской таблице (например, categories) значение внешнего ключа объекта, который с ним связан в дочерней таблице (например, posts) становится NULL. Следующий код демонстрирует это поведение на примере создания нового объекта категории и объекта поста, который с ней связан, и дальнейшим удалением объекта категории:
+
+>>>
+>>> c4 = Category(name='css', slug='css')
+>>> p4 = Post(title='Post 4', slug='post-4', content='Post 4', category=c4)
+>>>
+>>> db.session.add(c4)
+>>>
+>>> db.session.new
+IdentitySet([<None:css>, <None:Post 4>])
+>>>
+>>> db.session.commit()
+>>>
+Этот коммит добавляет две строки. Одну в таблицу categories, и еще одну — в таблицу posts.
+
+Теперь нужно посмотреть, что происходит при удалении объекта Category.
+
+>>>
+>>> db.session.delete(c4)
+>>> db.session.commit()
+>>>
+Этот коммит удаляет категорию css из таблицы categories и устанавливает значение внешнего ключа (category_id) для поста, который с ней связан, на NULL.
+
+удаление связанных объектов
+удаление связанных объектов
+В некоторых случаях может возникнуть необходимость удалить все дочерние записи при том, что родительские записи уже удалены. Это можно сделать, передав cascade=’all,delete-orphan’ инструкции db.relationship(). Откроем main2.py, чтобы изменить инструкцию db.relationship() в модели Catagory:
+
+#...
+class Category(db.Model):
+    #...
+    posts = db.relationship('Post', backref='category', cascade='all,delete-orphan')
+#...
+С этого момента удаление категории повлечет за собой удаление постов, которые с ней связаны. Чтобы это начало работать, нужно перезапустить оболочку. Далее импортируем нужные объекты и создаем категорию вместе с постом:
+
+(env) gvido@vm:~/flask_app$ python main2.py shell
+>>>
+>>> from main2 import db, Post, Tag, Category
+>>>
+>>>  c5 = Category(name='css', slug='css')
+>>>  p5 = Post(title='Post 5', slug='post-5', content='Post 5', category=c5)
+>>>
+>>> db.session.add(c5)
+>>> db.session.commit()
+>>>
+Вот как база данных выглядит после этого коммита.
+
+создание связанных объектов
+создание связанных объектов
+Удалим категорию.
+
+>>>
+>>> db.session.delete(c5)
+>>> db.session.commit()
+>>>
+После этого коммита база данных выглядит вот так:
+
+удаление связанных объектов
+удаление связанных объектов
+Запрос данных
+Чтобы выполнить запрос к базе данных, используется метод query() объекта session. Метод query() возвращает объект flask_sqlalchemy.BaseQuery, который является расширением оригинального объекта sqlalchemy.orm.query.Query. Объект flask_sqlalchemy.BaseQuery представляет собой оператор SELECT, который будет использоваться для осуществления запросов к базе данных. В этой таблице перечислены основные методы класса flask_sqlalchemy.BaseQuery.
+
+Метод	Описание
+all()	Возвращает результат запроса (представленный flask_sqlalchemy.BaseQuery) в виде списка.
+count()	Возвращает количество записей в запросе.
+first()	Возвращает первый результат запроса или None, если в нем нет строк.
+first_or_404()	Возвращает первый результат запроса или ошибку 404, если в нем нет строк.
+get(pk)	Возвращает объект, который соответствует данному первичному ключу или None, если объект не найден.
+get_or_404(pk)	Возвращает объект, который соответствует данному первичному ключу или ошибку 404, если объект не найден.
+filter(*criterion)	Возвращает новый экземпляр flask_sqlalchemy.BaseQuery с оператором WHERE.
+limit(limit)	Возвращает новый экземпляр flask_sqlalchemy.BaseQuery с оператором LIMIT.
+offset(offset)	Возвращает новый экземпляр flask_sqlalchemy.BaseQuery с оператором OFFSET.
+order_by(*criterion)	Возвращает новый экземпляр flask_sqlalchemy.BaseQuery с оператором OFFSET.
+join()	Возвращает новый экземпляр flask_sqlalchemy.BaseQuery после создания SQL JOIN.
+Метод all()
+В своей простейшей форме метод query() принимает в качестве аргументов один или больше классов модели или колонки. Следующий код вернет все записи из таблицы posts.
+
+>>>
+>>> db.session.query(Post).all()
+[<1:Post 1>, <2:Post 2>, <3:Post 3>, <4:Post 4>]
+>>>
+Похожим образом следующий код вернет все записи из таблиц categories и tags.
+
+>>>
+>>> db.session.query(Category).all()
+[<1:Python>, <2:Java>]
+>>>
+>>>
+>>> db.session.query(Tag).all()
+[<1:refactoring>, <2:snippet>, <3:analytics>]
+>>>
+Чтобы получить чистый SQL, использованный для запроса к базе данных, нужно просто вывести объект flask_sqlalchemy.BaseQuery:
+
+>>>
+>>> print(db.session.query(Post))
+SELECT
+    posts.id  AS  posts_id,
+    posts.title AS  posts_title,
+    posts.slug AS  posts_slug,
+    posts.content AS  posts_content,
+    posts.created_on AS  posts_created_on,
+    posts.u  pdated_on AS  posts_updated_on,
+    posts.category_id AS  posts_category_id
+FROM
+    posts
+>>>
+В предыдущих примерах данные возвращались со всех колонок таблицы. Это можно поменять, передав методу query() названия колонок:
+
+>>>
+>>> db.session.query(Post.id,  Post.title).all()
+[(1, 'Post 1'), (2, 'Post 2'), (3, 'Post 3'), (4, 'Post 4')]
+>>>
+Метод count()
+Метод count() возвращает количество результатов в запросе.
+
+>>>
+>>> db.session.query(Post).count()  # получить общее количество записей в таблице Post
+4
+>>> db.session.query(Category).count()  # получить общее количество записей в таблице Category
+2
+>>> db.session.query(Tag).count()  # получить общее количество записей в таблице Tag
+3
+>>>
+Метод first()
+Метод first() вернет только первый запрос из запроса или None, если в запросе нет результатов.
+
+>>>
+>>> db.session.query(Post).first()
+<1:Post 1>
+>>>
+>>> db.session.query(Category).first()
+<1:Python>
+>>>
+>>> db.session.query(Tag).first()
+<1:refactoring>
+>>>
+Метод get()
+Метод get() вернет экземпляр объекта с соответствующим первичным ключом или None, если такой объект не был найден.
+
+>>>
+>>> db.session.query(Post).get(2)
+<2:Post 2>
+>>>
+>>> db.session.query(Category).get(1)
+<1:Python>
+>>>
+>>> print(db.session.query(Category).get(10))  # ничего не найдено по первичному ключу 10
+None
+>>>
+Метод get_or_404()
+То же самое, что и метод get(), но вместо None вернет ошибку 404, если объект не найден.
+
+>>>
+>>> db.session.query(Post).get_or_404(1)
+<1:Post 1>
+>>>
+>>>
+>>> db.session.query(Post).get_or_404(100)
+Traceback (most recent call last):
+...
+werkzeug.exceptions.NotFound: 404  Not  Found: The requested URL was not found on the server. If  you entered the URL manually please check your spelling and try again.
+>>>
+Метод filter()
+Метод filter() позволяет отсортировать результатов с помощью оператора WHERE, примененного к запросу. Он принимает колонку, оператор или значение. Например:
+
+>>>
+>>> db.session.query(Post).filter(Post.title == 'Post 1').all()
+[<1:Post 1>]
+>>>
+Запрос вернет все посты с заголовком "Post 1". SQL-эквивалент запроса следующий:
+
+>>>
+>>> print(db.session.query(Post).filter(Post.title == 'Post 1'))
+SELECT
+    posts.id AS posts_id,
+    posts.title AS posts_title,
+    posts.slug AS posts_slug,
+    posts.content AS posts_content,
+    posts.created_on AS posts_created_on,
+    posts.u  pdated_on AS posts_updated_on,
+    posts.category_id AS posts_category_id
+FROM
+    posts
+WHERE
+    posts.title = % (title_1) s
+>>>
+>>>
+Строка % (title_1) s в условии WHERE — это заполнитель. На ее месте будет реальное значение при выполнении запроса.
+
+Методу filter() можно передать несколько значений и они будут объединены оператором AND в SQL. Например:
+
+>>>
+>>> db.session.query(Post).filter(Post.id >= 1, Post.id <= 2).all()
+[<1:Post 1>, <2:Post 2>]
+>>>
+>>>
+Этот запрос вернет все посты, первичный ключ которых больше 1, но меньше 2. SQL-эквивалент:
+
+>>>
+>>> print(db.session.query(Post).filter(Post.id >= 1, Post.id <= 2))
+SELECT
+    posts.id AS posts_id,
+    posts.title AS posts_title,
+    posts.slug AS posts_slug,
+    posts.content AS posts_content,
+    posts.created_on AS posts_created_on,
+    posts.u pdated_on AS posts_updated_on,
+    posts.category_id AS posts_category_id
+FROM
+    posts
+WHERE
+    posts.id >= % (id_1) s
+AND posts.id <= % (id_2) s
+>>>
+Метод first_or_404()
+Делает то же самое, что и метод first(), но вместо None возвращает ошибку 404, если запрос без результата.
+
+>>>
+>>> db.session.query(Post).filter(Post.id > 1).first_or_404()
+<2:Post 2>
+>>>
+>>> db.session.query(Post).filter(Post.id > 10).first_or_404().all()
+Traceback (most recent call last):
+...
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+>>>
+Метод limit()
+Метод limit() добавляет оператор LIMIT к запросу. Он принимает количество строк, которые нужно вернуть с запросом.
+
+>>>
+>>> db.session.query(Post).limit(2).all()
+[<1:Post 1>, <2:Post 2>]
+>>>
+>>> db.session.query(Post).filter(Post.id >= 2).limit(1).all()
+[<2:Post 2>]
+>>>
+SQL-эквивалент:
+
+>>>
+>>> print(db.session.query(Post).limit(2))
+SELECT
+posts.id AS posts_id,
+posts.title AS posts_title,
+posts.slug AS posts_slug,
+posts.content AS posts_content,
+posts.created_on AS posts_created_on,
+posts.u  pdated_on AS posts_updated_on,
+posts.category_id AS posts_category_id
+FROM
+    posts
+LIMIT % (param_1) s
+>>>
+>>>
+>>> print(db.session.query(Post).filter(Post.id >= 2).limit(1))
+SELECT
+    posts.id AS posts_id,
+    posts.title AS posts_title,
+    posts.slug AS posts_slug,
+    posts.content AS posts_content,
+    posts.created_on AS posts_created_on,
+    posts.u  pdated_on AS posts_updated_on,
+    posts.category_id AS posts_category_id
+FROM
+    posts
+WHERE
+    posts.id >= % (id_1) s
+LIMIT % (param_1) s
+>>>
+>>>
+Метод offset()
+Метод offset() добавляет условие OFFSET в запрос. В качестве аргумента он принимает смещение. Часто используется вместе с limit().
+
+>>>
+>>> db.session.query(Post).filter(Post.id > 1).limit(3).offset(1).all()
+[<3:Post 3>, <4:Post 4>]
+>>>
+SQL-эквивалент:
+
+>>>
+>>> print(db.session.query(Post).filter(Post.id > 1).limit(3).offset(1))
+SELECT
+    posts.id AS posts_id,
+    posts.title AS posts_title,
+    posts.slug AS posts_slug,
+    posts.content AS posts_content,
+    posts.created_on AS posts_created_on,
+    posts.u  pdated_on AS posts_updated_on,
+    posts.category_id AS posts_category_id
+FROM
+    posts
+WHERE
+    posts.id > % (id_1) s
+LIMIT % (param_1) s, % (param_2) s
+>>>
+Строки % (param_1) s и % (param_2) — заполнители для смещения и ограничения вывода, соответственно.
+
+Метод order_by()
+Метод order_by() используется, чтобы упорядочить результат, добавив к запросу оператор ORDER BY. Он принимает количество колонок, для которых нужно установить порядок. По умолчанию сортирует в порядке возрастания.
+
+>>>
+>>> db.session.query(Tag).all()
+[<1:refactoring>, <2:snippet>, <3:analytics>]
+>>>
+>>> db.session.query(Tag).order_by(Tag.name).all()
+[<3:analytics>, <1:refactoring>, <2:snippet>]
+>>>
+Для сортировки по убыванию нужно использовать функцию db.desc():
+
+>>>
+>>> db.session.query(Tag).order_by(db.desc(Tag.name)).all()
+[<2:snippet>, <1:refactoring>, <3:analytics>]
+>>>
+Метод join()
+Метод join() используется для создания JOIN в SQL. Он принимает имя таблицы, для которой нужно создать JOIN.
+
+>>>
+>>> db.session.query(Post).join(Category).all()
+[<1:Post 1>, <2:Post 2>, <3:Post 3>]
+>>>
+SQL-эквивалент:
+
+>>>
+>>> print(db.session.query(Post).join(Category))
+SELECT
+    posts.id  AS posts_id,
+    posts.title AS posts_title,
+    posts.slug AS posts_slug,
+    posts.content AS posts_content,
+    posts.created_on AS posts_created_on,
+    posts.u  pdated_on AS posts_updated_on,
+    posts.category_id AS posts_category_id
+FROM
+    posts
+Метод join() широко используется, чтобы получить данные из одной или большего количества таблиц одним запросом. Например:
+
+>>>
+>>> db.session.query(Post.title,  Category.name).join(Category).all()
+[('Post 1', 'Python'),  ('Post 2', 'Python'), ('Post 3', 'Java')]
+>>>
+Можно создать JOIN для большее чем двух таблиц с помощью цепочки методов join():
+
+db.session.query(Table1).join(Table2).join(Table3).join(Table4).all()
+Закончить урок можно завершением контактной формы.
+
+Стоит напомнить, что в уроке «Работа с формами во Flask» была создана контактная форма для получения обратной связи от пользователей. Пока что функция представления contact() не сохраняет отправленные данные. Она только выводит их в консоли. Для сохранения полученной информации сначала нужно создать новую таблицу. Откроем main2.py, чтобы добавить модель Feedback следом за моделью Tag:
+
+#...
+class Feedback(db.Model):
+    __tablename__ = 'feedbacks'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(1000), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    message = db.Column(db.Text(), nullable=False)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+
+    def __repr__(self):
+		return "<{}:{}>".format(self.id, self.name)
+#...
+Дальше нужно перезапустить оболочку Python и вызвать метод create_all() объекта db для создания таблицы feedbacks:
+
+(env) gvido@vm:~/flask_app$ python main2.py shell
+>>>
+>>> from main2 import db
+>>>
+>>> db.create_all()
+>>>
+Также нужно изменить функция представления contact():
+
+#...
+@app.route('/contact/', methods=['get', 'post'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+		name = form.name.data
+		email = form.email.data
+		message = form.message.data
+		print(name)
+		print(Post)
+		print(email)
+		print(message)
+
+		# здесь логика базы данных
+		feedback = Feedback(name=name, email=email, message=message)
+		db.session.add(feedback)
+		db.session.commit()
+
+		print("\nData received. Now redirecting ...")
+		flash("Message Received", "success")
+		return redirect(url_for('contact'))
+    
+    return render_template('contact.html', form=form)
+#...
+Запустим сервер и зайдем на https://127.0.0.1:5000/contact/, чтобы заполнить и отправить форму.
+
+отправка формы во Flask с сохранением в базу данных
+Отправленная запись в HeidiSQL будет выглядеть следующим образом:
