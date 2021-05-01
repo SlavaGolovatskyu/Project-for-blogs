@@ -111,7 +111,7 @@ Adding new admin
 
 							{% if not user.is_admin %}
 								{% if current_user.lvl_of_admin > 1 %}
-								    <td><a class='btn'>Сделать админом</a></td>
+								    <td><a href='/add-new-admin/{{ user.id }}/confirm' class='btn'>Сделать админом</a></td>
 								{% else %}
 								  	<td><a>Не админ</a></td>
 								{% endif %}

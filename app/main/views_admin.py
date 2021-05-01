@@ -52,15 +52,15 @@ def admin():
 	return render_template('admin.html')
 
 
-@main.route('/add-new-admin/<int:page>', methods=['GET', 'POST'])
+@main.route('/admin-panel/<int:page>', methods=['GET', 'POST'])
 @login_required
 @user_is_admin
-def add_new_admin(page):
+def admin_panel(page):
 	form = SearchNeedPeopleForm()
 
 	# if form submit we redirected user with arguments which he provided us
 	if form.validate_on_submit():
-		return redirect(f'/add-new-admin/1?username={form.username.data}&email={form.email.data}')
+		return redirect(f'/admin-panel/1?username={form.username.data}&email={form.email.data}')
 
 	"""
 		* Search posts between first_index = page * 10 - 10 
@@ -92,9 +92,9 @@ def add_new_admin(page):
 	if page['page'] > count_dynamic_pages and count_all_user != 0 or page['page'] == 0:
 		page = page['page']
 		flash(f'Страницы {page} несуществует.')
-		return redirect('/add-new-admin/1')
+		return redirect('/admin-panel/1')
 
-	return render_template('add_new_admin.html', users=users_need[search_first_index : search_second_index], 
+	return render_template('admin_panel.html', users=users_need[search_first_index : search_second_index], 
 						   form=form, count_dynamic_pages=count_dynamic_pages,
 						   current_page = page['page'], 
 						   max_users=MAX_COUNT_USERS_ON_PAGE,
@@ -107,13 +107,14 @@ def add_new_admin(page):
 def delete_user(id):
 	id = id['id']
 	user = User.query.get_or_404(id)
+	msg = f'Вы действительно хотите удалить аккаунт: {user.username}?'
 	if request.method == 'POST':
 		if current_user.lvl_of_admin == 2 and user.lvl_of_admin < 2:
 			try:
 				db.session.delete(user)
 				db.session.commit()
 				flash(f'Вы успешно удалили аккаунт: {user.username}')
-				return redirect('/add-new-admin/1')
+				return redirect('/admin-panel/1')
 
 			except Exception as e:
 				flash(f'Произошла ошибка: {e}. Не удалось удалить аккаунт')
@@ -121,9 +122,30 @@ def delete_user(id):
 		else:
 			flash("""Доступ запрещен. Нужна админка 2 уровня. Или же вы пытаетесь удалить 
 				  админа 2 уровня будучи самим админом 2 уровня.""")
-			return redirect('/add-new-admin/1')
+			return redirect('/admin-panel/1')
 
-	return render_template('confirm.html', user=user)
+	return render_template('confirm.html', user=user, msg=msg)
 
+
+@main.route('/add-new-admin/<int:id>/confirm', methods=['post', 'get'])
+@login_required
+@user_is_admin
+def add_new_admin(id):
+	id = id['id']
+	user = User.query.get_or_404(id)
+	name = user.username
+	msg = f'Вы действительно хотите поставить на админку {name}'
+	if request.method == 'POST':
+		if current_user.lvl_of_admin == 2 and user.lvl_of_admin:
+			try:
+				user.lvl_of_admin = 1
+				db.session.commit()
+				flash(f'Вы успешно поставили на админку человека с никнеймом {name}')
+				return redirect('/admin-panel/1')
+			except Exception as e:
+				flash(f'Произошла ошибка: {e}. Не удалось поставить {user.username} на админку.')
+				return redirect('/admin-panel/1')
+
+	return render_template('confirm.html', user=user, msg=msg)
 
 #-----------------------------------------
