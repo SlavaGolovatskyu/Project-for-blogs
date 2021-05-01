@@ -134,18 +134,50 @@ def add_new_admin(id):
 	id = id['id']
 	user = User.query.get_or_404(id)
 	name = user.username
-	msg = f'Вы действительно хотите поставить на админку {name}'
+	msg = f'Вы действительно хотите поставить на админку {name}?'
 	if request.method == 'POST':
-		if current_user.lvl_of_admin == 2 and user.lvl_of_admin:
+		if current_user.lvl_of_admin == 2 and user.lvl_of_admin == 0:
 			try:
 				user.lvl_of_admin = 1
+				user.is_admin = True
 				db.session.commit()
 				flash(f'Вы успешно поставили на админку человека с никнеймом {name}')
 				return redirect('/admin-panel/1')
+				
 			except Exception as e:
-				flash(f'Произошла ошибка: {e}. Не удалось поставить {user.username} на админку.')
+				flash(f'Произошла ошибка: {e}. Не удалось поставить {name} на админку.')
 				return redirect('/admin-panel/1')
+		else:
+			flash("""Нужна админка 2 лвл. Или человек которого
+				  вы хотите поставить на админку уже админ.""")
+			return redirect('/admin-panel/1')
 
 	return render_template('confirm.html', user=user, msg=msg)
 
+
+@main.route('/take-admin/<int:id>/confirm', methods=['POST', 'GET'])
+@login_required
+@user_is_admin
+def take_admin_user(id):
+	id = id['id']
+	user = User.query.get_or_404(id)
+	msg = f'Вы действительно хотите снять с админки {user.username}?'
+	if request.method == 'POST':
+		if current_user.lvl_of_admin == 2 and user.lvl_of_admin == 1:
+			try:
+				user.is_admin = False
+				user.lvl_of_admin = 0
+				db.session.commit()
+				flash(f'Человек {user.username} был успешно снят с админки.')
+				return redirect('/admin-panel/1')
+
+			except Exception as e:
+				flash(f'Ошибка: {e}. Не удалось снять человека с админки.')
+				return redirect('/admin-panel/1')
+
+		else:
+			flash('Человек которого хотите снять не админ или у вас нехватает прав доступа.')
+			return redirect('/admin-panel/1')
+
+	return render_template('confirm.html', msg=msg, user=user)
 #-----------------------------------------

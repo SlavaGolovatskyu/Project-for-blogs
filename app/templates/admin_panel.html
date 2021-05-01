@@ -117,7 +117,7 @@ Adding new admin
 								{% endif %}
 							{% else %}
 								{% if current_user.lvl_of_admin > user.lvl_of_admin %}
-								  	<td><a class='btn'>Снять с админки</a></td>
+								  	<td><a href="/take-admin/{{ user.id }}/confirm" class='btn'>Снять с админки</a></td>
 								{% else %}
 								  	<td><a>Админ</a></td>
 								{% endif %}
@@ -145,13 +145,13 @@ Adding new admin
 	{% if count_dynamic_pages > 1 %}
 		<div class="alert alert-info text-align-center">
 			{% if current_page != 1 %}
-				<a href="/add-new-admin/1" class="btn btn-success">1</a>
-				<a href="/add-new-admin/{{ current_page - 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Back</a>
+				<a href="/admin-panel/1" class="btn btn-success">1</a>
+				<a href="/admin-panel/{{ current_page - 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Back</a>
 			{% endif %}
 			{% if count_dynamic_pages != current_page %}
-				<a href="/add-new-admin/{{ current_page + 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Next</a>
+				<a href="/admin-panel/{{ current_page + 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Next</a>
 				{% if count_dynamic_pages != current_page + 1 %}
-					<a href="/add-new-admin/{{ count_dynamic_pages }}?username={{ username }}&email={{ email }}" class="btn btn-success">{{ count_dynamic_pages }}</a>
+					<a href="/admin-panel/{{ count_dynamic_pages }}?username={{ username }}&email={{ email }}" class="btn btn-success">{{ count_dynamic_pages }}</a>
 				{% endif %}
 			{% endif %}
 		</div>
