@@ -179,7 +179,8 @@ def post_detail(id):
 		if validator.check_length(max_length_comment, text):
 			if check_on_spam < 2:
 				comment = Comment(text=text, author=current_user.username,
-								  author_id=current_user.id, post_id=id)
+								  author_id=current_user.id, 
+								  user_id=current_user.id, post_id=id)
 				db.session.add(comment)
 				db.session.commit()
 				return redirect(f'/post/{id}/detail')

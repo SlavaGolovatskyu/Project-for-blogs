@@ -25,7 +25,8 @@ class User(db.Model, UserMixin):
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow,  onupdate=datetime.utcnow)	
 
-	posts = db.relationship('Article', backref='users', cascade='all,delete-orphan', lazy = 'dynamic')
+	comments = db.relationship('Comment', cascade='all,delete-orphan', lazy='dynamic')
+	posts = db.relationship('Article', cascade='all,delete-orphan', lazy = 'dynamic')
 
 	def set_password(self, password):
 		self.password_hash = generate_password_hash(password)
@@ -65,6 +66,7 @@ class Comment(db.Model):
 	author_id = db.Column(db.Integer(), nullable=False)
 	date = db.Column(db.DateTime, default=datetime.utcnow)
 
+	user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
 	post_id = db.Column(db.Integer(), db.ForeignKey('articles.id'))
 
 	def __repr__(self):
