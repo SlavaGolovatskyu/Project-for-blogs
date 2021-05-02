@@ -282,3 +282,22 @@ def user_posts(page):
 	else:
 		return render_template('user_posts.html', current_page=page, articles=articles_need,
 							   count_dynamic_pages=count_dynamic_pages)
+
+
+@main.route('/comment/<int:id>/delete', methods=['GET', 'POST'])
+@login_required
+def delete_user_comment(id):
+	comment = Comment.query.get_or_404(id)
+	if current_user.id == comment.author_id or current_user.is_admin:
+		try:
+			db.session.delete(comment)
+			db.session.commit()
+			flash('Ваш коментарий был успешно удален.' if not current_user.is_admin
+				  else f'Коментарий {comment.author} был успешно удален.')
+			return redirect('/posts/page/1')
+		except Exception as e:
+			flash(f'При удалении коментария произошла ошибка: {e}')
+			return redirect('/posts/page/1')
+	else:
+		flash('Нет доступа.')
+		return redirect('/posts/page/1')
