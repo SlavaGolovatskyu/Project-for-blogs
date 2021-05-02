@@ -11,7 +11,7 @@ from app.models import (
 from flask_script import Manager, Shell
 from flask_migrate import MigrateCommand
 
-app = create_app(os.getenv('FLASK_ENV') or 'config.ProductionConfig')
+app = create_app(os.getenv('FLASK_ENV') or 'config.DevelopementConfig')
 manager = Manager(app)
 
 # эти переменные доступны внутри оболочки без явного импорта
