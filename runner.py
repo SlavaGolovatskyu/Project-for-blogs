@@ -10,8 +10,8 @@ from app.models import (
 
 from flask_script import Manager, Shell
 from flask_migrate import MigrateCommand
-from flask_socketio import SocketIO, emit
 from flask_login import current_user
+from flask_socketio import SocketIO, emit
 
 app = create_app(os.getenv('FLASK_ENV') or 'config.DevelopementConfig')
 
@@ -20,6 +20,7 @@ manager = Manager(app)
 socket = SocketIO(app)
 
 COUNT_ONLINE_USERS = 0
+
 
 @socket.on('connect_user')
 def connect_user(data):
@@ -40,6 +41,7 @@ def test_disconnect():
 def send_message(data: dict):
     emit('take_msg', (current_user.username, data['msg']), broadcast=True)
 
+
 # эти переменные доступны внутри оболочки без явного импорта
 def make_shell_context():
     return dict(app=app, db=db, User=User, Article=Article,
@@ -49,4 +51,4 @@ manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
-	socket.run(app)
+    socket.run(app)

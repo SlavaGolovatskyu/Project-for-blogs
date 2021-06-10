@@ -8,8 +8,8 @@ from flask_socketio import SocketIO
 
 
 db = SQLAlchemy()
-migrate = Migrate()
 socket = SocketIO()
+migrate = Migrate()
 login_manager = LoginManager()
 login_manager.login_view = 'main.login'
 
