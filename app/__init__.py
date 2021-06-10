@@ -4,10 +4,12 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager, Command, Shell
 from flask_login import LoginManager
+from flask_socketio import SocketIO
 
 
 db = SQLAlchemy()
 migrate = Migrate()
+socket = SocketIO()
 login_manager = LoginManager()
 login_manager.login_view = 'main.login'
 
@@ -17,6 +19,7 @@ def create_app(config):
 	app.config.from_object(config)
 
 	db.init_app(app)
+	socket.init_app(app)
 	migrate.init_app(app, db)
 	login_manager.init_app(app)
 

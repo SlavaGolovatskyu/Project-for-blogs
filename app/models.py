@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
 	lvl_of_admin = db.Column(db.Integer(), default=0)
 	is_banned = db.Column(db.Boolean(), default=False)
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
-	updated_on = db.Column(db.DateTime(), default=datetime.utcnow,  onupdate=datetime.utcnow)	
+	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)	
 
 	comments = db.relationship('Comment', cascade='all,delete-orphan', lazy='dynamic')
 	posts = db.relationship('Article', cascade='all,delete-orphan', lazy = 'dynamic')

@@ -3,7 +3,7 @@ import os, json
 app_dir = os.path.abspath(os.path.dirname(__file__))
 
 class BaseConfig:
-    SECRET_KEY = json.load(open('secret_key.json', 'r'))['secret_key']
+    SECRET_KEY = "Gijujgf43jk5o49g0.!fdgf44GhgdIKYUJMC4%gf/.!314ckdxcDGJ,LJN"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     """
@@ -20,7 +20,7 @@ class BaseConfig:
 class DevelopementConfig(BaseConfig):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEVELOPMENT_DATABASE_URI') or \
-    'sqlite:///blog.db'
+    'sqlite:///test.db'
 
 
 class TestingConfig(BaseConfig):

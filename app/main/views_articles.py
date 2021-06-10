@@ -88,7 +88,7 @@ def update_user_post(article_id):
 				if (validator.check_length(MIN_LENGTH_TEXT, request.form.get('text'), True) and 
 					validator.check_length(MAX_LENGTH_TEXT, request.form.get('text'))):
 
-					# Saving new data.
+					# note new data.
 					article.title = request.form['title']
 					article.intro = request.form['intro']
 					article.text = request.form['text']
@@ -154,34 +154,44 @@ def post_detail(id):
 	page = 1
 
 	try:
+		# takes argument from url address'
 		data = request.args.get('count', '')
+		# cheking if there are data and if data is number
 		if data and data.isdigit():
+			# change count comments which we upload on page
 			CURRENT_COUNT_COMMENTS_ON_PAGE = int(request.args.get('count', ''))
 
 	except Exception as e:
 		flash(f'Ошибка: {e}')
 		return redirect(f'/post/{id}/detail')
 
+	# first and second index'es important for us because we search information in database
+	# after this we took array with information and after this we search need info
+	# from first index to second index
 	search_first_index = page * CURRENT_COUNT_COMMENTS_ON_PAGE - CURRENT_COUNT_COMMENTS_ON_PAGE
 	search_second_index = page * CURRENT_COUNT_COMMENTS_ON_PAGE
 
-
+	# [::-1] reverse array and search need data
 	comments_need = article.comments[::-1][search_first_index : search_second_index]
 
 	# if user a note comment to the article
 	if request.method == 'POST':
 		text = request.form.get('text')
 
+		# cheking if comments not in database 
 		check_on_spam = Comment.query.filter(Comment.text == text,
 											 Comment.post_id == id).count()
 
-
+		# checking length 
 		if validator.check_length(max_length_comment, text):
 			if check_on_spam < 2:
+				# create object with data
 				comment = Comment(text=text, author=current_user.username,
 								  author_id=current_user.id, 
 								  user_id=current_user.id, post_id=id)
+				# add us object
 				db.session.add(comment)
+				# save changes
 				db.session.commit()
 				return redirect(f'/post/{id}/detail')
 			else:
@@ -288,13 +298,16 @@ def user_posts(page):
 @login_required
 def delete_user_comment(id):
 	comment = Comment.query.get_or_404(id)
+	# check if comment belongs user's or current user is_admin
 	if current_user.id == comment.author_id or current_user.is_admin:
 		try:
+			# deleting comment
 			db.session.delete(comment)
 			db.session.commit()
 			flash('Ваш коментарий был успешно удален.' if not current_user.is_admin
 				  else f'Коментарий {comment.author} был успешно удален.')
 			return redirect('/posts/page/1')
+			
 		except Exception as e:
 			flash(f'При удалении коментария произошла ошибка: {e}')
 			return redirect('/posts/page/1')

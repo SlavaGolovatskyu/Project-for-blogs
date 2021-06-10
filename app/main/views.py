@@ -1,5 +1,6 @@
-from app import db
+from app import db, socket
 from . import main
+from flask_socketio import emit
 
 from flask import (
 	render_template, 

@@ -39,24 +39,26 @@ def logout():
 #----------------SIGN-UP ACCOUNT-----------------------
 @main.route('/sign-up/', methods=['post', 'get'])
 def sign_up():
+	# check if user logined in himself account and if user is admin or no
 	if current_user.is_authenticated:
 		if current_user.is_admin:
 			return redirect(url_for('.admin'))
 		else:
 			return redirect(url_for('.user_profile'))
 
-	email = False
-	username = False
+	user = False
 	form = RegistrationForm()
 	if form.validate_on_submit():
 
 		try:
-			email = db.session.query(User).filter(User.email == form.email.data).first()
-			username = db.session.query(User).filter(User.username == form.username.data).first()
+			# Search account with username and email if account not found
+			# note the information
+			user = db.session.query(User).filter(User.email == form.email.data,
+												 User.username == form.username.data).first()
 		except:
 			pass
 
-		if not email and not username:
+		if not user:
 			person = User(username=form.username.data, email=form.email.data)
 			person.set_password(form.password.data)
 
