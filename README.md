@@ -18,7 +18,4 @@ Now the main targets are: add mut, ban, update the chat itself, as well as logs
 * git clone https://github.com/SlavaGolovatskyu/Project-for-blogs.git
 * cd Project-for-blogs
 * python auto_install_modules.py
-* python runner.py shell
-* db.create_all()
-* exit()
 * python runner.py
