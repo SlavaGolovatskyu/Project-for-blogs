@@ -21,4 +21,4 @@ Now the main targets are: add mut, ban, update the chat itself, as well as logs
 * python runner.py shell
 * db.create_all()
 * exit()
-* python runner.py runserver
+* python runner.py
