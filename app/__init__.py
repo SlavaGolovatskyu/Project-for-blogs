@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager, Command, Shell
 from flask_login import LoginManager
 from flask_socketio import SocketIO
+from .logg.logger import logger
 
 
 db = SQLAlchemy()
@@ -25,6 +26,8 @@ def create_app(config):
 
 	from .main import main as main_blueprint
 	app.register_blueprint(main_blueprint)
+	logger.info('Registered main_blueprint')
+	logger.info('Created object app')
 	#from .admin import main as admin_blueprint
 	#app.register_blueprint(admin_blueprint)
 

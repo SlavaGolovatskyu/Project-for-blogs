@@ -23,6 +23,7 @@ from .forms import (
 
 from .validators import Validators
 from app.models import User, Article
+from app.logg.logger import logger
 
 
 #-----------------All actions with accounts, login, registration, logout----------------
@@ -31,6 +32,7 @@ from app.models import User, Article
 @main.route('/logout/', methods=['post', 'get'])
 @login_required
 def logout():
+	logger.info(f'User {current_user.username} have been logged out.')
 	logout_user()
 	flash("You have been logged out.")
 	return redirect(url_for('.login'))
@@ -66,9 +68,13 @@ def sign_up():
 				db.session.add(person)
 				db.session.commit()
 				user = db.session.query(User).filter(User.email == form.email.data).first()
+
+				logger.info(f'User {current_user.username} success sign-up.')
+
 				login_user(user, remember=form.remember.data)
 				return redirect(url_for('.user_profile'))
 			except:
+				logger.error('Failed to register an account')
 				flash('Ошибка. Не удалось зарегистрировать аккаунт.')
 				return redirect(url_for('.sign_up'))
 		else:
@@ -94,7 +100,7 @@ def login():
 
 		user = db.session.query(User).filter(User.email == form.email.data).first()
 		if user and user.check_password(form.password.data):
-
+			logger.info(f'User {current_user.username} success sign-in.')
 			login_user(user, remember=form.remember.data)
 
 			if user.is_admin:
@@ -102,6 +108,7 @@ def login():
 			else:
 				return redirect(url_for('.user_profile'))
 
+		logger.info(f'User {current_user.username} failed sign-in.')
 		flash("Invalid email/password", 'error')
 		return redirect(url_for('.login'))
 
@@ -111,5 +118,6 @@ def login():
 @main.route('/profile/')
 @login_required
 def user_profile():
+	logger.info(f'User {current_user.username} watching herself profile.')
 	user = User.query.get(current_user.id)
 	return render_template('profile.html', user=user)

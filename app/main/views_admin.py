@@ -18,6 +18,7 @@ from flask_login import (
 
 from app.models import User, Article
 from .forms import SearchNeedPeopleForm
+from app.logg.logger import logger
 
 
 MAX_COUNT_USERS_ON_PAGE = 20
@@ -36,6 +37,8 @@ def user_is_admin(func):
 				return func()
 			else:
 				# This user not an admin!
+				logger.warning(f"""User {current_user.username} tried connected to admin-panel. 
+								But he does not an admin""")
 				flash('You are not an admin!')
 				return redirect('/profile/')
 		else:
@@ -49,6 +52,7 @@ def user_is_admin(func):
 @login_required
 @user_is_admin
 def admin():
+	logger.info(f'User {current_user.username} success connected to url-admin.')
 	return render_template('admin.html')
 
 
@@ -56,6 +60,7 @@ def admin():
 @login_required
 @user_is_admin
 def admin_panel(page):
+	logger.info(f'User {current_user.username} success connected to admin-panel.')
 	form = SearchNeedPeopleForm()
 
 	# if form submit we redirected user with arguments which he provided us
@@ -113,13 +118,16 @@ def delete_user(id):
 			try:
 				db.session.delete(user)
 				db.session.commit()
+				logger.info(f'User {current_user.username} success delete account: {user.username}.')
 				flash(f'Вы успешно удалили аккаунт: {user.username}')
 				return redirect('/admin-panel/1')
 
 			except Exception as e:
+				logger.error(f'failed to delete account from database. Error: {e}')
 				flash(f'Произошла ошибка: {e}. Не удалось удалить аккаунт')
 				return redirect(f'/delete-user/{id}/confirm')
 		else:
+			logger.warning(f'User {current_user.username} tried delete user account but he does not an admin.')
 			flash("""Доступ запрещен. Нужна админка 2 уровня. Или же вы пытаетесь удалить 
 				  админа 2 уровня будучи самим админом 2 уровня.""")
 			return redirect('/admin-panel/1')
@@ -141,13 +149,16 @@ def add_new_admin(id):
 				user.lvl_of_admin = 1
 				user.is_admin = True
 				db.session.commit()
+				logger.info(f'User {current_user.username} success added new admin: {name}')
 				flash(f'Вы успешно поставили на админку человека с никнеймом {name}')
 				return redirect('/admin-panel/1')
 				
 			except Exception as e:
+				logger.error(f'Error: {e}. Failed to add new admin')
 				flash(f'Произошла ошибка: {e}. Не удалось поставить {name} на админку.')
 				return redirect('/admin-panel/1')
 		else:
+			logger.warning(f'User {current_user.username} wanted add admin: {name} but he does not admin.')
 			flash("""Нужна админка 2 лвл. Или человек которого
 				  вы хотите поставить на админку уже админ.""")
 			return redirect('/admin-panel/1')
@@ -168,14 +179,18 @@ def take_admin_user(id):
 				user.is_admin = False
 				user.lvl_of_admin = 0
 				db.session.commit()
+				logger.info(f'ADMIN {current_user.username} success took the admin: {user.username}')
 				flash(f'Человек {user.username} был успешно снят с админки.')
 				return redirect('/admin-panel/1')
 
 			except Exception as e:
+				logger.error(f"""ADMIN {current_user.username} failed took the admin: {user.username}.
+								 Error: {e}""")
 				flash(f'Ошибка: {e}. Не удалось снять человека с админки.')
 				return redirect('/admin-panel/1')
 
 		else:
+			logger.warning(f"""User {current_user.username} failed took the admin: {user.username}""")
 			flash('Человек которого хотите снять не админ или у вас нехватает прав доступа.')
 			return redirect('/admin-panel/1')
 

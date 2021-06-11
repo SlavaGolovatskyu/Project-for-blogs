@@ -1,5 +1,4 @@
-import platform
-import os
+import platform, os
 
 requirements = open('requirements.txt', 'r').readlines()
 

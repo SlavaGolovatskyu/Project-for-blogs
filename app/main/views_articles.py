@@ -25,6 +25,8 @@ from app.models import (
 	Comment
 )
 
+from app.logg.logger import logger
+
 validator = Validators()
 
 # If you want to increase count posts on page 
@@ -50,14 +52,18 @@ def create_article():
 			if (validator.check_length(MIN_LENGTH_TEXT, request.form.get('text'), True) and 
 				validator.check_length(MAX_LENGTH_TEXT, request.form.get('text'))):
 				# an instance of the class that creates the new article
-				article = Article(title=request.form.get('title'), intro=request.form.get('intro'), 
+				title = request.form.get('title')
+				article = Article(title=title, intro=request.form.get('intro'), 
 								  text=request.form.get('text'), author_name=current_user.username,
 								  user_id=current_user.id)
 				try:
 					db.session.add(article)
 					db.session.commit()
+					logger.info(f'User {current_user.username} created article {title}')
 					return redirect('/posts/page/1')
-				except:
+				except Exception as e:
+					logger.error(f"""When user {current_user.username} tried create article an error occurred.
+									 Error: {e}""")
 					flash("Error. Сould not create article.")
 					return redirect(url_for('.create_article'))
 			else:
@@ -96,10 +102,13 @@ def update_user_post(article_id):
 					try:
 						# Saving changes
 						db.session.commit()
+						logger.info(f'User {current_user.username} success update article_id: {article.id}')
 						flash('Статья была успешно обновлена.')
 						return redirect('/posts/page/1')
 								
 					except Exception as e:
+						logger.error(f"""When user {current_user.username} tried update article an error occurred.
+										 Error: {e}""")
 						flash(f'Не удалось обновить статью. Ошибка: {e}')
 						return redirect(f'/posts/page/1')
 				else:
@@ -114,6 +123,7 @@ def update_user_post(article_id):
 		return render_template('update_post.html', article=article)
 
 	else:
+		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin, or founder')
 		return redirect('/posts/page/1')
 
 
@@ -128,14 +138,18 @@ def delete_post_user(article_id):
 		try:
 			db.session.delete(article)
 			db.session.commit()
+			logger.info(f'User {current_user.username} success delete user article: {article.id}')
 			flash('Ваша статья была успешно удалена.' if not current_user.is_admin else
 				  f'Статья человека: {name}, была успешно удалена.')
 			return redirect('/posts/page/1')
 
 		except Exception as e:
+			logger.error(f"""When user {current_user.username} tried delete article has an error occurred.
+							 Error: {e}""")
 			flash(f'Не удалось удалить статью. Ошибка: {e}')
 			return redirect('/posts/page/1')
 	else:
+		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin, or founder')
 		return redirect('/posts/page/1')
 
 
@@ -193,8 +207,11 @@ def post_detail(id):
 				db.session.add(comment)
 				# save changes
 				db.session.commit()
+				logger.info(f'User {current_user.username} wrote a comment: {text}')
 				return redirect(f'/post/{id}/detail')
 			else:
+				logger.warning(f"""Comment\' user {current_user.username} does not wrote.
+								   Because user will spam.""")
 				flash('Коментарий не был записан. Вы флудите или спамите.')
 				return redirect(f'/post/{id}/detail')
 		else:
@@ -226,6 +243,7 @@ def post_detail(id):
 
 @main.route('/posts/page/<int:page>')
 def posts(page):
+	logger.info(f'User {current_user.username} watching all articles on the site')
 	# Search count all posts in database
 	count_all_posts = Article.query.count()
 
@@ -265,6 +283,7 @@ def posts(page):
 @main.route('/user/posts/<int:page>')
 @login_required
 def user_posts(page):
+	logger.info(f'User {current_user.username} watching heself articles')
 	user = db.session.query(User).get(current_user.id)
 
 	all_posts_user = user.posts.count()
@@ -304,13 +323,17 @@ def delete_user_comment(id):
 			# deleting comment
 			db.session.delete(comment)
 			db.session.commit()
+			logger.info(f'User {current_user.username} has success delete comment {comment.id}.')
 			flash('Ваш коментарий был успешно удален.' if not current_user.is_admin
 				  else f'Коментарий {comment.author} был успешно удален.')
 			return redirect('/posts/page/1')
 			
 		except Exception as e:
+			logger.error(f"""When user {current_user.username} was wanted delete comment. 
+							 Has an error occured. Error: {e}""")
 			flash(f'При удалении коментария произошла ошибка: {e}')
 			return redirect('/posts/page/1')
 	else:
+		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin.')
 		flash('Нет доступа.')
 		return redirect('/posts/page/1')

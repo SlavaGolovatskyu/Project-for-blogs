@@ -10,12 +10,6 @@ document.querySelector(".send__msg").addEventListener('keyup', function(e) {
   }
 });
 
-
-socket.on('connect', function() {
-  socket.emit('connect_user', {'data': `user connected!`});
-});
-
-
 socket.on('get_online', function(online) {
   document.querySelector('.online').innerHTML = `Онлайн на сайте: ${online}`;
 })

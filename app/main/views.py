@@ -23,9 +23,3 @@ from app.models import User, Article
 def index():
 	return render_template('index.html')
 
-
-@main.route('/socket.io/?transport=polling&EIO=4')
-def test():
-	return 5
-
-
