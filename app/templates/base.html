@@ -25,15 +25,15 @@
 		    <a class="header__btn btn" href="{{ url_for('.index') }}">Главная</a>
 		    <a class="header__btn btn" href="/posts/page/1">Статьи</a>
 		    {% if current_user.is_authenticated %}
-				{% if current_user.is_admin %}
-					<a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
-				{% endif %}
-				<a href="/user/posts/1" class="header__btn btn">Мои статьи</a>
-				<a href="{{ url_for('.create_article') }}" class="header__btn btn">Создать статью</a>
-				<a href="{{ url_for('.user_profile') }}"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
-		    {% else %}
-			    <a href="{{ url_for('.login') }}" class="header__btn btn">Войти</a>
-			    <a href="{{ url_for('.sign_up') }}" class="header__btn btn">Регистрация</a>
+					{% if current_user.is_admin %}
+						<a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
+					{% endif %}
+						<a href="/user/posts/1" class="header__btn btn">Мои статьи</a>
+						<a href="{{ url_for('.create_article') }}" class="header__btn btn">Создать статью</a>
+						<a href="{{ url_for('.user_profile') }}"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
+			  {% else %}
+				  <a href="{{ url_for('.login') }}" class="header__btn btn">Войти</a>
+				  <a href="{{ url_for('.sign_up') }}" class="header__btn btn">Регистрация</a>
 		    {% endif %}
 		</nav>
 	</header>
@@ -42,8 +42,8 @@
 		<main class="form-sign text-center">
 			{% if get_flashed_messages(with_categories=true) %}
 				<div class="alert alert-info">
-					{% for category, message in get_flashed_messages(with_categories=true) %}
-						<spam class="{{ category }}">{{ message }}</spam>
+					{% for category, flashed_msg in get_flashed_messages(with_categories=true) %}
+						<spam class="{{ category }}">{{ flashed_msg }}</spam>
 					{% endfor %}
 				</div>
 			{% endif %}
@@ -64,7 +64,7 @@
           <textarea placeholder="Для отправки сообщения нажмите Enter" class="send__msg"></textarea>
         </div>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 	  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 	  <script src="{{ url_for('static', filename='js/socket_events.js') }}" defer></script>

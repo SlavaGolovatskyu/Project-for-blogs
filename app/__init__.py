@@ -1,4 +1,5 @@
-import os, config
+import os
+import config
 from flask import Flask
 from flask_migrate import Migrate, MigrateCommand
 from flask_sqlalchemy import SQLAlchemy

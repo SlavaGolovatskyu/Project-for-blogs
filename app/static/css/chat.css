@@ -89,13 +89,13 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.message::-webkit-scrollbar { width: 6px; height: 3px;}
+.message::-webkit-scrollbar { width: 6px; height: 3px; }
 .message::-webkit-scrollbar-button { background-color: #666; }
-.message::-webkit-scrollbar-track { background-color: #999;}
-.message::-webkit-scrollbar-track-piece { background-color: #ffffff;}
-.message::-webkit-scrollbar-thumb { height: 50px; background-color: #666;}
-.message::-webkit-scrollbar-corner { background-color: #999;}
-.message::-webkit-resizer { background-color: #666;}
+.message::-webkit-scrollbar-track { background-color: #999; }
+.message::-webkit-scrollbar-track-piece { background-color: #ffffff; }
+.message::-webkit-scrollbar-thumb { height: 50px; background-color: #666; }
+.message::-webkit-scrollbar-corner { background-color: #999; }
+.message::-webkit-resizer { background-color: #666; }
 
 .angle-left {
     transform: rotate(180deg);

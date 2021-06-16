@@ -243,7 +243,8 @@ def post_detail(id):
 
 @main.route('/posts/page/<int:page>')
 def posts(page):
-	logger.info(f'User {current_user.username} watching all articles on the site')
+	username = current_user.username if current_user.is_authenticated else 'Anymose'
+	logger.info(f'User {username} watching all articles on the site')
 	# Search count all posts in database
 	count_all_posts = Article.query.count()
 

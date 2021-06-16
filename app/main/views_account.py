@@ -51,15 +51,10 @@ def sign_up():
 	user = False
 	form = RegistrationForm()
 	if form.validate_on_submit():
-
-		try:
-			# Search account with username and email if account not found
-			# note the information
-			user = db.session.query(User).filter(User.email == form.email.data,
-												 User.username == form.username.data).first()
-		except:
-			pass
-
+		# Search account with username and email if account not found
+		# note the information
+		user = db.session.query(User).filter(User.email == form.email.data,
+											 User.username == form.username.data).first()
 		if not user:
 			person = User(username=form.username.data, email=form.email.data)
 			person.set_password(form.password.data)
@@ -69,13 +64,14 @@ def sign_up():
 				db.session.commit()
 				user = db.session.query(User).filter(User.email == form.email.data).first()
 
-				logger.info(f'User {current_user.username} success sign-up.')
+				logger.info(f'User {user.username} success sign-up.')
 
 				login_user(user, remember=form.remember.data)
 				return redirect(url_for('.user_profile'))
-			except:
-				logger.error('Failed to register an account')
-				flash('Ошибка. Не удалось зарегистрировать аккаунт.')
+
+			except Exception as e:
+				logger.error(f'Failed to register an account. Error: {e}')
+				flash(f'Ошибка: {e}. Не удалось зарегистрировать аккаунт.')
 				return redirect(url_for('.sign_up'))
 		else:
 			flash("Аккаунт с таким логином или почтой уже существует.")
@@ -100,15 +96,15 @@ def login():
 
 		user = db.session.query(User).filter(User.email == form.email.data).first()
 		if user and user.check_password(form.password.data):
-			logger.info(f'User {current_user.username} success sign-in.')
 			login_user(user, remember=form.remember.data)
+			logger.info(f'User {current_user.username} success sign-in.')
 
 			if user.is_admin:
 				return redirect(url_for('.admin'))
 			else:
 				return redirect(url_for('.user_profile'))
 
-		logger.info(f'User {current_user.username} failed sign-in.')
+		logger.info(f'Anymouse user failed sign-in.')
 		flash("Invalid email/password", 'error')
 		return redirect(url_for('.login'))
 
@@ -118,6 +114,6 @@ def login():
 @main.route('/profile/')
 @login_required
 def user_profile():
-	logger.info(f'User {current_user.username} watching herself profile.')
+	logger.info(f'User {current_user.username} watching himself profile.')
 	user = User.query.get(current_user.id)
 	return render_template('profile.html', user=user)
