@@ -46,15 +46,18 @@ max_length_comment = 500
 @login_required
 def create_article():
 	if request.method == 'POST':
-		if (validator.check_length(max_length_title, request.form.get('title')) and 
-			validator.check_length(max_length_intro, request.form.get('intro'))):
+		title = request.form.get('title')
+		intro = request.form.get('intro')
+		text = request.form.get('text')
 
-			if (validator.check_length(MIN_LENGTH_TEXT, request.form.get('text'), True) and 
-				validator.check_length(MAX_LENGTH_TEXT, request.form.get('text'))):
+		if (validator.check_length(max_length_title, title) and 
+			validator.check_length(max_length_intro, intro)):
+
+			if (validator.check_length(MIN_LENGTH_TEXT, text, True) and 
+				validator.check_length(MAX_LENGTH_TEXT, text)):
 				# an instance of the class that creates the new article
-				title = request.form.get('title')
-				article = Article(title=title, intro=request.form.get('intro'), 
-								  text=request.form.get('text'), author_name=current_user.username,
+				article = Article(title=title, intro=intro, 
+								  text=text, author_name=current_user.username,
 								  user_id=current_user.id)
 				try:
 					db.session.add(article)
@@ -193,10 +196,9 @@ def post_detail(id):
 		text = request.form.get('text')
 
 		# cheking if comments not in database 
-		check_on_spam = Comment.query.filter(Comment.text == text,
-											 Comment.post_id == id).count()
+		check_on_spam = article.comments.filter(Comment.text == text,
+											 	Comment.post_id == id).count()
 
-		# checking length 
 		if validator.check_length(max_length_comment, text):
 			if check_on_spam < 2:
 				# create object with data
@@ -218,10 +220,10 @@ def post_detail(id):
 			flash('Слишком длинный коментарий. Максимальная длинна 500 символов.')
 			return redirect(f'/post/{id}/detail')
 
-	# if user loged in hiself account
+	# if user loged in himself account
 	elif not current_user.is_anonymous:
-		user_viewed = UsersWhichViewedPost.query.filter(UsersWhichViewedPost.user_id == current_user.id,
-														UsersWhichViewedPost.post_id == id).first()
+		user_viewed = article.users_which_viewed_post.filter(UsersWhichViewedPost.user_id == current_user.id,
+															 UsersWhichViewedPost.post_id == id).first()
 		# checking if user watched article in past
 		if not user_viewed and article.user_id != current_user.id:
 			# Added one to count_views.

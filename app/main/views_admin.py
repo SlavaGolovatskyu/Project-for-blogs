@@ -80,8 +80,6 @@ def admin_panel(page):
 
 	users_need = []
 
-	count_all_user = []
-
 	if username or email or username and email:
 		users_need = User.query.filter(User.username.like(f'%{username}%'), 
 									   User.email.like(f'%{email}%')).all()
