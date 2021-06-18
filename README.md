@@ -13,6 +13,10 @@ UPD (10.06.21)
 After the announcement of the end of work on the project. It occurred to me to add to it a chat built on sockets. 
 Now the main targets are: add mut(-), ban(-), update the chat itself(+), as well as logs(+)
 
+18.06.21
+From Project i deleted database sqlite3 because she does not can drop column from table. 
+From this day i will use only PostgreSQL maybe sometimes MySQL
+
 ## If you want starting my project you must do:
 * Instaling Python
 * git clone https://github.com/SlavaGolovatskyu/Project-for-blogs.git
