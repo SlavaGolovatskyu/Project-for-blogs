@@ -17,5 +17,5 @@ Now the main targets are: add mut(-), ban(-), update the chat itself(+), as well
 * Instaling Python
 * git clone https://github.com/SlavaGolovatskyu/Project-for-blogs.git
 * cd Project-for-blogs
-* python auto_install_modules.py
+* pip install -r requirements.txt
 * python runner.py
