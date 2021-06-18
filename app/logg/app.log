@@ -1044,3 +1044,254 @@ lkuikuyi
 [18-06-2021 11:33:09] [INFO] => User "121" disconnected
 [18-06-2021 11:33:35] [INFO] => app-for-blogs stoped
 [18-06-2021 11:33:36] [INFO] => app-for-blogs stoped
+[18-06-2021 15:44:07] [INFO] => Registered main_blueprint
+[18-06-2021 15:44:07] [INFO] => Created object app
+[18-06-2021 15:44:07] [INFO] => app-for-blogs success started
+[18-06-2021 15:44:07] [INFO] =>  * Restarting with stat
+[18-06-2021 15:44:10] [INFO] => Registered main_blueprint
+[18-06-2021 15:44:10] [INFO] => Created object app
+[18-06-2021 15:44:10] [INFO] => app-for-blogs success started
+[18-06-2021 15:44:10] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:44:10] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:44:41] [INFO] => app-for-blogs stoped
+[18-06-2021 15:44:41] [INFO] => app-for-blogs stoped
+[18-06-2021 15:44:44] [INFO] => Registered main_blueprint
+[18-06-2021 15:44:44] [INFO] => Created object app
+[18-06-2021 15:44:44] [INFO] => app-for-blogs success started
+[18-06-2021 15:44:44] [INFO] =>  * Restarting with stat
+[18-06-2021 15:44:46] [INFO] => Registered main_blueprint
+[18-06-2021 15:44:46] [INFO] => Created object app
+[18-06-2021 15:44:46] [INFO] => app-for-blogs success started
+[18-06-2021 15:44:46] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:44:46] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:44:48] [INFO] => User "test" connected
+[18-06-2021 15:44:49] [INFO] => User "test" disconnected
+[18-06-2021 15:44:49] [INFO] => User test watching himself profile.
+[18-06-2021 15:44:53] [INFO] => User "test" connected
+[18-06-2021 15:44:53] [INFO] => User "test" disconnected
+[18-06-2021 15:44:53] [INFO] => User test have been logged out.
+[18-06-2021 15:45:40] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:45:40] [INFO] =>  * Restarting with stat
+[18-06-2021 15:45:43] [INFO] => Registered main_blueprint
+[18-06-2021 15:45:43] [INFO] => Created object app
+[18-06-2021 15:45:43] [INFO] => app-for-blogs success started
+[18-06-2021 15:45:43] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:45:43] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:45:57] [INFO] => User t12 success sign-up.
+[18-06-2021 15:45:57] [INFO] => User t12 watching himself profile.
+[18-06-2021 15:45:58] [INFO] => User "t12" connected
+[18-06-2021 15:46:00] [INFO] => User "t12" disconnected
+[18-06-2021 15:46:00] [INFO] => User t12 have been logged out.
+[18-06-2021 15:46:27] [INFO] => User t12 success sign-in.
+[18-06-2021 15:46:27] [INFO] => User t12 watching himself profile.
+[18-06-2021 15:46:27] [INFO] => User "t12" connected
+[18-06-2021 15:46:29] [INFO] => User "t12" disconnected
+[18-06-2021 15:46:29] [INFO] => User t12 watching all articles on the site
+[18-06-2021 15:46:30] [INFO] => User "t12" connected
+[18-06-2021 15:46:30] [INFO] => User "t12" disconnected
+[18-06-2021 15:46:31] [INFO] => User "t12" connected
+[18-06-2021 15:46:32] [INFO] => User "t12" disconnected
+[18-06-2021 15:46:33] [INFO] => User "t12" connected
+[18-06-2021 15:46:35] [INFO] => User "t12" disconnected
+[18-06-2021 15:46:35] [INFO] => User t12 watching all articles on the site
+[18-06-2021 15:46:35] [INFO] => User "t12" connected
+[18-06-2021 15:46:41] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:46:41] [INFO] =>  * Restarting with stat
+[18-06-2021 15:46:43] [INFO] => Registered main_blueprint
+[18-06-2021 15:46:43] [INFO] => Created object app
+[18-06-2021 15:46:44] [INFO] => app-for-blogs success started
+[18-06-2021 15:46:44] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:46:44] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:46:44] [INFO] => User "t12" connected
+[18-06-2021 15:47:44] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:47:44] [INFO] =>  * Restarting with stat
+[18-06-2021 15:47:47] [INFO] => Registered main_blueprint
+[18-06-2021 15:47:47] [INFO] => Created object app
+[18-06-2021 15:47:47] [INFO] => app-for-blogs success started
+[18-06-2021 15:47:47] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:47:47] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:47:49] [INFO] => User "t12" connected
+[18-06-2021 15:48:00] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:48:00] [INFO] =>  * Restarting with stat
+[18-06-2021 15:48:02] [INFO] => Registered main_blueprint
+[18-06-2021 15:48:02] [INFO] => Created object app
+[18-06-2021 15:48:02] [INFO] => app-for-blogs success started
+[18-06-2021 15:48:02] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:48:02] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:48:03] [INFO] => User "t12" connected
+[18-06-2021 15:51:34] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[18-06-2021 15:51:34] [INFO] =>  * Restarting with stat
+[18-06-2021 15:51:37] [INFO] => Registered main_blueprint
+[18-06-2021 15:51:37] [INFO] => Created object app
+[18-06-2021 15:51:37] [INFO] => app-for-blogs success started
+[18-06-2021 15:51:37] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:51:37] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:51:38] [INFO] => User "t12" connected
+[18-06-2021 15:52:55] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:52:55] [INFO] =>  * Restarting with stat
+[18-06-2021 15:52:58] [INFO] => Registered main_blueprint
+[18-06-2021 15:52:58] [INFO] => Created object app
+[18-06-2021 15:52:58] [INFO] => app-for-blogs success started
+[18-06-2021 15:52:58] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:52:58] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:53:01] [INFO] => User "t12" connected
+[18-06-2021 15:53:05] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:53:05] [INFO] =>  * Restarting with stat
+[18-06-2021 15:53:07] [INFO] => Registered main_blueprint
+[18-06-2021 15:53:07] [INFO] => Created object app
+[18-06-2021 15:53:07] [INFO] => app-for-blogs success started
+[18-06-2021 15:53:07] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:53:07] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:53:07] [INFO] => User "t12" connected
+[18-06-2021 15:53:10] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 15:53:10] [INFO] =>  * Restarting with stat
+[18-06-2021 15:53:13] [INFO] => Registered main_blueprint
+[18-06-2021 15:53:13] [INFO] => Created object app
+[18-06-2021 15:53:13] [INFO] => app-for-blogs success started
+[18-06-2021 15:53:13] [WARNING] =>  * Debugger is active!
+[18-06-2021 15:53:13] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 15:53:13] [INFO] => User "t12" connected
+[18-06-2021 15:57:40] [INFO] => User "t12" disconnected
+[18-06-2021 15:57:41] [INFO] => User t12 watching himself profile.
+[18-06-2021 15:57:41] [INFO] => User "t12" connected
+[18-06-2021 15:57:42] [INFO] => User "t12" disconnected
+[18-06-2021 15:57:42] [INFO] => User t12 have been logged out.
+[18-06-2021 15:58:07] [INFO] => User !@#$%^&*()<>, success sign-up.
+[18-06-2021 15:58:07] [INFO] => User !@#$%^&*()<>, watching himself profile.
+[18-06-2021 15:58:08] [INFO] => User "!@#$%^&*()<>," connected
+[18-06-2021 15:58:18] [INFO] => User "!@#$%^&*()<>," disconnected
+[18-06-2021 15:58:18] [INFO] => User !@#$%^&*()<>, have been logged out.
+[18-06-2021 15:58:51] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` success sign-up.
+[18-06-2021 15:58:51] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching himself profile.
+[18-06-2021 15:58:51] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:58:56] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:58:56] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 15:58:56] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:58:57] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:58:57] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching heself articles
+[18-06-2021 15:58:58] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:58:58] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:58:59] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:03] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:03] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` created article nytjut
+[18-06-2021 15:59:03] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 15:59:04] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:07] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:07] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:13] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:13] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` wrote a comment: utjkuytjk
+[18-06-2021 15:59:13] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:15] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:15] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` wrote a comment: juytuykuyik
+[18-06-2021 15:59:16] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:25] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:25] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` has success delete comment 5.
+[18-06-2021 15:59:25] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 15:59:26] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:29] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:29] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:32] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:32] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` wrote a comment: 1111111111
+[18-06-2021 15:59:33] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:38] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:39] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:43] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:43] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 15:59:43] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 15:59:46] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 15:59:46] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 15:59:46] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:00] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:00] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 16:00:00] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:14] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:14] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching himself profile.
+[18-06-2021 16:00:14] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:15] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:15] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 16:00:15] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:16] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:16] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching heself articles
+[18-06-2021 16:00:17] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:18] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:18] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 16:00:18] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:19] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:20] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:20] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:20] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching all articles on the site
+[18-06-2021 16:00:21] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:38] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:38] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` watching himself profile.
+[18-06-2021 16:00:38] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" connected
+[18-06-2021 16:00:39] [INFO] => User "!@#$%^&*()<>,/;'][\=-+~~```" disconnected
+[18-06-2021 16:00:39] [INFO] => User !@#$%^&*()<>,/;'][\=-+~~``` have been logged out.
+[18-06-2021 16:00:46] [INFO] => User test success sign-in.
+[18-06-2021 16:00:46] [INFO] => User test success connected to url-admin.
+[18-06-2021 16:00:46] [INFO] => User "test" connected
+[18-06-2021 16:00:47] [INFO] => User "test" disconnected
+[18-06-2021 16:00:47] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:00:50] [INFO] => User "test" connected
+[18-06-2021 16:00:54] [INFO] => User "test" disconnected
+[18-06-2021 16:00:54] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:00:54] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:00:55] [INFO] => User "test" connected
+[18-06-2021 16:00:58] [INFO] => User "test" disconnected
+[18-06-2021 16:00:58] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:00:58] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:00:59] [INFO] => User "test" connected
+[18-06-2021 16:01:12] [INFO] => User "test" disconnected
+[18-06-2021 16:01:12] [INFO] => User test watching heself articles
+[18-06-2021 16:01:12] [INFO] => User "test" connected
+[18-06-2021 16:01:31] [INFO] => User "test" send a message: ukhikl
+[18-06-2021 16:01:43] [INFO] => User "test" disconnected
+[18-06-2021 16:01:43] [INFO] => User test watching himself profile.
+[18-06-2021 16:01:44] [INFO] => User "test" connected
+[18-06-2021 16:01:54] [INFO] => User "test" disconnected
+[18-06-2021 16:01:54] [INFO] => User test success connected to url-admin.
+[18-06-2021 16:01:54] [INFO] => User "test" connected
+[18-06-2021 16:01:58] [INFO] => User "test" disconnected
+[18-06-2021 16:01:58] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:02:01] [INFO] => User "test" connected
+[18-06-2021 16:02:09] [INFO] => User "test" disconnected
+[18-06-2021 16:02:09] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:02:12] [INFO] => User "test" connected
+[18-06-2021 16:02:16] [INFO] => User "test" disconnected
+[18-06-2021 16:02:16] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:02:19] [INFO] => User "test" connected
+[18-06-2021 16:02:29] [INFO] => User "test" disconnected
+[18-06-2021 16:02:29] [INFO] => User "test" connected
+[18-06-2021 16:02:30] [INFO] => User "test" disconnected
+[18-06-2021 16:02:30] [INFO] => User test success added new admin: SQL7VeJU9iehyVgv7bWa9U9YaXNaxK
+[18-06-2021 16:02:30] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:02:33] [INFO] => User "test" connected
+[18-06-2021 16:02:36] [INFO] => User "test" disconnected
+[18-06-2021 16:02:36] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:02:36] [INFO] => User test success connected to admin-panel.
+[18-06-2021 16:02:36] [INFO] => User "test" connected
+[18-06-2021 16:03:22] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 16:03:22] [INFO] =>  * Restarting with stat
+[18-06-2021 16:03:24] [INFO] => Registered main_blueprint
+[18-06-2021 16:03:24] [INFO] => Created object app
+[18-06-2021 16:03:24] [INFO] => app-for-blogs success started
+[18-06-2021 16:03:24] [WARNING] =>  * Debugger is active!
+[18-06-2021 16:03:24] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 16:03:24] [INFO] => User "test" connected
+[18-06-2021 16:03:51] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 16:03:52] [INFO] =>  * Restarting with stat
+[18-06-2021 16:03:54] [INFO] => Registered main_blueprint
+[18-06-2021 16:03:54] [INFO] => Created object app
+[18-06-2021 16:03:54] [INFO] => app-for-blogs success started
+[18-06-2021 16:03:54] [WARNING] =>  * Debugger is active!
+[18-06-2021 16:03:54] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 16:03:54] [INFO] => User "test" connected
+[18-06-2021 16:07:09] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\validators.py', reloading
+[18-06-2021 16:07:09] [INFO] =>  * Restarting with stat
+[18-06-2021 16:07:12] [INFO] => Registered main_blueprint
+[18-06-2021 16:07:12] [INFO] => Created object app
+[18-06-2021 16:07:12] [INFO] => app-for-blogs success started
+[18-06-2021 16:07:12] [WARNING] =>  * Debugger is active!
+[18-06-2021 16:07:12] [INFO] =>  * Debugger PIN: 179-572-875
+[18-06-2021 16:07:15] [INFO] => User "test" connected
+[18-06-2021 16:07:24] [INFO] => app-for-blogs stoped
+[18-06-2021 16:07:24] [INFO] => app-for-blogs stoped

@@ -5,8 +5,7 @@ from flask import (
 	render_template, 
 	url_for, 
 	redirect, 
-	flash, 
-	session
+	flash
 )
 
 from flask_login import (
@@ -24,6 +23,9 @@ from .forms import (
 from .validators import Validators
 from app.models import User, Article
 from app.logg.logger import logger
+
+
+validator = Validators()
 
 
 #-----------------All actions with accounts, login, registration, logout----------------
@@ -51,11 +53,10 @@ def sign_up():
 	user = False
 	form = RegistrationForm()
 	if form.validate_on_submit():
-		# Search account with username and email if account not found
-		# note the information
-		user = db.session.query(User).filter(User.email == form.email.data,
-											 User.username == form.username.data).first()
-		if not user:
+		# validate information
+		username = validator.validate_username(form.username.data)
+		email = validator.validate_email(form.email.data)
+		if not email and not username:
 			person = User(username=form.username.data, email=form.email.data)
 			person.set_password(form.password.data)
 

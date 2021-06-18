@@ -195,11 +195,12 @@ def post_detail(id):
 	if request.method == 'POST':
 		text = request.form.get('text')
 
-		# cheking if comments not in database 
+		# search comment like it in database 
 		check_on_spam = article.comments.filter(Comment.text == text,
 											 	Comment.post_id == id).count()
 
 		if validator.check_length(max_length_comment, text):
+			# If comments does not in database we will creating new comment
 			if check_on_spam < 2:
 				# create object with data
 				comment = Comment(text=text, author=current_user.username,
