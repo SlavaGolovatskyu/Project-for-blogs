@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @login_manager.user_loader
 def load_user(user_id):
-    return db.session.query(User).get(user_id)
+	return db.session.query(User).get(user_id)
 
 
 class User(db.Model, UserMixin):
@@ -63,7 +63,6 @@ class Comment(db.Model):
 	id = db.Column(db.Integer(), primary_key=True)
 	text = db.Column(db.String(500), nullable=False)
 	author = db.Column(db.String(50), nullable=False)
-	author_id = db.Column(db.Integer(), nullable=False)
 	date = db.Column(db.DateTime, default=datetime.utcnow)
 
 	user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))

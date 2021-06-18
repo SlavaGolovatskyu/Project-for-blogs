@@ -1,5 +1,5 @@
 from app.logg.logger import logger
-from settings_for_start import app, socket
+from settings_for_start import socket, app
 
 
 if __name__ == '__main__':

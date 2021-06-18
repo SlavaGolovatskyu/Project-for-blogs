@@ -33,7 +33,7 @@
 		<div class="alert alert-info">
 			{% for comment in comments %}
 				<p><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img">    {{ comment.author }}                                                  		{{ comment.date.strftime("%d/%m/%Y, %H:%M") }}
-					{% if current_user.id == comment.author_id or current_user.is_admin %}
+					{% if current_user.id == comment.user_id or current_user.is_admin %}
 						<a href="/comment/{{ comment.id }}/delete" class="btn btn-danger">Удалить</a>
 					{% endif %}
 				</p>

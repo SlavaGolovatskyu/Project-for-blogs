@@ -7,10 +7,10 @@ from flask_socketio import SocketIO, emit
 from app.logg.logger import logger
 
 from app.models import (
-	User, 
-	Article,
-	UsersWhichViewedPost,
-	Comment
+    User,
+    Article,
+    UsersWhichViewedPost,
+    Comment
 )
 
 app = create_app(os.getenv('FLASK_ENV') or 'config.DevelopementConfig')
@@ -19,17 +19,17 @@ manager = Manager(app)
 
 socket = SocketIO(app)
 
+
 # эти переменные доступны внутри оболочки без явного импорта
 def make_shell_context():
     return dict(app=app, db=db, User=User, Article=Article,
-    		    UsersWhichViewedPost=UsersWhichViewedPost, Comment=Comment)
+                UsersWhichViewedPost=UsersWhichViewedPost, Comment=Comment)
+
 
 manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
-
-
-#----------------WEB-CHAT---------------------#
+# ----------------WEB-CHAT---------------------#
 
 COUNT_ONLINE_USERS = 0
 
@@ -56,4 +56,4 @@ def send_message(data: dict):
     logger.info(f'User \"{current_user.username}\" send a message: {msg}')
     emit('take_msg', (current_user.username, msg), broadcast=True)
 
-#----------------WEB-CHAT---------------------#
+# ----------------WEB-CHAT---------------------#
