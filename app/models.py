@@ -144,12 +144,12 @@ class Role(db.Model):
 	}
 
 	def insert_role(self):
-		for r in self.roles:
+		for role in self.roles:
 			# Variable will be or None or she will be have list with role
-			role = Role.query.filter_by(name=r).first()
-			if not role:
-				role = Role(name=r)
-			role.permissions = self.roles[r][0]
-			role.default = self.roles[r][1]
-			db.session.add(role)
+			new_role = Role.query.filter_by(name=r).first()
+			if not new_role:
+				new_role = Role(name=r)
+			new_role.permissions = self.roles[role][0]
+			new_role.default = self.roles[role][1]
+			db.session.add(new_role)
 		db.session.commit()
