@@ -2,15 +2,15 @@ from app import db
 from . import main
 
 from flask import (
-	render_template, 
-	url_for, 
-	redirect, 
+	render_template,
+	url_for,
+	redirect,
 	flash
 )
 
 from flask_login import (
 	login_required,
-	login_user, 
+	login_user,
 	logout_user,
 	current_user
 )
@@ -24,13 +24,12 @@ from .validators import Validators
 from app.models import User, Article
 from app.logg.logger import logger
 
-
 validator = Validators()
 
 
-#-----------------All actions with accounts, login, registration, logout----------------
+# -----------------All actions with accounts, login, registration, logout----------------
 
-#-------------LOGOUT FROM ACCOUNT-----------------
+# -------------LOGOUT FROM ACCOUNT-----------------
 @main.route('/logout/', methods=['post', 'get'])
 @login_required
 def logout():
@@ -40,12 +39,12 @@ def logout():
 	return redirect(url_for('.login'))
 
 
-#----------------SIGN-UP ACCOUNT-----------------------
+# ----------------SIGN-UP ACCOUNT-----------------------
 @main.route('/sign-up/', methods=['post', 'get'])
 def sign_up():
-	# check if user logined in himself account and if user is admin or no
+	# check if user login in himself account and if user is admin or no
 	if current_user.is_authenticated:
-		if current_user.is_admin:
+		if current_user.is_administrator():
 			return redirect(url_for('.admin'))
 		else:
 			return redirect(url_for('.user_profile'))
@@ -79,11 +78,12 @@ def sign_up():
 			return redirect(url_for('.sign_up'))
 
 	return render_template('sign-up.html', form=form)
-#-------------------------------------------------------
 
 
+# -------------------------------------------------------
 
-#----------------SIGN-IN ACCOUNT------------------------
+
+# ----------------SIGN-IN ACCOUNT------------------------
 @main.route('/login/', methods=['post', 'get'])
 def login():
 	if current_user.is_authenticated:
@@ -100,7 +100,7 @@ def login():
 			login_user(user, remember=form.remember.data)
 			logger.info(f'User {current_user.username} success sign-in.')
 
-			if user.is_admin:
+			if user.is_administrator():
 				return redirect(url_for('.admin'))
 			else:
 				return redirect(url_for('.user_profile'))

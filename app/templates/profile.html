@@ -25,9 +25,6 @@
 		<p class="email">Почта: {{ current_user.email }}</p>
 		<p class="count_yourself_posts">Количество ваших статей: {{ user.posts.count() }}</p>
 		<p class="dataReg">Дата регистрации аккаунта: {{ current_user.created_on.strftime("%d/%m/%Y, %H:%M:%S") }}</p>
-		{% if current_user.is_admin %}
-			<p class='is_admin'>Is_Admin: {{ current_user.is_admin }}</p>
-		{% endif %}
 		<p><a href="{{ url_for('.logout') }}" class="btn btn-dark">Выйти из аккаунта</a></p>
 	</div>
 	<br>

@@ -111,13 +111,13 @@ Adding new admin
 
 							{% if not user.is_admin %}
 								{% if current_user.lvl_of_admin > 1 %}
-								    <td><a href='/add-new-admin/{{ user.id }}/confirm' class='btn'>Сделать админом</a></td>
+								    <td><a href='/add-new-moderator/{{ user.id }}/confirm' class='btn'>Сделать админом</a></td>
 								{% else %}
 								  	<td><a>Не админ</a></td>
 								{% endif %}
 							{% else %}
 								{% if current_user.lvl_of_admin > user.lvl_of_admin %}
-								  	<td><a href="/take-admin/{{ user.id }}/confirm" class='btn'>Снять с админки</a></td>
+								  	<td><a href="/pick-up-moderator/{{ user.id }}/confirm" class='btn'>Снять с админки</a></td>
 								{% else %}
 								  	<td><a>Админ</a></td>
 								{% endif %}

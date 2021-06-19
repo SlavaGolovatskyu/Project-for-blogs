@@ -1,8 +1,11 @@
 from app import db, login_manager
 from datetime import datetime
 
+from flask import current_app
+
 from flask_login import (
-	UserMixin
+	UserMixin,
+	AnonymousUserMixin
 )
 
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,6 +14,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 @login_manager.user_loader
 def load_user(user_id):
 	return db.session.query(User).get(user_id)
+
+
+class Permission:
+	FOLLOW = 0x01
+	COMMENT = 0x02
+	WRITE_ARTICLES = 0x04
+	MODERATE_COMMENTS_AND_ARTICLES = 0x08
+	ADMINISTRATOR = 0x80
 
 
 class User(db.Model, UserMixin):
@@ -23,19 +34,48 @@ class User(db.Model, UserMixin):
 	lvl_of_admin = db.Column(db.Integer(), default=0)
 	is_banned = db.Column(db.Boolean(), default=False)
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
-	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)	
+	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
 
 	comments = db.relationship('Comment', cascade='all,delete-orphan', lazy='dynamic')
 	posts = db.relationship('Article', cascade='all,delete-orphan', lazy='dynamic')
+	role = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
-	def set_password(self, password):
+	def __init__(self, **kwargs):
+		super(User, self).__init__(**kwargs)
+		if self.role is None:
+			if self.email == 'slavik.golovatskyu@gmail.com':
+				self.role = Role.query.filter_by(permissions=0xff).first().id
+			if self.role is None:
+				self.role = Role.query.filter_by(default=True).first().id
+
+	def can(self, permissions) -> bool:
+		return self.role is not None and \
+			   (self.role.permissions & permissions) == permissions
+
+	def is_administrator(self) -> bool:
+		return self.can(Permission.ADMINISTRATOR)
+
+	def set_password(self, password: str) -> None:
 		self.password_hash = generate_password_hash(password)
 
-	def check_password(self, password):
+	def check_password(self, password: str) -> None:
 		return check_password_hash(self.password_hash, password)
 
 	def __repr__(self):
 		return "<Account %r>" % self.id
+
+
+class AnonymousUser(AnonymousUserMixin):
+	@staticmethod
+	def can():
+		return False
+
+	@staticmethod
+	def is_administrator():
+		return False
+
+
+login_manager.anonymous_user = AnonymousUser
 
 
 class Article(db.Model):
@@ -83,3 +123,33 @@ class UsersWhichViewedPost(db.Model):
 	def __repr__(self):
 		return "<UserWhichViewedPost %r>" % self.id
 
+
+class Role(db.Model):
+	__tablename__ = 'roles'
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(64), unique=True)
+	default = db.Column(db.Boolean, default=False, index=True)
+	permissions = db.Column(db.Integer)
+	users = db.relationship('User', backref='roles', lazy='dynamic')
+
+	roles = {
+		'User': (Permission.FOLLOW |
+				 Permission.COMMENT |
+				 Permission.WRITE_ARTICLES, True),
+		'Moderator': (Permission.FOLLOW |
+					  Permission.COMMENT |
+					  Permission.WRITE_ARTICLES |
+					  Permission.MODERATE_COMMENTS_AND_ARTICLES, False),
+		'Administrator': (0xff, False)
+	}
+
+	def insert_role(self):
+		for r in self.roles:
+			# Variable will be or None or she will be have list with role
+			role = Role.query.filter_by(name=r).first()
+			if not role:
+				role = Role(name=r)
+			role.permissions = self.roles[r][0]
+			role.default = self.roles[r][1]
+			db.session.add(role)
+		db.session.commit()
