@@ -42,7 +42,7 @@
 					{% endif %}
 				</p>
 				<a href="/post/{{ el.id }}/detail" class='btn btn-warning'>Детальнее</a>
-				{% if current_user.id == el.user_id or current_user.is_admin %}
+				{% if validate_art_or_com_of_the_owner(el.user_id) %}
 					<a href="/posts/{{ el.id }}/update" class='btn btn-success'>Обновить</a>
 					<a href="/posts/{{ el.id }}/delete" class='btn btn-danger'>Удалить</a>
 				{% endif %}

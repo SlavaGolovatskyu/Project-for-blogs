@@ -92,8 +92,7 @@ Adding new admin
 						<td>Почта</td>
 						<td>Дата регистрации</td>
 						<td>Забанен/Не забанен</td>
-						<td>Админ/Не админ</td>
-						<td>Уровень админки</td>
+						<td>Модератор/Не Модератор</td>
 						<td>Удаление аккаунта</td>
 					</tr>
 					{% for user in users %}
@@ -109,27 +108,23 @@ Adding new admin
 								<td>Забанен</td>
 							{% endif %}
 
-							{% if not user.is_admin %}
-								{% if current_user.lvl_of_admin > 1 %}
-								    <td><a href='/add-new-moderator/{{ user.id }}/confirm' class='btn'>Сделать админом</a></td>
+							{% if not user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
+								{% if current_user.is_administrator() %}
+								    <td><a href='/add-new-moderator/{{ user.id }}/confirm' class='btn'>Поставить на модератора</a></td>
 								{% else %}
-								  	<td><a>Не админ</a></td>
+								  	<td><a>Не модератор</a></td>
 								{% endif %}
 							{% else %}
-								{% if current_user.lvl_of_admin > user.lvl_of_admin %}
-								  	<td><a href="/pick-up-moderator/{{ user.id }}/confirm" class='btn'>Снять с админки</a></td>
+                                {% if user.is_administrator() %}
+                                    <td><a>Администратор</a></td>
+								{% elif current_user.is_administrator() and user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
+								  	<td><a href="/pick-up-moderator/{{ user.id }}/confirm" class='btn'>Снять с модераторки</a></td>
 								{% else %}
-								  	<td><a>Админ</a></td>
+								  	<td><a>Модератор</a></td>
 								{% endif %}
 							{% endif %}
 
-							{% if user.is_admin %}
-								<td>{{ user.lvl_of_admin }}</td>
-							{% else %}
-								<td>--</td>
-							{% endif %}
-
-							{% if current_user.lvl_of_admin == 2 and user.lvl_of_admin != 2 %}
+							{% if current_user.is_administrator() %}
 								<td><a href="/delete-user/{{ user.id }}/confirm" class='btn'>Удалить</a></td>
 							{% else %}
 								<td>Нет доступа</td>

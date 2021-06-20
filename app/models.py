@@ -1,7 +1,7 @@
 from app import db, login_manager
 from datetime import datetime
 
-from flask import current_app
+from .logg.logger import logger
 
 from flask_login import (
 	UserMixin,
@@ -17,11 +17,9 @@ def load_user(user_id):
 
 
 class Permission:
-	FOLLOW = 0x01
-	COMMENT = 0x02
-	WRITE_ARTICLES = 0x04
-	MODERATE_COMMENTS_AND_ARTICLES = 0x08
-	ADMINISTRATOR = 0x80
+	USUAL_USER = 4
+	MODERATE_COMMENTS_AND_ARTICLES = 8
+	ADMINISTRATOR = 16
 
 
 class User(db.Model, UserMixin):
@@ -30,27 +28,32 @@ class User(db.Model, UserMixin):
 	username = db.Column(db.String(50), nullable=False, unique=True)
 	email = db.Column(db.String(100), nullable=False, unique=True)
 	password_hash = db.Column(db.String(100), nullable=False)
-	is_admin = db.Column(db.Boolean(), default=False)
-	lvl_of_admin = db.Column(db.Integer(), default=0)
-	is_banned = db.Column(db.Boolean(), default=False)
+	role_id = db.Column(db.Integer)
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
 
 	comments = db.relationship('Comment', cascade='all,delete-orphan', lazy='dynamic')
 	posts = db.relationship('Article', cascade='all,delete-orphan', lazy='dynamic')
-	role = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
 	def __init__(self, **kwargs):
 		super(User, self).__init__(**kwargs)
-		if self.role is None:
-			if self.email == 'slavik.golovatskyu@gmail.com':
-				self.role = Role.query.filter_by(permissions=0xff).first().id
-			if self.role is None:
-				self.role = Role.query.filter_by(default=True).first().id
+		if self.role_id is None:
+			try:
+				if self.email == 'slavik.golovatskyu@gmail.com':
+					self.role_id = Role.query.filter_by(name='Administrator').first().id
+				if self.role_id is None:
+					self.role_id = Role.query.filter_by(default=True).first().id
+			except AttributeError:
+				logger.error('При создании аккаунта произошла ошибка. Роль не была найдена.')
+				self.role_id = self.role_id = Role.query.filter_by(default=True).first().id
+
+	def get_role(self):
+		return Role.query.filter_by(id=self.role_id).first()
 
 	def can(self, permissions) -> bool:
-		return self.role is not None and \
-			   (self.role.permissions & permissions) == permissions
+		r = self.get_role()
+		return self.role_id is not None and \
+			   (r.permissions & permissions) == permissions
 
 	def is_administrator(self) -> bool:
 		return self.can(Permission.ADMINISTRATOR)
@@ -58,7 +61,7 @@ class User(db.Model, UserMixin):
 	def set_password(self, password: str) -> None:
 		self.password_hash = generate_password_hash(password)
 
-	def check_password(self, password: str) -> None:
+	def check_password(self, password: str) -> bool:
 		return check_password_hash(self.password_hash, password)
 
 	def __repr__(self):
@@ -130,26 +133,25 @@ class Role(db.Model):
 	name = db.Column(db.String(64), unique=True)
 	default = db.Column(db.Boolean, default=False, index=True)
 	permissions = db.Column(db.Integer)
-	users = db.relationship('User', backref='roles', lazy='dynamic')
 
-	roles = {
-		'User': (Permission.FOLLOW |
-				 Permission.COMMENT |
-				 Permission.WRITE_ARTICLES, True),
-		'Moderator': (Permission.FOLLOW |
-					  Permission.COMMENT |
-					  Permission.WRITE_ARTICLES |
-					  Permission.MODERATE_COMMENTS_AND_ARTICLES, False),
-		'Administrator': (0xff, False)
-	}
+	@staticmethod
+	def insert_role():
+		roles = {
+			'User': (Permission.USUAL_USER, True),
+			'Moderator': (Permission.USUAL_USER | Permission.MODERATE_COMMENTS_AND_ARTICLES, False),
+			'Administrator': (Permission.USUAL_USER | Permission.MODERATE_COMMENTS_AND_ARTICLES |
+							  Permission.ADMINISTRATOR, False)
+		}
 
-	def insert_role(self):
-		for role in self.roles:
+		for role in roles:
 			# Variable will be or None or she will be have list with role
-			new_role = Role.query.filter_by(name=r).first()
+			new_role = Role.query.filter_by(name=role).first()
 			if not new_role:
-				new_role = Role(name=r)
-			new_role.permissions = self.roles[role][0]
-			new_role.default = self.roles[role][1]
+				new_role = Role(name=role)
+			new_role.permissions = roles[role][0]
+			new_role.default = roles[role][1]
 			db.session.add(new_role)
 		db.session.commit()
+
+	def __repr__(self):
+		return "<Role %r>" % self.id

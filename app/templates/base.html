@@ -12,7 +12,7 @@
 	{% block after_bootstrap %}{% endblock %}
 	<title>{% block title %}{% endblock %}</title>
 	<style>
-		{% if current_user.is_admin %}
+		{% if current_user.is_administrator() %}
 			.header__btn {
 				width: 15%;
 			}
@@ -25,7 +25,7 @@
 		    <a class="header__btn btn" href="{{ url_for('.index') }}">Главная</a>
 		    <a class="header__btn btn" href="/posts/page/1">Статьи</a>
 		    {% if current_user.is_authenticated %}
-					{% if current_user.is_admin %}
+					{% if current_user.is_administrator() %}
 						<a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
 					{% endif %}
 						<a href="/user/posts/1" class="header__btn btn">Мои статьи</a>
@@ -64,10 +64,10 @@
           <textarea placeholder="Для отправки сообщения нажмите Enter" class="send__msg"></textarea>
         </div>
       </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>#}
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-	    <script src="{{ url_for('static', filename='js/socket_events.js') }}" defer></script>
+{#	    <script src="{{ url_for('static', filename='js/socket_events.js') }}" defer></script>#}
 	    <script src="{{ url_for('static', filename='js/settings_chat.js') }}" defer></script>
 	{% endif %}
 </body>

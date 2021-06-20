@@ -21,7 +21,7 @@ from .forms import (
 )
 
 from .validators import Validators
-from app.models import User, Article
+from app.models import User
 from app.logg.logger import logger
 
 validator = Validators()
@@ -87,7 +87,7 @@ def sign_up():
 @main.route('/login/', methods=['post', 'get'])
 def login():
 	if current_user.is_authenticated:
-		if current_user.is_admin:
+		if current_user.is_administrator():
 			return redirect(url_for('.admin'))
 		else:
 			return redirect(url_for('.user_profile'))

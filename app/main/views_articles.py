@@ -143,8 +143,7 @@ def delete_post_user(article_id):
 			db.session.delete(article)
 			db.session.commit()
 			logger.info(f'User {current_user.username} success delete user article with id: {article.id}')
-			flash('Ваша статья была успешно удалена.' if not current_user.is_administrator() else
-				  f'Статья человека: {name}, была успешно удалена.')
+			flash(f'Статья человека: {name} была успешно удалена.')
 			return redirect('/posts/page/1')
 
 		except Exception as e:
@@ -153,7 +152,7 @@ def delete_post_user(article_id):
 			flash(f'Не удалось удалить статью. Ошибка: {e}')
 			return redirect('/posts/page/1')
 	else:
-		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin, or founder')
+		logger.warning(f'User {current_user.username} wanted delete article. But he does not admin, or founder')
 		abort(403)
 
 
@@ -170,17 +169,12 @@ def post_detail(id):
 
 	page = 1
 
-	try:
-		# takes argument from url address'
-		data = request.args.get('count', '')
-		# checking if there are data and if data is number
-		if data and data.isdigit():
-			# change count comments which we upload on page
-			CURRENT_COUNT_COMMENTS_ON_PAGE = int(data)
-
-	except Exception as e:
-		flash(f'Ошибка: {e}')
-		return redirect(f'/post/{id}/detail')
+	# takes argument from url address'
+	data = request.args.get('count', '')
+	# checking if there are data and if data is number
+	if data and data.isdigit():
+		# change count comments which we upload on page
+		CURRENT_COUNT_COMMENTS_ON_PAGE = int(data)
 
 	# first and second index'es important for us because we search information in database
 	# after this we took array with information and after this we search need info
@@ -270,7 +264,7 @@ def posts(page):
 	# Needed posts (max MAX_COUNT_POSTS_ON_PAGE)
 	articles_need = Article.query.order_by((Article.date.desc() if method_for_sorting == 'date'
 											else Article.count_views.desc())) \
-		[search_first_index: search_second_index]
+											[search_first_index: search_second_index]
 
 	# If User input incorrect page in URL address'
 	if page > count_dynamic_pages and count_all_posts != 0 or page == 0:
@@ -325,8 +319,7 @@ def delete_user_comment(id):
 			db.session.delete(comment)
 			db.session.commit()
 			logger.info(f'User {current_user.username} has success delete comment {comment.id}.')
-			flash('Ваш коментарий был успешно удален.' if not current_user.is_admin
-				  else f'Коментарий {comment.author} был успешно удален.')
+			flash(f'Коментарий человека: {comment.author} был успешно удален.')
 			return redirect('/posts/page/1')
 
 		except Exception as e:

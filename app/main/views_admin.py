@@ -114,16 +114,22 @@ def give_moderator(id):
 	name = user.username
 	msg = f'Вы действительно хотите поставить на модератора {name}?'
 	if request.method == 'POST':
-		try:
-			user.role = Role.roles['Moderator']
-			db.session.commit()
-			logger.info(f'User {current_user.username} success added new moderator: {name}')
-			flash(f'Вы успешно поставили на модератора человека с никнеймом {name}')
-			return redirect('/admin-panel/1')
+		if not user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES):
+			try:
+				user.role_id = Role.query.filter(Role.name=='Moderator').first().id
+				db.session.commit()
+				logger.info(f'User {current_user.username} success added new moderator: {name}')
+				flash(f'Вы успешно поставили на модератора человека с никнеймом {name}')
+				return redirect('/admin-panel/1')
 
-		except Exception as e:
-			logger.error(f'Error: {e}. Failed to add new admin')
-			flash(f'Произошла ошибка: {e}. Не удалось поставить {name} на админку.')
+			except Exception as e:
+				logger.error(f'Error: {e}. Failed to add new moderator')
+				flash(f'Произошла ошибка: {e}. Не удалось поставить {name} на админку.')
+				return redirect('/admin-panel/1')
+		else:
+			logger.warning(f'Admin: {current_user.username} tried give moderator user: {name} but \
+							 he is still moderator')
+			flash(f'Человек: {name} уже модератор!')
 			return redirect('/admin-panel/1')
 	return render_template('confirm.html', user=user, msg=msg)
 
@@ -135,17 +141,22 @@ def pick_up_the_moderator(id):
 	user = User.query.get_or_404(id)
 	msg = f'Вы действительно хотите снять с админки {user.username}?'
 	if request.method == 'POST':
-		try:
-			user.role = Role.roles['User']
-			db.session.commit()
-			logger.info(f'ADMIN {current_user.username} success took the admin: {user.username}')
-			flash(f'Человек {user.username} был успешно снят с админки.')
-			return redirect('/admin-panel/1')
+		if user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) and not user.is_administrator():
+			try:
+				user.role_id = Role.query.filter_by(default=True).first().id
+				db.session.commit()
+				logger.info(f'ADMIN {current_user.username} success took the moderator: {user.username}')
+				flash(f'Человек {user.username} был успешно снят с админки.')
+				return redirect('/admin-panel/1')
 
-		except Exception as e:
-			logger.error(f"""ADMIN {current_user.username} failed took the admin: {user.username}.
-							 Error: {e}""")
-			flash(f'Ошибка: {e}. Не удалось снять человека с админки.')
+			except Exception as e:
+				logger.error(f"""ADMIN {current_user.username} failed took the moderator: {user.username}.
+								 Error: {e}""")
+				flash(f'Ошибка: {e}. Не удалось снять человека с модераторки.')
+				return redirect('/admin-panel/1')
+		else:
+			flash(f'Человек: {user.username} не модератор!')
+			logger.warning(f'Admin: {current_user.username} tried pick up moderator user: {user.username}')
 			return redirect('/admin-panel/1')
 	return render_template('confirm.html', msg=msg, user=user)
 # -----------------------------------------
