@@ -40,7 +40,6 @@ manager.add_command('db', MigrateCommand)
 # def connect_user():
 # 	global COUNT_ONLINE_USERS
 # 	COUNT_ONLINE_USERS += 1
-# 	logger.info(f'User \"{current_user.username}\" connected')
 # 	emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
 #
 #
@@ -48,7 +47,6 @@ manager.add_command('db', MigrateCommand)
 # def test_disconnect():
 # 	global COUNT_ONLINE_USERS
 # 	COUNT_ONLINE_USERS -= 1
-# 	logger.info(f'User \"{current_user.username}\" disconnected')
 # 	emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
 #
 #
@@ -59,3 +57,9 @@ manager.add_command('db', MigrateCommand)
 # 	emit('take_msg', (current_user.username, msg), broadcast=True)
 
 # ----------------WEB-CHAT---------------------#
+
+
+if __name__ == '__main__':
+	logger.info('app-for-blogs success started')
+	manager.run()
+	logger.info('app-for-blogs stoped')

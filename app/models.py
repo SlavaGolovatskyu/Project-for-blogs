@@ -45,7 +45,7 @@ class User(db.Model, UserMixin):
 					self.role_id = Role.query.filter_by(default=True).first().id
 			except AttributeError:
 				logger.error('При создании аккаунта произошла ошибка. Роль не была найдена.')
-				self.role_id = self.role_id = Role.query.filter_by(default=True).first().id
+				self.role_id = Role.query.filter_by(default=True).first().id
 
 	def get_role(self):
 		return Role.query.filter_by(id=self.role_id).first()
