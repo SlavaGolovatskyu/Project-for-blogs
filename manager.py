@@ -15,7 +15,7 @@ from app.models import (
 	Permission
 )
 
-app = create_app(os.getenv('FLASK_ENV') or 'config.DevelopementConfig')
+app = create_app(os.getenv('FLASK_ENV') or 'config.DevelopmentConfig')
 
 manager = Manager(app)
 

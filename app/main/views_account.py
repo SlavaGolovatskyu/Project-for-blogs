@@ -1,3 +1,4 @@
+import asyncio
 from app import db
 from . import main
 
@@ -23,6 +24,7 @@ from .forms import (
 from .validators import Validators
 from app.models import User
 from app.logg.logger import logger
+from app.user_location.get_location import get_location
 
 validator = Validators()
 
@@ -52,14 +54,12 @@ def sign_up():
 	user = False
 	form = RegistrationForm()
 	if form.validate_on_submit():
-		# validate information
-		username = validator.validate_username(form.username.data)
 		email = validator.validate_email(form.email.data)
-		if not email and not username:
-			person = User(username=form.username.data, email=form.email.data)
-			person.set_password(form.password.data)
-
+		if not email:
 			try:
+				person = User(username=form.username.data, email=form.email.data,
+							  real_location=get_location('146.120.168.159'))
+				person.set_password(form.password.data)
 				db.session.add(person)
 				db.session.commit()
 				user = db.session.query(User).filter(User.email == form.email.data).first()
@@ -74,7 +74,7 @@ def sign_up():
 				flash(f'Ошибка: {e}. Не удалось зарегистрировать аккаунт.')
 				return redirect(url_for('.sign_up'))
 		else:
-			flash("Аккаунт с таким логином или почтой уже существует.")
+			flash("Аккаунт с такой почтой уже существует.")
 			return redirect(url_for('.sign_up'))
 
 	return render_template('sign-up.html', form=form)

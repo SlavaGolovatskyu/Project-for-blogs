@@ -8,13 +8,9 @@ validator = Val()
 
 
 @main.app_context_processor
-def inject_permissions():
-	return dict(Permission=Perm)
-
-
-@main.app_context_processor
-def inject_validator():
-	return dict(validate_art_or_com_of_the_owner=validator.check_article_or_comment_of_the_owner)
+def inject_needed_function_and_more_other():
+	return dict(Permission=Perm,
+				validate_art_or_com_of_the_owner=validator.check_article_or_comment_of_the_owner)
 
 
 from . import (

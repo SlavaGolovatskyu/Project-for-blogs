@@ -25,10 +25,15 @@ class Permission:
 class User(db.Model, UserMixin):
 	__tablename__ = 'users'
 	id = db.Column(db.Integer(), primary_key=True)
-	username = db.Column(db.String(50), nullable=False, unique=True)
+	username = db.Column(db.String(50), nullable=False)
 	email = db.Column(db.String(100), nullable=False, unique=True)
 	password_hash = db.Column(db.String(100), nullable=False)
 	role_id = db.Column(db.Integer)
+	location = db.Column(db.String(64), nullable=True)
+	real_location = db.Column(db.JSON)
+	about_me = db.Column(db.Text, nullable=True)
+	last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
 
