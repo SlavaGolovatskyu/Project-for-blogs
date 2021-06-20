@@ -22,4 +22,4 @@ From this day on, I will only use PostgreSQL, maybe sometimes MySQL
 * git clone https://github.com/SlavaGolovatskyu/Project-for-blogs.git
 * cd Project-for-blogs
 * pip install -r requirements.txt
-* python runner.py
+* python manager.py
