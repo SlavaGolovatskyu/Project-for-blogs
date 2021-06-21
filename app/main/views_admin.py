@@ -6,7 +6,8 @@ from flask import (
 	render_template,
 	redirect,
 	flash,
-	request
+	request,
+	url_for
 )
 
 from flask_login import (
@@ -75,7 +76,7 @@ def admin_panel(page):
 
 	if page > count_dynamic_pages and count_all_user != 0 or page == 0:
 		flash(f'Страницы {page} несуществует.')
-		return redirect('/admin-panel/1')
+		return redirect(url_for('.admin_panel', page=1))
 
 	return render_template('admin_panel.html', users=users_need[search_first_index: search_second_index],
 						   form=form, count_dynamic_pages=count_dynamic_pages,
@@ -96,12 +97,12 @@ def delete_user(id):
 			db.session.commit()
 			logger.info(f'User {current_user.username} success delete account: {user.username}.')
 			flash(f'Вы успешно удалили аккаунт: {user.username}')
-			return redirect('/admin-panel/1')
+			return redirect(url_for('.admin_panel', page=1))
 
 		except Exception as e:
 			logger.error(f'failed to delete account from database. Error: {e}')
 			flash(f'Произошла ошибка: {e}. Не удалось удалить аккаунт')
-			return redirect(f'/delete-user/{id}/confirm')
+			return redirect(url_for('.delete_user', id=id))
 
 	return render_template('confirm.html', user=user, msg=msg)
 
@@ -120,17 +121,17 @@ def give_moderator(id):
 				db.session.commit()
 				logger.info(f'User {current_user.username} success added new moderator: {name}')
 				flash(f'Вы успешно поставили на модератора человека с никнеймом {name}')
-				return redirect('/admin-panel/1')
+				return redirect(url_for('.admin_panel', page=1))
 
 			except Exception as e:
 				logger.error(f'Error: {e}. Failed to add new moderator')
 				flash(f'Произошла ошибка: {e}. Не удалось поставить {name} на админку.')
-				return redirect('/admin-panel/1')
+				return redirect(url_for('.admin_panel', page=1))
 		else:
 			logger.warning(f'Admin: {current_user.username} tried give moderator user: {name} but \
 							 he is still moderator')
 			flash(f'Человек: {name} уже модератор!')
-			return redirect('/admin-panel/1')
+			return redirect(url_for('.admin_panel', page=1))
 	return render_template('confirm.html', user=user, msg=msg)
 
 
@@ -147,16 +148,16 @@ def pick_up_the_moderator(id):
 				db.session.commit()
 				logger.info(f'ADMIN {current_user.username} success took the moderator: {user.username}')
 				flash(f'Человек {user.username} был успешно снят с админки.')
-				return redirect('/admin-panel/1')
+				return redirect(url_for('.admin_panel', page=1))
 
 			except Exception as e:
 				logger.error(f"""ADMIN {current_user.username} failed took the moderator: {user.username}.
 								 Error: {e}""")
 				flash(f'Ошибка: {e}. Не удалось снять человека с модераторки.')
-				return redirect('/admin-panel/1')
+				return redirect(url_for('.admin_panel', page=1))
 		else:
 			flash(f'Человек: {user.username} не модератор!')
 			logger.warning(f'Admin: {current_user.username} tried pick up moderator user: {user.username}')
-			return redirect('/admin-panel/1')
+			return redirect(url_for('.admin_panel', page=1))
 	return render_template('confirm.html', msg=msg, user=user)
 # -----------------------------------------

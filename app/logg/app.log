@@ -3469,3 +3469,321 @@ lkuikuyi
 [21-06-2021 22:58:12] [WARNING] =>  * Debugger is active!
 [21-06-2021 22:58:12] [INFO] =>  * Debugger PIN: 140-564-370
 [21-06-2021 22:58:12] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:17:51] [INFO] => Registered main_blueprint
+[21-06-2021 23:17:51] [INFO] => Created object app
+[21-06-2021 23:17:51] [INFO] => app-for-blogs success started
+[21-06-2021 23:17:51] [INFO] =>  * Restarting with stat
+[21-06-2021 23:17:53] [INFO] => Registered main_blueprint
+[21-06-2021 23:17:53] [INFO] => Created object app
+[21-06-2021 23:17:53] [INFO] => app-for-blogs success started
+[21-06-2021 23:17:53] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:17:53] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:17:53] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:17:54] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:17:54] "[37mGET / HTTP/1.1[0m" 200 -
+[21-06-2021 23:17:55] [INFO] => User sl watching himself profile.
+[21-06-2021 23:17:56] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:17:56] "[37mGET /profile/ HTTP/1.1[0m" 200 -
+[21-06-2021 23:17:57] [INFO] => User sl have been logged out.
+[21-06-2021 23:17:57] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:17:57] "[32mGET /logout/ HTTP/1.1[0m" 302 -
+[21-06-2021 23:17:57] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:17:57] "[37mGET /login/ HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:06] [INFO] => User t success sign-in.
+[21-06-2021 23:18:06] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:06] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+[21-06-2021 23:18:06] [INFO] => User t success connected to url-admin.
+[21-06-2021 23:18:06] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:06] "[37mGET /admin/ HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:11] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:18:11] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:11] "[37mGET /admin-panel/1 HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:21] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:18:21] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:21] "[35m[1mPOST /admin-panel/1 HTTP/1.1[0m" 500 -
+[21-06-2021 23:18:21] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:21] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:21] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:21] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:21] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:21] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:22] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:22] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:22] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:22] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:22] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:22] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:30] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:18:30] [INFO] =>  * Restarting with stat
+[21-06-2021 23:18:33] [INFO] => Registered main_blueprint
+[21-06-2021 23:18:33] [INFO] => Created object app
+[21-06-2021 23:18:33] [INFO] => app-for-blogs success started
+[21-06-2021 23:18:33] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:18:33] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:18:33] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:18:36] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:18:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:36] "[35m[1mPOST /admin-panel/1 HTTP/1.1[0m" 500 -
+[21-06-2021 23:18:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:36] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:37] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:37] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:37] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:37] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[21-06-2021 23:18:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:18:37] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:27] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:19:27] [INFO] =>  * Restarting with stat
+[21-06-2021 23:19:29] [INFO] => Registered main_blueprint
+[21-06-2021 23:19:29] [INFO] => Created object app
+[21-06-2021 23:19:29] [INFO] => app-for-blogs success started
+[21-06-2021 23:19:29] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:19:29] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:19:29] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:19:36] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:19:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:36] "[35m[1mPOST /admin-panel/1 HTTP/1.1[0m" 500 -
+[21-06-2021 23:19:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:36] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:36] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:36] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:36] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:36] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:19:37] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:19:53] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:19:53] [INFO] =>  * Restarting with stat
+[21-06-2021 23:19:56] [INFO] => Registered main_blueprint
+[21-06-2021 23:19:56] [INFO] => Created object app
+[21-06-2021 23:19:56] [INFO] => app-for-blogs success started
+[21-06-2021 23:19:56] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:19:56] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:19:56] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:23:13] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:23:14] [INFO] =>  * Restarting with stat
+[21-06-2021 23:23:20] [INFO] => Registered main_blueprint
+[21-06-2021 23:23:20] [INFO] => Created object app
+[21-06-2021 23:23:20] [INFO] => app-for-blogs success started
+[21-06-2021 23:23:20] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:23:20] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:23:20] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:23:36] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:23:36] [INFO] =>  * Restarting with stat
+[21-06-2021 23:23:37] [INFO] => Registered main_blueprint
+[21-06-2021 23:23:37] [INFO] => Created object app
+[21-06-2021 23:23:37] [INFO] => app-for-blogs success started
+[21-06-2021 23:23:37] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:23:38] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:23:38] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:23:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:23:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:23:46] "[32mPOST /admin-panel/1 HTTP/1.1[0m" 302 -
+[21-06-2021 23:23:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:23:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:23:46] "[37mGET /admin-panel/1?next=%3Fusername%3Dt%26email%3D HTTP/1.1[0m" 200 -
+[21-06-2021 23:24:06] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:24:06] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:24:06] "[32mPOST /admin-panel/1?next=%3Fusername%3Dt%26email%3D HTTP/1.1[0m" 302 -
+[21-06-2021 23:24:06] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:24:06] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:24:06] "[37mGET /admin-panel/1?next=%3Fusername%3Dt%26email%3D HTTP/1.1[0m" 200 -
+[21-06-2021 23:24:21] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:24:21] [INFO] =>  * Restarting with stat
+[21-06-2021 23:24:23] [INFO] => Registered main_blueprint
+[21-06-2021 23:24:23] [INFO] => Created object app
+[21-06-2021 23:24:23] [INFO] => app-for-blogs success started
+[21-06-2021 23:24:23] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:24:23] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:24:23] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:24:52] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:24:52] [INFO] =>  * Restarting with stat
+[21-06-2021 23:25:13] [INFO] => Registered main_blueprint
+[21-06-2021 23:25:13] [INFO] => Created object app
+[21-06-2021 23:25:13] [INFO] => app-for-blogs success started
+[21-06-2021 23:25:13] [INFO] =>  * Restarting with stat
+[21-06-2021 23:25:14] [INFO] => Registered main_blueprint
+[21-06-2021 23:25:14] [INFO] => Created object app
+[21-06-2021 23:25:14] [INFO] => app-for-blogs success started
+[21-06-2021 23:25:14] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:25:14] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:25:14] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:25:17] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:17] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:17] "[32mPOST /admin-panel/1?next=%3Fusername%3Dt%26email%3D HTTP/1.1[0m" 302 -
+[21-06-2021 23:25:17] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:17] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:17] "[37mGET /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:25:26] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:26] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:26] "[32mPOST /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 302 -
+[21-06-2021 23:25:26] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:26] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:26] "[37mGET /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:25:36] [INFO] => User t success connected to url-admin.
+[21-06-2021 23:25:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:36] "[37mGET /admin/ HTTP/1.1[0m" 200 -
+[21-06-2021 23:25:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:46] "[37mGET /admin-panel/1 HTTP/1.1[0m" 200 -
+[21-06-2021 23:25:52] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:52] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:52] "[32mPOST /admin-panel/1 HTTP/1.1[0m" 302 -
+[21-06-2021 23:25:52] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:25:52] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:25:52] "[37mGET /admin-panel/1?username=%7B%27slavik%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:26:25] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:26:25] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:26:25] "[37mGET /admin-panel/1?username=slavik&email= HTTP/1.1[0m" 200 -
+[21-06-2021 23:26:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:26:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:26:46] "[32mPOST /admin-panel/1?username=slavik&email= HTTP/1.1[0m" 302 -
+[21-06-2021 23:26:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:26:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:26:46] "[37mGET /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:27:34] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:27:34] [INFO] =>  * Restarting with stat
+[21-06-2021 23:27:36] [INFO] => Registered main_blueprint
+[21-06-2021 23:27:36] [INFO] => Created object app
+[21-06-2021 23:27:36] [INFO] => app-for-blogs success started
+[21-06-2021 23:27:36] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:27:36] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:27:36] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:27:37] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:27:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:27:37] "[32mPOST /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 302 -
+[21-06-2021 23:27:37] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:27:37] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:27:37] "[37mGET /admin-panel/1?username=%7B%27t%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:27:42] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:27:42] [INFO] =>  * Restarting with stat
+[21-06-2021 23:27:45] [INFO] => Registered main_blueprint
+[21-06-2021 23:27:45] [INFO] => Created object app
+[21-06-2021 23:27:45] [INFO] => app-for-blogs success started
+[21-06-2021 23:27:45] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:27:45] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:27:45] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:27:56] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:27:56] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:27:56] "[37mGET /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:28:17] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:28:17] [INFO] =>  * Restarting with stat
+[21-06-2021 23:28:20] [INFO] => Registered main_blueprint
+[21-06-2021 23:28:20] [INFO] => Created object app
+[21-06-2021 23:28:20] [INFO] => app-for-blogs success started
+[21-06-2021 23:28:20] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:28:20] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:28:20] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:28:51] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:28:51] [INFO] =>  * Restarting with stat
+[21-06-2021 23:28:53] [INFO] => Registered main_blueprint
+[21-06-2021 23:28:53] [INFO] => Created object app
+[21-06-2021 23:28:53] [INFO] => app-for-blogs success started
+[21-06-2021 23:28:53] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:28:53] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:28:53] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:28:56] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:28:56] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:28:56] "[32mPOST /admin-panel/1?username=%7B%27t%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 302 -
+[21-06-2021 23:28:56] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:28:56] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:28:56] "[37mGET /admin-panel/1?username=%7B%27%27%7D&email=%7B%27%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:03] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:29:03] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:03] "[37mGET /admin-panel/1 HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:03] [INFO] => User t success connected to url-admin.
+[21-06-2021 23:29:03] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:03] "[37mGET /admin/ HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:09] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:29:09] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:09] "[32mPOST /admin-panel/1 HTTP/1.1[0m" 302 -
+[21-06-2021 23:29:09] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:29:09] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:09] "[37mGET /admin-panel/1?username=%7B%27sl%27%7D&email=%7B%27sl%40gmail.com%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:31] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:29:31] [INFO] =>  * Restarting with stat
+[21-06-2021 23:29:33] [INFO] => Registered main_blueprint
+[21-06-2021 23:29:33] [INFO] => Created object app
+[21-06-2021 23:29:33] [INFO] => app-for-blogs success started
+[21-06-2021 23:29:33] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:29:33] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:29:33] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:29:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:29:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:46] "[35m[1mGET /admin-panel/1 HTTP/1.1[0m" 500 -
+[21-06-2021 23:29:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:46] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:46] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:46] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:46] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:47] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:47] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:47] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:29:47] "[37mGET /admin-panel/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[21-06-2021 23:29:57] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:29:57] [INFO] =>  * Restarting with stat
+[21-06-2021 23:29:58] [INFO] => Registered main_blueprint
+[21-06-2021 23:29:58] [INFO] => Created object app
+[21-06-2021 23:29:58] [INFO] => app-for-blogs success started
+[21-06-2021 23:29:58] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:29:58] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:29:58] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:30:11] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:30:11] [INFO] =>  * Restarting with stat
+[21-06-2021 23:30:13] [INFO] => Registered main_blueprint
+[21-06-2021 23:30:13] [INFO] => Created object app
+[21-06-2021 23:30:13] [INFO] => app-for-blogs success started
+[21-06-2021 23:30:13] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:30:13] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:30:13] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:30:20] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:30:20] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:30:20] "[37mGET /admin-panel/1 HTTP/1.1[0m" 200 -
+[21-06-2021 23:30:36] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:30:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:30:36] "[32mPOST /admin-panel/1 HTTP/1.1[0m" 302 -
+[21-06-2021 23:30:36] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:30:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:30:36] "[37mGET /admin-panel/1?username=%7B%27sl%27%7D&email=%7B%27sl%40gmail.com%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:31:21] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:31:21] [INFO] =>  * Restarting with stat
+[21-06-2021 23:31:23] [INFO] => Registered main_blueprint
+[21-06-2021 23:31:23] [INFO] => Created object app
+[21-06-2021 23:31:23] [INFO] => app-for-blogs success started
+[21-06-2021 23:31:23] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:31:23] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:31:23] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:31:24] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:31:24] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:31:24] "[37mGET /admin-panel/1 HTTP/1.1[0m" 200 -
+[21-06-2021 23:31:30] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:31:30] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:31:30] "[32mPOST /admin-panel/1 HTTP/1.1[0m" 302 -
+[21-06-2021 23:31:30] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:31:30] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:31:30] "[37mGET /admin-panel/1?username=%7B%27sl%27%7D&email=%7B%27%5Ctsl%40gmail.com%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:31:36] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:31:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:31:36] "[32mPOST /admin-panel/1?username=%7B%27sl%27%7D&email=%7B%27%5Ctsl%40gmail.com%27%7D HTTP/1.1[0m" 302 -
+[21-06-2021 23:31:36] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:31:36] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:31:36] "[37mGET /admin-panel/1?username=%7B%27sl%27%7D&email=%7B%27sl%40gmail.com%27%7D HTTP/1.1[0m" 200 -
+[21-06-2021 23:32:01] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:32:01] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:32:01] "[37mGET /admin-panel/1 HTTP/1.1[0m" 200 -
+[21-06-2021 23:34:56] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:34:56] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:34:56] "[37mGET /admin-panel/1?username=slavik&email=slavik@gmail.com HTTP/1.1[0m" 200 -
+[21-06-2021 23:37:02] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:37:02] [INFO] =>  * Restarting with stat
+[21-06-2021 23:37:05] [INFO] => Registered main_blueprint
+[21-06-2021 23:37:05] [INFO] => Created object app
+[21-06-2021 23:37:05] [INFO] => app-for-blogs success started
+[21-06-2021 23:37:05] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:37:05] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:37:05] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:37:24] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:37:24] [INFO] =>  * Restarting with stat
+[21-06-2021 23:37:36] [INFO] => Registered main_blueprint
+[21-06-2021 23:37:36] [INFO] => Created object app
+[21-06-2021 23:37:36] [INFO] => app-for-blogs success started
+[21-06-2021 23:37:37] [INFO] =>  * Restarting with stat
+[21-06-2021 23:37:38] [INFO] => Registered main_blueprint
+[21-06-2021 23:37:38] [INFO] => Created object app
+[21-06-2021 23:37:38] [INFO] => app-for-blogs success started
+[21-06-2021 23:37:38] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:37:38] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:37:38] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:37:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:37:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:37:46] "[32mPOST /admin-panel/1?username=slavik&email=slavik@gmail.com HTTP/1.1[0m" 302 -
+[21-06-2021 23:37:46] [INFO] => User t success connected to admin-panel.
+[21-06-2021 23:37:46] [INFO] => 127.0.0.1 - - [21/Jun/2021 23:37:46] "[37mGET /admin-panel/1?username=t&email= HTTP/1.1[0m" 200 -
+[21-06-2021 23:38:13] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:38:13] [INFO] =>  * Restarting with stat
+[21-06-2021 23:38:15] [INFO] => Registered main_blueprint
+[21-06-2021 23:38:15] [INFO] => Created object app
+[21-06-2021 23:38:15] [INFO] => app-for-blogs success started
+[21-06-2021 23:38:15] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:38:15] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:38:15] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:38:24] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:38:24] [INFO] =>  * Restarting with stat
+[21-06-2021 23:38:26] [INFO] => Registered main_blueprint
+[21-06-2021 23:38:26] [INFO] => Created object app
+[21-06-2021 23:38:26] [INFO] => app-for-blogs success started
+[21-06-2021 23:38:26] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:38:26] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:38:26] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:38:40] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:38:40] [INFO] =>  * Restarting with stat
+[21-06-2021 23:38:42] [INFO] => Registered main_blueprint
+[21-06-2021 23:38:42] [INFO] => Created object app
+[21-06-2021 23:38:42] [INFO] => app-for-blogs success started
+[21-06-2021 23:38:42] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:38:42] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:38:42] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:38:45] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:38:45] [INFO] =>  * Restarting with stat
+[21-06-2021 23:38:47] [INFO] => Registered main_blueprint
+[21-06-2021 23:38:47] [INFO] => Created object app
+[21-06-2021 23:38:47] [INFO] => app-for-blogs success started
+[21-06-2021 23:38:47] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:38:47] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:38:47] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:38:54] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:38:54] [INFO] =>  * Restarting with stat
+[21-06-2021 23:38:57] [INFO] => Registered main_blueprint
+[21-06-2021 23:38:57] [INFO] => Created object app
+[21-06-2021 23:38:57] [INFO] => app-for-blogs success started
+[21-06-2021 23:38:57] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:38:57] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:38:57] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[21-06-2021 23:39:23] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_admin.py', reloading
+[21-06-2021 23:39:23] [INFO] =>  * Restarting with stat
+[21-06-2021 23:39:25] [INFO] => Registered main_blueprint
+[21-06-2021 23:39:25] [INFO] => Created object app
+[21-06-2021 23:39:25] [INFO] => app-for-blogs success started
+[21-06-2021 23:39:25] [WARNING] =>  * Debugger is active!
+[21-06-2021 23:39:25] [INFO] =>  * Debugger PIN: 140-564-370
+[21-06-2021 23:39:25] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
