@@ -26,8 +26,10 @@ from app.models import (
 )
 
 from app.logg.logger import logger
+from ..db_controll import AddNewData
 
 validator = Validators()
+add_data = AddNewData()
 
 # If you want to increase count posts on page 
 # You must do change only this variable: MAX_COUNT_POSTS_ON_PAGE
@@ -55,19 +57,15 @@ def create_article():
 
 			if (validator.check_length(MIN_LENGTH_TEXT, text, True) and
 					validator.check_length(MAX_LENGTH_TEXT, text)):
-				# an instance of the class that creates the new article
-				article = Article(title=title, intro=intro,
-								  text=text, author_name=current_user.username,
-								  user_id=current_user.id)
 				try:
-					db.session.add(article)
-					db.session.commit()
+					add_data.add_new_article(title=title, intro=intro,
+									  		 text=text, author_name=current_user.username,
+									  		 user_id=current_user.id)
 					logger.info(f'User {current_user.username} created article {title}')
-					return redirect('/posts/page/1')
 				except Exception as e:
 					logger.error(f"""When user {current_user.username} tried create article an error occurred.
 									 Error: {e}""")
-					flash("Error. Сould not create article.")
+					flash("Error. Could not create article.")
 					return redirect(url_for('.create_article'))
 			else:
 				flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до 
@@ -107,21 +105,21 @@ def update_user_post(article_id):
 						db.session.commit()
 						logger.info(f'User {current_user.username} success update article_id: {article.id}')
 						flash('Статья была успешно обновлена.')
-						return redirect('/posts/page/1')
+						return redirect(url_for('.posts', page=1))
 
 					except Exception as e:
 						logger.error(f"""When user {current_user.username} tried update article an error occurred.
 										 Error: {e}""")
 						flash(f'Не удалось обновить статью. Ошибка: {e}')
-						return redirect(f'/posts/page/1')
+						return redirect(url_for('.posts', page=1))
 				else:
 					flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до 
 						   {MAX_LENGTH_TEXT} символов.""")
-					return redirect(f'/posts/{article_id}/update')
+					return redirect(url_for('.update_user_post', article_id=article_id))
 			else:
 				flash(f"""Максимальная длинна <title> {max_length_title}
 					   Максимальная длинна <intro> {max_length_intro}""")
-				return redirect(f'/posts/{article_id}/update')
+				return redirect(url_for('.update_user_post', article_id=article_id))
 
 		return render_template('update_post.html', article=article)
 
@@ -144,13 +142,13 @@ def delete_post_user(article_id):
 			db.session.commit()
 			logger.info(f'User {current_user.username} success delete user article with id: {article.id}')
 			flash(f'Статья человека: {name} была успешно удалена.')
-			return redirect('/posts/page/1')
+			return redirect(url_for('.posts', page=1))
 
 		except Exception as e:
 			logger.error(f"""When user {current_user.username} tried delete article has an error occurred.
 							 Error: {e}""")
 			flash(f'Не удалось удалить статью. Ошибка: {e}')
-			return redirect('/posts/page/1')
+			return redirect(url_for('.posts', page=1))
 	else:
 		logger.warning(f'User {current_user.username} wanted delete article. But he does not admin, or founder')
 		abort(403)
@@ -194,23 +192,17 @@ def post_detail(id):
 		if validator.check_length(max_length_comment, text):
 			# If comments does not in database we will creating new comment
 			if check_on_spam < 2:
-				# create object with data
-				comment = Comment(text=text, author=current_user.username,
-								  user_id=current_user.id, post_id=id)
-				# add us object
-				db.session.add(comment)
-				# save changes
-				db.session.commit()
-				logger.info(f'User {current_user.username} wrote a comment: {text}')
-				return redirect(f'/post/{id}/detail')
+				add_data.add_new_comment(text=text, author=current_user.username,
+								  		 user_id=current_user.id, post_id=id)
+				logger.info(f'User {current_user.username} wrote a comment: {text} on post_id: {id}')
 			else:
 				logger.warning(f"""Comment\' user {current_user.username} does not wrote.
 								   Because user will spam.""")
 				flash('Коментарий не был записан. Вы флудите или спамите.')
-				return redirect(f'/post/{id}/detail')
+				return redirect(url_for('.post_detail', id=id))
 		else:
 			flash('Слишком длинный коментарий. Максимальная длинна 500 символов.')
-			return redirect(f'/post/{id}/detail')
+			return redirect(url_for('.post_detail', id=id))
 
 	# if user logged in himself account
 	elif not current_user.is_anonymous:
@@ -267,7 +259,7 @@ def posts(page):
 	# If User input incorrect page in URL address'
 	if page > count_dynamic_pages and count_all_posts != 0 or page == 0:
 		flash(f"Page {page} does not exist")
-		return redirect(f'/posts/page/1?{method_for_sorting}=True')
+		return redirect(url_for('.posts', page=1))
 	else:
 		return render_template('posts.html', articles=articles_need, current_page=page,
 							   count_dynamic_pages=count_dynamic_pages,
@@ -300,7 +292,7 @@ def user_posts(page):
 	# If User input incorrect page in URL address'
 	if page > count_dynamic_pages and all_posts_user != 0 or page == 0:
 		flash(f"Page {page} does not exist")
-		return redirect('/user/posts/1')
+		return redirect(url_for('.posts', page=1))
 	else:
 		return render_template('user_posts.html', current_page=page, articles=articles_need,
 							   count_dynamic_pages=count_dynamic_pages)
@@ -318,13 +310,13 @@ def delete_user_comment(id):
 			db.session.commit()
 			logger.info(f'User {current_user.username} has success delete comment {comment.id}.')
 			flash(f'Коментарий человека: {comment.author} был успешно удален.')
-			return redirect('/posts/page/1')
+			return redirect(url_for('.posts', page=1))
 
 		except Exception as e:
 			logger.error(f"""When user {current_user.username} was wanted delete comment. 
 							 Has an error occurred. Error: {e}""")
 			flash(f'При удалении коментария произошла ошибка: {e}')
-			return redirect('/posts/page/1')
+			return redirect(url_for('.posts', page=1))
 	else:
 		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin.')
 		abort(403)
