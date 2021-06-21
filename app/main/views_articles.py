@@ -160,9 +160,7 @@ def delete_post_user(article_id):
 def post_detail(id):
 	article = Article.query.get_or_404(id)
 
-	count_comments_on_article = article.comments.count()
-
-	CURRENT_COUNT_COMMENTS_ON_PAGE = 15
+	current_count_comments_on_page = 15
 
 	# if user will want upload more comments each time flask upload + 10 comment to current_count
 	CONST_COUNT = 15
@@ -174,13 +172,13 @@ def post_detail(id):
 	# checking if there are data and if data is number
 	if data and data.isdigit():
 		# change count comments which we upload on page
-		CURRENT_COUNT_COMMENTS_ON_PAGE = int(data)
+		current_count_comments_on_page = int(data)
 
 	# first and second index'es important for us because we search information in database
 	# after this we took array with information and after this we search need info
 	# from first index to second index
-	search_first_index = page * CURRENT_COUNT_COMMENTS_ON_PAGE - CURRENT_COUNT_COMMENTS_ON_PAGE
-	search_second_index = page * CURRENT_COUNT_COMMENTS_ON_PAGE
+	search_first_index = page * current_count_comments_on_page - current_count_comments_on_page
+	search_second_index = page * current_count_comments_on_page
 
 	# [::-1] reverse array and search need data
 	comments_need = article.comments[::-1][search_first_index: search_second_index]
@@ -233,7 +231,7 @@ def post_detail(id):
 			db.session.commit()
 
 	return render_template('post_detail.html', article=article, comments=comments_need,
-						   count_comments=CURRENT_COUNT_COMMENTS_ON_PAGE, post_id=id,
+						   count_comments=current_count_comments_on_page, post_id=id,
 						   const_count=CONST_COUNT)
 
 

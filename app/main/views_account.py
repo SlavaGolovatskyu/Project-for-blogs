@@ -1,4 +1,3 @@
-import asyncio
 from app import db
 from . import main
 
@@ -22,11 +21,14 @@ from .forms import (
 )
 
 from .validators import Validators
-from app.models import User
-from app.logg.logger import logger
-from app.user_location.get_location import get_location
+from ..models import User
+from ..logg.logger import logger
+from ..user_location.get_location import get_location
+from ..db_controll import AddNewData
+from ..decorators import is_auth
 
 validator = Validators()
+add_data = AddNewData()
 
 
 # -----------------All actions with accounts, login, registration, logout----------------
@@ -43,25 +45,18 @@ def logout():
 
 # ----------------SIGN-UP ACCOUNT-----------------------
 @main.route('/sign-up/', methods=['post', 'get'])
+@is_auth
 def sign_up():
-	# check if user login in himself account and if user is admin or no
-	if current_user.is_authenticated:
-		if current_user.is_administrator():
-			return redirect(url_for('.admin'))
-		else:
-			return redirect(url_for('.user_profile'))
-
-	user = False
 	form = RegistrationForm()
 	if form.validate_on_submit():
 		email = validator.validate_email(form.email.data)
 		if not email:
 			try:
-				person = User(username=form.username.data, email=form.email.data,
-							  real_location=get_location('146.120.168.159'))
-				person.set_password(form.password.data)
-				db.session.add(person)
-				db.session.commit()
+				add_data.add_new_user(	form.password.data,
+										username=form.username.data,
+										email=form.email.data,
+										real_location=get_location('146.120.168.159'))
+
 				user = db.session.query(User).filter(User.email == form.email.data).first()
 
 				logger.info(f'User {user.username} success sign-up.')
@@ -85,13 +80,8 @@ def sign_up():
 
 # ----------------SIGN-IN ACCOUNT------------------------
 @main.route('/login/', methods=['post', 'get'])
+@is_auth
 def login():
-	if current_user.is_authenticated:
-		if current_user.is_administrator():
-			return redirect(url_for('.admin'))
-		else:
-			return redirect(url_for('.user_profile'))
-
 	form = LoginForm()
 	if form.validate_on_submit():
 
