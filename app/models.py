@@ -32,7 +32,7 @@ class User(db.Model, UserMixin):
 	location = db.Column(db.String(64), nullable=True)
 	real_location = db.Column(db.JSON)
 	about_me = db.Column(db.Text, nullable=True)
-	last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+	last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
 
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)

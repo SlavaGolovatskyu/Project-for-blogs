@@ -7,14 +7,17 @@ def get_location(ip: str) -> dict:
 	r = requests.get(url)
 	html = json.loads(r.text)
 
-	information = {
-		"Country": html['country'],
-		"IP": html['ip'],
-		"City": html['city'],
-		"Region": html['region'],
-		"TimeZone": html['timezone'],
-		"Loc": html['loc']
-	}
+	try:
+		information = {
+			"Country": html['country'],
+			"IP": html['ip'],
+			"City": html['city'],
+			"Region": html['region'],
+			"TimeZone": html['timezone'],
+			"Loc": html['loc']
+		}
+	except KeyError:
+		information = {}
 
 	return information
 
