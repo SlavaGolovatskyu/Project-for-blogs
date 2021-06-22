@@ -5,10 +5,10 @@ from math import ceil
 from flask import (
 	request,
 	render_template,
-	url_for,
+	abort,
 	redirect,
-	flash,
-	abort
+	url_for,
+	flash
 )
 
 from flask_login import (
@@ -16,20 +16,25 @@ from flask_login import (
 	current_user
 )
 
-from .validators import Validators
-
-from app.models import (
-	User,
-	Article,
-	UsersWhichViewedPost,
-	Comment
+from ..models import (
+	Article
 )
 
-from app.logg.logger import logger
-from ..db_controll import AddNewData
+from .validators import Validators
+from ..db_controll import (
+	FindData,
+	DeleteData,
+	AddNewData,
+	ChangeData,
+	logger
+)
+
+find_data = FindData()
+delete_data = DeleteData()
+add_data = AddNewData()
+change_data = ChangeData()
 
 validator = Validators()
-add_data = AddNewData()
 
 # If you want to increase count posts on page 
 # You must do change only this variable: MAX_COUNT_POSTS_ON_PAGE
@@ -57,16 +62,11 @@ def create_article():
 
 			if (validator.check_length(MIN_LENGTH_TEXT, text, True) and
 					validator.check_length(MAX_LENGTH_TEXT, text)):
-				try:
-					add_data.add_new_article(title=title, intro=intro,
-									  		 text=text, author_name=current_user.username,
-									  		 user_id=current_user.id)
-					logger.info(f'User {current_user.username} created article {title}')
-				except Exception as e:
-					logger.error(f"""When user {current_user.username} tried create article an error occurred.
-									 Error: {e}""")
-					flash("Error. Could not create article.")
-					return redirect(url_for('.create_article'))
+				if add_data.add_new_article(title=title, intro=intro,
+											text=text, author_name=current_user.username,
+											user_id=current_user.id):
+					return redirect(url_for('.posts', page=1))
+				return redirect(url_for('.create_article'))
 			else:
 				flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до 
 					   {MAX_LENGTH_TEXT} символов.""")
@@ -82,7 +82,7 @@ def create_article():
 @main.route('/posts/<int:article_id>/update', methods=['post', 'get'])
 @login_required
 def update_user_post(article_id):
-	article = Article.query.get_or_404(article_id)
+	article = find_data.find_article(article_id)
 
 	# checking if founder user of this article or user is admin
 	if validator.check_article_or_comment_of_the_owner(article.user_id):
@@ -95,23 +95,13 @@ def update_user_post(article_id):
 				if (validator.check_length(MIN_LENGTH_TEXT, request.form.get('text'), True) and
 						validator.check_length(MAX_LENGTH_TEXT, request.form.get('text'))):
 
-					# note new data.
-					article.title = request.form['title']
-					article.intro = request.form['intro']
-					article.text = request.form['text']
-
-					try:
-						# Saving changes
-						db.session.commit()
-						logger.info(f'User {current_user.username} success update article_id: {article.id}')
-						flash('Статья была успешно обновлена.')
-						return redirect(url_for('.posts', page=1))
-
-					except Exception as e:
-						logger.error(f"""When user {current_user.username} tried update article an error occurred.
-										 Error: {e}""")
-						flash(f'Не удалось обновить статью. Ошибка: {e}')
-						return redirect(url_for('.posts', page=1))
+					change_data.article_save_changes(
+							article,
+							title=request.form['title'],
+							intro=request.form['intro'],
+							text=request.form['text']
+					)
+					return redirect(url_for('.posts', page=1))
 				else:
 					flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до 
 						   {MAX_LENGTH_TEXT} символов.""")
@@ -133,22 +123,11 @@ def update_user_post(article_id):
 @login_required
 def delete_post_user(article_id):
 	# Search needed article or 404
-	article = Article.query.get_or_404(article_id)
-	name = article.author_name
+	article = find_data.find_article(article_id)
 	# if current_user.id == article.user_id or user is admin we deleting article.
 	if validator.check_article_or_comment_of_the_owner(article.user_id):
-		try:
-			db.session.delete(article)
-			db.session.commit()
-			logger.info(f'User {current_user.username} success delete user article with id: {article.id}')
-			flash(f'Статья человека: {name} была успешно удалена.')
-			return redirect(url_for('.posts', page=1))
-
-		except Exception as e:
-			logger.error(f"""When user {current_user.username} tried delete article has an error occurred.
-							 Error: {e}""")
-			flash(f'Не удалось удалить статью. Ошибка: {e}')
-			return redirect(url_for('.posts', page=1))
+		delete_data.delete_article(article)
+		return redirect(url_for('.posts', page=1))
 	else:
 		logger.warning(f'User {current_user.username} wanted delete article. But he does not admin, or founder')
 		abort(403)
@@ -156,7 +135,7 @@ def delete_post_user(article_id):
 
 @main.route('/post/<int:id>/detail', methods=['get', 'post'])
 def post_detail(id):
-	article = Article.query.get_or_404(id)
+	article = find_data.find_article(id)
 
 	current_count_comments_on_page = 15
 
@@ -179,22 +158,21 @@ def post_detail(id):
 	search_second_index = page * current_count_comments_on_page
 
 	# [::-1] reverse array and search need data
-	comments_need = article.comments[::-1][search_first_index: search_second_index]
+	comments_need = article.comments[::-1][search_first_index : search_second_index]
 
 	# if user a note comment to the article
 	if request.method == 'POST':
 		text = request.form.get('text')
 
 		# search comment like it in database
-		check_on_spam = article.comments.filter(Comment.text == text,
-												Comment.post_id == id).count()
+		check_on_spam = find_data.find_comment(article, count=True, text=text, post_id=id)
 
 		if validator.check_length(max_length_comment, text):
 			# If comments does not in database we will creating new comment
 			if check_on_spam < 2:
 				add_data.add_new_comment(text=text, author=current_user.username,
-								  		 user_id=current_user.id, post_id=id)
-				logger.info(f'User {current_user.username} wrote a comment: {text} on post_id: {id}')
+										 user_id=current_user.id, post_id=id)
+				return redirect(url_for('.post_detail', id=id))
 			else:
 				logger.warning(f"""Comment\' user {current_user.username} does not wrote.
 								   Because user will spam.""")
@@ -206,20 +184,16 @@ def post_detail(id):
 
 	# if user logged in himself account
 	elif not current_user.is_anonymous:
-		user_viewed = article.users_which_viewed_post.filter(UsersWhichViewedPost.user_id == current_user.id,
-															 UsersWhichViewedPost.post_id == id).first()
+		user_viewed = find_data.find_user_which_viewed_post(article, user_id=current_user.id, post_id=id)
 		# checking if user watched article in past
 		if not user_viewed and article.user_id != current_user.id:
 			# Added one to count_views.
 			article.count_views += 1
 
 			# Added user in database what he saw this article
-			viewed_post = UsersWhichViewedPost(user_id=current_user.id,
-											   name=current_user.username,
-											   post_id=id)
-			# Added instance of the class to ours database
-			db.session.add(viewed_post)
-			# saving changes
+			add_data.add_user_which_viewed_post(user_id=current_user.id,
+											    name=current_user.username,
+											    post_id=id)
 			db.session.commit()
 
 	return render_template('post_detail.html', article=article, comments=comments_need,
@@ -252,9 +226,9 @@ def posts(page):
 	search_second_index = page * MAX_COUNT_POSTS_ON_PAGE
 
 	# Needed posts (max MAX_COUNT_POSTS_ON_PAGE)
-	articles_need = Article.query.order_by((Article.date.desc() if method_for_sorting == 'date'
-											else Article.count_views.desc())) \
-											[search_first_index: search_second_index]
+	articles_need = find_data.find_articles_order_by(method_for_sorting,
+													 search_first_index,
+													 search_second_index)
 
 	# If User input incorrect page in URL address'
 	if page > count_dynamic_pages and count_all_posts != 0 or page == 0:
@@ -270,7 +244,7 @@ def posts(page):
 @login_required
 def user_posts(page):
 	logger.info(f'User {current_user.username} watching himself articles')
-	user = db.session.query(User).get(current_user.id)
+	user = find_data.find_user(current_user.id)
 
 	all_posts_user = user.posts.count()
 
@@ -301,22 +275,11 @@ def user_posts(page):
 @main.route('/comment/<int:id>/delete', methods=['GET', 'POST'])
 @login_required
 def delete_user_comment(id):
-	comment = Comment.query.get_or_404(id)
+	comment = find_data.find_comment(id)
 	# check if comment belongs user's or current user is_admin
 	if validator.check_article_or_comment_of_the_owner(comment.user_id):
-		try:
-			# deleting comment
-			db.session.delete(comment)
-			db.session.commit()
-			logger.info(f'User {current_user.username} has success delete comment {comment.id}.')
-			flash(f'Коментарий человека: {comment.author} был успешно удален.')
-			return redirect(url_for('.posts', page=1))
-
-		except Exception as e:
-			logger.error(f"""When user {current_user.username} was wanted delete comment. 
-							 Has an error occurred. Error: {e}""")
-			flash(f'При удалении коментария произошла ошибка: {e}')
-			return redirect(url_for('.posts', page=1))
+		delete_data.delete_comment(comment)
+		return redirect(url_for('.post_detail', id=comment.post_id))
 	else:
 		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin.')
 		abort(403)

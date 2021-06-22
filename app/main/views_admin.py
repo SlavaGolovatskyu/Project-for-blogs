@@ -1,13 +1,12 @@
-from app import db
 from . import main
 from math import ceil
 
 from flask import (
 	render_template,
-	redirect,
-	flash,
 	request,
-	url_for
+	url_for,
+	redirect,
+	flash
 )
 
 from flask_login import (
@@ -15,17 +14,27 @@ from flask_login import (
 	current_user
 )
 
-from app.models import (
+from ..models import (
 	User,
-	Permission,
-	Role
+	Permission
 )
-
 from .forms import SearchNeedPeopleForm
-from app.logg.logger import logger
 from app.decorators import (
 	admin_required
 )
+
+from ..logg.logger import logger
+
+from ..db_controll import (
+	DeleteData,
+	FindData,
+	ChangeData
+)
+
+find_data = FindData()
+delete_data = DeleteData()
+change_data = ChangeData()
+
 
 MAX_COUNT_USERS_ON_PAGE = 20
 
@@ -61,8 +70,6 @@ def admin_panel(page):
 	username = request.args.get('username', '')
 	email = request.args.get('email', '')
 
-	users_need = []
-
 	if username or email or username and email:
 		users_need = User.query.filter(User.username.like(f'%{username}%'),
 									   User.email.like(f'%{email}%')).all()
@@ -89,19 +96,16 @@ def admin_panel(page):
 @login_required
 @admin_required
 def delete_user(id):
-	user = User.query.get_or_404(id)
+	user = find_data.find_user(id)
 	msg = f'Вы действительно хотите удалить аккаунт: {user.username}?'
 	if request.method == 'POST':
-		try:
-			db.session.delete(user)
-			db.session.commit()
-			logger.info(f'User {current_user.username} success delete account: {user.username}.')
-			flash(f'Вы успешно удалили аккаунт: {user.username}')
-			return redirect(url_for('.admin_panel', page=1))
-
-		except Exception as e:
-			logger.error(f'failed to delete account from database. Error: {e}')
-			flash(f'Произошла ошибка: {e}. Не удалось удалить аккаунт')
+		if not user.is_administrator():
+			if delete_data.delete_user(user):
+				return redirect(url_for('.admin_panel', page=1))
+			return redirect(url_for('.delete_user', id=id))
+		else:
+			flash(f'Человек: {user.username} админ!')
+			logger.warning(f'Admin: {current_user.username} tried delete user: {user.username}')
 			return redirect(url_for('.delete_user', id=id))
 
 	return render_template('confirm.html', user=user, msg=msg)
@@ -111,22 +115,17 @@ def delete_user(id):
 @login_required
 @admin_required
 def give_moderator(id):
-	user = User.query.get_or_404(id)
+	user = find_data.find_user(id)
 	name = user.username
 	msg = f'Вы действительно хотите поставить на модератора {name}?'
 	if request.method == 'POST':
 		if not user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES):
-			try:
-				user.role_id = Role.query.filter(Role.name=='Moderator').first().id
-				db.session.commit()
-				logger.info(f'User {current_user.username} success added new moderator: {name}')
-				flash(f'Вы успешно поставили на модератора человека с никнеймом {name}')
+			# if you see how made func change_user_role you will see what i'm using **kwargs
+			# that is why we must specify the data in the format name=name or for example
+			# role_id=id first name will must the same with models data
+			if change_data.change_user_role(user, name="Moderator"):
 				return redirect(url_for('.admin_panel', page=1))
-
-			except Exception as e:
-				logger.error(f'Error: {e}. Failed to add new moderator')
-				flash(f'Произошла ошибка: {e}. Не удалось поставить {name} на админку.')
-				return redirect(url_for('.admin_panel', page=1))
+			return redirect(url_for('.give_moderator', id=id))
 		else:
 			logger.warning(f'Admin: {current_user.username} tried give moderator user: {name} but \
 							 he is still moderator')
@@ -139,22 +138,16 @@ def give_moderator(id):
 @login_required
 @admin_required
 def pick_up_the_moderator(id):
-	user = User.query.get_or_404(id)
+	user = find_data.find_user(id)
 	msg = f'Вы действительно хотите снять с админки {user.username}?'
 	if request.method == 'POST':
 		if user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) and not user.is_administrator():
-			try:
-				user.role_id = Role.query.filter_by(default=True).first().id
-				db.session.commit()
-				logger.info(f'ADMIN {current_user.username} success took the moderator: {user.username}')
-				flash(f'Человек {user.username} был успешно снят с админки.')
+			# if you see how made func change_user_role you will see what i'm using **kwargs
+			# that is why we must specify the data in the format name=name or for example
+			# role_id=id first name will must the same with models data
+			if change_data.change_user_role(user, name="User"):
 				return redirect(url_for('.admin_panel', page=1))
-
-			except Exception as e:
-				logger.error(f"""ADMIN {current_user.username} failed took the moderator: {user.username}.
-								 Error: {e}""")
-				flash(f'Ошибка: {e}. Не удалось снять человека с модераторки.')
-				return redirect(url_for('.admin_panel', page=1))
+			return redirect(url_for('.pick_up_the_moderator', id=id))
 		else:
 			flash(f'Человек: {user.username} не модератор!')
 			logger.warning(f'Admin: {current_user.username} tried pick up moderator user: {user.username}')
