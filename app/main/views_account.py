@@ -1,3 +1,4 @@
+from datetime import datetime
 from . import main
 
 from flask import (
@@ -41,6 +42,8 @@ validator = Validators()
 @main.route('/logout/', methods=['post', 'get'])
 @login_required
 def logout():
+	# user = find_data.find_user(current_user.id)
+	# user.last_seen = datetime.utcnow
 	logger.info(f'User {current_user.username} have been logged out.')
 	logout_user()
 	flash("You have been logged out.")
@@ -66,8 +69,7 @@ def sign_up():
 
 				login_user(user, remember=form.remember.data)
 				return redirect(url_for('.user_profile'))
-			else:
-				return redirect(url_for('.sign_up'))
+			return redirect(url_for('.sign_up'))
 		else:
 			flash("Аккаунт с такой почтой уже существует.")
 			return redirect(url_for('.sign_up'))
@@ -101,5 +103,4 @@ def login():
 @login_required
 def user_profile():
 	logger.info(f'User {current_user.username} watching himself profile.')
-	user = User.query.get(current_user.id)
-	return render_template('profile.html', user=user)
+	return render_template('profile.html')

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_menu.css') }}" type="text/css">
 	{% block before_bootstrap %}{% endblock %}
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	{% if current_user.is_authenticated %}
@@ -23,20 +24,26 @@
 	<header class="header border-bottom shadow-sm">
 		<nav class="nav__header">
 		    <a class="header__btn btn" href="{{ url_for('.index') }}">Главная</a>
-		    <a class="header__btn btn" href="/posts/page/1">Статьи</a>
+		    <a class="header__btn btn" href="{{ url_for('.posts', page=1) }}">Статьи</a>
 		    {% if current_user.is_authenticated %}
 					{% if current_user.is_administrator() %}
 						<a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
 					{% endif %}
-						<a href="/user/posts/1" class="header__btn btn">Мои статьи</a>
 						<a href="{{ url_for('.create_article') }}" class="header__btn btn">Создать статью</a>
-						<a href="{{ url_for('.user_profile') }}"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
+						<a id="menu"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
 			  {% else %}
 				  <a href="{{ url_for('.login') }}" class="header__btn btn">Войти</a>
 				  <a href="{{ url_for('.sign_up') }}" class="header__btn btn">Регистрация</a>
 		    {% endif %}
 		</nav>
 	</header>
+    <div id="main_menu" style="display: none;">
+        <ul>
+            <li><a href="{{ url_for('.user_profile') }}" class="profile_menu">Профиль</a></li>
+            <li><a href="{{ url_for('.user_posts', page=1) }}" class="profile_menu">Мои статьи</a></li>
+            <li><a href="{{ url_for('.logout') }}" class="profile_menu">Выход</a></li>
+        </ul>
+    </div>
 	<br>
 	<div class="container">
 		<main class="form-sign text-center">
@@ -67,6 +74,7 @@
 {#        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>#}
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 {#	    <script src="{{ url_for('static', filename='js/socket_events.js') }}" defer></script>#}
 	    <script src="{{ url_for('static', filename='js/settings_chat.js') }}" defer></script>
 	{% endif %}

@@ -1,0 +1,18 @@
+.menu__open {
+    position: absolute;
+    display: block !important;
+    background: #F0EAD6;
+    right: 14%;
+    z-index: 5000;
+    text-decoration: none;
+}
+
+.profile_menu {
+    border: 3px;
+    margin: 0 auto;
+}
+
+.profile_menu:hover {
+    background: silver;
+}
+

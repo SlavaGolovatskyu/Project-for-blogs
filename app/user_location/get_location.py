@@ -3,11 +3,10 @@ import json
 
 
 def get_location(ip: str) -> dict:
-	url = "http://ipinfo.io/{0}?token=94ef890b6142e2".format(ip)
-	r = requests.get(url)
-	html = json.loads(r.text)
-
 	try:
+		url = "http://ipinfo.io/{0}?token=94ef890b6142e2".format(ip)
+		r = requests.get(url)
+		html = json.loads(r.text)
 		return {
 			"Country": html['country'],
 			"IP": html['ip'],
@@ -16,7 +15,5 @@ def get_location(ip: str) -> dict:
 			"TimeZone": html['timezone'],
 			"Loc": html['loc']
 		}
-	except KeyError:
+	except:
 		return {}
-
-

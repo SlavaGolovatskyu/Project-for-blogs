@@ -4,6 +4,15 @@ body {
 	background: silver;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
 .header {
 	text-align: center;
 	display: block;

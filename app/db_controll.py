@@ -72,9 +72,6 @@ class AddNewData:
 
 
 class DeleteData:
-	def __init__(self):
-		self.find_data = FindData()
-
 	@staticmethod
 	def delete_and_commit_obj(obj):
 		db.session.delete(obj)
@@ -115,8 +112,6 @@ class DeleteData:
 			return False
 
 
-# ---------------------FIND DATA----------------------#
-
 class FindData:
 	@staticmethod
 	def find_articles_order_by(method_sort, f_index, s_index):
@@ -129,22 +124,18 @@ class FindData:
 	def find_user(*args, **kwargs):
 		if args:
 			return User.query.get_or_404(*args)
-		return User.query.filter_by(**kwargs).first_or_404()
+		return User.query.filter_by(**kwargs).first()
 
 	@staticmethod
 	def find_article(*args, **kwargs):
 		if args:
 			return Article.query.get_or_404(*args)
-		return Article.query.filter_by(**kwargs).first_or_404()
+		return Article.query.filter_by(**kwargs).first()
 
 	@staticmethod
-	def find_comment(article=None, count: bool = False, **kwargs):
+	def find_comment(*args):
 		# if we want will to check how much there are comments we wrote count=True else False
-		try:
-			return Comment.query.get_or_404(kwargs['id'])
-		except KeyError:
-			return article.comments.filter_by(**kwargs).first_or_404() if not count else \
-			   	   article.comments.filter_by(**kwargs).count()
+		return Comment.query.get_or_404(*args)
 
 	@staticmethod
 	def find_user_which_viewed_post(article, **kwargs):
@@ -152,13 +143,8 @@ class FindData:
 
 	@staticmethod
 	def find_role(**kwargs):
-		return Role.query.filter_by(**kwargs).first_or_404()
+		return Role.query.filter_by(**kwargs).first()
 
-
-# ---------------------FIND DATA----------------------#
-
-
-# ---------------------CHANGE DATA----------------------#
 
 class ChangeData:
 	def __init__(self):
@@ -182,7 +168,7 @@ class ChangeData:
 			return False
 
 	@staticmethod
-	def article_save_changes(article, **kwargs) -> bool:
+	def article_update_changes(article, **kwargs) -> bool:
 		try:
 			article.title = kwargs['title']
 			article.text = kwargs['text']
@@ -196,5 +182,3 @@ class ChangeData:
 							 Error: {e}""")
 			flash(f'Не удалось обновить статью. Ошибка: {e}')
 			return False
-
-# ---------------------CHANGE DATA----------------------#

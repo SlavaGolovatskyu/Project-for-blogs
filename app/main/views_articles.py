@@ -95,7 +95,7 @@ def update_user_post(article_id):
 				if (validator.check_length(MIN_LENGTH_TEXT, request.form.get('text'), True) and
 						validator.check_length(MAX_LENGTH_TEXT, request.form.get('text'))):
 
-					change_data.article_save_changes(
+					change_data.article_update_changes(
 							article,
 							title=request.form['title'],
 							intro=request.form['intro'],
@@ -165,11 +165,11 @@ def post_detail(id):
 		text = request.form.get('text')
 
 		# search comment like it in database
-		check_on_spam = find_data.find_comment(article, count=True, text=text, post_id=id)
+		check_on_spam = article.comments.filter_by(text=text).count()
 
 		if validator.check_length(max_length_comment, text):
 			# If comments does not in database we will creating new comment
-			if check_on_spam < 2:
+			if check_on_spam < 1:
 				add_data.add_new_comment(text=text, author=current_user.username,
 										 user_id=current_user.id, post_id=id)
 				return redirect(url_for('.post_detail', id=id))
@@ -261,7 +261,7 @@ def user_posts(page):
 	# Needed posts (max MAX_COUNT_POSTS_ON_PAGE)
 	# [::-1] reverse array and then search needed posts with help:
 	# [search_first_index : search_second_index]
-	articles_need = user.posts[::-1][search_first_index: search_second_index]
+	articles_need = user.posts[::-1][search_first_index : search_second_index]
 
 	# If User input incorrect page in URL address'
 	if page > count_dynamic_pages and all_posts_user != 0 or page == 0:
