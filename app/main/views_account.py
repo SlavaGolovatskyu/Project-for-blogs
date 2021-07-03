@@ -1,33 +1,40 @@
 from datetime import datetime
+from .. import db
 from . import main
+from ..logg.logger import logger
 
 from flask import (
 	render_template,
 	url_for,
 	redirect,
+	request,
+	flash
 )
 
 from flask_login import (
 	login_required,
 	login_user,
-	logout_user
+	logout_user,
+	current_user
 )
 
 from .forms import (
 	LoginForm,
-	RegistrationForm
+	RegistrationForm,
+	ChangeUserData
 )
 
 from .validators import Validators
 from ..user_location.get_location import get_location
 
-from ..db_controll import *
 from ..decorators import is_auth
 
 from ..db_controll import (
 	AddNewData,
 	FindData
 )
+
+from werkzeug.datastructures import MultiDict
 
 add_data = AddNewData()
 find_data = FindData()
@@ -44,6 +51,8 @@ validator = Validators()
 def logout():
 	# user = find_data.find_user(current_user.id)
 	# user.last_seen = datetime.utcnow
+	current_user.last_seen = datetime.utcnow()
+	db.session.commit()
 	logger.info(f'User {current_user.username} have been logged out.')
 	logout_user()
 	flash("You have been logged out.")
@@ -92,15 +101,47 @@ def login():
 			logger.info(f'User {current_user.username} success sign-in.')
 			return redirect(url_for('.user_profile'))
 
-		logger.info(f'Anymouse user failed sign-in.')
+		logger.info(f'user {user.username} & {user.id} id failed sign-in.')
 		flash("Invalid email/password", 'error')
 		return redirect(url_for('.login'))
 
 	return render_template('login.html', form=form)
 
 
-@main.route('/profile/')
+@main.route('/settings/', methods=['post', 'get'])
+@login_required
+def settings_profile():
+	if request.method == 'GET':
+		form = ChangeUserData(formdata=MultiDict({'username': f'{current_user.username}',
+											  	  'email': f'{current_user.email}',
+							  					  'city': f'{current_user.location}',
+												  'about_me': f'{current_user.about_me}'}))
+	else:
+		form = ChangeUserData()
+
+	if form.validate_on_submit():
+		current_user.username = form.username.data
+		current_user.location = form.city.data
+		current_user.about_me = form.about_me.data
+		email = form.email.data
+		if find_data.find_user(email=email) and current_user.email != email:
+			flash(f'Аккаунт с почтой {email} уже существует!')
+		else:
+			current_user.email = email
+		db.session.commit()
+		return redirect(url_for('.settings_profile'))
+
+	return render_template('profile_settings.html',
+						   form=form)
+
+
+@main.route('/profile/', methods=['post', 'get'])
 @login_required
 def user_profile():
-	logger.info(f'User {current_user.username} watching himself profile.')
 	return render_template('profile.html')
+
+
+@main.route('/profile/<int:id>')
+def check_user_profile(id):
+	user = find_data.find_user(id)
+	return render_template('other_profiles_users.html', user=user)

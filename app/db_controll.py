@@ -164,7 +164,7 @@ class ChangeData:
 			return True
 		except Exception as e:
 			logger.error(f'Error: {e}. Failed to add new moderator')
-			flash(f'Произошла ошибка: {e}. Не удалось поставить {user.username} на админку.')
+			flash(f'Произошла ошибка: {e}. Не удалось поставить {user.username} на модератора.')
 			return False
 
 	@staticmethod

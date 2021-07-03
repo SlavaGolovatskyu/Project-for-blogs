@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Профиль
+{% endblock %}
+
+{% block body %}
+<style>
+	.alert {
+		width: 90%;
+        margin: 100px auto 0;
+        word-wrap: break-word;
+    }
+	.alert > p {
+		font-size: 30px;
+		text-align: center;
+	}
+    #email, #username, #city, #about_me {
+        min-width: 100%;
+    }
+</style>
+<div class="container">
+        <form method="post">
+            {{ form.csrf_token }}
+            <div class="alert alert-info">
+                <p class="username">Имя
+                    <p>
+                        {% if form.username.errors %}
+                            {% for error in form.username.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.username() }}
+                    </p>
+                </p>
+                <p class="email">Почта
+                    <p>
+                        {% if form.email.errors %}
+                            {% for error in form.email.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.email() }}
+                    </p>
+                </p>
+                <p class="city">Место нахождения
+                    <p>
+                        {% if form.city.errors %}
+                            {% for error in form.city.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.city() }}
+                    </p>
+                </p>
+                <p class="about_me">О себе
+                    <p>
+                        {% if form.about_me.errors %}
+                            {% for error in form.about_me.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.about_me() }}
+                    </p>
+                </p>
+                <p>
+                    <p>
+                        {{ form.submit() }}
+                    </p>
+                </p>
+            </div>
+        </form>
+	<br>
+</div>
+{% endblock %}

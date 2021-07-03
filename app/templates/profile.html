@@ -11,22 +11,25 @@
 	}
 	.alert {
 		width: 90%;
-		margin: 0 auto;
-		margin-top: 100px;
-	}
+        margin: 100px auto 0;
+    }
 	.alert > p {
 		font-size: 30px;
 		text-align: center;
 	}
 </style>
 <div class="container">
-	<div class="alert alert-info">
-		<p class="username">Им'я: {{ current_user.username }}</p>
-		<p class="email">Почта: {{ current_user.email }}</p>
-		<p class="count_yourself_posts">Количество ваших статей: {{ current_user.posts.count() }}</p>
-		<p class="dataReg">Дата регистрации аккаунта: {{ current_user.created_on.strftime("%d/%m/%Y, %H:%M:%S") }}</p>
-		<p><a href="{{ url_for('.logout') }}" class="btn btn-dark">Выйти из аккаунта</a></p>
-	</div>
+    <div class="alert alert-info">
+        <p>
+            Имя: {{ current_user.username }}
+        </p>
+        <p>
+            Почта: {{ current_user.email }}
+        </p>
+        <p>
+            Количество ваших статей: {{ current_user.posts.count() }}
+        </p>
+    </div>
 	<br>
 </div>
 {% endblock %}

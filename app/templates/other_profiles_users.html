@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Профиль
+{% endblock %}
+
+{% block body %}
+<style>
+	.container {
+		width: 85%;
+	}
+	.alert {
+		width: 90%;
+        margin: 100px auto 0;
+    }
+	.alert > p {
+		font-size: 30px;
+		text-align: center;
+	}
+</style>
+<div class="container">
+    <div class="alert alert-info">
+        <h1 style="text-align: center;">{{ user.username }}</h1>
+        <p>
+            Почта: {{ user.email }}
+        </p>
+        <p>
+            Количество статей: {{ user.posts.count() }}
+        </p>
+        {% if user.is_administrator() %}
+            <p>Admin</p>
+        {% elif user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
+            <p>Moderator</p>
+        {% endif %}
+        <p>
+            Место нахождения:
+            {% if user.location %}
+                {{ user.location }}
+            {% else %}
+                Не указано
+            {% endif %}
+        </p>
+        <details style="text-align: center;">
+            {% if user.about_me %}
+                {{ user.about_me }}
+            {% else %}
+                Не указано
+            {% endif %}
+        </details>
+    </div>
+	<br>
+</div>
+{% endblock %}
