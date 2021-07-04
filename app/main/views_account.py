@@ -124,42 +124,49 @@ def settings_profile():
 		form = ChangeUserData()
 
 	if form.validate_on_submit():
-		current_user.username = form.username.data
-		current_user.location = form.city.data
-		current_user.about_me = form.about_me.data
-		email = form.email.data
+		try:
+			current_user.username = form.username.data
+			current_user.location = form.city.data
+			current_user.about_me = form.about_me.data
+			email = form.email.data
 
-		if find_data.find_user(email=email) and current_user.email != email:
-			flash(f'Аккаунт с почтой {email} уже существует!')
-		else:
-			current_user.email = email
+			if find_data.find_user(email=email) and current_user.email != email:
+				flash(f'Аккаунт с почтой {email} уже существует!')
+			else:
+				current_user.email = email
 
-		if form.image.data:
-			try:
-				f = form.image.data
-				filename = random_filename(f.filename)
+			if form.image.data:
+				try:
+					f = form.image.data
+					filename = random_filename(f.filename)
 
-				file_path = os.path.join(
-					upload_folder, filename
-				)
+					file_path = os.path.join(
+						upload_folder, filename
+					)
 
-				f.save(file_path)
-				# 0 is False, 1 is True
-				if not current_user.avatar.count():
-					user_avatar = Avatar(src_to_avatar=file_path, filename=filename, user_id=current_user.id)
-					db.session.add(user_avatar)
-				else:
-					os.remove(os.path.join(upload_folder, current_user.avatar[0].filename))
-					user_avatar = current_user.avatar.filter_by(user_id=current_user.id).first()
-					user_avatar.src_to_avatar = file_path
-					user_avatar.filename = filename
+					f.save(file_path)
 
-			except Exception as e:
-				flash('Произошла ошибка. Не удалось загрузить фотографию.')
-				logger.error(f'Error: {e}. Image not upload')
+					# 0 is False, 1 is True
+					if not current_user.avatar.count():
+						user_avatar = Avatar(src_to_avatar=file_path, filename=filename, user_id=current_user.id)
+						db.session.add(user_avatar)
+					else:
+						os.remove(os.path.join(upload_folder, current_user.avatar[0].filename))
+						user_avatar = current_user.avatar.filter_by(user_id=current_user.id).first()
+						user_avatar.src_to_avatar = file_path
+						user_avatar.filename = filename
 
-		db.session.commit()
-		return redirect(url_for('.settings_profile'))
+				except Exception as e:
+					flash('Произошла ошибка. Не удалось загрузить фотографию.')
+					logger.error(f'Error: {e}. Image not upload')
+
+			db.session.commit()
+			return redirect(url_for('.settings_profile'))
+
+		except Exception as e:
+			flash('При сбережении данных случилась ошибка. Пожалуйста повторите позднее.')
+			logger.error(f'When app wanna to save data something to wrong. Error: {e}')
+			return redirect(url_for('.settings_profile'))
 
 	return render_template('profile_settings.html', form=form)
 

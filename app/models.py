@@ -64,6 +64,14 @@ class User(db.Model, UserMixin):
 
 	def get_src_to_avatar(self):
 		try:
+			# i'm using url_for so when i'm calling url_for() i'm input directory where he must search data
+			# also i'm using defend in front-end
+			# {% if user.get_src_to_avatar() %}
+			# 	upload user image
+			# {% else %}
+			# 	upload default image
+			# {% endif %}
+			# url_for('static', filename=user.get_src_to_avatar())
 			return ''.join(['users_avatars/', self.avatar[0].filename])
 		except:
 			return False
