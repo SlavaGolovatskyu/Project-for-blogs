@@ -34,7 +34,13 @@
                             <a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
                         {% endif %}
                         <a href="{{ url_for('.create_article') }}" class="header__btn btn">Создать статью</a>
-                        <a id="menu"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
+
+                        {% if current_user.get_src_to_avatar() %}
+                            <a id="menu"><img src="{{ url_for('static', filename=current_user.get_src_to_avatar()) }}" alt="noname_user" class="header__user__img"></a>
+                        {% else %}
+                            <a id="menu"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img"></a>
+                        {% endif %}
+
                         <div id="main_menu" style="display: none;">
                             <ul class="col">
                                 <li class="row"><a href="{{ url_for('.user_profile') }}" class="profile_menu">Профиль</a></li>

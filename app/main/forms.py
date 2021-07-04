@@ -5,7 +5,8 @@ from wtforms import (
 	SubmitField,
 	TextAreaField,
 	BooleanField,
-	PasswordField
+	PasswordField,
+	FileField
 )
 
 from wtforms.validators import (
@@ -14,15 +15,18 @@ from wtforms.validators import (
 	Length
 )
 
+from flask_wtf.file import FileAllowed
+
 
 class ChangeUserData(FlaskForm):
+	image = FileField(u'Image File', validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg'])])
 	username = StringField("Your name: ", validators=[DataRequired(), Length(min=6, max=40, message=None)])
 	email = StringField("Your name: ", validators=[DataRequired(), Email()])
 	city = StringField('City: ', validators=[DataRequired(), Length(min=2, max=40, message=None)])
 	about_me = TextAreaField('About me: ', validators=[DataRequired(),
 													   Length(min=1, max=500, message=None)],
 										   render_kw={"placeholder": "Расскажите о себе"})
-	submit = SubmitField("Изменить")
+	submit = SubmitField("Сохранить изменения")
 
 
 class SearchNeedPeopleForm(FlaskForm):

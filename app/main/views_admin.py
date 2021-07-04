@@ -140,7 +140,7 @@ def give_moderator(id):
 @admin_required
 def pick_up_the_moderator(id):
 	user = find_data.find_user(id)
-	msg = f'Вы действительно хотите снять с админки {user.username}?'
+	msg = f'Вы действительно хотите снять с модерки {user.username}?'
 	if request.method == 'POST':
 		if user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) and not user.is_administrator():
 			# if you see how made func change_user_role you will see what i'm using **kwargs

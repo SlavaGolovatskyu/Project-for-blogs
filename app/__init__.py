@@ -20,7 +20,6 @@ def create_app(config):
 	# создание экземпляра приложения
 	app = Flask(__name__)
 	app.config.from_object(config)
-	app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 	db.init_app(app)
 	socket.init_app(app)

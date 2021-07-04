@@ -18,11 +18,35 @@
     #email, #username, #city, #about_me {
         min-width: 100%;
     }
+    .round {
+        border-radius: 300px; /* Радиус скругления */
+        border: 3px solid green; /* Параметры рамки */
+        box-shadow: 0 0 7px #666; /* Параметры тени */
+        width: 300px;
+        height: 300px;
+    }
+    .fig {
+        text-align: center;
+    }
 </style>
 <div class="container">
-        <form method="post">
+        <form method="post" enctype=multipart/form-data>
             {{ form.csrf_token }}
             <div class="alert alert-info">
+                {% if current_user.get_src_to_avatar() %}
+                    <p class="fig"><img src="{{ url_for('static', filename=current_user.get_src_to_avatar()) }}" alt="" class="round"></p>
+                {% endif %}
+                <p class="image"> {% if not current_user.get_src_to_avatar() %} Выберите фото {% endif %}
+                    <p>
+                        {{ form.image() }}
+                        <br>
+                        {% if form.image.errors %}
+                            {% for error in form.image.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                    </p>
+                </p>
                 <p class="username">Имя
                     <p>
                         {% if form.username.errors %}

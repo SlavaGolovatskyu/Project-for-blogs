@@ -17,9 +17,22 @@
 		font-size: 30px;
 		text-align: center;
 	}
+    .round {
+        border-radius: 300px; /* Радиус скругления */
+        border: 3px solid green; /* Параметры рамки */
+        box-shadow: 0 0 7px #666; /* Параметры тени */
+        width: 300px;
+        height: 300px;
+    }
+    .fig {
+        text-align: center;
+    }
 </style>
 <div class="container">
     <div class="alert alert-info">
+        {% if user.get_src_to_avatar() %}
+            <p class="fig"><img src="{{ url_for('static', filename=user.get_src_to_avatar()) }}" alt="" class="round"></p>
+        {% endif %}
         <h1 style="text-align: center;">{{ user.username }}</h1>
         <p>
             Почта: {{ user.email }}

@@ -28,7 +28,7 @@ Adding new admin
 		  text-align: center;
 		}
 
-		.table_price a {
+		.table_price_a {
 			display: inline-block;
 			padding: 5px 10px;
 			background: #3BE7D9;
@@ -98,9 +98,9 @@ Adding new admin
 					{% for user in users %}
 						<tr>
 							<td>{{ loop.index + current_page * max_users - max_users }}</td>
-							<td>{{ user.username }}</td>
+							<td><a style="color: brown;" href="{{ url_for('.check_user_profile', id=user.id) }}">{{ user.username }}</a></td>
 							<td>{{ user.email }}</td>
-							<td>{{ user.created_on.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+							<td>{{ moment(user.created_on).format('LLL') }} ({{ moment(user.created_on).fromNow(refresh=True) }})</td>
 
 							{% if not user.is_banned %}
 								<td>Не забанен</td>
@@ -110,7 +110,7 @@ Adding new admin
 
 							{% if not user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
 								{% if current_user.is_administrator() %}
-								    <td><a href='/add-new-moderator/{{ user.id }}/confirm' class='btn'>Поставить на модератора</a></td>
+								    <td><a href='/add-new-moderator/{{ user.id }}/confirm' class='btn table_price_a'>Поставить на модератора</a></td>
 								{% else %}
 								  	<td><a>Не модератор</a></td>
 								{% endif %}
@@ -118,14 +118,14 @@ Adding new admin
                                 {% if user.is_administrator() %}
                                     <td><a>Администратор</a></td>
 								{% elif current_user.is_administrator() and user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
-								  	<td><a href="/pick-up-moderator/{{ user.id }}/confirm" class='btn'>Снять с модераторки</a></td>
+								  	<td><a href="/pick-up-moderator/{{ user.id }}/confirm" class='btn table_price_a'>Снять с модераторки</a></td>
 								{% else %}
 								  	<td><a>Модератор</a></td>
 								{% endif %}
 							{% endif %}
 
 							{% if current_user.is_administrator() %}
-								<td><a href="/delete-user/{{ user.id }}/confirm" class='btn'>Удалить</a></td>
+								<td><a href="/delete-user/{{ user.id }}/confirm" class='btn table_price_a'>Удалить</a></td>
 							{% else %}
 								<td>Нет доступа</td>
 							{% endif %}

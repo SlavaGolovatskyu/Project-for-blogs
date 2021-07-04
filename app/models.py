@@ -22,6 +22,14 @@ class Permission:
 	ADMINISTRATOR = 16
 
 
+class Avatar(db.Model):
+	__tablename__ = 'avatars'
+	id = db.Column(db.Integer, primary_key=True)
+	src_to_avatar = db.Column(db.String(300), nullable=True)
+	filename = db.Column(db.String(300), nullable=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
 class User(db.Model, UserMixin):
 	__tablename__ = 'users'
 	id = db.Column(db.Integer(), primary_key=True)
@@ -38,6 +46,7 @@ class User(db.Model, UserMixin):
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
 
+	avatar = db.relationship('Avatar', cascade='all,delete-orphan', lazy='dynamic')
 	comments = db.relationship('Comment', cascade='all,delete-orphan', lazy='dynamic')
 	posts = db.relationship('Article', cascade='all,delete-orphan', lazy='dynamic')
 
@@ -52,6 +61,12 @@ class User(db.Model, UserMixin):
 			except AttributeError:
 				logger.error('При создании аккаунта произошла ошибка. Роль не была найдена.')
 				self.role_id = 1
+
+	def get_src_to_avatar(self):
+		try:
+			return ''.join(['users_avatars/', self.avatar[0].filename])
+		except:
+			return False
 
 	def get_role(self):
 		return Role.query.filter_by(id=self.role_id).first()
