@@ -59,10 +59,14 @@ class User(db.Model, UserMixin):
 				if self.role_id is None:
 					self.role_id = Role.query.filter_by(default=True).first().id
 			except AttributeError:
-				logger.error('При создании аккаунта произошла ошибка. Роль не была найдена.')
-				self.role_id = 1
+				Role.insert_role()
+				self.role_id = Role.query.filter_by(default=True).first().id
 
-	def get_src_to_avatar(self):
+	def ping(self) -> None:
+		self.last_seen = datetime.utcnow()
+		db.session.add(self)
+
+	def get_src_to_avatar(self) -> str:
 		try:
 			# i'm using url_for so when i'm calling url_for() i'm input directory where he must search data
 			# also i'm using defend in front-end
@@ -73,8 +77,8 @@ class User(db.Model, UserMixin):
 			# {% endif %}
 			# url_for('static', filename=user.get_src_to_avatar())
 			return ''.join(['users_avatars/', self.avatar[0].filename])
-		except:
-			return False
+		except IndexError:
+			return ''
 
 	def get_role(self):
 		return Role.query.filter_by(id=self.role_id).first()
@@ -147,9 +151,7 @@ class Comment(db.Model):
 class UsersWhichViewedPost(db.Model):
 	__tablename__ = 'user_which_viewed_post'
 	id = db.Column(db.Integer(), primary_key=True)
-	name = db.Column(db.String(50), nullable=False)
 	user_id = db.Column(db.Integer(), nullable=False)
-
 	post_id = db.Column(db.Integer(), db.ForeignKey('articles.id'))
 
 	def __repr__(self):

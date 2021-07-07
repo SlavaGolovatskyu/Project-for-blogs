@@ -1,4 +1,7 @@
 from flask_wtf import FlaskForm
+from app.models import Role
+
+from flask import flash
 
 from wtforms import (
 	StringField,
@@ -6,22 +9,44 @@ from wtforms import (
 	TextAreaField,
 	BooleanField,
 	PasswordField,
-	FileField
+	FileField,
+	SelectField
 )
 
 from wtforms.validators import (
 	DataRequired, 
 	Email, 
-	Length
+	Length,
+	Regexp
 )
 
 from flask_wtf.file import FileAllowed
+from app.main.validators import Validators
 
 
-class ChangeUserData(FlaskForm):
+class EditProfileAdminForm(FlaskForm):
+	email = StringField("Email: ", validators=[DataRequired(), Email()])
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
+												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+														  'Usernames must have only letters, '
+														  'numbers, dots or underscores')])
+	role = SelectField('Role', coerce=int)
+	location = StringField('Location', validators=[Length(0, 64)])
+	about_me = TextAreaField('About me')
+	submit = SubmitField('Сохранить изменения')
+
+	def __init__(self, *args, **kwargs):
+		super(EditProfileAdminForm, self).__init__(*args, **kwargs)
+		self.role.choices = [(role.id, role.name) for role in Role.query.order_by(Role.name).all()]
+
+
+class EditProfileForm(FlaskForm):
 	image = FileField(u'Image File', validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg'])])
-	username = StringField("Your name: ", validators=[DataRequired(), Length(min=6, max=40, message=None)])
-	email = StringField("Your name: ", validators=[DataRequired(), Email()])
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
+												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+														  'Usernames must have only letters, '
+														  'numbers, dots or underscores')])
+	email = StringField("Email: ", validators=[DataRequired(), Email()])
 	city = StringField('City: ', validators=[DataRequired(), Length(min=2, max=40, message=None)])
 	about_me = TextAreaField('About me: ', validators=[DataRequired(),
 													   Length(min=1, max=500, message=None)],
@@ -30,14 +55,19 @@ class ChangeUserData(FlaskForm):
 
 
 class SearchNeedPeopleForm(FlaskForm):
-	username = StringField("Your name: ", render_kw={"placeholder": "username"})
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
+												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+														  'Usernames must have only letters, '
+														  'numbers, dots or underscores')])
 	email = StringField("Email: ", render_kw={"placeholder": "email"})
 	submit = SubmitField("Искать")
 
 
 class RegistrationForm(FlaskForm):
-	username = StringField("Your name: ", validators=[DataRequired(), Length(min=6, max=40, message=None)],
-						   render_kw={"placeholder": "username"})
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
+												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+														  'Usernames must have only letters, '
+														  'numbers, dots or underscores')])
 	email = StringField("Email: ", validators=[Email(), DataRequired()], render_kw={"placeholder": "email"})
 	password = PasswordField("Password: ", validators=[DataRequired(), Length(min=6, max=50, message=None)],
 							 render_kw={"placeholder": "password"})

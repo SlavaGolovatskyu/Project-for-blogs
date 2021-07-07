@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Профиль
+Редактор
 {% endblock %}
 
 {% block body %}
@@ -30,25 +30,14 @@
     }
 </style>
 <div class="container">
-        <form method="post" enctype=multipart/form-data>
+        <form method="post">
             {{ form.csrf_token }}
             <div class="alert alert-info">
-                {% if current_user.get_src_to_avatar() %}
-                    <p class="fig"><img src="{{ url_for('static', filename=current_user.get_src_to_avatar()) }}" alt="" class="round"></p>
+                {% if user.get_src_to_avatar() %}
+                    <p class="fig"><img src="{{ url_for('static', filename=user.get_src_to_avatar()) }}" alt="" class="round"></p>
                 {% else %}
                     <p class="fig"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="" class="round"></p>
                 {% endif %}
-                <p class="image"> {% if not current_user.get_src_to_avatar() %} Выберите фото {% endif %}
-                    <p>
-                        {{ form.image() }}
-                        <br>
-                        {% if form.image.errors %}
-                            {% for error in form.image.errors %}
-                                {{ error }}
-                            {% endfor %}
-                        {% endif %}
-                    </p>
-                </p>
                 <p class="username">Имя
                     <p>
                         {% if form.username.errors %}
@@ -71,12 +60,22 @@
                 </p>
                 <p class="city">Место нахождения
                     <p>
-                        {% if form.city.errors %}
-                            {% for error in form.city.errors %}
+                        {% if form.location.errors %}
+                            {% for error in form.location.errors %}
                                 {{ error }}
                             {% endfor %}
                         {% endif %}
-                        {{ form.city() }}
+                        {{ form.location() }}
+                    </p>
+                </p>
+                <p class="role">Роль
+                    <p>
+                        {% if form.role.errors %}
+                            {% for error in form.role.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.role() }}
                     </p>
                 </p>
                 <p class="about_me">О себе
@@ -92,6 +91,7 @@
                 <p>
                     <p>
                         {{ form.submit() }}
+                        <a class="btn btn-danger" href="{{ url_for('.delete_user', id=user.id) }}">Удалить аккаунт</a>
                     </p>
                 </p>
             </div>

@@ -192,7 +192,6 @@ def post_detail(id):
 
 			# Added user in database what he saw this article
 			add_data.add_user_which_viewed_post(user_id=current_user.id,
-											    name=current_user.username,
 											    post_id=id)
 			db.session.commit()
 

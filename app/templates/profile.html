@@ -17,18 +17,62 @@
 		font-size: 30px;
 		text-align: center;
 	}
+    .round {
+        border-radius: 300px; /* Радиус скругления */
+        border: 3px solid green; /* Параметры рамки */
+        box-shadow: 0 0 7px #666; /* Параметры тени */
+        width: 300px;
+        height: 300px;
+    }
+    .fig {
+        text-align: center;
+    }
 </style>
 <div class="container">
     <div class="alert alert-info">
+        {% if current_user.is_administrator() %}
+            <a href="{{ url_for('.edit_profile_admin', id=user.id) }}" class="btn btn-success">Редактировать профиль</a>
+        {% endif %}
+        {% if user.get_src_to_avatar() %}
+            <p class="fig"><img src="{{ url_for('static', filename=user.get_src_to_avatar()) }}" alt="" class="round"></p>
+        {% else %}
+            <p class="fig"><img src="{{ url_for('static', filename='img/test1.png') }}" alt="" class="round"></p>
+        {% endif %}
+        <h1 style="text-align: center;">{{ user.username }}</h1>
         <p>
-            Имя: {{ current_user.username }}
+            Почта: {% if user.is_administrator() or user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
+                        <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+                   {% else %}
+                        {{ user.email }}
+                   {% endif %}
         </p>
         <p>
-            Почта: {{ current_user.email }}
+            Количество статей: {{ user.posts.count() }}
+        </p>
+        {% if user.is_administrator() %}
+            <p>Admin</p>
+        {% elif user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
+            <p>Moderator</p>
+        {% endif %}
+        <p>
+            Место нахождения:
+            {% if user.location == 'None' %}
+                Не указано
+            {% else %}
+                {{ user.location }}
+            {% endif %}
         </p>
         <p>
-            Количество ваших статей: {{ current_user.posts.count() }}
+            Последняя активность:
+            {{ moment(user.last_seen).fromNow(refresh=True) }}
         </p>
+        <details style="text-align: center;">
+            {% if user.about_me == 'None' %}
+                Не указано
+            {% else %}
+                {{ user.about_me }}
+            {% endif %}
+        </details>
     </div>
 	<br>
 </div>

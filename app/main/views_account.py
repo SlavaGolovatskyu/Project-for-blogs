@@ -1,9 +1,8 @@
 import os
-from datetime import datetime
 from .. import db
 from . import main
 from ..logg.logger import logger
-from ..models import Avatar
+from ..models import Avatar, Permission
 
 from flask import (
 	render_template,
@@ -23,7 +22,7 @@ from flask_login import (
 from .forms import (
 	LoginForm,
 	RegistrationForm,
-	ChangeUserData
+	EditProfileForm
 )
 
 from .validators import Validators
@@ -47,16 +46,19 @@ validator = Validators()
 
 # -----------------All actions with accounts, login, registration, logout----------------
 
+
+@main.before_app_request
+def before_request():
+	if current_user.is_authenticated:
+		current_user.ping()
+
+
 # -------------LOGOUT FROM ACCOUNT-----------------
 
 
 @main.route('/logout/', methods=['post', 'get'])
 @login_required
 def logout():
-	# user = find_data.find_user(current_user.id)
-	# user.last_seen = datetime.utcnow
-	current_user.last_seen = datetime.utcnow()
-	db.session.commit()
 	logger.info(f'User {current_user.username} have been logged out.')
 	logout_user()
 	flash("You have been logged out.")
@@ -80,7 +82,7 @@ def sign_up():
 				logger.info(f'User {user.username} success sign-up.')
 
 				login_user(user, remember=form.remember.data)
-				return redirect(url_for('.user_profile'))
+				return redirect(url_for('.index'))
 			return redirect(url_for('.sign_up'))
 		else:
 			flash("Аккаунт с такой почтой уже существует.")
@@ -102,7 +104,7 @@ def login():
 		if user and user.check_password(form.password.data):
 			login_user(user, remember=form.remember.data)
 			logger.info(f'User {current_user.username} success sign-in.')
-			return redirect(url_for('.user_profile'))
+			return redirect(url_for('.index'))
 
 		logger.info(f'user {user.username} & {user.id} id failed sign-in.')
 		flash("Invalid email/password", 'error')
@@ -111,17 +113,17 @@ def login():
 	return render_template('login.html', form=form)
 
 
-@main.route('/settings/', methods=['post', 'get'])
+@main.route('/edit-profile/', methods=['post', 'get'])
 @login_required
-def settings_profile():
+def edit_profile():
 	upload_folder = 'app\\static\\users_avatars'
 	if request.method == 'GET':
-		form = ChangeUserData(formdata=MultiDict({'username': f'{current_user.username}',
+		form = EditProfileForm(formdata=MultiDict({'username': f'{current_user.username}',
 												  'email': f'{current_user.email}',
 												  'city': f'{current_user.location}',
 												  'about_me': f'{current_user.about_me}'}))
 	else:
-		form = ChangeUserData()
+		form = EditProfileForm()
 
 	if form.validate_on_submit():
 		try:
@@ -140,44 +142,45 @@ def settings_profile():
 					f = form.image.data
 					filename = random_filename(f.filename)
 
+					ext = os.path.splitext(filename)[1]
+
 					file_path = os.path.join(
 						upload_folder, filename
 					)
 
-					f.save(file_path)
-
-					# 0 is False, 1 is True
-					if not current_user.avatar.count():
-						user_avatar = Avatar(src_to_avatar=file_path, filename=filename, user_id=current_user.id)
-						db.session.add(user_avatar)
+					if not current_user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) \
+					   and ext == '.gif':
+						flash('Извините но gif-анимации доступны только для админов и модераторов.')
 					else:
-						os.remove(os.path.join(upload_folder, current_user.avatar[0].filename))
-						user_avatar = current_user.avatar.filter_by(user_id=current_user.id).first()
-						user_avatar.src_to_avatar = file_path
-						user_avatar.filename = filename
+
+						f.save(file_path)
+
+						# 0 is False, 1 is True
+						if not current_user.avatar.count():
+							user_avatar = Avatar(src_to_avatar=file_path, filename=filename, user_id=current_user.id)
+							db.session.add(user_avatar)
+						else:
+							os.remove(os.path.join(upload_folder, current_user.avatar[0].filename))
+							user_avatar = current_user.avatar[0]
+							user_avatar.src_to_avatar = file_path
+							user_avatar.filename = filename
 
 				except Exception as e:
 					flash('Произошла ошибка. Не удалось загрузить фотографию.')
 					logger.error(f'Error: {e}. Image not upload')
 
 			db.session.commit()
-			return redirect(url_for('.settings_profile'))
+			return redirect(url_for('.edit_profile'))
 
 		except Exception as e:
 			flash('При сбережении данных случилась ошибка. Пожалуйста повторите позднее.')
 			logger.error(f'When app wanna to save data something to wrong. Error: {e}')
 			return redirect(url_for('.settings_profile'))
 
-	return render_template('profile_settings.html', form=form)
-
-
-@main.route('/profile/', methods=['post', 'get'])
-@login_required
-def user_profile():
-	return render_template('profile.html')
+	return render_template('edit_profile.html', form=form)
 
 
 @main.route('/profile/<int:id>')
-def check_user_profile(id):
+def user_profile(id):
 	user = find_data.find_user(id)
-	return render_template('other_profiles_users.html', user=user)
+	return render_template('profile.html', user=user)

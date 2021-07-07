@@ -1,5 +1,6 @@
 from . import main
 from math import ceil
+from app import db
 
 from flask import (
 	render_template,
@@ -19,7 +20,13 @@ from ..models import (
 	Permission
 )
 
-from .forms import SearchNeedPeopleForm
+from .forms import (
+	SearchNeedPeopleForm,
+	EditProfileAdminForm
+)
+
+from werkzeug.datastructures import MultiDict
+
 from app.decorators import (
 	admin_required
 )
@@ -31,6 +38,8 @@ from ..db_controll import (
 	FindData,
 	ChangeData
 )
+
+from .validators import Validators
 
 find_data = FindData()
 delete_data = DeleteData()
@@ -112,46 +121,37 @@ def delete_user(id):
 	return render_template('confirm.html', user=user, msg=msg)
 
 
-@main.route('/add-new-moderator/<int:id>/confirm', methods=['post', 'get'])
+@main.route('/edit-profile/<int:id>', methods=['POST', 'GET'])
 @login_required
 @admin_required
-def give_moderator(id):
-	user = find_data.find_user(id)
-	name = user.username
-	msg = f'Вы действительно хотите поставить на модератора {name}?'
-	if request.method == 'POST':
-		if not user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES):
-			# if you see how made func change_user_role you will see what i'm using **kwargs
-			# that is why we must specify the data in the format name=name or for example
-			# role_id=id first name will must the same with models data
-			if change_data.change_user_role(user, name="Moderator"):
-				return redirect(url_for('.admin_panel', page=1))
-			return redirect(url_for('.give_moderator', id=id))
-		else:
-			logger.warning(f'Admin: {current_user.username} tried give moderator user: {name} but \
-							 he is still moderator')
-			flash(f'Человек: {name} уже модератор!')
-			return redirect(url_for('.admin_panel', page=1))
-	return render_template('confirm.html', user=user, msg=msg)
+def edit_profile_admin(id):
+	user = User.query.get_or_404(id)
+	if request.method == 'GET':
+		form = EditProfileAdminForm(formdata=MultiDict({
+			'email': f'{user.email}',
+			'username': f'{user.username}',
+			'role': f'{user.role_id}',
+			'location': f'{user.location}',
+			'about_me': f'{user.about_me}'
+		}))
+	else:
+		form = EditProfileAdminForm()
 
+	if form.validate_on_submit():
+		user.role_id = form.role.data
+		user.username = form.username.data
+		user.location = form.location.data
+		user.about_me = form.about_me.data
 
-@main.route('/pick-up-moderator/<int:id>/confirm', methods=['POST', 'GET'])
-@login_required
-@admin_required
-def pick_up_the_moderator(id):
-	user = find_data.find_user(id)
-	msg = f'Вы действительно хотите снять с модерки {user.username}?'
-	if request.method == 'POST':
-		if user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) and not user.is_administrator():
-			# if you see how made func change_user_role you will see what i'm using **kwargs
-			# that is why we must specify the data in the format name=name or for example
-			# role_id=id first name will must the same with models data
-			if change_data.change_user_role(user, name="User"):
-				return redirect(url_for('.admin_panel', page=1))
-			return redirect(url_for('.pick_up_the_moderator', id=id))
+		email = form.email.data
+		if find_data.find_user(email=email) and user.email != email:
+			flash(f'Аккаунт с почтой {email} уже существует!')
 		else:
-			flash(f'Человек: {user.username} не модератор!')
-			logger.warning(f'Admin: {current_user.username} tried pick up moderator user: {user.username}')
-			return redirect(url_for('.admin_panel', page=1))
-	return render_template('confirm.html', msg=msg, user=user)
+			user.email = email
+
+		db.session.commit()
+		return redirect(url_for('.edit_profile_admin', id=id))
+
+	return render_template('edit_profile_admin.html',
+						   form=form, user=user)
 # -----------------------------------------

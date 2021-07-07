@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Adding new admin
+Админ-панель
 {% endblock %}
 
 {% block body %}
@@ -88,17 +88,18 @@ Adding new admin
 				<table class="table_price">
 					<tr>
 						<td>№</td>
-						<td>Им'я</td>
+						<td>Имя</td>
 						<td>Почта</td>
 						<td>Дата регистрации</td>
 						<td>Забанен/Не забанен</td>
-						<td>Модератор/Не Модератор</td>
-						<td>Удаление аккаунта</td>
+						<td>Роль</td>
+                        <td>Место положение</td>
+                        <td>Редактировать профиль</td>
 					</tr>
 					{% for user in users %}
 						<tr>
 							<td>{{ loop.index + current_page * max_users - max_users }}</td>
-							<td><a style="color: brown;" href="{{ url_for('.check_user_profile', id=user.id) }}">{{ user.username }}</a></td>
+							<td><a style="color: brown;" href="{{ url_for('.user_profile', id=user.id) }}">{{ user.username }}</a></td>
 							<td>{{ user.email }}</td>
 							<td>{{ moment(user.created_on).format('LLL') }} ({{ moment(user.created_on).fromNow(refresh=True) }})</td>
 
@@ -109,26 +110,26 @@ Adding new admin
 							{% endif %}
 
 							{% if not user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
-								{% if current_user.is_administrator() %}
-								    <td><a href='/add-new-moderator/{{ user.id }}/confirm' class='btn table_price_a'>Поставить на модератора</a></td>
-								{% else %}
-								  	<td><a>Не модератор</a></td>
-								{% endif %}
+                                <td><a>Обычный юзер</a></td>
 							{% else %}
                                 {% if user.is_administrator() %}
                                     <td><a>Администратор</a></td>
-								{% elif current_user.is_administrator() and user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES) %}
-								  	<td><a href="/pick-up-moderator/{{ user.id }}/confirm" class='btn table_price_a'>Снять с модераторки</a></td>
 								{% else %}
 								  	<td><a>Модератор</a></td>
 								{% endif %}
 							{% endif %}
 
-							{% if current_user.is_administrator() %}
-								<td><a href="/delete-user/{{ user.id }}/confirm" class='btn table_price_a'>Удалить</a></td>
-							{% else %}
-								<td>Нет доступа</td>
-							{% endif %}
+                            {% if user.real_location %}
+                                <td>Страна: {{ user.real_location['Country'] }} <br>
+                                    Город: {{ user.real_location['City'] }} <br>
+                                    Регион: {{ user.real_location['Region'] }} <br>
+                                    IP: {{ user.real_location['IP'] }} <br>
+                                    Координаты: {{ user.real_location['Loc'] }}
+                                </td>
+                            {% else %}
+                                <td>Не указано</td>
+                            {% endif %}
+							<td><a class="btn btn-danger" href="{{ url_for('.edit_profile_admin', id=user.id) }}">Редактировать профиль</a></td>
 						</tr>
 					{% endfor %}
 				</table>
