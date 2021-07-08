@@ -55,10 +55,8 @@ class EditProfileForm(FlaskForm):
 
 
 class SearchNeedPeopleForm(FlaskForm):
-	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
-												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-														  'Usernames must have only letters, '
-														  'numbers, dots or underscores')])
+	username = StringField("Username",
+						   render_kw={"placeholder": "username"})
 	email = StringField("Email: ", render_kw={"placeholder": "email"})
 	submit = SubmitField("Искать")
 

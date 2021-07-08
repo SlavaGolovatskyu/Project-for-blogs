@@ -21,7 +21,7 @@ def permission_required(permission):
 		@wraps(f)
 		def decorate_function(*args, **kwargs):
 			if not current_user.can(permission):
-				abort(403)
+				return abort(403)
 			return f(*args, **kwargs)
 		return decorate_function
 	return decorator

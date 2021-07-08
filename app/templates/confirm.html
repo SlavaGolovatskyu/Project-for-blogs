@@ -9,7 +9,7 @@
 		<h1>{{ msg }}</h1>
 		<form action="" method="post">
 			<input type="submit" value='Подтвердить' class="btn btn-success">
-			<a href="{{ url_for('.admin_panel', page=1) }}" class='btn btn-success'>Отменить</a>
+			<a href="{{ url_for('.edit_profile_admin', id=id) }}" class='btn btn-success'>Отменить</a>
 		</form>
 	</div>
 {% endblock %}

@@ -1,5 +1,4 @@
 from . import main
-from math import ceil
 from app import db
 
 from flask import (
@@ -7,7 +6,8 @@ from flask import (
 	request,
 	url_for,
 	redirect,
-	flash
+	flash,
+	abort
 )
 
 from flask_login import (
@@ -17,7 +17,8 @@ from flask_login import (
 
 from ..models import (
 	User,
-	Permission
+	Permission,
+	Role
 )
 
 from .forms import (
@@ -39,8 +40,6 @@ from ..db_controll import (
 	ChangeData
 )
 
-from .validators import Validators
-
 find_data = FindData()
 delete_data = DeleteData()
 change_data = ChangeData()
@@ -61,7 +60,7 @@ def admin():
 @main.route('/admin-panel/<int:page>', methods=['GET', 'POST'])
 @login_required
 @admin_required
-def admin_panel(page):
+def admin_panel(page: int = 1):
 	logger.info(f'User {current_user.username} success connected to admin-panel.')
 	form = SearchNeedPeopleForm()
 
@@ -69,37 +68,31 @@ def admin_panel(page):
 	if form.validate_on_submit():
 		return redirect(f'/admin-panel/1?username={form.username.data}&email={form.email.data}')
 
-	"""
-		* Search posts between first_index = page * 10 - 10 
-		* to second_index = page * 10
-		* for example: if page 1 = first_index = 1, second_index = 10 because page * 10
-	"""
-	search_first_index = page * MAX_COUNT_USERS_ON_PAGE - MAX_COUNT_USERS_ON_PAGE
-	search_second_index = page * MAX_COUNT_USERS_ON_PAGE
-
 	username = request.args.get('username', '')
 	email = request.args.get('email', '')
 
-	if username or email or username and email:
-		users_need = User.query.filter(User.username.like(f'%{username}%'),
-									   User.email.like(f'%{email}%')).all()
+	if not username and not email:
+		pagination = User.query.order_by(User.created_on.desc()).paginate(
+			page, per_page=MAX_COUNT_USERS_ON_PAGE,
+			error_out=False
+		)
 	else:
-		users_need = User.query.order_by(User.created_on.desc()).all()
+		pagination = User.query.filter(User.username.like(f'%{username}%'),
+									   User.email.like(f'%{email}%')).paginate(
+			page, per_page=MAX_COUNT_USERS_ON_PAGE,
+			error_out=False
+		)
 
-	count_all_user = len(users_need)
+	users = pagination.items
 
-	# Search count pages with help count_all_posts
-	count_dynamic_pages = ceil(count_all_user / MAX_COUNT_USERS_ON_PAGE)
+	if page > pagination.pages or page <= 0:
+		return abort(404)
 
-	if page > count_dynamic_pages and count_all_user != 0 or page == 0:
-		flash(f'Страницы {page} несуществует.')
-		return redirect(url_for('.admin_panel', page=1))
-
-	return render_template('admin_panel.html', users=users_need[search_first_index: search_second_index],
-						   form=form, count_dynamic_pages=count_dynamic_pages,
-						   current_page=page,
+	return render_template('admin_panel.html', users=users,
+						   form=form,
 						   max_users=MAX_COUNT_USERS_ON_PAGE,
-						   username=username, email=email)
+						   username=username, email=email,
+						   pagination=pagination)
 
 
 @main.route('/delete-user/<int:id>/confirm', methods=['get', 'post'])
@@ -118,7 +111,7 @@ def delete_user(id):
 			logger.warning(f'Admin: {current_user.username} tried delete user: {user.username}')
 			return redirect(url_for('.delete_user', id=id))
 
-	return render_template('confirm.html', user=user, msg=msg)
+	return render_template('confirm.html', id=user.id, msg=msg)
 
 
 @main.route('/edit-profile/<int:id>', methods=['POST', 'GET'])
@@ -138,7 +131,12 @@ def edit_profile_admin(id):
 		form = EditProfileAdminForm()
 
 	if form.validate_on_submit():
-		user.role_id = form.role.data
+		role_id = form.role.data
+
+		if role_id != Role.query.filter_by(name='Administrator').first().id:
+			user.role_id = role_id
+		else:
+			flash('Вы не можете выдать роль администратора!')
 		user.username = form.username.data
 		user.location = form.location.data
 		user.about_me = form.about_me.data

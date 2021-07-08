@@ -90,9 +90,7 @@
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/menu.js') }}" defer></script>
-    {% block scripts %}
-        {{ moment.include_moment() }}
-        {{ moment.lang('ru') }}
-    {% endblock %}
+    {{ moment.include_moment() }}
+    {{ moment.lang('ru') }}
 </body>
 </html>

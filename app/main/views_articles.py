@@ -1,6 +1,5 @@
 from app import db
 from . import main
-from math import ceil
 
 from flask import (
 	request,
@@ -17,7 +16,8 @@ from flask_login import (
 )
 
 from ..models import (
-	Article
+	Article,
+	Comment
 )
 
 from .validators import Validators
@@ -158,7 +158,7 @@ def post_detail(id):
 	search_second_index = page * current_count_comments_on_page
 
 	# [::-1] reverse array and search need data
-	comments_need = article.comments[::-1][search_first_index : search_second_index]
+	comments_need = article.comments.order_by(Comment.date.desc())[search_first_index : search_second_index]
 
 	# if user a note comment to the article
 	if request.method == 'POST':
@@ -201,11 +201,9 @@ def post_detail(id):
 
 
 @main.route('/posts/page/<int:page>')
-def posts(page):
+def posts(page: int = 1):
 	username = current_user.username if current_user.is_authenticated else 'AnonymousUser'
 	logger.info(f'User {username} watching all articles on the site')
-	# Search count all posts in database
-	count_all_posts = Article.query.count()
 
 	# const method sorting if not other method
 	method_for_sorting = 'date'
@@ -213,62 +211,45 @@ def posts(page):
 	if request.args.get('views', '') == 'True':
 		method_for_sorting = 'views'
 
-	# Search count pages with help count_all_posts
-	count_dynamic_pages = ceil(count_all_posts / MAX_COUNT_POSTS_ON_PAGE)
+	pagination = Article.query.order_by(Article.date.desc() \
+										if method_for_sorting == 'date' else \
+										Article.count_views.desc()) \
+										.paginate(
+											page, per_page=MAX_COUNT_POSTS_ON_PAGE,
+											error_out=False
+										)
 
-	"""
-		* Search posts between first_index = page * 10 - 10 
-		* to second_index = page * 10
-		* for example: if page 1 = first_index = 1, second_index = 10 because page * 10
-	"""
-	search_first_index = page * MAX_COUNT_POSTS_ON_PAGE - MAX_COUNT_POSTS_ON_PAGE
-	search_second_index = page * MAX_COUNT_POSTS_ON_PAGE
-
-	# Needed posts (max MAX_COUNT_POSTS_ON_PAGE)
-	articles_need = find_data.find_articles_order_by(method_for_sorting,
-													 search_first_index,
-													 search_second_index)
+	articles = pagination.items
 
 	# If User input incorrect page in URL address'
-	if page > count_dynamic_pages and count_all_posts != 0 or page == 0:
-		flash(f"Page {page} does not exist")
-		return redirect(url_for('.posts', page=1))
+	if page > pagination.pages or page <= 0:
+		return abort(404)
 	else:
-		return render_template('posts.html', articles=articles_need, current_page=page,
-							   count_dynamic_pages=count_dynamic_pages,
-							   method_sorting=method_for_sorting)
+		return render_template('posts.html', articles=articles,
+							   method_sorting=method_for_sorting,
+							   pagination=pagination)
 
 
 @main.route('/user/posts/<int:page>')
 @login_required
-def user_posts(page):
+def user_posts(page: int = 1):
 	logger.info(f'User {current_user.username} watching himself articles')
 	user = find_data.find_user(current_user.id)
 
-	all_posts_user = user.posts.count()
+	pagination = user.posts.order_by(Article.date.desc()).paginate(
+		page, per_page=MAX_COUNT_POSTS_ON_PAGE,
+		error_out=False
+	)
 
-	count_dynamic_pages = ceil(all_posts_user / MAX_COUNT_POSTS_ON_PAGE)
-
-	"""
-		* Search posts between first_index = page * 10 - 10 
-		* to second_index = page * 10	    * for example: if page 1 = first_index = 1,
-		* second_index = 10 because page * 10
-	"""
-	search_first_index = page * MAX_COUNT_POSTS_ON_PAGE - MAX_COUNT_POSTS_ON_PAGE
-	search_second_index = page * MAX_COUNT_POSTS_ON_PAGE
-
-	# Needed posts (max MAX_COUNT_POSTS_ON_PAGE)
-	# [::-1] reverse array and then search needed posts with help:
-	# [search_first_index : search_second_index]
-	articles_need = user.posts[::-1][search_first_index : search_second_index]
+	articles = pagination.items
 
 	# If User input incorrect page in URL address'
-	if page > count_dynamic_pages and all_posts_user != 0 or page == 0:
-		flash(f"Page {page} does not exist")
-		return redirect(url_for('.posts', page=1))
+	if page > pagination.pages or page <= 0:
+		return abort(404)
 	else:
-		return render_template('user_posts.html', current_page=page, articles=articles_need,
-							   count_dynamic_pages=count_dynamic_pages)
+		return render_template('user_posts.html',
+							   articles=articles,
+							   pagination=pagination)
 
 
 @main.route('/comment/<int:id>/delete', methods=['GET', 'POST'])

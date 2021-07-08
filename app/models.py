@@ -1,8 +1,6 @@
 from app import db, login_manager
 from datetime import datetime
 
-from .logg.logger import logger
-
 from flask_login import (
 	UserMixin,
 	AnonymousUserMixin
@@ -61,6 +59,25 @@ class User(db.Model, UserMixin):
 			except AttributeError:
 				Role.insert_role()
 				self.role_id = Role.query.filter_by(default=True).first().id
+
+	@staticmethod
+	def generate_fake(count=100):
+		from sqlalchemy.exc import IntegrityError
+		from random import seed
+		import forgery_py
+
+		seed()
+		for i in range(count):
+			u = User(username=forgery_py.internet.user_name(True),
+					 email=forgery_py.internet.email_address(),
+					 location=forgery_py.address.city(),
+					 about_me=forgery_py.lorem_ipsum.sentence())
+			u.set_password('111111')
+			db.session.add(u)
+			try:
+				db.session.commit()
+			except IntegrityError:
+				db.session.rollback()
 
 	def ping(self) -> None:
 		self.last_seen = datetime.utcnow()
@@ -129,6 +146,25 @@ class Article(db.Model):
 	comments = db.relationship('Comment', backref='comments', cascade='all,delete-orphan', lazy='dynamic')
 	users_which_viewed_post = db.relationship('UsersWhichViewedPost', backref='user_which_viewed_post',
 											  cascade='all,delete-orphan', lazy='dynamic')
+
+	@staticmethod
+	def generate_fake(count=100):
+		import forgery_py
+		from random import seed, randint
+
+		seed()
+		user_count = User.query.count()
+
+		for i in range(count):
+			u = User.query.offset(randint(0, user_count-1)).first()
+			a = Article(title='tetdatet',
+						intro=forgery_py.lorem_ipsum.sentence(),
+						text=forgery_py.lorem_ipsum.sentence(),
+						author_name=u.username,
+						user_id=u.id,
+						)
+			db.session.add(a)
+			db.session.commit()
 
 	def __repr__(self):
 		return "<Article %r>" % self.id

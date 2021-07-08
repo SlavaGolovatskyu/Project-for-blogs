@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% import "_macros.html" as macros %}
+
 {% block title %}
 Админ-панель
 {% endblock %}
@@ -28,17 +30,10 @@
 		  text-align: center;
 		}
 
-		.table_price_a {
-			display: inline-block;
-			padding: 5px 10px;
-			background: #3BE7D9;
-			position: relative;
-		}
-
 		.table_price a:hover {
 			text-decoration: none;
 			background-color: silver;
-			transform: scale(1.2);
+			transform: scale(1.1);
 		}
 
 		.information_from_user {
@@ -52,6 +47,11 @@
 			width: 50%;
 			margin: 0 auto;
 		}
+
+        .pagination {
+            width: 300px;
+            height: 75px;
+        }
 	</style>
 	<form action="" method="post">
 		<div class="container__admin">	
@@ -83,6 +83,7 @@
 			</div>
 		</div>
 	</form>
+    <h2>Всего найдено: {{ pagination.total }}</h2>
 	{% if users %}
 		<div class='container__table' style="overflow-x:auto;">
 				<table class="table_price">
@@ -98,7 +99,7 @@
 					</tr>
 					{% for user in users %}
 						<tr>
-							<td>{{ loop.index + current_page * max_users - max_users }}</td>
+							<td>{{ loop.index + pagination.page * max_users - max_users }}</td>
 							<td><a style="color: brown;" href="{{ url_for('.user_profile', id=user.id) }}">{{ user.username }}</a></td>
 							<td>{{ user.email }}</td>
 							<td>{{ moment(user.created_on).format('LLL') }} ({{ moment(user.created_on).fromNow(refresh=True) }})</td>
@@ -138,20 +139,7 @@
 		<h1 style="text-align: center;">Ничего не было найдено по вашему запросу.</h1>
 	{% endif %}
 	<br>
-	{% if count_dynamic_pages > 1 %}
-		<div class="alert alert-info text-align-center">
-			{% if current_page != 1 %}
-				<a href="/admin-panel/1" class="btn btn-success">1</a>
-				<a href="/admin-panel/{{ current_page - 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Back</a>
-			{% endif %}
-			{% if count_dynamic_pages != current_page %}
-				<a href="/admin-panel/{{ current_page + 1 }}?username={{ username }}&email={{ email }}" class="btn btn-success">Next</a>
-				{% if count_dynamic_pages != current_page + 1 %}
-					<a href="/admin-panel/{{ count_dynamic_pages }}?username={{ username }}&email={{ email }}" class="btn btn-success">{{ count_dynamic_pages }}</a>
-				{% endif %}
-			{% endif %}
-		</div>
-		</br>
-	{% endif %}
-	<br><br>
+    <div class="pagination">
+        {{ macros.pagination_widget_pages(pagination, '.admin_panel', username=username, email=email) }}
+    </div>
 {% endblock %}

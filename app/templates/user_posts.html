@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% from "_macros.html" import render_articles with context %}
+
+{% import '_macros.html' as macros %}
+
 {% block title %}
 Мои статьи
 {% endblock %}
@@ -11,40 +15,13 @@
 	}
 </style>
 <div class="container">
-	{% for el in articles %}
-		<div class="alert alert-info">
-			<h2>{{ el.title }}</h2>
-			<p>{{ el.intro }}</p>
-			<p>Автор статьи: {{ el.author_name }}</p>
-			<p>Дата публикации: {{ el.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
-			<p>Количество просмотров: 
-				{% if el.count_views != None %}
-					{{ el.count_views }}
-				{% else %}
-					1
-				{% endif %}
-			</p>
-			<a href="/post/{{ el.id }}/detail" class='btn btn-warning'>Детальнее</a>
-			<a href="/posts/{{ el.id }}/update" class='btn btn-success'>Обновить</a>
-			<a href="/posts/{{ el.id }}/delete" class='btn btn-danger'>Удалить</a>
-		</div>
+    {% if articles|length > 0 %}
+	    {{ render_articles(articles) }}
 	{% else %}
 		<h1>У вас еще нет статей на сайте.</h1>
-	{% endfor %}
-	{% if count_dynamic_pages > 1 %}
-		<div class="alert alert-info text-align-center">
-			{% if current_page != 1 %}
-				<a href="/user/posts/1" class="btn btn-success">1</a>
-				<a href="/user/posts/{{ current_page - 1 }}" class="btn btn-success">Back</a>
-			{% endif %}
-			{% if count_dynamic_pages != current_page %}
-				<a href="/user/posts/{{ current_page + 1 }}" class="btn btn-success">Next</a>
-				{% if count_dynamic_pages != current_page + 1 %}
-					<a href="/user/posts/{{ count_dynamic_pages }}" class="btn btn-success">{{ count_dynamic_pages }}</a>
-				{% endif %}
-			{% endif %}
-		</div>
-		</br>
 	{% endif %}
+    <div class="pagination">
+        {{ macros.pagination_widget_pages(pagination, '.user_posts') }}
+    </div>
 </div>
 {% endblock %}
