@@ -158,7 +158,9 @@ def post_detail(id):
 	search_second_index = page * current_count_comments_on_page
 
 	# [::-1] reverse array and search need data
-	comments_need = article.comments.order_by(Comment.date.desc())[search_first_index : search_second_index]
+	comments_need = article.comments.order_by(Comment.date.desc()).limit(current_count_comments_on_page) \
+																  .offset((page-1) * current_count_comments_on_page) \
+																  .all()
 
 	# if user a note comment to the article
 	if request.method == 'POST':
@@ -202,9 +204,6 @@ def post_detail(id):
 
 @main.route('/posts/page/<int:page>')
 def posts(page: int = 1):
-	username = current_user.username if current_user.is_authenticated else 'AnonymousUser'
-	logger.info(f'User {username} watching all articles on the site')
-
 	# const method sorting if not other method
 	method_for_sorting = 'date'
 
@@ -215,19 +214,14 @@ def posts(page: int = 1):
 										if method_for_sorting == 'date' else \
 										Article.count_views.desc()) \
 										.paginate(
-											page, per_page=MAX_COUNT_POSTS_ON_PAGE,
-											error_out=False
+											page, per_page=MAX_COUNT_POSTS_ON_PAGE
 										)
 
 	articles = pagination.items
 
-	# If User input incorrect page in URL address'
-	if page > pagination.pages or page <= 0:
-		return abort(404)
-	else:
-		return render_template('posts.html', articles=articles,
-							   method_sorting=method_for_sorting,
-							   pagination=pagination)
+	return render_template('posts.html', articles=articles,
+							method_sorting=method_for_sorting,
+							pagination=pagination)
 
 
 @main.route('/user/posts/<int:page>')
@@ -237,19 +231,13 @@ def user_posts(page: int = 1):
 	user = find_data.find_user(current_user.id)
 
 	pagination = user.posts.order_by(Article.date.desc()).paginate(
-		page, per_page=MAX_COUNT_POSTS_ON_PAGE,
-		error_out=False
+		page, per_page=MAX_COUNT_POSTS_ON_PAGE
 	)
 
 	articles = pagination.items
-
-	# If User input incorrect page in URL address'
-	if page > pagination.pages or page <= 0:
-		return abort(404)
-	else:
-		return render_template('user_posts.html',
-							   articles=articles,
-							   pagination=pagination)
+	return render_template('user_posts.html',
+							articles=articles,
+							pagination=pagination)
 
 
 @main.route('/comment/<int:id>/delete', methods=['GET', 'POST'])

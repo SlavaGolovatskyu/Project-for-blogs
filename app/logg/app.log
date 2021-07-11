@@ -16848,3 +16848,475 @@ DETAIL:  Помилковий рядок містить (20, jm67tyl8y8, 2021-07
 [09-07-2021 00:11:13] [WARNING] =>  * Debugger is active!
 [09-07-2021 00:11:13] [INFO] =>  * Debugger PIN: 197-606-405
 [09-07-2021 00:11:13] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 18:42:30] [INFO] => Registered main_blueprint
+[10-07-2021 18:42:30] [INFO] => Created object app
+[10-07-2021 18:42:30] [INFO] =>  * Restarting with stat
+[10-07-2021 18:42:32] [INFO] => Registered main_blueprint
+[10-07-2021 18:42:32] [INFO] => Created object app
+[10-07-2021 18:42:32] [WARNING] =>  * Debugger is active!
+[10-07-2021 18:42:32] [INFO] =>  * Debugger PIN: 197-606-405
+[10-07-2021 18:42:33] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 18:42:38] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:38] "[37mGET / HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:38] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:38] "[37mGET / HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/css/main_menu.css HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/css/chat.css HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/js/settings_chat.js HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:39] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:39] "[36mGET /static/js/menu.js HTTP/1.1[0m" 304 -
+[10-07-2021 18:42:41] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:41] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:41] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:41] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:43] "[35m[1mGET /post/109/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:42:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:43] "[35m[1mGET /post/109/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:42:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:43] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:43] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:43] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:43] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:44] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[10-07-2021 18:42:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:42:44] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:30] "[35m[1mGET /post/109/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:43:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:30] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:30] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:30] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:30] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:30] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:31] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:31] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:38] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:38] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:44] "[35m[1mGET /post/109/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:43:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:44] "[35m[1mGET /post/109/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:43:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:44] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:44] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:44] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:44] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:44] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:43:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:43:45] "[37mGET /post/109/detail?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[10-07-2021 18:45:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:45:37] "[37mGET /profile/6501 HTTP/1.1[0m" 200 -
+[10-07-2021 18:45:38] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:45:38] "[37mGET /static/img/test1.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:45:48] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:45:48] "[37mGET /profile/6501 HTTP/1.1[0m" 200 -
+[10-07-2021 18:45:48] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:45:48] "[37mGET /profile/6501 HTTP/1.1[0m" 200 -
+[10-07-2021 18:45:59] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:45:59] "[37mGET /edit-profile/6501 HTTP/1.1[0m" 200 -
+[10-07-2021 18:45:59] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:45:59] "[37mGET /edit-profile/6501 HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:22] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:22] "[37mGET /posts/page/1?date=True HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:23] "[37mGET /posts/page/1?views=True HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[35m[1mGET /post/1/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:25] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:32] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:32] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[35m[1mGET /post/1/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[35m[1mGET /post/1/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:46:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:46:37] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[10-07-2021 18:49:13] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_articles.py', reloading
+[10-07-2021 18:49:15] [INFO] =>  * Restarting with stat
+[10-07-2021 18:49:18] [INFO] => Registered main_blueprint
+[10-07-2021 18:49:18] [INFO] => Created object app
+[10-07-2021 18:49:18] [WARNING] =>  * Debugger is active!
+[10-07-2021 18:49:18] [INFO] =>  * Debugger PIN: 197-606-405
+[10-07-2021 18:49:18] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 18:49:22] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_articles.py', reloading
+[10-07-2021 18:49:22] [INFO] =>  * Restarting with stat
+[10-07-2021 18:49:25] [INFO] => Registered main_blueprint
+[10-07-2021 18:49:25] [INFO] => Created object app
+[10-07-2021 18:49:25] [WARNING] =>  * Debugger is active!
+[10-07-2021 18:49:25] [INFO] =>  * Debugger PIN: 197-606-405
+[10-07-2021 18:49:25] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 18:50:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:50:30] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:50:30] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:50:30] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:24] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_articles.py', reloading
+[10-07-2021 18:51:24] [INFO] =>  * Restarting with stat
+[10-07-2021 18:51:27] [INFO] => Registered main_blueprint
+[10-07-2021 18:51:27] [INFO] => Created object app
+[10-07-2021 18:51:27] [WARNING] =>  * Debugger is active!
+[10-07-2021 18:51:27] [INFO] =>  * Debugger PIN: 197-606-405
+[10-07-2021 18:51:27] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 18:51:29] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:29] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:29] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:29] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:33] [INFO] => User Yaroslav Holovatskyu wrote a comment: htyrjyt on post_id: 1
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[35m[1mGET /post/1/detail HTTP/1.1[0m" 500 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[10-07-2021 18:51:33] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:51:33] "[37mGET /post/1/detail?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[10-07-2021 18:53:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:53:45] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:53:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:53:45] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:53:49] [INFO] => User Yaroslav Holovatskyu wrote a comment: kukuhg on post_id: 1
+[10-07-2021 18:53:49] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:53:49] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:53:49] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:53:49] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:04] [INFO] => User Yaroslav Holovatskyu wrote a comment: 1 on post_id: 1
+[10-07-2021 18:54:04] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:04] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:04] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:04] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:04] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:04] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:04] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:06] [INFO] => User Yaroslav Holovatskyu wrote a comment: 222 on post_id: 1
+[10-07-2021 18:54:06] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:06] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:06] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:06] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:08] [INFO] => User Yaroslav Holovatskyu wrote a comment: 3333 on post_id: 1
+[10-07-2021 18:54:08] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:08] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:08] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:08] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:10] [INFO] => User Yaroslav Holovatskyu wrote a comment: 4444 on post_id: 1
+[10-07-2021 18:54:10] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:10] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:10] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:10] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:10] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:10] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:10] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:12] [INFO] => User Yaroslav Holovatskyu wrote a comment: 5555 on post_id: 1
+[10-07-2021 18:54:12] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:12] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:12] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:12] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:12] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:12] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:12] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:14] [INFO] => User Yaroslav Holovatskyu wrote a comment: 666 on post_id: 1
+[10-07-2021 18:54:14] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:14] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:14] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:14] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:17] [INFO] => User Yaroslav Holovatskyu wrote a comment: 777 on post_id: 1
+[10-07-2021 18:54:17] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:17] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:17] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:17] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:17] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:17] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:17] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:18] [INFO] => User Yaroslav Holovatskyu wrote a comment: 888 on post_id: 1
+[10-07-2021 18:54:18] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:18] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:18] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:18] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:18] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:18] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:18] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:20] [INFO] => User Yaroslav Holovatskyu wrote a comment: 999 on post_id: 1
+[10-07-2021 18:54:20] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:20] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:20] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:20] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:20] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:20] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:20] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:21] [INFO] => User Yaroslav Holovatskyu wrote a comment: 12 on post_id: 1
+[10-07-2021 18:54:21] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:21] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:21] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:21] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:21] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:21] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:21] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:23] [INFO] => User Yaroslav Holovatskyu wrote a comment: 13 on post_id: 1
+[10-07-2021 18:54:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:23] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:23] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:23] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:23] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:24] [INFO] => User Yaroslav Holovatskyu wrote a comment: 14 on post_id: 1
+[10-07-2021 18:54:24] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:24] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:25] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:25] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:27] [INFO] => User Yaroslav Holovatskyu wrote a comment: 15 on post_id: 1
+[10-07-2021 18:54:27] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:27] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:27] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:27] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:27] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:27] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:27] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:27] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:27] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:32] [INFO] => User Yaroslav Holovatskyu wrote a comment: 16 on post_id: 1
+[10-07-2021 18:54:32] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:32] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:32] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:32] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:32] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:32] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:32] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:34] [INFO] => User Yaroslav Holovatskyu wrote a comment: 17 on post_id: 1
+[10-07-2021 18:54:34] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:34] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:34] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:34] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:34] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:34] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:34] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:34] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:34] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:34] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:34] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:34] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:37] [INFO] => User Yaroslav Holovatskyu wrote a comment: 18 on post_id: 1
+[10-07-2021 18:54:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:37] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:37] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:37] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:37] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:37] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:40] [INFO] => User Yaroslav Holovatskyu wrote a comment: 19 on post_id: 1
+[10-07-2021 18:54:40] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:40] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:40] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:40] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:40] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:40] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:40] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:41] [INFO] => User Yaroslav Holovatskyu wrote a comment: 21 on post_id: 1
+[10-07-2021 18:54:41] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:41] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:41] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:41] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:41] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:41] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:41] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:43] [INFO] => User Yaroslav Holovatskyu wrote a comment: 22 on post_id: 1
+[10-07-2021 18:54:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:43] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:43] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:43] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:43] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:43] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:45] [INFO] => User Yaroslav Holovatskyu wrote a comment: 23 on post_id: 1
+[10-07-2021 18:54:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:45] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:45] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:45] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:45] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:45] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:45] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:45] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:54:47] [INFO] => User Yaroslav Holovatskyu wrote a comment: 24 on post_id: 1
+[10-07-2021 18:54:47] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:47] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:47] [WARNING] => Comment' user Yaroslav Holovatskyu does not wrote.
+								   Because user will spam.
+[10-07-2021 18:54:47] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:47] "[32mPOST /post/1/detail HTTP/1.1[0m" 302 -
+[10-07-2021 18:54:47] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:54:47] "[37mGET /post/1/detail HTTP/1.1[0m" 200 -
+[10-07-2021 18:55:02] [INFO] => 127.0.0.1 - - [10/Jul/2021 18:55:02] "[37mGET /post/1/detail?count=30 HTTP/1.1[0m" 200 -
+[10-07-2021 18:57:52] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\models.py', reloading
+[10-07-2021 18:57:53] [INFO] =>  * Restarting with stat
+[10-07-2021 18:57:56] [INFO] => Registered main_blueprint
+[10-07-2021 18:57:56] [INFO] => Created object app
+[10-07-2021 18:57:56] [WARNING] =>  * Debugger is active!
+[10-07-2021 18:57:56] [INFO] =>  * Debugger PIN: 197-606-405
+[10-07-2021 18:57:56] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 19:06:12] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\models.py', reloading
+[10-07-2021 19:06:12] [INFO] =>  * Restarting with stat
+[10-07-2021 19:06:15] [INFO] => Registered main_blueprint
+[10-07-2021 19:06:15] [INFO] => Created object app
+[10-07-2021 19:06:15] [WARNING] =>  * Debugger is active!
+[10-07-2021 19:06:15] [INFO] =>  * Debugger PIN: 197-606-405
+[10-07-2021 19:06:15] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[10-07-2021 19:07:03] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:03] "[37mGET /post/1/detail?count=30 HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:03] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:03] "[37mGET /post/1/detail?count=30 HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:07] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:07] "[37mGET /posts/1/update HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:07] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:07] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:07] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:07] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:07] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:07] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:10] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:10] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:23] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:23] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:23] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:23] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[10-07-2021 19:07:23] [INFO] => 127.0.0.1 - - [10/Jul/2021 19:07:23] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:22:02] [INFO] => Registered main_blueprint
+[11-07-2021 18:22:02] [INFO] => Created object app
+[11-07-2021 18:22:13] [INFO] => Registered main_blueprint
+[11-07-2021 18:22:13] [INFO] => Created object app
+[11-07-2021 18:22:19] [INFO] => Registered main_blueprint
+[11-07-2021 18:22:19] [INFO] => Created object app
+[11-07-2021 18:22:24] [INFO] => Registered main_blueprint
+[11-07-2021 18:22:24] [INFO] => Created object app
+[11-07-2021 18:22:30] [INFO] => Registered main_blueprint
+[11-07-2021 18:22:30] [INFO] => Created object app
+[11-07-2021 18:22:37] [INFO] => Registered main_blueprint
+[11-07-2021 18:22:37] [INFO] => Created object app
+[11-07-2021 18:25:40] [INFO] => Registered main_blueprint
+[11-07-2021 18:25:40] [INFO] => Created object app
+[11-07-2021 18:25:40] [INFO] =>  * Restarting with stat
+[11-07-2021 18:25:42] [INFO] => Registered main_blueprint
+[11-07-2021 18:25:42] [INFO] => Created object app
+[11-07-2021 18:25:42] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:25:42] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:25:42] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET / HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:45] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:45] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:46] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+[11-07-2021 18:25:49] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:49] "[37mGET /edit-profile/ HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:49] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:49] "[37mGET /edit-profile/ HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:49] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:49] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:49] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:49] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:49] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:49] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:25:50] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:25:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+[11-07-2021 18:27:25] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_errors.py', reloading
+[11-07-2021 18:27:25] [INFO] =>  * Restarting with stat
+[11-07-2021 18:27:27] [INFO] => Registered main_blueprint
+[11-07-2021 18:27:27] [INFO] => Created object app
+[11-07-2021 18:27:27] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:27:27] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:27:27] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:28:07] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:07] "[37mGET / HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET / HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[11-07-2021 18:28:22] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:22] "[37mGET /edit-profile/ HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:22] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:22] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:22] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:22] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:22] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:22] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:28] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:28] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:28] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:28] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:28] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:28] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:28] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:28] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:28] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:28] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:28:52] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:28:52] "[33mGET /api/v1_0/user/comments/4 HTTP/1.1[0m" 404 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[35m[1mGET /api/v1.0/user/comments/4 HTTP/1.1[0m" 500 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[37mGET /api/v1.0/user/comments/4?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[37mGET /api/v1.0/user/comments/4?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[37mGET /api/v1.0/user/comments/4?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[37mGET /api/v1.0/user/comments/4?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[37mGET /api/v1.0/user/comments/4?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[11-07-2021 18:29:12] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:29:12] "[37mGET /api/v1.0/user/comments/4?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[11-07-2021 18:32:34] [INFO] => Registered main_blueprint
+[11-07-2021 18:32:34] [INFO] => Created object app
+[11-07-2021 18:32:34] [INFO] =>  * Restarting with stat
+[11-07-2021 18:32:35] [INFO] => Registered main_blueprint
+[11-07-2021 18:32:35] [INFO] => Created object app
+[11-07-2021 18:32:35] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:32:35] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:32:35] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:32:47] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:47] "[35m[1mGET /api/v1.0/users/4 HTTP/1.1[0m" 500 -
+[11-07-2021 18:32:47] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:47] "[37mGET /api/v1.0/users/4?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:32:47] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:47] "[37mGET /api/v1.0/users/4?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:32:47] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:47] "[37mGET /api/v1.0/users/4?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:32:48] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:48] "[37mGET /api/v1.0/users/4?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[11-07-2021 18:32:48] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:48] "[37mGET /api/v1.0/users/4?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[11-07-2021 18:32:48] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:32:48] "[37mGET /api/v1.0/users/4?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[11-07-2021 18:35:28] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\users.py', reloading
+[11-07-2021 18:35:29] [INFO] =>  * Restarting with stat
+[11-07-2021 18:35:31] [INFO] => Registered main_blueprint
+[11-07-2021 18:35:31] [INFO] => Created object app
+[11-07-2021 18:35:31] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:35:31] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:35:31] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:35:37] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[11-07-2021 18:35:37] [INFO] =>  * Restarting with stat
+[11-07-2021 18:35:39] [INFO] => Registered main_blueprint
+[11-07-2021 18:35:39] [INFO] => Created object app
+[11-07-2021 18:35:39] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:35:39] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:35:39] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:35:53] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\comments.py', reloading
+[11-07-2021 18:35:53] [INFO] =>  * Restarting with stat
+[11-07-2021 18:35:55] [INFO] => Registered main_blueprint
+[11-07-2021 18:35:55] [INFO] => Created object app
+[11-07-2021 18:35:55] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:35:55] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:35:55] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:36:04] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[11-07-2021 18:36:04] [INFO] =>  * Restarting with stat
+[11-07-2021 18:36:06] [INFO] => Registered main_blueprint
+[11-07-2021 18:36:06] [INFO] => Created object app
+[11-07-2021 18:36:06] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:36:06] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:36:06] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:36:13] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\users.py', reloading
+[11-07-2021 18:36:14] [INFO] =>  * Restarting with stat
+[11-07-2021 18:36:47] [INFO] => Registered main_blueprint
+[11-07-2021 18:36:47] [INFO] => Created object app
+[11-07-2021 18:36:52] [INFO] => Registered main_blueprint
+[11-07-2021 18:36:52] [INFO] => Created object app
+[11-07-2021 18:36:52] [INFO] =>  * Restarting with stat
+[11-07-2021 18:36:54] [INFO] => Registered main_blueprint
+[11-07-2021 18:36:54] [INFO] => Created object app
+[11-07-2021 18:36:54] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:36:54] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:36:54] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:36:56] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:36:56] "[37mGET /api/v1.0/users/4 HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET / HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:20] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:20] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[11-07-2021 18:37:22] [INFO] => 127.0.0.1 - - [11/Jul/2021 18:37:22] "[37mGET /api/v1.0/user/posts/4 HTTP/1.1[0m" 200 -
+[11-07-2021 18:39:08] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[11-07-2021 18:39:08] [INFO] =>  * Restarting with stat
+[11-07-2021 18:39:10] [INFO] => Registered main_blueprint
+[11-07-2021 18:39:10] [INFO] => Created object app
+[11-07-2021 18:39:10] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:39:10] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:39:10] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:39:20] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[11-07-2021 18:39:20] [INFO] =>  * Restarting with stat
+[11-07-2021 18:39:22] [INFO] => Registered main_blueprint
+[11-07-2021 18:39:22] [INFO] => Created object app
+[11-07-2021 18:39:22] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:39:22] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:39:22] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:39:26] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[11-07-2021 18:39:26] [INFO] =>  * Restarting with stat
+[11-07-2021 18:39:28] [INFO] => Registered main_blueprint
+[11-07-2021 18:39:28] [INFO] => Created object app
+[11-07-2021 18:39:28] [WARNING] =>  * Debugger is active!
+[11-07-2021 18:39:28] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 18:39:28] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 18:39:47] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\comments.py', reloading
+[11-07-2021 18:39:47] [INFO] =>  * Restarting with stat
+[11-07-2021 19:07:01] [INFO] => Registered main_blueprint
+[11-07-2021 19:07:01] [INFO] => Created object app
+[11-07-2021 19:07:01] [INFO] =>  * Restarting with stat
+[11-07-2021 19:07:03] [INFO] => Registered main_blueprint
+[11-07-2021 19:07:03] [INFO] => Created object app
+[11-07-2021 19:07:03] [WARNING] =>  * Debugger is active!
+[11-07-2021 19:07:03] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 19:07:03] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 19:07:44] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:07:44] "[37mGET /api/v1.0/posts/1 HTTP/1.1[0m" 200 -
+[11-07-2021 19:08:45] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[11-07-2021 19:08:45] [INFO] =>  * Restarting with stat
+[11-07-2021 19:08:47] [INFO] => Registered main_blueprint
+[11-07-2021 19:08:47] [INFO] => Created object app
+[11-07-2021 19:08:47] [WARNING] =>  * Debugger is active!
+[11-07-2021 19:08:47] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 19:08:47] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 19:08:48] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:08:48] "[37mGET /api/v1.0/posts/1 HTTP/1.1[0m" 200 -
+[11-07-2021 19:09:33] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:09:33] "[33mGET /api/v1.0/comments/post/ HTTP/1.1[0m" 404 -
+[11-07-2021 19:09:38] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:09:38] "[33mGET /api/v1.0/user/posts/4 HTTP/1.1[0m" 404 -
+[11-07-2021 19:09:48] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:09:48] "[37mGET /api/v1.0/comments/post/4 HTTP/1.1[0m" 200 -
+[11-07-2021 19:10:13] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:10:13] "[37mGET /api/v1.0/comments/post/1 HTTP/1.1[0m" 200 -
+[11-07-2021 19:10:43] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:10:43] "[37mGET /api/v1.0/users/4 HTTP/1.1[0m" 200 -
+[11-07-2021 19:12:23] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:12:23] "[37mGET /api/v1.0/comments/ HTTP/1.1[0m" 200 -
+[11-07-2021 19:12:54] [INFO] => 127.0.0.1 - - [11/Jul/2021 19:12:54] "[37mGET /api/v1.0/posts HTTP/1.1[0m" 200 -
+[11-07-2021 19:12:55] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\comments.py', reloading
+[11-07-2021 19:12:55] [INFO] =>  * Restarting with stat
+[11-07-2021 19:12:58] [INFO] => Registered main_blueprint
+[11-07-2021 19:12:58] [INFO] => Created object app
+[11-07-2021 19:12:58] [WARNING] =>  * Debugger is active!
+[11-07-2021 19:12:58] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 19:12:58] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 20:23:35] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:23:35] "[37mGET /api/v1.0/post/1 HTTP/1.1[0m" 200 -
+[11-07-2021 20:24:05] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:24:05] "[37mGET /api/v1.0/comments HTTP/1.1[0m" 200 -
+[11-07-2021 20:24:22] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\models.py', reloading
+[11-07-2021 20:24:23] [INFO] =>  * Restarting with stat
+[11-07-2021 20:24:26] [INFO] => Registered main_blueprint
+[11-07-2021 20:24:26] [INFO] => Created object app
+[11-07-2021 20:24:26] [WARNING] =>  * Debugger is active!
+[11-07-2021 20:24:26] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 20:24:26] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 20:24:37] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\models.py', reloading
+[11-07-2021 20:24:37] [INFO] =>  * Restarting with stat
+[11-07-2021 20:24:39] [INFO] => Registered main_blueprint
+[11-07-2021 20:24:39] [INFO] => Created object app
+[11-07-2021 20:24:39] [WARNING] =>  * Debugger is active!
+[11-07-2021 20:24:39] [INFO] =>  * Debugger PIN: 197-606-405
+[11-07-2021 20:24:39] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[11-07-2021 20:24:39] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:24:39] "[37mGET /api/v1.0/comments HTTP/1.1[0m" 200 -
+[11-07-2021 20:24:50] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:24:50] "[37mGET /api/v1.0/posts HTTP/1.1[0m" 200 -
+[11-07-2021 20:25:36] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:25:36] "[37mGET /api/v1.0/users/4 HTTP/1.1[0m" 200 -
+[11-07-2021 20:26:16] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:26:16] "[37mGET /api/v1.0/posts/user/4 HTTP/1.1[0m" 200 -
+[11-07-2021 20:27:06] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:27:06] "[37mGET /api/v1.0/comments/post/1 HTTP/1.1[0m" 200 -
+[11-07-2021 20:28:46] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:28:46] "[37mGET /api/v1.0/posts/1 HTTP/1.1[0m" 200 -
+[11-07-2021 20:29:36] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:29:36] "[37mGET /api/v1.0/posts/2 HTTP/1.1[0m" 200 -
+[11-07-2021 20:29:46] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:29:46] "[37mGET /api/v1.0/posts/3 HTTP/1.1[0m" 200 -
+[11-07-2021 20:29:56] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:29:56] "[37mGET /api/v1.0/posts/5 HTTP/1.1[0m" 200 -
+[11-07-2021 20:30:01] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:30:01] "[37mGET /api/v1.0/posts/6 HTTP/1.1[0m" 200 -
+[11-07-2021 20:30:11] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:30:11] "[33mGET /api/v1.0/posts/7 HTTP/1.1[0m" 404 -

@@ -1,5 +1,8 @@
+from typing import List, Dict
 from app import db, login_manager
 from datetime import datetime
+
+from flask import url_for
 
 from flask_login import (
 	UserMixin,
@@ -7,6 +10,8 @@ from flask_login import (
 )
 
 from werkzeug.security import generate_password_hash, check_password_hash
+
+from .exceptions import ValidationError
 
 
 @login_manager.user_loader
@@ -30,10 +35,10 @@ class Avatar(db.Model):
 
 class User(db.Model, UserMixin):
 	__tablename__ = 'users'
-	id = db.Column(db.Integer(), primary_key=True)
+	id = db.Column(db.Integer(), primary_key=True, index=True)
 	username = db.Column(db.String(50), nullable=False)
-	email = db.Column(db.String(100), nullable=False, unique=True)
-	#email_code = db.Column(db.Integer(), default=0)
+	email = db.Column(db.String(100), nullable=False, unique=True, index=True)
+	# email_code = db.Column(db.Integer(), default=0)
 	password_hash = db.Column(db.String(100), nullable=False)
 	role_id = db.Column(db.Integer)
 	location = db.Column(db.String(64), nullable=True)
@@ -108,6 +113,19 @@ class User(db.Model, UserMixin):
 	def is_administrator(self) -> bool:
 		return self.can(Permission.ADMINISTRATOR)
 
+	def to_json(self) -> Dict[str, str]:
+		json_user = {
+			'url': url_for('api.get_user', id=self.id),
+			'username': self.username,
+			'last_seen': self.last_seen,
+			'member_since': self.created_on,
+			'posts_count': self.posts.count(),
+			'comments_count': self.comments.count(),
+			'posts_url': url_for('api.get_all_user_posts', id=self.id),
+			'comments_url': url_for('api.get_all_user_comments', id=self.id)
+		}
+		return json_user
+
 	def set_password(self, password: str) -> None:
 		self.password_hash = generate_password_hash(password)
 
@@ -133,7 +151,7 @@ login_manager.anonymous_user = AnonymousUser
 
 class Article(db.Model):
 	__tablename__ = "articles"
-	id = db.Column(db.Integer(), primary_key=True)
+	id = db.Column(db.Integer(), primary_key=True, index=True)
 	title = db.Column(db.String(100), nullable=False)
 	intro = db.Column(db.String(300), nullable=False)
 	text = db.Column(db.Text, nullable=False)
@@ -156,7 +174,7 @@ class Article(db.Model):
 		user_count = User.query.count()
 
 		for i in range(count):
-			u = User.query.offset(randint(0, user_count-1)).first()
+			u = User.query.offset(randint(0, user_count - 1)).first()
 			a = Article(title='tetdatet',
 						intro=forgery_py.lorem_ipsum.sentence(),
 						text=forgery_py.lorem_ipsum.sentence(),
@@ -166,13 +184,34 @@ class Article(db.Model):
 			db.session.add(a)
 			db.session.commit()
 
+	def to_json(self) -> Dict[str, str]:
+		json_post = {
+			'id': self.id,
+			'title': self.title,
+			'intro': self.intro,
+			'text': self.text,
+			'date': self.date,
+			'count_views': self.count_views,
+			'comments_count': self.comments.count(),
+			'author_url': url_for('api.get_user', id=self.user_id),
+			'comments_url': url_for('api.get_all_comments_from_post', id=self.id)
+		}
+		return json_post
+
+	@staticmethod
+	def from_json(json_post):
+		text = json_post.get('text')
+		if not text:
+			raise ValidationError('post does not have a text')
+		return Article(text=text)
+
 	def __repr__(self):
 		return "<Article %r>" % self.id
 
 
 class Comment(db.Model):
 	__tablename__ = 'comments'
-	id = db.Column(db.Integer(), primary_key=True)
+	id = db.Column(db.Integer(), primary_key=True, index=True)
 	text = db.Column(db.String(500), nullable=False)
 	author = db.Column(db.String(50), nullable=False)
 	date = db.Column(db.DateTime, default=datetime.utcnow)
@@ -180,14 +219,31 @@ class Comment(db.Model):
 	user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
 	post_id = db.Column(db.Integer(), db.ForeignKey('articles.id'))
 
+	def to_json(self) -> Dict[str, str]:
+		json_comment = {
+			'id': self.id,
+			'text': self.text,
+			'author_url': url_for('api.get_user', id=self.user_id),
+			'created_on': self.date,
+			'post_id': self.post_id
+		}
+		return json_comment
+
+	@staticmethod
+	def from_json(json_comment):
+		text = json_comment.get('text')
+		if not text:
+			raise ValidationError('post does not have a text')
+		return Comment(text=text)
+
 	def __repr__(self):
 		return '<comment %r>' % self.id
 
 
 class UsersWhichViewedPost(db.Model):
 	__tablename__ = 'user_which_viewed_post'
-	id = db.Column(db.Integer(), primary_key=True)
-	user_id = db.Column(db.Integer(), nullable=False)
+	id = db.Column(db.Integer(), primary_key=True, index=True)
+	user_id = db.Column(db.Integer(), nullable=False, index=True)
 	post_id = db.Column(db.Integer(), db.ForeignKey('articles.id'))
 
 	def __repr__(self):
@@ -196,8 +252,8 @@ class UsersWhichViewedPost(db.Model):
 
 class Role(db.Model):
 	__tablename__ = 'roles'
-	id = db.Column(db.Integer, primary_key=True)
-	name = db.Column(db.String(64), unique=True)
+	id = db.Column(db.Integer, primary_key=True, index=True)
+	name = db.Column(db.String(64), unique=True, index=True)
 	default = db.Column(db.Boolean, default=False, index=True)
 	permissions = db.Column(db.Integer)
 

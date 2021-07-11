@@ -28,8 +28,10 @@ def create_app(config):
 	login_manager.init_app(app)
 
 	from .main import main as main_blueprint
+	from .api_1_0 import api as api_1_0_blueprint
 
 	app.register_blueprint(main_blueprint)
+	app.register_blueprint(api_1_0_blueprint, url_prefix='/api/v1.0')
 
 	logger.info('Registered main_blueprint')
 	logger.info('Created object app')

@@ -79,14 +79,10 @@ def admin_panel(page: int = 1):
 	else:
 		pagination = User.query.filter(User.username.like(f'%{username}%'),
 									   User.email.like(f'%{email}%')).paginate(
-			page, per_page=MAX_COUNT_USERS_ON_PAGE,
-			error_out=False
+			page, per_page=MAX_COUNT_USERS_ON_PAGE
 		)
 
 	users = pagination.items
-
-	if page > pagination.pages or page <= 0:
-		return abort(404)
 
 	return render_template('admin_panel.html', users=users,
 						   form=form,
