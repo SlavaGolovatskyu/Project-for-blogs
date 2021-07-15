@@ -21,7 +21,6 @@ from wtforms.validators import (
 )
 
 from flask_wtf.file import FileAllowed
-from app.main.validators import Validators
 
 
 class EditProfileAdminForm(FlaskForm):

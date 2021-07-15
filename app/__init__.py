@@ -33,7 +33,4 @@ def create_app(config):
 	app.register_blueprint(main_blueprint)
 	app.register_blueprint(api_1_0_blueprint, url_prefix='/api/v1.0')
 
-	logger.info('Registered main_blueprint')
-	logger.info('Created object app')
-
 	return app

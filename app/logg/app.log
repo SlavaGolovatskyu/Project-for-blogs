@@ -17320,3 +17320,2341 @@ DETAIL:  Помилковий рядок містить (20, jm67tyl8y8, 2021-07
 [11-07-2021 20:29:56] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:29:56] "[37mGET /api/v1.0/posts/5 HTTP/1.1[0m" 200 -
 [11-07-2021 20:30:01] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:30:01] "[37mGET /api/v1.0/posts/6 HTTP/1.1[0m" 200 -
 [11-07-2021 20:30:11] [INFO] => 127.0.0.1 - - [11/Jul/2021 20:30:11] "[33mGET /api/v1.0/posts/7 HTTP/1.1[0m" 404 -
+[13-07-2021 20:34:08] [INFO] => Registered main_blueprint
+[13-07-2021 20:34:08] [INFO] => Created object app
+[13-07-2021 20:34:08] [INFO] =>  * Restarting with stat
+[13-07-2021 20:34:10] [INFO] => Registered main_blueprint
+[13-07-2021 20:34:10] [INFO] => Created object app
+[13-07-2021 20:34:10] [WARNING] =>  * Debugger is active!
+[13-07-2021 20:34:10] [INFO] =>  * Debugger PIN: 197-606-405
+[13-07-2021 20:34:10] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[13-07-2021 20:34:13] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:13] "[37mGET / HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:13] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:13] "[37mGET / HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:13] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:13] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:13] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:13] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:13] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:13] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:13] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:13] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:14] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:14] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /posts/page/1 HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:16] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:31] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:31] "[37mGET /posts/page/6?date=True HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:31] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:31] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:31] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:31] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:31] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:31] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:50] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:50] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:50] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:50] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:50] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:50] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:50] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:50] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:34:50] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:34:50] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:16] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:16] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:17] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:17] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:17] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:17] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:17] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:17] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:40] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:40] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:40] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:40] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:40] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:40] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:41] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:41] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:41] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:41] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:54] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:54] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:54] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:54] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:38:54] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:38:54] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:11] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:11] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:12] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:12] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:12] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:12] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:12] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:12] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:12] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:12] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:21] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:21] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:58] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:58] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:58] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:58] "[37mGET /profile/4 HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:58] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:58] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:58] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:58] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:58] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:58] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:59] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:59] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:59] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:59] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:59] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:59] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:59] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:59] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[13-07-2021 20:39:59] [INFO] => 127.0.0.1 - - [13/Jul/2021 20:39:59] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[13-07-2021 21:04:40] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[13-07-2021 21:04:41] [INFO] =>  * Restarting with stat
+[13-07-2021 21:04:43] [INFO] => Registered main_blueprint
+[13-07-2021 21:04:43] [INFO] => Created object app
+[13-07-2021 21:04:43] [WARNING] =>  * Debugger is active!
+[13-07-2021 21:04:43] [INFO] =>  * Debugger PIN: 197-606-405
+[13-07-2021 21:04:43] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[14-07-2021 09:39:58] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\manager.py', reloading
+[14-07-2021 09:39:59] [INFO] =>  * Restarting with stat
+[14-07-2021 09:40:02] [INFO] => Registered main_blueprint
+[14-07-2021 09:40:02] [INFO] => Created object app
+[14-07-2021 09:40:02] [WARNING] =>  * Debugger is active!
+[14-07-2021 09:40:02] [INFO] =>  * Debugger PIN: 197-606-405
+[14-07-2021 09:40:02] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[14-07-2021 09:40:06] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\manager.py', reloading
+[14-07-2021 09:40:07] [INFO] =>  * Restarting with stat
+[14-07-2021 09:44:44] [INFO] => Registered main_blueprint
+[14-07-2021 09:44:44] [INFO] => Created object app
+[14-07-2021 09:45:16] [INFO] => Registered main_blueprint
+[14-07-2021 09:45:16] [INFO] => Created object app
+[14-07-2021 09:45:32] [INFO] => Registered main_blueprint
+[14-07-2021 09:45:32] [INFO] => Created object app
+[14-07-2021 09:46:18] [INFO] => Registered main_blueprint
+[14-07-2021 09:46:18] [INFO] => Created object app
+[14-07-2021 10:45:05] [INFO] => Registered main_blueprint
+[14-07-2021 10:45:05] [INFO] => Created object app
+[14-07-2021 10:49:02] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:02] [INFO] => Created object app
+[14-07-2021 10:49:02] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:02] [INFO] => Created object app
+[14-07-2021 10:49:02] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:02] [INFO] => Created object app
+[14-07-2021 10:49:02] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:02] [INFO] => Created object app
+[14-07-2021 10:49:02] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:02] [INFO] => Created object app
+[14-07-2021 10:49:31] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:31] [INFO] => Created object app
+[14-07-2021 10:49:31] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:31] [INFO] => Created object app
+[14-07-2021 10:49:32] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:32] [INFO] => Created object app
+[14-07-2021 10:49:32] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:32] [INFO] => Created object app
+[14-07-2021 10:49:32] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:32] [INFO] => Created object app
+[14-07-2021 10:49:32] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:32] [INFO] => Created object app
+[14-07-2021 10:49:33] [INFO] => Registered main_blueprint
+[14-07-2021 10:49:33] [INFO] => Created object app
+[14-07-2021 10:49:33] [INFO] => The CSRF token is missing.
+[14-07-2021 10:50:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:50:59] [INFO] => Created object app
+[14-07-2021 10:50:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:50:59] [INFO] => Created object app
+[14-07-2021 10:50:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:50:59] [INFO] => Created object app
+[14-07-2021 10:50:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:50:59] [INFO] => Created object app
+[14-07-2021 10:50:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:50:59] [INFO] => Created object app
+[14-07-2021 10:50:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:50:59] [INFO] => Created object app
+[14-07-2021 10:51:00] [INFO] => The CSRF token is missing.
+[14-07-2021 10:53:38] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:38] [INFO] => Created object app
+[14-07-2021 10:53:38] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:38] [INFO] => Created object app
+[14-07-2021 10:53:38] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:38] [INFO] => Created object app
+[14-07-2021 10:53:38] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:38] [INFO] => Created object app
+[14-07-2021 10:53:38] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:38] [INFO] => Created object app
+[14-07-2021 10:53:38] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:38] [INFO] => Created object app
+[14-07-2021 10:53:39] [INFO] => Registered main_blueprint
+[14-07-2021 10:53:39] [INFO] => Created object app
+[14-07-2021 10:53:39] [INFO] => The CSRF token is missing.
+[14-07-2021 10:54:43] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:43] [INFO] => Created object app
+[14-07-2021 10:54:43] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:43] [INFO] => Created object app
+[14-07-2021 10:54:43] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:43] [INFO] => Created object app
+[14-07-2021 10:54:44] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:44] [INFO] => Created object app
+[14-07-2021 10:54:44] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:44] [INFO] => Created object app
+[14-07-2021 10:54:44] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:44] [INFO] => Created object app
+[14-07-2021 10:54:44] [INFO] => Registered main_blueprint
+[14-07-2021 10:54:44] [INFO] => Created object app
+[14-07-2021 10:54:44] [INFO] => The CSRF token is missing.
+[14-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:58] [INFO] => Created object app
+[14-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:58] [INFO] => Created object app
+[14-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:58] [INFO] => Created object app
+[14-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:58] [INFO] => Created object app
+[14-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:58] [INFO] => Created object app
+[14-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:58] [INFO] => Created object app
+[14-07-2021 10:55:59] [INFO] => Registered main_blueprint
+[14-07-2021 10:55:59] [INFO] => Created object app
+[14-07-2021 10:55:59] [INFO] => The CSRF token is missing.
+[14-07-2021 10:58:46] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:46] [INFO] => Created object app
+[14-07-2021 10:58:47] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:47] [INFO] => Created object app
+[14-07-2021 10:58:47] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:47] [INFO] => Created object app
+[14-07-2021 10:58:47] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:47] [INFO] => Created object app
+[14-07-2021 10:58:47] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:47] [INFO] => Created object app
+[14-07-2021 10:58:47] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:47] [INFO] => Created object app
+[14-07-2021 10:58:48] [INFO] => Registered main_blueprint
+[14-07-2021 10:58:48] [INFO] => Created object app
+[14-07-2021 10:58:48] [INFO] => The CSRF token is missing.
+[14-07-2021 11:00:51] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:51] [INFO] => Created object app
+[14-07-2021 11:00:51] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:51] [INFO] => Created object app
+[14-07-2021 11:00:51] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:51] [INFO] => Created object app
+[14-07-2021 11:00:52] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:52] [INFO] => Created object app
+[14-07-2021 11:00:52] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:52] [INFO] => Created object app
+[14-07-2021 11:00:52] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:52] [INFO] => Created object app
+[14-07-2021 11:00:52] [INFO] => Registered main_blueprint
+[14-07-2021 11:00:52] [INFO] => Created object app
+[14-07-2021 11:00:52] [INFO] => The CSRF token is missing.
+[14-07-2021 11:01:56] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:56] [INFO] => Created object app
+[14-07-2021 11:01:57] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:57] [INFO] => Created object app
+[14-07-2021 11:01:57] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:57] [INFO] => Created object app
+[14-07-2021 11:01:57] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:57] [INFO] => Created object app
+[14-07-2021 11:01:57] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:57] [INFO] => Created object app
+[14-07-2021 11:01:58] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:58] [INFO] => Created object app
+[14-07-2021 11:01:58] [INFO] => Registered main_blueprint
+[14-07-2021 11:01:58] [INFO] => Created object app
+[14-07-2021 11:01:58] [INFO] => The CSRF token is missing.
+[14-07-2021 11:02:22] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:22] [INFO] => Created object app
+[14-07-2021 11:02:22] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:22] [INFO] => Created object app
+[14-07-2021 11:02:23] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:23] [INFO] => Created object app
+[14-07-2021 11:02:23] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:23] [INFO] => Created object app
+[14-07-2021 11:02:23] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:23] [INFO] => Created object app
+[14-07-2021 11:02:24] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:24] [INFO] => Created object app
+[14-07-2021 11:02:24] [INFO] => Registered main_blueprint
+[14-07-2021 11:02:24] [INFO] => Created object app
+[14-07-2021 11:02:24] [INFO] => The CSRF token is missing.
+[14-07-2021 11:07:26] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:26] [INFO] => Created object app
+[14-07-2021 11:07:26] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:26] [INFO] => Created object app
+[14-07-2021 11:07:26] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:26] [INFO] => Created object app
+[14-07-2021 11:07:27] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:27] [INFO] => Created object app
+[14-07-2021 11:07:27] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:27] [INFO] => Created object app
+[14-07-2021 11:07:28] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:28] [INFO] => Created object app
+[14-07-2021 11:07:28] [INFO] => Registered main_blueprint
+[14-07-2021 11:07:28] [INFO] => Created object app
+[14-07-2021 11:07:28] [INFO] => The CSRF token is missing.
+[14-07-2021 11:08:46] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:46] [INFO] => Created object app
+[14-07-2021 11:08:46] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:46] [INFO] => Created object app
+[14-07-2021 11:08:46] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:46] [INFO] => Created object app
+[14-07-2021 11:08:46] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:46] [INFO] => Created object app
+[14-07-2021 11:08:47] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:47] [INFO] => Created object app
+[14-07-2021 11:08:48] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:48] [INFO] => Created object app
+[14-07-2021 11:08:48] [INFO] => Registered main_blueprint
+[14-07-2021 11:08:48] [INFO] => Created object app
+[14-07-2021 11:08:48] [INFO] => The CSRF token is missing.
+[14-07-2021 11:14:00] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:00] [INFO] => Created object app
+[14-07-2021 11:14:00] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:00] [INFO] => Created object app
+[14-07-2021 11:14:00] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:00] [INFO] => Created object app
+[14-07-2021 11:14:00] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:00] [INFO] => Created object app
+[14-07-2021 11:14:01] [INFO] => The CSRF token is missing.
+[14-07-2021 11:14:01] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:01] [INFO] => Created object app
+[14-07-2021 11:14:02] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:02] [INFO] => Created object app
+[14-07-2021 11:14:02] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:02] [INFO] => Created object app
+[14-07-2021 11:14:03] [INFO] => The CSRF token is missing.
+[14-07-2021 11:14:47] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:47] [INFO] => Created object app
+[14-07-2021 11:14:47] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:47] [INFO] => Created object app
+[14-07-2021 11:14:48] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:48] [INFO] => Created object app
+[14-07-2021 11:14:48] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:48] [INFO] => Created object app
+[14-07-2021 11:14:48] [INFO] => The CSRF token is missing.
+[14-07-2021 11:14:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:49] [INFO] => Created object app
+[14-07-2021 11:14:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:49] [INFO] => Created object app
+[14-07-2021 11:14:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:14:49] [INFO] => Created object app
+[14-07-2021 11:14:50] [INFO] => The CSRF token is missing.
+[14-07-2021 11:17:57] [INFO] => Registered main_blueprint
+[14-07-2021 11:17:57] [INFO] => Created object app
+[14-07-2021 11:17:57] [INFO] => Registered main_blueprint
+[14-07-2021 11:17:57] [INFO] => Created object app
+[14-07-2021 11:17:58] [INFO] => Registered main_blueprint
+[14-07-2021 11:17:58] [INFO] => Created object app
+[14-07-2021 11:17:58] [INFO] => Registered main_blueprint
+[14-07-2021 11:17:58] [INFO] => Created object app
+[14-07-2021 11:18:04] [INFO] => The CSRF token is missing.
+[14-07-2021 11:18:04] [INFO] => Registered main_blueprint
+[14-07-2021 11:18:04] [INFO] => Created object app
+[14-07-2021 11:18:06] [INFO] => Registered main_blueprint
+[14-07-2021 11:18:06] [INFO] => Created object app
+[14-07-2021 11:18:06] [INFO] => Registered main_blueprint
+[14-07-2021 11:18:06] [INFO] => Created object app
+[14-07-2021 11:18:06] [INFO] => The CSRF token is missing.
+[14-07-2021 11:20:20] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:20] [INFO] => Created object app
+[14-07-2021 11:20:20] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:20] [INFO] => Created object app
+[14-07-2021 11:20:20] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:20] [INFO] => Created object app
+[14-07-2021 11:20:20] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:20] [INFO] => Created object app
+[14-07-2021 11:20:21] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:21] [INFO] => Created object app
+[14-07-2021 11:20:42] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:42] [INFO] => Created object app
+[14-07-2021 11:20:43] [INFO] => Registered main_blueprint
+[14-07-2021 11:20:43] [INFO] => Created object app
+[14-07-2021 11:20:43] [INFO] => The CSRF token is missing.
+[14-07-2021 11:22:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:16] [INFO] => Created object app
+[14-07-2021 11:22:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:16] [INFO] => Created object app
+[14-07-2021 11:22:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:16] [INFO] => Created object app
+[14-07-2021 11:22:17] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:17] [INFO] => Created object app
+[14-07-2021 11:22:17] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:17] [INFO] => Created object app
+[14-07-2021 11:22:18] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:18] [INFO] => Created object app
+[14-07-2021 11:22:18] [INFO] => Registered main_blueprint
+[14-07-2021 11:22:18] [INFO] => Created object app
+[14-07-2021 11:22:18] [INFO] => The CSRF token is missing.
+[14-07-2021 11:24:29] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:29] [INFO] => Created object app
+[14-07-2021 11:24:29] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:29] [INFO] => Created object app
+[14-07-2021 11:24:30] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:30] [INFO] => Created object app
+[14-07-2021 11:24:31] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:31] [INFO] => Created object app
+[14-07-2021 11:24:32] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:32] [INFO] => Created object app
+[14-07-2021 11:24:53] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:53] [INFO] => Created object app
+[14-07-2021 11:24:54] [INFO] => Registered main_blueprint
+[14-07-2021 11:24:54] [INFO] => Created object app
+[14-07-2021 11:24:54] [INFO] => The CSRF token is missing.
+[14-07-2021 11:24:54] [INFO] => The CSRF token is missing.
+[14-07-2021 11:26:47] [INFO] => Registered main_blueprint
+[14-07-2021 11:26:47] [INFO] => Created object app
+[14-07-2021 11:26:47] [INFO] => Registered main_blueprint
+[14-07-2021 11:26:47] [INFO] => Created object app
+[14-07-2021 11:26:48] [INFO] => Registered main_blueprint
+[14-07-2021 11:26:48] [INFO] => Created object app
+[14-07-2021 11:26:48] [INFO] => Registered main_blueprint
+[14-07-2021 11:26:48] [INFO] => Created object app
+[14-07-2021 11:26:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:26:49] [INFO] => Created object app
+[14-07-2021 11:27:10] [INFO] => Registered main_blueprint
+[14-07-2021 11:27:10] [INFO] => Created object app
+[14-07-2021 11:27:11] [INFO] => Registered main_blueprint
+[14-07-2021 11:27:11] [INFO] => Created object app
+[14-07-2021 11:27:11] [INFO] => The CSRF token is missing.
+[14-07-2021 11:27:11] [INFO] => The CSRF token is missing.
+[14-07-2021 11:28:15] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:15] [INFO] => Created object app
+[14-07-2021 11:28:15] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:15] [INFO] => Created object app
+[14-07-2021 11:28:15] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:15] [INFO] => Created object app
+[14-07-2021 11:28:15] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:15] [INFO] => Created object app
+[14-07-2021 11:28:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:16] [INFO] => Created object app
+[14-07-2021 11:28:17] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:17] [INFO] => Created object app
+[14-07-2021 11:28:17] [INFO] => Registered main_blueprint
+[14-07-2021 11:28:17] [INFO] => Created object app
+[14-07-2021 11:28:17] [INFO] => The CSRF token is missing.
+[14-07-2021 11:28:17] [INFO] => The CSRF token is missing.
+[14-07-2021 11:29:11] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:11] [INFO] => Created object app
+[14-07-2021 11:29:11] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:11] [INFO] => Created object app
+[14-07-2021 11:29:11] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:11] [INFO] => Created object app
+[14-07-2021 11:29:11] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:11] [INFO] => Created object app
+[14-07-2021 11:29:12] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:12] [INFO] => Created object app
+[14-07-2021 11:29:13] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:13] [INFO] => Created object app
+[14-07-2021 11:29:13] [INFO] => Registered main_blueprint
+[14-07-2021 11:29:13] [INFO] => Created object app
+[14-07-2021 11:29:13] [INFO] => The CSRF token is missing.
+[14-07-2021 11:29:13] [INFO] => The CSRF token is missing.
+[14-07-2021 11:30:17] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:17] [INFO] => Created object app
+[14-07-2021 11:30:17] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:17] [INFO] => Created object app
+[14-07-2021 11:30:18] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:18] [INFO] => Created object app
+[14-07-2021 11:30:18] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:18] [INFO] => Created object app
+[14-07-2021 11:30:19] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:19] [INFO] => Created object app
+[14-07-2021 11:30:19] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:19] [INFO] => Created object app
+[14-07-2021 11:30:20] [INFO] => Registered main_blueprint
+[14-07-2021 11:30:20] [INFO] => Created object app
+[14-07-2021 11:30:20] [INFO] => The CSRF token is missing.
+[14-07-2021 11:30:20] [INFO] => The CSRF token is missing.
+[14-07-2021 11:31:41] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:41] [INFO] => Created object app
+[14-07-2021 11:31:41] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:41] [INFO] => Created object app
+[14-07-2021 11:31:41] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:41] [INFO] => Created object app
+[14-07-2021 11:31:41] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:41] [INFO] => Created object app
+[14-07-2021 11:31:42] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:42] [INFO] => Created object app
+[14-07-2021 11:31:43] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:43] [INFO] => Created object app
+[14-07-2021 11:31:43] [INFO] => Registered main_blueprint
+[14-07-2021 11:31:43] [INFO] => Created object app
+[14-07-2021 11:31:43] [INFO] => The CSRF token is missing.
+[14-07-2021 11:31:43] [INFO] => The CSRF token is missing.
+[14-07-2021 11:34:14] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:14] [INFO] => Created object app
+[14-07-2021 11:34:14] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:14] [INFO] => Created object app
+[14-07-2021 11:34:15] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:15] [INFO] => Created object app
+[14-07-2021 11:34:15] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:15] [INFO] => Created object app
+[14-07-2021 11:34:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:16] [INFO] => Created object app
+[14-07-2021 11:34:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:16] [INFO] => Created object app
+[14-07-2021 11:34:16] [INFO] => Registered main_blueprint
+[14-07-2021 11:34:16] [INFO] => Created object app
+[14-07-2021 11:34:17] [INFO] => The CSRF token is missing.
+[14-07-2021 11:34:17] [INFO] => The CSRF token is missing.
+[14-07-2021 11:36:38] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:38] [INFO] => Created object app
+[14-07-2021 11:36:38] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:38] [INFO] => Created object app
+[14-07-2021 11:36:38] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:38] [INFO] => Created object app
+[14-07-2021 11:36:38] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:38] [INFO] => Created object app
+[14-07-2021 11:36:39] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:39] [INFO] => Created object app
+[14-07-2021 11:36:39] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:39] [INFO] => Created object app
+[14-07-2021 11:36:40] [INFO] => Registered main_blueprint
+[14-07-2021 11:36:40] [INFO] => Created object app
+[14-07-2021 11:36:40] [INFO] => The CSRF token is missing.
+[14-07-2021 11:36:40] [INFO] => The CSRF token is missing.
+[14-07-2021 11:40:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:49] [INFO] => Created object app
+[14-07-2021 11:40:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:49] [INFO] => Created object app
+[14-07-2021 11:40:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:49] [INFO] => Created object app
+[14-07-2021 11:40:49] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:49] [INFO] => Created object app
+[14-07-2021 11:40:50] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:50] [INFO] => Created object app
+[14-07-2021 11:40:51] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:51] [INFO] => Created object app
+[14-07-2021 11:40:51] [INFO] => Registered main_blueprint
+[14-07-2021 11:40:51] [INFO] => Created object app
+[14-07-2021 11:40:51] [INFO] => The CSRF token is missing.
+[14-07-2021 11:40:51] [INFO] => The CSRF token is missing.
+[14-07-2021 14:49:26] [INFO] => Registered main_blueprint
+[14-07-2021 14:49:26] [INFO] => Created object app
+[14-07-2021 14:49:26] [INFO] =>  * Restarting with stat
+[14-07-2021 14:49:31] [INFO] => Registered main_blueprint
+[14-07-2021 14:49:31] [INFO] => Created object app
+[14-07-2021 14:49:31] [WARNING] =>  * Debugger is active!
+[14-07-2021 14:49:31] [INFO] =>  * Debugger PIN: 197-606-405
+[14-07-2021 14:49:31] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[14-07-2021 14:49:31] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:31] "[37mGET / HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:31] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:31] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:31] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:31] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:31] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:31] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:32] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:32] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:32] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:32] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:32] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:35] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:35] "[32mGET /login/ HTTP/1.1[0m" 302 -
+[14-07-2021 14:49:35] [INFO] => User Yaroslav Holovatskyu success connected to url-admin.
+[14-07-2021 14:49:35] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:35] "[37mGET /admin/ HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/users_avatars/508ba2db7f6045109d898918bcdb073d.gif HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:36] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:36] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:42] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:42] "[32mGET /login/ HTTP/1.1[0m" 302 -
+[14-07-2021 14:49:42] [INFO] => User Yaroslav Holovatskyu success connected to url-admin.
+[14-07-2021 14:49:42] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:42] "[37mGET /admin/ HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:42] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:42] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:42] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:42] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:42] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:42] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:55] "[37mGET / HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:55] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:55] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:55] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:55] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:55] "[37mGET /static/users_avatars/5b53893e465141f4ba5d12c3c878a507.jpg HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:56] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:56] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:56] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:56] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:56] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:56] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:49:57] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:49:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[14-07-2021 14:50:05] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:05] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[14-07-2021 14:50:05] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:05] "[37mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:05] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:05] "[37mGET /login/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:05] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:05] "[37mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:06] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:06] "[37mGET /login/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:06] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:06] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:06] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:06] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:24] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\decorators.py', reloading
+[14-07-2021 14:50:24] [INFO] =>  * Restarting with stat
+[14-07-2021 14:50:28] [INFO] => Registered main_blueprint
+[14-07-2021 14:50:28] [INFO] => Created object app
+[14-07-2021 14:50:28] [WARNING] =>  * Debugger is active!
+[14-07-2021 14:50:28] [INFO] =>  * Debugger PIN: 197-606-405
+[14-07-2021 14:50:28] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[14-07-2021 14:50:39] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\decorators.py', reloading
+[14-07-2021 14:50:40] [INFO] =>  * Restarting with stat
+[14-07-2021 14:50:43] [INFO] => Registered main_blueprint
+[14-07-2021 14:50:43] [INFO] => Created object app
+[14-07-2021 14:50:43] [WARNING] =>  * Debugger is active!
+[14-07-2021 14:50:43] [INFO] =>  * Debugger PIN: 197-606-405
+[14-07-2021 14:50:43] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[37mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[37mGET /login/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[37mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[37mGET /login/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:55] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:55] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:57] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:57] "[37mGET / HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:57] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:57] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/users_avatars/5b53893e465141f4ba5d12c3c878a507.jpg HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:50:58] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:50:58] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:03] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:03] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[14-07-2021 14:51:03] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:03] "[37mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:03] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:03] "[37mGET /login/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:03] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:03] "[37mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:05] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:05] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:05] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:05] "[37mGET /login/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:15] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\decorators.py', reloading
+[14-07-2021 14:51:15] [INFO] =>  * Restarting with stat
+[14-07-2021 14:51:22] [INFO] => Registered main_blueprint
+[14-07-2021 14:51:22] [INFO] => Created object app
+[14-07-2021 14:51:22] [WARNING] =>  * Debugger is active!
+[14-07-2021 14:51:22] [INFO] =>  * Debugger PIN: 197-606-405
+[14-07-2021 14:51:22] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[14-07-2021 14:51:32] [INFO] => User Yaroslav Holovatskyu success connected to url-admin.
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[37mGET /admin/ HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[32mGET /login/ HTTP/1.1[0m" 302 -
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[32mGET /login/ HTTP/1.1[0m" 302 -
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[37mGET / HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:32] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:32] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/users_avatars/5b53893e465141f4ba5d12c3c878a507.jpg HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/img/angle-left-solid.svg HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/js/settings_chat.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/js/main.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/js/menu.js HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/css/main.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/css/main_menu.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:33] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:33] "[37mGET /static/css/chat.css HTTP/1.1[0m" 200 -
+[14-07-2021 14:51:37] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:37] "[32mGET /login/ HTTP/1.1[0m" 302 -
+[14-07-2021 14:51:37] [INFO] => 127.0.0.1 - - [14/Jul/2021 14:51:37] "[37mGET / HTTP/1.1[0m" 200 -
+[14-07-2021 19:50:00] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\api_1_0\\articles.py', reloading
+[14-07-2021 19:50:01] [INFO] =>  * Restarting with stat
+[14-07-2021 19:50:05] [INFO] => Registered main_blueprint
+[14-07-2021 19:50:05] [INFO] => Created object app
+[14-07-2021 19:50:05] [WARNING] =>  * Debugger is active!
+[14-07-2021 19:50:05] [INFO] =>  * Debugger PIN: 197-606-405
+[14-07-2021 19:50:05] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[15-07-2021 09:17:18] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:18] [INFO] => Created object app
+[15-07-2021 09:17:18] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:18] [INFO] => Created object app
+[15-07-2021 09:17:18] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:18] [INFO] => Created object app
+[15-07-2021 09:17:18] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:18] [INFO] => Created object app
+[15-07-2021 09:17:19] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:19] [INFO] => Created object app
+[15-07-2021 09:17:20] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:20] [INFO] => Created object app
+[15-07-2021 09:17:20] [INFO] => Registered main_blueprint
+[15-07-2021 09:17:20] [INFO] => Created object app
+[15-07-2021 09:17:20] [INFO] => The CSRF token is missing.
+[15-07-2021 09:17:20] [INFO] => The CSRF token is missing.
+[15-07-2021 09:25:08] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:08] [INFO] => Created object app
+[15-07-2021 09:25:08] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:08] [INFO] => Created object app
+[15-07-2021 09:25:09] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:09] [INFO] => Created object app
+[15-07-2021 09:25:09] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:09] [INFO] => Created object app
+[15-07-2021 09:25:09] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:09] [INFO] => Created object app
+[15-07-2021 09:25:10] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:10] [INFO] => Created object app
+[15-07-2021 09:25:10] [INFO] => Registered main_blueprint
+[15-07-2021 09:25:10] [INFO] => Created object app
+[15-07-2021 09:25:10] [INFO] => The CSRF token is missing.
+[15-07-2021 09:25:11] [INFO] => The CSRF token is missing.
+[15-07-2021 09:26:37] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:37] [INFO] => Created object app
+[15-07-2021 09:26:37] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:37] [INFO] => Created object app
+[15-07-2021 09:26:38] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:38] [INFO] => Created object app
+[15-07-2021 09:26:38] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:38] [INFO] => Created object app
+[15-07-2021 09:26:39] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:39] [INFO] => Created object app
+[15-07-2021 09:26:39] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:39] [INFO] => Created object app
+[15-07-2021 09:26:40] [INFO] => Registered main_blueprint
+[15-07-2021 09:26:40] [INFO] => Created object app
+[15-07-2021 09:26:40] [INFO] => The CSRF token is missing.
+[15-07-2021 09:26:40] [INFO] => The CSRF token is missing.
+[15-07-2021 09:27:37] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:37] [INFO] => Created object app
+[15-07-2021 09:27:37] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:37] [INFO] => Created object app
+[15-07-2021 09:27:37] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:37] [INFO] => Created object app
+[15-07-2021 09:27:37] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:37] [INFO] => Created object app
+[15-07-2021 09:27:38] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:38] [INFO] => Created object app
+[15-07-2021 09:27:39] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:39] [INFO] => Created object app
+[15-07-2021 09:27:39] [INFO] => Registered main_blueprint
+[15-07-2021 09:27:39] [INFO] => Created object app
+[15-07-2021 09:27:39] [INFO] => The CSRF token is missing.
+[15-07-2021 09:27:39] [INFO] => The CSRF token is missing.
+[15-07-2021 09:28:31] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:31] [INFO] => Created object app
+[15-07-2021 09:28:31] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:31] [INFO] => Created object app
+[15-07-2021 09:28:31] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:31] [INFO] => Created object app
+[15-07-2021 09:28:31] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:31] [INFO] => Created object app
+[15-07-2021 09:28:32] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:32] [INFO] => Created object app
+[15-07-2021 09:28:32] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:32] [INFO] => Created object app
+[15-07-2021 09:28:33] [INFO] => Registered main_blueprint
+[15-07-2021 09:28:33] [INFO] => Created object app
+[15-07-2021 09:28:33] [INFO] => The CSRF token is missing.
+[15-07-2021 09:28:33] [INFO] => The CSRF token is missing.
+[15-07-2021 09:29:49] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:49] [INFO] => Created object app
+[15-07-2021 09:29:50] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:50] [INFO] => Created object app
+[15-07-2021 09:29:50] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:50] [INFO] => Created object app
+[15-07-2021 09:29:50] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:50] [INFO] => Created object app
+[15-07-2021 09:29:51] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:51] [INFO] => Created object app
+[15-07-2021 09:29:51] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:51] [INFO] => Created object app
+[15-07-2021 09:29:51] [INFO] => Registered main_blueprint
+[15-07-2021 09:29:51] [INFO] => Created object app
+[15-07-2021 09:29:52] [INFO] => The CSRF token is missing.
+[15-07-2021 09:29:52] [INFO] => The CSRF token is missing.
+[15-07-2021 09:35:11] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:11] [INFO] => Created object app
+[15-07-2021 09:35:11] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:11] [INFO] => Created object app
+[15-07-2021 09:35:11] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:11] [INFO] => Created object app
+[15-07-2021 09:35:11] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:11] [INFO] => Created object app
+[15-07-2021 09:35:12] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:12] [INFO] => Created object app
+[15-07-2021 09:35:12] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:12] [INFO] => Created object app
+[15-07-2021 09:35:13] [INFO] => Registered main_blueprint
+[15-07-2021 09:35:13] [INFO] => Created object app
+[15-07-2021 09:35:13] [INFO] => The CSRF token is missing.
+[15-07-2021 09:35:13] [INFO] => The CSRF token is missing.
+[15-07-2021 09:41:48] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:48] [INFO] => Created object app
+[15-07-2021 09:41:48] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:48] [INFO] => Created object app
+[15-07-2021 09:41:48] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:48] [INFO] => Created object app
+[15-07-2021 09:41:49] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:49] [INFO] => Created object app
+[15-07-2021 09:41:49] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:49] [INFO] => Created object app
+[15-07-2021 09:41:50] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:50] [INFO] => Created object app
+[15-07-2021 09:41:50] [INFO] => Registered main_blueprint
+[15-07-2021 09:41:50] [INFO] => Created object app
+[15-07-2021 09:41:50] [INFO] => The CSRF token is missing.
+[15-07-2021 09:41:50] [INFO] => The CSRF token is missing.
+[15-07-2021 09:43:36] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:36] [INFO] => Created object app
+[15-07-2021 09:43:36] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:36] [INFO] => Created object app
+[15-07-2021 09:43:36] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:36] [INFO] => Created object app
+[15-07-2021 09:43:36] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:36] [INFO] => Created object app
+[15-07-2021 09:43:38] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:38] [INFO] => Created object app
+[15-07-2021 09:43:39] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:39] [INFO] => Created object app
+[15-07-2021 09:43:40] [INFO] => Registered main_blueprint
+[15-07-2021 09:43:40] [INFO] => Created object app
+[15-07-2021 09:43:40] [INFO] => The CSRF token is missing.
+[15-07-2021 09:43:40] [INFO] => The CSRF token is missing.
+[15-07-2021 09:44:11] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:11] [INFO] => Created object app
+[15-07-2021 09:44:11] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:11] [INFO] => Created object app
+[15-07-2021 09:44:12] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:12] [INFO] => Created object app
+[15-07-2021 09:44:12] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:12] [INFO] => Created object app
+[15-07-2021 09:44:13] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:13] [INFO] => Created object app
+[15-07-2021 09:44:14] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:14] [INFO] => Created object app
+[15-07-2021 09:44:14] [INFO] => Registered main_blueprint
+[15-07-2021 09:44:14] [INFO] => Created object app
+[15-07-2021 09:44:14] [INFO] => The CSRF token is missing.
+[15-07-2021 09:44:15] [INFO] => The CSRF token is missing.
+[15-07-2021 09:51:24] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:24] [INFO] => Created object app
+[15-07-2021 09:51:25] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:25] [INFO] => Created object app
+[15-07-2021 09:51:25] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:25] [INFO] => Created object app
+[15-07-2021 09:51:25] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 09:51:25] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:25] [INFO] => Created object app
+[15-07-2021 09:51:28] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 09:51:28] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:28] [INFO] => Created object app
+[15-07-2021 09:51:29] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 09:51:29] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:29] [INFO] => Created object app
+[15-07-2021 09:51:29] [INFO] => Registered main_blueprint
+[15-07-2021 09:51:29] [INFO] => Created object app
+[15-07-2021 09:51:29] [INFO] => The CSRF token is missing.
+[15-07-2021 09:51:29] [INFO] => The CSRF token is missing.
+[15-07-2021 09:54:21] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:21] [INFO] => Created object app
+[15-07-2021 09:54:21] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:21] [INFO] => Created object app
+[15-07-2021 09:54:21] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:21] [INFO] => Created object app
+[15-07-2021 09:54:21] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 09:54:21] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:21] [INFO] => Created object app
+[15-07-2021 09:54:22] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 09:54:22] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:22] [INFO] => Created object app
+[15-07-2021 09:54:22] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 09:54:22] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:22] [INFO] => Created object app
+[15-07-2021 09:54:23] [INFO] => Registered main_blueprint
+[15-07-2021 09:54:23] [INFO] => Created object app
+[15-07-2021 09:54:23] [INFO] => The CSRF token is missing.
+[15-07-2021 09:54:23] [INFO] => The CSRF token is missing.
+[15-07-2021 10:15:16] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:16] [INFO] => Created object app
+[15-07-2021 10:15:16] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:16] [INFO] => Created object app
+[15-07-2021 10:15:16] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:16] [INFO] => Created object app
+[15-07-2021 10:15:16] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:15:16] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:16] [INFO] => Created object app
+[15-07-2021 10:15:17] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:15:17] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:17] [INFO] => Created object app
+[15-07-2021 10:15:18] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:15:18] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:18] [INFO] => Created object app
+[15-07-2021 10:15:18] [INFO] => Registered main_blueprint
+[15-07-2021 10:15:18] [INFO] => Created object app
+[15-07-2021 10:15:19] [INFO] => The CSRF token is missing.
+[15-07-2021 10:15:19] [INFO] => The CSRF token is missing.
+[15-07-2021 10:20:20] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:20] [INFO] => Created object app
+[15-07-2021 10:20:20] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:20] [INFO] => Created object app
+[15-07-2021 10:20:20] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:20] [INFO] => Created object app
+[15-07-2021 10:20:21] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:20:21] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:21] [INFO] => Created object app
+[15-07-2021 10:20:21] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:20:21] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:21] [INFO] => Created object app
+[15-07-2021 10:20:22] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:20:22] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:22] [INFO] => Created object app
+[15-07-2021 10:20:23] [INFO] => Registered main_blueprint
+[15-07-2021 10:20:23] [INFO] => Created object app
+[15-07-2021 10:20:23] [INFO] => The CSRF token is missing.
+[15-07-2021 10:20:23] [INFO] => The CSRF token is missing.
+[15-07-2021 10:30:45] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:45] [INFO] => Created object app
+[15-07-2021 10:30:45] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:45] [INFO] => Created object app
+[15-07-2021 10:30:46] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:46] [INFO] => Created object app
+[15-07-2021 10:30:46] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:30:46] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:46] [INFO] => Created object app
+[15-07-2021 10:30:47] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:30:47] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:47] [INFO] => Created object app
+[15-07-2021 10:30:47] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 10:30:47] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:47] [INFO] => Created object app
+[15-07-2021 10:30:48] [INFO] => Registered main_blueprint
+[15-07-2021 10:30:48] [INFO] => Created object app
+[15-07-2021 10:30:48] [INFO] => The CSRF token is missing.
+[15-07-2021 10:30:48] [INFO] => The CSRF token is missing.
+[15-07-2021 10:31:49] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:49] [INFO] => Created object app
+[15-07-2021 10:31:49] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:49] [INFO] => Created object app
+[15-07-2021 10:31:49] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:49] [INFO] => Created object app
+[15-07-2021 10:31:49] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:31:49] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:49] [INFO] => Created object app
+[15-07-2021 10:31:50] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:31:50] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:50] [INFO] => Created object app
+[15-07-2021 10:31:51] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:31:51] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:51] [INFO] => Created object app
+[15-07-2021 10:31:52] [INFO] => Registered main_blueprint
+[15-07-2021 10:31:52] [INFO] => Created object app
+[15-07-2021 10:31:52] [INFO] => The CSRF token is missing.
+[15-07-2021 10:31:52] [INFO] => The CSRF token is missing.
+[15-07-2021 10:46:56] [INFO] => Registered main_blueprint
+[15-07-2021 10:46:56] [INFO] => Created object app
+[15-07-2021 10:46:56] [INFO] => Registered main_blueprint
+[15-07-2021 10:46:56] [INFO] => Created object app
+[15-07-2021 10:46:56] [INFO] => Registered main_blueprint
+[15-07-2021 10:46:56] [INFO] => Created object app
+[15-07-2021 10:46:56] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:46:56] [INFO] => Registered main_blueprint
+[15-07-2021 10:46:56] [INFO] => Created object app
+[15-07-2021 10:46:58] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:46:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:46:58] [INFO] => Created object app
+[15-07-2021 10:46:58] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:46:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:46:58] [INFO] => Created object app
+[15-07-2021 10:47:02] [INFO] => Registered main_blueprint
+[15-07-2021 10:47:02] [INFO] => Created object app
+[15-07-2021 10:47:03] [INFO] => The CSRF token is missing.
+[15-07-2021 10:47:03] [INFO] => The CSRF token is missing.
+[15-07-2021 10:47:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:47:58] [INFO] => Created object app
+[15-07-2021 10:47:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:47:58] [INFO] => Created object app
+[15-07-2021 10:47:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:47:58] [INFO] => Created object app
+[15-07-2021 10:47:58] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:47:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:47:58] [INFO] => Created object app
+[15-07-2021 10:47:59] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:47:59] [INFO] => Registered main_blueprint
+[15-07-2021 10:47:59] [INFO] => Created object app
+[15-07-2021 10:48:00] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:48:00] [INFO] => Registered main_blueprint
+[15-07-2021 10:48:00] [INFO] => Created object app
+[15-07-2021 10:48:00] [INFO] => Registered main_blueprint
+[15-07-2021 10:48:00] [INFO] => Created object app
+[15-07-2021 10:48:00] [INFO] => The CSRF token is missing.
+[15-07-2021 10:48:00] [INFO] => The CSRF token is missing.
+[15-07-2021 10:49:14] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:14] [INFO] => Created object app
+[15-07-2021 10:49:14] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:14] [INFO] => Created object app
+[15-07-2021 10:49:14] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:14] [INFO] => Created object app
+[15-07-2021 10:49:14] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:49:14] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:14] [INFO] => Created object app
+[15-07-2021 10:49:15] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:49:15] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:15] [INFO] => Created object app
+[15-07-2021 10:49:16] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:49:16] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:16] [INFO] => Created object app
+[15-07-2021 10:49:16] [INFO] => Registered main_blueprint
+[15-07-2021 10:49:16] [INFO] => Created object app
+[15-07-2021 10:49:16] [INFO] => The CSRF token is missing.
+[15-07-2021 10:49:16] [INFO] => The CSRF token is missing.
+[15-07-2021 10:55:56] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:56] [INFO] => Created object app
+[15-07-2021 10:55:56] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:56] [INFO] => Created object app
+[15-07-2021 10:55:57] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:57] [INFO] => Created object app
+[15-07-2021 10:55:57] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:55:57] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:57] [INFO] => Created object app
+[15-07-2021 10:55:58] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:55:58] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:58] [INFO] => Created object app
+[15-07-2021 10:55:59] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'user'
+[15-07-2021 10:55:59] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:59] [INFO] => Created object app
+[15-07-2021 10:55:59] [INFO] => Registered main_blueprint
+[15-07-2021 10:55:59] [INFO] => Created object app
+[15-07-2021 10:55:59] [INFO] => The CSRF token is missing.
+[15-07-2021 10:55:59] [INFO] => The CSRF token is missing.
+[15-07-2021 11:04:43] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:43] [INFO] => Created object app
+[15-07-2021 11:04:43] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:43] [INFO] => Created object app
+[15-07-2021 11:04:44] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:44] [INFO] => Created object app
+[15-07-2021 11:04:44] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:04:44] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:44] [INFO] => Created object app
+[15-07-2021 11:04:44] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:04:44] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:44] [INFO] => Created object app
+[15-07-2021 11:04:45] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:04:45] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:45] [INFO] => Created object app
+[15-07-2021 11:04:45] [INFO] => Registered main_blueprint
+[15-07-2021 11:04:45] [INFO] => Created object app
+[15-07-2021 11:04:46] [INFO] => The CSRF token is missing.
+[15-07-2021 11:04:46] [INFO] => The CSRF token is missing.
+[15-07-2021 11:17:18] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:18] [INFO] => Created object app
+[15-07-2021 11:17:18] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:18] [INFO] => Created object app
+[15-07-2021 11:17:19] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:19] [INFO] => Created object app
+[15-07-2021 11:17:19] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:17:19] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:19] [INFO] => Created object app
+[15-07-2021 11:17:20] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:17:20] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:20] [INFO] => Created object app
+[15-07-2021 11:17:20] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:17:20] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:20] [INFO] => Created object app
+[15-07-2021 11:17:20] [INFO] => Registered main_blueprint
+[15-07-2021 11:17:20] [INFO] => Created object app
+[15-07-2021 11:17:21] [INFO] => The CSRF token is missing.
+[15-07-2021 11:17:21] [INFO] => The CSRF token is missing.
+[15-07-2021 11:22:58] [INFO] => Registered main_blueprint
+[15-07-2021 11:22:58] [INFO] => Created object app
+[15-07-2021 11:22:58] [INFO] => Registered main_blueprint
+[15-07-2021 11:22:58] [INFO] => Created object app
+[15-07-2021 11:22:58] [INFO] => Registered main_blueprint
+[15-07-2021 11:22:58] [INFO] => Created object app
+[15-07-2021 11:22:58] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:22:58] [INFO] => Registered main_blueprint
+[15-07-2021 11:22:58] [INFO] => Created object app
+[15-07-2021 11:22:59] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:22:59] [INFO] => Registered main_blueprint
+[15-07-2021 11:22:59] [INFO] => Created object app
+[15-07-2021 11:22:59] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:23:00] [INFO] => Registered main_blueprint
+[15-07-2021 11:23:00] [INFO] => Created object app
+[15-07-2021 11:23:00] [INFO] => Registered main_blueprint
+[15-07-2021 11:23:00] [INFO] => Created object app
+[15-07-2021 11:23:00] [INFO] => The CSRF token is missing.
+[15-07-2021 11:23:00] [INFO] => The CSRF token is missing.
+[15-07-2021 11:29:00] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:00] [INFO] => Created object app
+[15-07-2021 11:29:00] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:00] [INFO] => Created object app
+[15-07-2021 11:29:01] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:01] [INFO] => Created object app
+[15-07-2021 11:29:01] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:29:01] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:01] [INFO] => Created object app
+[15-07-2021 11:29:01] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:29:01] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:01] [INFO] => Created object app
+[15-07-2021 11:29:02] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:29:02] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:02] [INFO] => Created object app
+[15-07-2021 11:29:02] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:02] [INFO] => Created object app
+[15-07-2021 11:29:03] [INFO] => The CSRF token is missing.
+[15-07-2021 11:29:03] [INFO] => The CSRF token is missing.
+[15-07-2021 11:29:37] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:37] [INFO] => Created object app
+[15-07-2021 11:29:37] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:37] [INFO] => Created object app
+[15-07-2021 11:29:38] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:38] [INFO] => Created object app
+[15-07-2021 11:29:38] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:29:38] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:38] [INFO] => Created object app
+[15-07-2021 11:29:39] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:29:39] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:39] [INFO] => Created object app
+[15-07-2021 11:29:40] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:29:40] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:40] [INFO] => Created object app
+[15-07-2021 11:29:40] [INFO] => Registered main_blueprint
+[15-07-2021 11:29:40] [INFO] => Created object app
+[15-07-2021 11:29:40] [INFO] => The CSRF token is missing.
+[15-07-2021 11:29:40] [INFO] => The CSRF token is missing.
+[15-07-2021 11:48:03] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:03] [INFO] => Created object app
+[15-07-2021 11:48:03] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:03] [INFO] => Created object app
+[15-07-2021 11:48:03] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:03] [INFO] => Created object app
+[15-07-2021 11:48:03] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:48:03] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:03] [INFO] => Created object app
+[15-07-2021 11:48:04] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:48:04] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:04] [INFO] => Created object app
+[15-07-2021 11:48:04] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:48:04] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:04] [INFO] => Created object app
+[15-07-2021 11:48:05] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:05] [INFO] => Created object app
+[15-07-2021 11:48:05] [INFO] => The CSRF token is missing.
+[15-07-2021 11:48:05] [INFO] => The CSRF token is missing.
+[15-07-2021 11:48:15] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:15] [INFO] => Created object app
+[15-07-2021 11:48:15] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:15] [INFO] => Created object app
+[15-07-2021 11:48:15] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:15] [INFO] => Created object app
+[15-07-2021 11:48:15] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user:
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:48:15] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:15] [INFO] => Created object app
+[15-07-2021 11:48:16] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user:
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:48:16] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:16] [INFO] => Created object app
+[15-07-2021 11:48:17] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user:
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:48:17] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:17] [INFO] => Created object app
+[15-07-2021 11:48:17] [INFO] => Registered main_blueprint
+[15-07-2021 11:48:17] [INFO] => Created object app
+[15-07-2021 11:48:18] [INFO] => The CSRF token is missing.
+[15-07-2021 11:48:18] [INFO] => The CSRF token is missing.
+[15-07-2021 11:50:52] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:52] [INFO] => Created object app
+[15-07-2021 11:50:53] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:53] [INFO] => Created object app
+[15-07-2021 11:50:53] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:53] [INFO] => Created object app
+[15-07-2021 11:50:53] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user:
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:50:53] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:53] [INFO] => Created object app
+[15-07-2021 11:50:54] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user:
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:50:54] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:54] [INFO] => Created object app
+[15-07-2021 11:50:55] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user:
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:50:55] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:55] [INFO] => Created object app
+[15-07-2021 11:50:55] [INFO] => Registered main_blueprint
+[15-07-2021 11:50:55] [INFO] => Created object app
+[15-07-2021 11:50:55] [INFO] => The CSRF token is missing.
+[15-07-2021 11:50:55] [INFO] => The CSRF token is missing.
+[15-07-2021 11:56:56] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:56] [INFO] => Created object app
+[15-07-2021 11:56:56] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:56] [INFO] => Created object app
+[15-07-2021 11:56:57] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:57] [INFO] => Created object app
+[15-07-2021 11:56:57] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:56:57] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:57] [INFO] => Created object app
+[15-07-2021 11:56:57] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:56:58] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:58] [INFO] => Created object app
+[15-07-2021 11:56:58] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 10, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 11:56:58] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:58] [INFO] => Created object app
+[15-07-2021 11:56:59] [INFO] => Registered main_blueprint
+[15-07-2021 11:56:59] [INFO] => Created object app
+[15-07-2021 11:56:59] [INFO] => The CSRF token is missing.
+[15-07-2021 11:56:59] [INFO] => The CSRF token is missing.
+[15-07-2021 12:00:38] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:38] [INFO] => Created object app
+[15-07-2021 12:00:38] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:38] [INFO] => Created object app
+[15-07-2021 12:00:38] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:38] [INFO] => Created object app
+[15-07-2021 12:00:38] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:38] [INFO] => Created object app
+[15-07-2021 12:00:39] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:39] [INFO] => Created object app
+[15-07-2021 12:00:40] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:40] [INFO] => Created object app
+[15-07-2021 12:00:40] [INFO] => Registered main_blueprint
+[15-07-2021 12:00:40] [INFO] => Created object app
+[15-07-2021 12:00:40] [INFO] => The CSRF token is missing.
+[15-07-2021 12:00:40] [INFO] => The CSRF token is missing.
+[15-07-2021 12:07:19] [INFO] => The CSRF token is missing.
+[15-07-2021 12:07:19] [INFO] => The CSRF token is missing.
+[15-07-2021 12:10:25] [INFO] => The CSRF token is missing.
+[15-07-2021 12:10:26] [INFO] => The CSRF token is missing.
+[15-07-2021 12:11:54] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 18, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 12:11:55] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 18, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 12:11:56] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 18, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[15-07-2021 12:11:56] [INFO] => The CSRF token is missing.
+[15-07-2021 12:11:56] [INFO] => The CSRF token is missing.
+[15-07-2021 12:12:15] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[15-07-2021 12:12:16] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[15-07-2021 12:12:16] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[15-07-2021 12:12:17] [INFO] => The CSRF token is missing.
+[15-07-2021 12:12:17] [INFO] => The CSRF token is missing.
+[15-07-2021 12:13:26] [INFO] => The CSRF token is missing.
+[15-07-2021 12:13:26] [INFO] => The CSRF token is missing.
+[15-07-2021 12:16:08] [INFO] => The CSRF token is missing.
+[15-07-2021 12:16:08] [INFO] => The CSRF token is missing.
+[15-07-2021 12:18:22] [INFO] => The CSRF token is missing.
+[15-07-2021 12:18:22] [INFO] => The CSRF token is missing.
+[15-07-2021 12:19:08] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[15-07-2021 12:19:09] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[15-07-2021 12:19:10] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[15-07-2021 12:19:10] [INFO] => The CSRF token is missing.
+[15-07-2021 12:19:10] [INFO] => The CSRF token is missing.
+[15-07-2021 12:19:24] [INFO] => The CSRF token is missing.
+[15-07-2021 12:19:24] [INFO] => The CSRF token is missing.

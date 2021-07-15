@@ -42,7 +42,7 @@ validator = Validators()
 # CONSTANT VARIABLE
 MAX_COUNT_POSTS_ON_PAGE = 20
 
-MIN_LENGTH_TEXT = 300
+MIN_LENGTH_TEXT = 30
 MAX_LENGTH_TEXT = 15000
 max_length_title = 100
 max_length_intro = 300

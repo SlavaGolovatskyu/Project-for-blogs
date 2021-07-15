@@ -32,19 +32,6 @@ def get_user_comments(id, page):
 	})
 
 
-@api.route('/comments')
-@admin_required
-def get_all_comments():
-	comments = Comment.query.all()
-	return jsonify({'comments': [comment.to_json() for comment in comments]})
-
-
-@api.route('/comments/user/<int:id>')
-def get_all_user_comments(id):
-	user = User.query.get_or_404(id)
-	return jsonify({'comments': [comment.to_json() for comment in user.comments]})
-
-
 @api.route('/comments/post/<int:id>')
 def get_all_comments_from_post(id):
 	post = Article.query.get_or_404(id)

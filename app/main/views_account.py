@@ -9,7 +9,8 @@ from flask import (
 	url_for,
 	redirect,
 	request,
-	flash
+	flash,
+	g
 )
 
 from flask_login import (
@@ -50,6 +51,7 @@ validator = Validators()
 @main.before_app_request
 def before_request():
 	if current_user.is_authenticated:
+		g.user = current_user
 		current_user.ping()
 
 
@@ -118,10 +120,12 @@ def login():
 def edit_profile():
 	upload_folder = 'app\\static\\users_avatars'
 	if request.method == 'GET':
-		form = EditProfileForm(formdata=MultiDict({'username': f'{current_user.username}',
-												  'email': f'{current_user.email}',
-												  'city': f'{current_user.location}',
-												  'about_me': f'{current_user.about_me}'}))
+		form = EditProfileForm(formdata=MultiDict({
+			'username': f'{current_user.username}',
+			'email': f'{current_user.email}',
+			'city': f'{current_user.location}',
+			'about_me': f'{current_user.about_me}'
+		}))
 	else:
 		form = EditProfileForm()
 

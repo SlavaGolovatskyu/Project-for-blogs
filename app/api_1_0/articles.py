@@ -1,7 +1,8 @@
-from flask import jsonify, request, url_for
-from ..models import Article, User
+from flask import jsonify, url_for, request, g
+from ..models import Article, User, Permission
 from . import api
-from ..decorators import admin_required
+from app import db
+from .decorators import permission_required
 
 
 @api.route('/post/<int:id>')
@@ -31,13 +32,6 @@ def get_posts(page):
 	})
 
 
-@api.route('/posts')
-@admin_required
-def get_all_posts():
-	posts = Article.query.all()
-	return jsonify({'posts': [post.to_json() for post in posts]})
-
-
 @api.route('/posts/user/<int:id>/page/<int:page>')
 def get_user_posts(id, page):
 	user = User.query.get_or_404(id)
@@ -60,7 +54,13 @@ def get_user_posts(id, page):
 	})
 
 
-@api.route('/posts/user/<int:id>')
-def get_all_user_posts(id):
-	user = User.query.get_or_404(id)
-	return jsonify({'user_posts': [post.to_json() for post in user.posts]})
+@api.route('/posts/new-post', methods=['post', 'get'])
+@permission_required(Permission.USUAL_USER)
+def new_post():
+	post = Article.from_json(request.json)
+	post.author_name = g.current_user.username
+	post.user_id = g.current_user.id
+	db.session.add(post)
+	db.session.commit()
+	return jsonify(post.to_json()), 201, \
+			{'Location': url_for('api.get_post', id=post.id)}

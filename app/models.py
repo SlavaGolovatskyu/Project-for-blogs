@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import Dict
 from app import db, login_manager
 from datetime import datetime
 
@@ -38,7 +38,6 @@ class User(db.Model, UserMixin):
 	id = db.Column(db.Integer(), primary_key=True, index=True)
 	username = db.Column(db.String(50), nullable=False)
 	email = db.Column(db.String(100), nullable=False, unique=True, index=True)
-	# email_code = db.Column(db.Integer(), default=0)
 	password_hash = db.Column(db.String(100), nullable=False)
 	role_id = db.Column(db.Integer)
 	location = db.Column(db.String(64), nullable=True)
@@ -116,6 +115,7 @@ class User(db.Model, UserMixin):
 	def to_json(self) -> Dict[str, str]:
 		json_user = {
 			'url': url_for('api.get_user', id=self.id),
+			'id': self.id,
 			'username': self.username,
 			'last_seen': self.last_seen,
 			'member_since': self.created_on,
@@ -200,10 +200,15 @@ class Article(db.Model):
 
 	@staticmethod
 	def from_json(json_post):
-		text = json_post.get('text')
-		if not text:
-			raise ValidationError('post does not have a text')
-		return Article(text=text)
+		try:
+			title = json_post.get('title')
+			intro = json_post.get('intro')
+			text = json_post.get('text')
+			if not text or not title or not intro:
+				raise ValidationError('post does not have a text/title or intro')
+			return Article(title=title, intro=intro, text=text)
+		except:
+			raise ValidationError('post does not have a text/title or intro')
 
 	def __repr__(self):
 		return "<Article %r>" % self.id
