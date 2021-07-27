@@ -150,23 +150,6 @@ class ChangeData:
 	def __init__(self):
 		self.find_data = FindData()
 
-	def change_user_role(self, user, **kwargs) -> bool:
-		try:
-			role = self.find_data.find_role(**kwargs)
-			user.role_id = role.id
-			db.session.commit()
-			logger.info(f'User {current_user.username} success pick up moderator: {user.username}'
-						  if role.name == 'User' else \
-						  f'User {current_user.username} success added new moderator: {user.username}')
-
-			flash(f'Вы успешно сняли модератора с никнеймом {user.username}' if role.name == 'User' else \
-					f'Вы успешно поставили модератора с никнеймом {user.username}')
-			return True
-		except Exception as e:
-			logger.error(f'Error: {e}. Failed to add new moderator')
-			flash(f'Произошла ошибка: {e}. Не удалось поставить {user.username} на модератора.')
-			return False
-
 	@staticmethod
 	def article_update_changes(article, **kwargs) -> bool:
 		try:

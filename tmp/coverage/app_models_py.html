@@ -152,7 +152,7 @@
     <p id="t97" class="pln"><span class="n"><a href="#t97">97</a></span><span class="t">                        <span class="com">#       upload default image</span>&nbsp;</span><span class="r"></span></p>
     <p id="t98" class="pln"><span class="n"><a href="#t98">98</a></span><span class="t">                        <span class="com"># {% endif %}</span>&nbsp;</span><span class="r"></span></p>
     <p id="t99" class="pln"><span class="n"><a href="#t99">99</a></span><span class="t">                        <span class="com"># url_for('static', filename=user.get_src_to_avatar())</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t100" class="mis show_mis"><span class="n"><a href="#t100">100</a></span><span class="t">                        <span class="key">return</span> <span class="str">''</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="op">[</span><span class="str">'users_avatars/'</span><span class="op">,</span> <span class="nam">self</span><span class="op">.</span><span class="nam">avatar</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">.</span><span class="nam">filename</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t100" class="mis show_mis"><span class="n"><a href="#t100">100</a></span><span class="t">                        <span class="key">return</span> <span class="str">f'users_avatars/{self.avatar[0].filename}'</span>&nbsp;</span><span class="r"></span></p>
     <p id="t101" class="mis show_mis"><span class="n"><a href="#t101">101</a></span><span class="t">                <span class="key">except</span> <span class="nam">IndexError</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t102" class="mis show_mis"><span class="n"><a href="#t102">102</a></span><span class="t">                        <span class="key">return</span> <span class="str">''</span>&nbsp;</span><span class="r"></span></p>
     <p id="t103" class="pln"><span class="n"><a href="#t103">103</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -235,7 +235,7 @@
     <p id="t180" class="pln"><span class="n"><a href="#t180">180</a></span><span class="t">                                                <span class="nam">text</span><span class="op">=</span><span class="nam">forgery_py</span><span class="op">.</span><span class="nam">lorem_ipsum</span><span class="op">.</span><span class="nam">sentence</span><span class="op">(</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t181" class="pln"><span class="n"><a href="#t181">181</a></span><span class="t">                                                <span class="nam">author_name</span><span class="op">=</span><span class="nam">u</span><span class="op">.</span><span class="nam">username</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t182" class="pln"><span class="n"><a href="#t182">182</a></span><span class="t">                                                <span class="nam">user_id</span><span class="op">=</span><span class="nam">u</span><span class="op">.</span><span class="nam">id</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t183" class="pln"><span class="n"><a href="#t183">183</a></span><span class="t">                                                <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t183" class="pln"><span class="n"><a href="#t183">183</a></span><span class="t">                        <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t184" class="mis show_mis"><span class="n"><a href="#t184">184</a></span><span class="t">                        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">add</span><span class="op">(</span><span class="nam">a</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t185" class="mis show_mis"><span class="n"><a href="#t185">185</a></span><span class="t">                        <span class="nam">db</span><span class="op">.</span><span class="nam">session</span><span class="op">.</span><span class="nam">commit</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t186" class="pln"><span class="n"><a href="#t186">186</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -343,7 +343,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-07-15 10:15 +0300
+            created at 2021-07-20 15:14 +0300
         </p>
     </div>
 </div>

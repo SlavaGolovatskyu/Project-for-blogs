@@ -1,3 +1,4 @@
+import os
 from . import main
 from app import db
 
@@ -6,8 +7,7 @@ from flask import (
 	request,
 	url_for,
 	redirect,
-	flash,
-	abort
+	flash
 )
 
 from flask_login import (
@@ -95,13 +95,20 @@ def admin_panel(page: int = 1):
 @login_required
 @admin_required
 def delete_user(id):
+	upload_folder = 'app\\static\\users_avatars'
 	user = find_data.find_user(id)
 	msg = f'Вы действительно хотите удалить аккаунт: {user.username}?'
 	if request.method == 'POST':
 		if not user.is_administrator():
-			if delete_data.delete_user(user):
-				return redirect(url_for('.admin_panel', page=1))
-			return redirect(url_for('.delete_user', id=id))
+			try:
+				if current_user.avatar[0]:
+					os.remove(os.path.join(upload_folder, current_user.avatar[0].filename))
+				if delete_data.delete_user(user):
+					return redirect(url_for('.admin_panel', page=1))
+				return redirect(url_for('.delete_user', id=id))
+			except Exception as e:
+				flash(f'При удалении аккаунта человека произошла ошибка: {e}')
+				return redirect(url_for('.delete_user', id=id))
 		else:
 			flash(f'Человек: {user.username} админ!')
 			logger.warning(f'Admin: {current_user.username} tried delete user: {user.username}')

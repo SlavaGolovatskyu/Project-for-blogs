@@ -1,10 +1,12 @@
 import unittest
 import json
 from app import create_app, db
+
 from app.models import (
 	User,
 	Role
 )
+
 from flask import url_for
 from base64 import b64encode
 from app.user_location.get_location import get_location
@@ -84,7 +86,8 @@ class APITestCase(unittest.TestCase):
 			headers=self.get_api_headers('john@example.com', '111111'),
 			data=json.dumps({'title': '90ETRIHJFTRIOJHOIFYTRJIOFYRJHOIFYRJKYTFJOKYTGJOKYRFTJKOYTFJOLYT',
 							 'intro': 'HDRTJYFUTKHYILHIKJLHIKUYIKUYTIKUYKUYKUHJGK',
-							 'text': '1234567890FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'}))
+							 'text': '1234567890FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'})
+		)
 
 		self.assertEqual(response.status_code, 201)
 		url = response.headers.get('Location')

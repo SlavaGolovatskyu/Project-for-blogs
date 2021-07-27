@@ -43,9 +43,7 @@
             <p>{{ el.intro }}</p>
             <h3>Автор статьи: <a href="{{ url_for('.user_profile', id=el.user_id) }}">{{ el.author_name }}</a></h3>
             <p><b>Дата публикации: {{ moment(el.date).format('LLL') }} ({{ moment(el.date).fromNow(refresh=True) }})</b></p>
-            <p>Количество просмотров:
-                {{ el.count_views }}
-            </p>
+            <p>Количество просмотров: {{ el.count_views }}</p>
             <a href="/post/{{ el.id }}/detail" class='btn btn-warning'>Детальнее</a>
             {% if validate_art_or_com_of_the_owner(el.user_id) %}
                 <a href="/posts/{{ el.id }}/update" class='btn btn-success'>Обновить</a>

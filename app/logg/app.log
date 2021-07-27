@@ -19658,3 +19658,440 @@ TypeError: The view function did not return a valid response. The function eithe
 [15-07-2021 12:19:10] [INFO] => The CSRF token is missing.
 [15-07-2021 12:19:24] [INFO] => The CSRF token is missing.
 [15-07-2021 12:19:24] [INFO] => The CSRF token is missing.
+[17-07-2021 13:10:30] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[17-07-2021 13:10:31] [ERROR] => Exception on /api/v1.0/posts/new-post [GET]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[17-07-2021 13:10:32] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[17-07-2021 13:10:32] [INFO] => The CSRF token is missing.
+[17-07-2021 13:10:32] [INFO] => The CSRF token is missing.
+[17-07-2021 13:16:37] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[17-07-2021 13:16:38] [INFO] => The CSRF token is missing.
+[17-07-2021 13:16:38] [INFO] => The CSRF token is missing.
+[17-07-2021 13:19:01] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    g.current_user = g.current_user
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[17-07-2021 13:19:02] [INFO] => The CSRF token is missing.
+[17-07-2021 13:19:02] [INFO] => The CSRF token is missing.
+[17-07-2021 13:21:11] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 12, in decorated_function
+    if not g.current_user.can(permission):
+TypeError: can() takes 0 positional arguments but 1 was given
+[17-07-2021 13:21:12] [INFO] => The CSRF token is missing.
+[17-07-2021 13:21:12] [INFO] => The CSRF token is missing.
+[17-07-2021 13:22:02] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 12, in decorated_function
+    if not g.current_user.can(permission):
+TypeError: can() takes 0 positional arguments but 1 was given
+[17-07-2021 13:22:03] [INFO] => The CSRF token is missing.
+[17-07-2021 13:22:03] [INFO] => The CSRF token is missing.
+[20-07-2021 10:16:51] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 12, in decorated_function
+    if not g.current_user.can(permission):
+TypeError: can() takes 0 positional arguments but 1 was given
+[20-07-2021 10:16:52] [INFO] => The CSRF token is missing.
+[20-07-2021 10:16:52] [INFO] => The CSRF token is missing.
+[20-07-2021 10:19:21] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    g.current_user = g.current_user
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[20-07-2021 10:19:22] [INFO] => The CSRF token is missing.
+[20-07-2021 10:19:22] [INFO] => The CSRF token is missing.
+[20-07-2021 10:35:43] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    g.current_user = g.current_user
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[20-07-2021 10:35:49] [INFO] => The CSRF token is missing.
+[20-07-2021 10:35:50] [INFO] => The CSRF token is missing.
+[20-07-2021 15:14:02] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    g.current_user = g.current_user
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[20-07-2021 15:14:03] [INFO] => The CSRF token is missing.
+[20-07-2021 15:14:04] [INFO] => The CSRF token is missing.
+[20-07-2021 15:18:26] [ERROR] => Exception on /api/v1.0/posts/new-post [POST]
+Traceback (most recent call last):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\BLOGS PROJECT\Project-for-blogs\app\api_1_0\decorators.py", line 11, in decorated_function
+    if not g.current_user.can(permission):
+  File "C:\Users\Slavik\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'current_user'
+[20-07-2021 15:18:27] [INFO] => The CSRF token is missing.
+[20-07-2021 15:18:27] [INFO] => The CSRF token is missing.
+[23-07-2021 23:02:34] [INFO] =>  * Restarting with stat
+[23-07-2021 23:02:36] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:02:36] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:02:36] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:10] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:11] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:03:11] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:03:58] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[23-07-2021 23:03:58] [INFO] =>  * Restarting with stat
+[23-07-2021 23:04:01] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:04:01] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:04:01] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:04:06] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:04:06] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:04:06] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:04:06] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:04:06] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:04:06] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:04:06] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:04:06] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:04:06] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:04:06] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:01] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[23-07-2021 23:05:01] [INFO] =>  * Restarting with stat
+[23-07-2021 23:05:04] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:05:04] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:05:04] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:05:08] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:08] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:05:08] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:08] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:08] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:08] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:08] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:08] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:09] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:09] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:05:10] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:05:54] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[23-07-2021 23:05:54] [INFO] =>  * Restarting with stat
+[23-07-2021 23:05:57] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:05:57] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:05:57] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:00] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:01] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:01] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:01] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:01] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:01] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:01] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:01] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:01] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:06:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:10] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:10] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:10] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:10] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:10] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:11] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:16] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[23-07-2021 23:06:16] [INFO] =>  * Restarting with stat
+[23-07-2021 23:06:19] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:06:19] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:06:19] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:06:22] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:06:22] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:06] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\models.py', reloading
+[23-07-2021 23:07:06] [INFO] =>  * Restarting with stat
+[23-07-2021 23:07:09] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:07:09] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:07:09] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:07:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:11] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:07:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:11] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:11] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:11] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:12] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:07:12] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:07:19] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\models.py', reloading
+[23-07-2021 23:07:20] [INFO] =>  * Restarting with stat
+[23-07-2021 23:07:23] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:07:23] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:07:23] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:09:46] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:46] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /login/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:47] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:47] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:48] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:48] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:48] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:48] "[37mGET /login/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:09:48] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:09:48] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[35m[1mGET /posts/ HTTP/1.1[0m" 500 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[35m[1mGET /sign-up/ HTTP/1.1[0m" 500 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[37mGET /posts/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[37mGET /posts/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[37mGET /posts/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[37mGET /posts/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[37mGET /posts/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:00] "[37mGET /posts/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:25] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\app\\main\\views_account.py', reloading
+[23-07-2021 23:10:26] [INFO] =>  * Restarting with stat
+[23-07-2021 23:10:29] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:10:29] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:10:29] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:10:29] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:29] "[33mGET /posts/ HTTP/1.1[0m" 404 -
+[23-07-2021 23:10:30] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[23-07-2021 23:10:32] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:32] "[33mGET /posts HTTP/1.1[0m" 404 -
+[23-07-2021 23:10:35] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:35] "[33mGET /post HTTP/1.1[0m" 404 -
+[23-07-2021 23:10:39] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:39] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[23-07-2021 23:10:39] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:39] "[37mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:39] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:39] "[37mGET /login/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:39] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:39] "[37mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:39] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:39] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:39] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:10:39] "[37mGET /login/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:10:51] [INFO] =>  * Restarting with stat
+[23-07-2021 23:10:54] [WARNING] =>  * Debugger is active!
+[23-07-2021 23:10:54] [INFO] =>  * Debugger PIN: 197-606-405
+[23-07-2021 23:10:54] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[23-07-2021 23:11:00] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:00] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[23-07-2021 23:11:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:10] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+[23-07-2021 23:11:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:10] "[37mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[23-07-2021 23:11:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:10] "[37mGET /login/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:11:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:10] "[37mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[23-07-2021 23:11:10] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:10] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[23-07-2021 23:11:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:11] "[37mGET /login/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[23-07-2021 23:11:11] [INFO] => 127.0.0.1 - - [23/Jul/2021 23:11:11] "[37mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[24-07-2021 10:51:15] [INFO] =>  * Restarting with stat
+[24-07-2021 10:51:18] [WARNING] =>  * Debugger is active!
+[24-07-2021 10:51:18] [INFO] =>  * Debugger PIN: 197-606-405
+[24-07-2021 10:51:18] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[24-07-2021 10:51:19] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:19] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[24-07-2021 10:51:19] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:19] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[24-07-2021 10:51:19] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:19] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[24-07-2021 10:51:19] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:19] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[24-07-2021 10:51:20] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:20] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[24-07-2021 10:51:20] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:20] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[24-07-2021 10:51:20] [INFO] => 127.0.0.1 - - [24/Jul/2021 10:51:20] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[27-07-2021 10:05:12] [INFO] =>  * Restarting with stat
+[27-07-2021 10:05:15] [WARNING] =>  * Debugger is active!
+[27-07-2021 10:05:15] [INFO] =>  * Debugger PIN: 197-606-405
+[27-07-2021 10:05:15] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[27-07-2021 10:05:17] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:05:17] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[27-07-2021 10:05:17] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:05:17] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[27-07-2021 10:05:17] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:05:17] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[27-07-2021 10:05:17] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:05:17] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[27-07-2021 10:05:18] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:05:18] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[27-07-2021 10:05:18] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:05:18] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:30] [INFO] =>  * Detected change in 'E:\\BLOGS PROJECT\\Project-for-blogs\\manager.py', reloading
+[27-07-2021 10:06:30] [INFO] =>  * Restarting with stat
+[27-07-2021 10:06:36] [INFO] =>  * Restarting with stat
+[27-07-2021 10:06:40] [WARNING] =>  * Debugger is active!
+[27-07-2021 10:06:40] [INFO] =>  * Debugger PIN: 197-606-405
+[27-07-2021 10:06:40] [INFO] =>  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[27-07-2021 10:06:40] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:40] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[27-07-2021 10:06:40] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:40] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:40] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:40] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:40] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:40] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:40] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:40] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:40] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:40] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:41] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:41] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+[27-07-2021 10:06:42] [INFO] => 127.0.0.1 - - [27/Jul/2021 10:06:42] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -

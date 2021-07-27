@@ -48,26 +48,20 @@ validator = Validators()
 # -----------------All actions with accounts, login, registration, logout----------------
 
 
-@main.before_app_request
-def before_request():
-	if current_user.is_authenticated:
-		g.user = current_user
-		current_user.ping()
+# @main.before_app_request
+# def before_request():
+# 	if current_user.is_authenticated:
+# 		current_user.ping()
 
 
-# -------------LOGOUT FROM ACCOUNT-----------------
-
-
-@main.route('/logout/', methods=['post', 'get'])
+@main.route('/logout/', methods=['get'])
 @login_required
 def logout():
-	logger.info(f'User {current_user.username} have been logged out.')
 	logout_user()
 	flash("You have been logged out.")
 	return redirect(url_for('.login'))
 
 
-# ----------------SIGN-UP ACCOUNT-----------------------
 @main.route('/sign-up/', methods=['post', 'get'])
 @is_auth
 def sign_up():
@@ -80,9 +74,6 @@ def sign_up():
 									 email=form.email.data,
 									 real_location=get_location('146.120.168.159')):
 				user = find_data.find_user(email=form.email.data)
-
-				logger.info(f'User {user.username} success sign-up.')
-
 				login_user(user, remember=form.remember.data)
 				return redirect(url_for('.index'))
 			return redirect(url_for('.sign_up'))
@@ -91,9 +82,6 @@ def sign_up():
 			return redirect(url_for('.sign_up'))
 
 	return render_template('sign-up.html', form=form)
-
-
-# -------------------------------------------------------
 
 
 # ----------------SIGN-IN ACCOUNT------------------------
@@ -105,12 +93,10 @@ def login():
 		user = find_data.find_user(email=form.email.data)
 		if user and user.check_password(form.password.data):
 			login_user(user, remember=form.remember.data)
-			logger.info(f'User {current_user.username} success sign-in.')
 			return redirect(url_for('.index'))
-
-		logger.info(f'user {user.username} & {user.id} id failed sign-in.')
-		flash("Invalid email/password", 'error')
-		return redirect(url_for('.login'))
+		else:
+			flash("Invalid email/password", 'error')
+			return redirect(url_for('.login'))
 
 	return render_template('login.html', form=form)
 

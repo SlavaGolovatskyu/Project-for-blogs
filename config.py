@@ -4,7 +4,7 @@ app_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class BaseConfig:
-	SECRET_KEY = "Gijujgf43jk5o49g0.!fdgf44GhgdIKYUJMC4%gf/.!314ckdxcDGJ,LJN"
+	SECRET_KEY = "Gijujgf43jk5o49g0.!fdgf44GhgdIKYUJMC4%1рараgf/.!314ckdxcDGJ,LJN"
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 

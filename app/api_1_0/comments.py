@@ -1,7 +1,6 @@
 from flask import jsonify, url_for
 from ..models import Comment, User, Article
 from . import api
-from ..decorators import admin_required
 
 
 @api.route('/comment/<int:id>')

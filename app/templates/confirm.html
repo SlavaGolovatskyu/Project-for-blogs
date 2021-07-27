@@ -8,6 +8,7 @@
 	<div style="text-align: center;">
 		<h1>{{ msg }}</h1>
 		<form action="" method="post">
+			{{ csrf_token() }}
 			<input type="submit" value='Подтвердить' class="btn btn-success">
 			<a href="{{ url_for('.edit_profile_admin', id=id) }}" class='btn btn-success'>Отменить</a>
 		</form>

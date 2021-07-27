@@ -88,16 +88,16 @@ class User(db.Model, UserMixin):
 		db.session.add(self)
 
 	def get_src_to_avatar(self) -> str:
+		# i'm using url_for so when i'm calling url_for() i'm input directory where he must search data
+		# also i'm using defend in front-end
+		# {% if user.get_src_to_avatar() %}
+		# 	upload user image
+		# {% else %}
+		# 	upload default image
+		# {% endif %}
+		# url_for('static', filename=user.get_src_to_avatar())
 		try:
-			# i'm using url_for so when i'm calling url_for() i'm input directory where he must search data
-			# also i'm using defend in front-end
-			# {% if user.get_src_to_avatar() %}
-			# 	upload user image
-			# {% else %}
-			# 	upload default image
-			# {% endif %}
-			# url_for('static', filename=user.get_src_to_avatar())
-			return ''.join(['users_avatars/', self.avatar[0].filename])
+			return f'users_avatars/{self.avatar[0].filename}'
 		except IndexError:
 			return ''
 
@@ -115,8 +115,8 @@ class User(db.Model, UserMixin):
 	def to_json(self) -> Dict[str, str]:
 		json_user = {
 			'url': url_for('api.get_user', id=self.id),
-			'id': self.id,
 			'username': self.username,
+			'email': self.email,
 			'last_seen': self.last_seen,
 			'member_since': self.created_on,
 			'posts_count': self.posts.count(),
@@ -180,13 +180,12 @@ class Article(db.Model):
 						text=forgery_py.lorem_ipsum.sentence(),
 						author_name=u.username,
 						user_id=u.id,
-						)
+			)
 			db.session.add(a)
 			db.session.commit()
 
 	def to_json(self) -> Dict[str, str]:
 		json_post = {
-			'id': self.id,
 			'title': self.title,
 			'intro': self.intro,
 			'text': self.text,
@@ -226,7 +225,6 @@ class Comment(db.Model):
 
 	def to_json(self) -> Dict[str, str]:
 		json_comment = {
-			'id': self.id,
 			'text': self.text,
 			'author_url': url_for('api.get_user', id=self.user_id),
 			'created_on': self.date,

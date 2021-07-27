@@ -54,7 +54,7 @@ def get_user_posts(id, page):
 	})
 
 
-@api.route('/posts/new-post', methods=['post', 'get'])
+@api.route('/posts/new-post', methods=['post'])
 @permission_required(Permission.USUAL_USER)
 def new_post():
 	post = Article.from_json(request.json)
