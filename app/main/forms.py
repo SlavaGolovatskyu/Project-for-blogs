@@ -25,10 +25,7 @@ from flask_wtf.file import FileAllowed
 
 class EditProfileAdminForm(FlaskForm):
 	email = StringField("Email: ", validators=[DataRequired(), Email()])
-	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
-												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-														  'Usernames must have only letters, '
-														  'numbers, dots or underscores')])
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None)])
 	role = SelectField('Role', coerce=int)
 	location = StringField('Location', validators=[Length(0, 64)])
 	about_me = TextAreaField('About me')
@@ -41,10 +38,7 @@ class EditProfileAdminForm(FlaskForm):
 
 class EditProfileForm(FlaskForm):
 	image = FileField(u'Image File', validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg'])])
-	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
-												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-														  'Usernames must have only letters, '
-														  'numbers, dots or underscores')])
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None)])
 	email = StringField("Email: ", validators=[DataRequired(), Email()])
 	city = StringField('City: ', validators=[DataRequired(), Length(min=2, max=40, message=None)])
 	about_me = TextAreaField('About me: ', validators=[DataRequired(),
@@ -61,10 +55,7 @@ class SearchNeedPeopleForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None),
-												   Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-														  'Usernames must have only letters, '
-														  'numbers, dots or underscores')])
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None)])
 	email = StringField("Email: ", validators=[Email(), DataRequired()], render_kw={"placeholder": "email"})
 	password = PasswordField("Password: ", validators=[DataRequired(), Length(min=6, max=50, message=None)],
 							 render_kw={"placeholder": "password"})

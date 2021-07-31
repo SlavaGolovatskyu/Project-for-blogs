@@ -14,37 +14,37 @@ socket.on('get_online', function(online) {
   document.querySelector('.online').innerHTML = `Онлайн на сайте: ${online}`;
 })
 
-const maxMsgOnPage = 30;
+const maxCountMsgInChat = 30;
 let p = "";
 let nav = '';
 let br = ''
-let idForElement = 1;
-let countCircleMsg = 0;
+let ID = 1;
+let countOfMsgMoreThanConst = 0;
 
 
-socket.on('take_msg', function(username, msg) {
+socket.on('receive_msg', function(username, msg) {
   nav = document.createElement('nav')
   nav.innerHTML = username + get_current_time();
-  nav.id = idForElement;
+  nav.id = ID;
+
   p = document.createElement("p");
   p.innerHTML = msg;
-  p.id = idForElement;
-  br = document.createElement("br");
-  br.id = idForElement;
-  if (idForElement > maxMsgOnPage + 1 || countCircleMsg === 1) {
-    if ((countCircleMsg === 1 || countCircleMsg === 0) && idForElement > maxMsgOnPage + 1) {
-      idForElement = 1;
-      countCircleMsg = 1;
+  p.id = ID;
+
+  if (ID > maxCountMsgInChat + 1 || countOfMsgMoreThanConst === 1) {
+    if ((countOfMsgMoreThanConst === 1 || countOfMsgMoreThanConst === 0) && ID > maxCountMsgInChat + 1) {
+      ID = 1;
+      countOfMsgMoreThanConst = 1;
     }
-    for (let i = 0; i <= 2; i++) {
-      let obj = document.getElementById(`${idForElement}`);
+    for (let i = 0; i <= 1; i++) {
+      let obj = document.getElementById(`${ID}`);
       obj.remove();
     }
   }
+
   document.querySelector(".message").appendChild(nav);
   document.querySelector(".message").appendChild(p);
-  document.querySelector(".message").appendChild(br);
-  SmoothScrollTo(`#${idForElement}`, 100);
-  idForElement++;
+  SmoothScrollTo(`#${ID}`, 100);
+  ID++;
 })
 

@@ -6,6 +6,7 @@ app_dir = os.path.abspath(os.path.dirname(__file__))
 class BaseConfig:
 	SECRET_KEY = "Gijujgf43jk5o49g0.!fdgf44GhgdIKYUJMC4%1рараgf/.!314ckdxcDGJ,LJN"
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
+	SEND_FILE_MAX_AGE_DEFAULT = 0
 
 
 class DevelopmentConfig(BaseConfig):

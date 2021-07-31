@@ -1,9 +1,8 @@
 .prophetical {
-    display: flex;
     position: absolute;
     width: 25%;
     height: 100%;
-    justify-content: space-evenly;
+    display: block;
     right: 0;
     top: 0;
 }
@@ -71,7 +70,7 @@
     flex-direction: column;
     position: relative;
     font-size: 20px;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     word-wrap: break-word;
     overflow: auto;
@@ -89,7 +88,7 @@
     box-sizing: border-box;
     letter-spacing: 1px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 }
 
 .message::-webkit-scrollbar { width: 6px; height: 3px; }

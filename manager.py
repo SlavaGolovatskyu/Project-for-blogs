@@ -13,6 +13,8 @@ import click
 import sys
 from flask_migrate import MigrateCommand
 from flask_script import Manager, Shell
+from flask_socketio import SocketIO, emit
+from flask_login import current_user
 
 from app import create_app, db
 from app.models import (
@@ -68,5 +70,31 @@ def test(coverage=False, test_names=False):
 manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
+
+socket = SocketIO(app)
+
+COUNT_ONLINE_USERS = 0
+
+
+@socket.on('connect')
+def connect_user():
+    global COUNT_ONLINE_USERS
+    COUNT_ONLINE_USERS += 1
+    emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
+
+
+@socket.on('disconnect')
+def disconnect_user():
+    global COUNT_ONLINE_USERS
+    COUNT_ONLINE_USERS -= 1
+    emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
+
+
+@socket.on('send_message')
+def send_message(data: dict):
+    msg = data['msg']
+    emit('receive_msg', (current_user.username, msg), broadcast=True)
+
+
 if __name__ == '__main__':
-	manager.run()
+	socket.run(app)

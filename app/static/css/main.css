@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	width: 100%;
 	min-width: 420px;
@@ -6,11 +11,20 @@ body {
 
 a {
     text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style: none;
 }
 
 li {
     list-style-type: none;
     text-decoration: none;
+}
+
+img {
+	max-width: 100%;
 }
 
 .header {

@@ -45,7 +45,7 @@
             <p><b>Дата публикации: {{ moment(el.date).format('LLL') }} ({{ moment(el.date).fromNow(refresh=True) }})</b></p>
             <p>Количество просмотров: {{ el.count_views }}</p>
             <a href="/post/{{ el.id }}/detail" class='btn btn-warning'>Детальнее</a>
-            {% if validate_art_or_com_of_the_owner(el.user_id) %}
+            {% if current_user.is_authenticated and validate_art_or_com_of_the_owner(el.user_id) %}
                 <a href="/posts/{{ el.id }}/update" class='btn btn-success'>Обновить</a>
                 <a href="/posts/{{ el.id }}/delete" class='btn btn-danger'>Удалить</a>
             {% endif %}

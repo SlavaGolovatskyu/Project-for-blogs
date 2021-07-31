@@ -1,3 +1,4 @@
+from json import dumps
 from flask import jsonify, url_for, request, g
 from ..models import Article, User, Permission
 from . import api

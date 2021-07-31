@@ -16,7 +16,7 @@
 		<p>{{ article.text }}</p>
 		<p><b>Дата публикации: {{ moment(article.date).format('LLL') }} ({{ moment(article.date).fromNow(refresh=True) }})</b></p>
 		<a href="{{ url_for('.user_profile', id=article.user_id) }}"><p>Профиль автора</p></a>
-        {% if validate_art_or_com_of_the_owner(article.user_id) %}
+		{% if current_user.is_authenticated and validate_art_or_com_of_the_owner(article.user_id) %}
 			<a href="/posts/{{ article.id }}/delete" class="btn btn-danger">Удалить</a>
 			<a href="/posts/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
 		{% endif %}
@@ -36,7 +36,7 @@
                 <p> <a href="{{ url_for('.user_profile', id=comment.user_id) }}">
                         <img src="{{ url_for('static', filename='img/test1.png') }}" alt="noname_user" class="header__user__img">
                      </a>   {{ comment.author }}            {{ moment(comment.date).fromNow(refresh=True) }}
-					{% if validate_art_or_com_of_the_owner(comment.user_id) %}
+					{% if current_user.is_authenticated and validate_art_or_com_of_the_owner(comment.user_id) %}
 						<a href="/comment/{{ comment.id }}/delete" class="btn btn-danger">Удалить</a>
 					{% endif %}
 				</p>
