@@ -114,7 +114,6 @@ class User(db.Model, UserMixin):
 
 	def to_json(self) -> Dict[str, str]:
 		json_user = {
-			'url': url_for('api.get_user', id=self.id),
 			'username': self.username,
 			'email': self.email,
 			'last_seen': self.last_seen,

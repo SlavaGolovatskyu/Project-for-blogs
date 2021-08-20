@@ -114,13 +114,6 @@ class DeleteData:
 
 class FindData:
 	@staticmethod
-	def find_articles_order_by(method_sort, f_index, s_index):
-		if method_sort == 'date':
-			return Article.query.order_by(Article.date.desc()).all()[f_index : s_index]
-		elif method_sort == 'views':
-			return Article.query.order_by(Article.count_views.desc()).all()[f_index : s_index]
-
-	@staticmethod
 	def find_user(*args, **kwargs):
 		if args:
 			return User.query.get_or_404(*args)
@@ -134,7 +127,6 @@ class FindData:
 
 	@staticmethod
 	def find_comment(*args):
-		# if we want will to check how much there are comments we wrote count=True else False
 		return Comment.query.get_or_404(*args)
 
 	@staticmethod

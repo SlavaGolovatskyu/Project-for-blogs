@@ -101,11 +101,14 @@ def delete_user(id):
 	if request.method == 'POST':
 		if not user.is_administrator():
 			try:
-				if current_user.avatar[0]:
+				try:
 					os.remove(os.path.join(upload_folder, current_user.avatar[0].filename))
-				if delete_data.delete_user(user):
-					return redirect(url_for('.admin_panel', page=1))
-				return redirect(url_for('.delete_user', id=id))
+				except:
+					pass
+				finally:
+					if delete_data.delete_user(user):
+						return redirect(url_for('.admin_panel', page=1))
+					return redirect(url_for('.delete_user', id=id))
 			except Exception as e:
 				flash(f'При удалении аккаунта человека произошла ошибка: {e}')
 				return redirect(url_for('.delete_user', id=id))
