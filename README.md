@@ -17,6 +17,10 @@ Now the main targets are: add mut(-), ban(-), update the chat itself(+), as well
 The sqlite3 database was removed from the project because it cannot reset a column from the table.
 From this day on, I will only use PostgreSQL, maybe sometimes MySQL
 
+## Stack:
+* Frontend: HTML, CSS, JS, JQuery.
+* Backend: Python/Flask, Sockets.
+
 ## If you want starting my project you must do:
 * Instaling Python
 * git clone https://github.com/SlavaGolovatskyu/Project-for-blogs.git
