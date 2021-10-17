@@ -6,7 +6,9 @@ from . import api
 @api.route('/users/find-by-ip/<string:ip>')
 def find_user_by_ip(ip: str):
 	user = User.query.filter_by(ip=ip).first()
-	return jsonify(user.to_json())
+	if user:
+		return jsonify(True)
+	return jsonify(False)
 
 
 @api.route('/users/<int:id>')
