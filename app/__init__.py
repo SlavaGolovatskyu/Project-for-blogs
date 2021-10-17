@@ -4,12 +4,12 @@ from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_socketio import SocketIO
+# from flask_socketio import SocketIO
 from flask_moment import Moment
 
 
 db = SQLAlchemy()
-socket = SocketIO()
+# socket = SocketIO()
 migrate = Migrate()
 moment = Moment()
 login_manager = LoginManager()
@@ -22,7 +22,7 @@ def create_app(config):
 	app.config.from_object(config)
 
 	db.init_app(app)
-	socket.init_app(app)
+	# socket.init_app(app)
 	moment.init_app(app)
 	migrate.init_app(app, db, render_as_batch=True)
 	login_manager.init_app(app)

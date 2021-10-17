@@ -1,3 +1,4 @@
+import requests as _req
 import os
 from .. import db
 from . import main
@@ -48,10 +49,10 @@ validator = Validators()
 # -----------------All actions with accounts, login, registration, logout----------------
 
 
-# @main.before_app_request
-# def before_request():
-# 	if current_user.is_authenticated:
-# 		current_user.ping()
+@main.before_app_request
+def before_request():
+	if current_user.is_authenticated:
+		current_user.ping()
 
 
 @main.route('/logout/', methods=['get'])
@@ -69,10 +70,12 @@ def sign_up():
 	if form.validate_on_submit():
 		email = validator.validate_email(form.email.data)
 		if not email:
+			ip = request.remote_addr
 			if add_data.add_new_user(form.password.data,
 									 username=form.username.data,
 									 email=form.email.data,
-									 real_location=get_location('146.120.168.159')):
+									 ip=ip,
+									 real_location=get_location(ip)):
 				user = find_data.find_user(email=form.email.data)
 				login_user(user, remember=form.remember.data)
 				return redirect(url_for('.index'))

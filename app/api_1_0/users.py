@@ -3,6 +3,12 @@ from ..models import User
 from . import api
 
 
+@api.route('/users/find-by-ip/<string:ip>')
+def find_user_by_ip(ip: str):
+	user = User.query.filter_by(ip=ip).first()
+	return jsonify(user.to_json())
+
+
 @api.route('/users/<int:id>')
 def get_user(id):
 	user = User.query.get_or_404(id)

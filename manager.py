@@ -26,7 +26,7 @@ from app.models import (
 	Permission
 )
 
-app = create_app(os.getenv('FLASK_ENV') or 'config.DevelopmentConfig')
+app = create_app(os.getenv('FLASK_ENV') or 'config.ProductionConfig')
 
 manager = Manager(app)
 
@@ -71,30 +71,30 @@ manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
 
-socket = SocketIO(app)
+# socket = SocketIO(app)
 
-COUNT_ONLINE_USERS = 0
-
-
-@socket.on('connect')
-def connect_user():
-    global COUNT_ONLINE_USERS
-    COUNT_ONLINE_USERS += 1
-    emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
+# COUNT_ONLINE_USERS = 0
 
 
-@socket.on('disconnect')
-def disconnect_user():
-    global COUNT_ONLINE_USERS
-    COUNT_ONLINE_USERS -= 1
-    emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
+# @socket.on('connect')
+# def connect_user():
+#     global COUNT_ONLINE_USERS
+#     COUNT_ONLINE_USERS += 1
+#     emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
 
 
-@socket.on('send_message')
-def send_message(data: dict):
-    msg = data['msg']
-    emit('receive_msg', (current_user.username, msg), broadcast=True)
+# @socket.on('disconnect')
+# def disconnect_user():
+#     global COUNT_ONLINE_USERS
+#     COUNT_ONLINE_USERS -= 1
+#     emit('get_online', COUNT_ONLINE_USERS, broadcast=True)
+
+
+# @socket.on('send_message')
+# def send_message(data: dict):
+#     msg = data['msg']
+#     emit('receive_msg', (current_user.username, msg), broadcast=True)
 
 
 if __name__ == '__main__':
-	socket.run(app)
+	manager.run()

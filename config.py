@@ -24,5 +24,5 @@ class TestingConfig(BaseConfig):
 
 class ProductionConfig(BaseConfig):
 	DEBUG = False
-	SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE_URI') or \
-							  'postgresql://postgres:1414@127.0.0.1/blogs'
+	SQLALCHEMY_DATABASE_URI = os.environ.get('TESTING_DATABASE_URI') or \
+							  'sqlite:///blog.db'

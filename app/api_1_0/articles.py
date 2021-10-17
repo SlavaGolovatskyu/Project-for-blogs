@@ -54,14 +54,13 @@ def get_user_posts(id, page):
 		'count': pagination.total
 	})
 
-
-@api.route('/posts/new-post', methods=['post'])
-@permission_required(Permission.USUAL_USER)
-def new_post():
-	post = Article.from_json(request.json)
-	post.author_name = g.current_user.username
-	post.user_id = g.current_user.id
-	db.session.add(post)
-	db.session.commit()
-	return jsonify(post.to_json()), 201, \
-			{'Location': url_for('api.get_post', id=post.id)}
+# @api.route('/posts/new-post', methods=['post'])
+# @permission_required(Permission.USUAL_USER)
+# def new_post():
+# 	post = Article.from_json(request.json)
+# 	post.author_name = g.current_user.username
+# 	post.user_id = g.current_user.id
+# 	db.session.add(post)
+# 	db.session.commit()
+# 	return jsonify(post.to_json()), 201, \
+# 			{'Location': url_for('api.get_post', id=post.id)}

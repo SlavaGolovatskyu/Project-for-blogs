@@ -55,7 +55,8 @@ class SearchNeedPeopleForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None)])
+	username = StringField("Username", validators=[DataRequired(), Length(min=6, max=40, message=None)],
+						    render_kw={"placeholder": "username"})
 	email = StringField("Email: ", validators=[Email(), DataRequired()], render_kw={"placeholder": "email"})
 	password = PasswordField("Password: ", validators=[DataRequired(), Length(min=6, max=50, message=None)],
 							 render_kw={"placeholder": "password"})

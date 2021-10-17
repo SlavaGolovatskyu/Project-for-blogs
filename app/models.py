@@ -41,6 +41,7 @@ class User(db.Model, UserMixin):
 	password_hash = db.Column(db.String(100), nullable=False)
 	role_id = db.Column(db.Integer)
 	location = db.Column(db.String(64), nullable=True)
+	ip = db.Column(db.String(30), nullable=True)
 	real_location = db.Column(db.JSON)
 	about_me = db.Column(db.Text, nullable=True)
 	last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
@@ -58,11 +59,14 @@ class User(db.Model, UserMixin):
 			try:
 				if self.email == 'slavik.golovatskyu@gmail.com':
 					self.role_id = Role.query.filter_by(name='Administrator').first().id
-				if self.role_id is None:
+				elif self.role_id is None:
 					self.role_id = Role.query.filter_by(default=True).first().id
 			except AttributeError:
 				Role.insert_role()
-				self.role_id = Role.query.filter_by(default=True).first().id
+				if self.email == 'slavik.golovatskyu@gmail.com':
+					self.role_id = Role.query.filter_by(name='Administrator').first().id
+				elif self.role_id is None:
+					self.role_id = Role.query.filter_by(default=True).first().id
 
 	@staticmethod
 	def generate_fake(count=100):

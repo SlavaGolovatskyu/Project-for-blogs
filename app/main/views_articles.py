@@ -151,12 +151,6 @@ def post_detail(id):
 		# change count comments which we upload on page
 		current_count_comments_on_page = int(data)
 
-	# first and second index'es important for us because we search information in database
-	# after this we took array with information and after this we search need info
-	# from first index to second index
-	search_first_index = page * current_count_comments_on_page - current_count_comments_on_page
-	search_second_index = page * current_count_comments_on_page
-
 	# [::-1] reverse array and search need data
 	comments_need = article.comments.order_by(Comment.date.desc()).limit(current_count_comments_on_page) \
 																  .offset((page-1) * current_count_comments_on_page) \
