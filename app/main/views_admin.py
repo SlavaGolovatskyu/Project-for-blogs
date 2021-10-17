@@ -32,8 +32,6 @@ from app.decorators import (
 	admin_required
 )
 
-from ..logg.logger import logger
-
 from ..db_controll import (
 	DeleteData,
 	FindData,
@@ -53,7 +51,6 @@ MAX_COUNT_USERS_ON_PAGE = 20
 @login_required
 @admin_required
 def admin():
-	logger.info(f'User {current_user.username} success connected to url-admin.')
 	return render_template('admin.html')
 
 
@@ -61,7 +58,6 @@ def admin():
 @login_required
 @admin_required
 def admin_panel(page: int = 1):
-	logger.info(f'User {current_user.username} success connected to admin-panel.')
 	form = SearchNeedPeopleForm()
 
 	# if form submit we redirected user with arguments which he provided us
@@ -112,7 +108,6 @@ def delete_user(id):
 				return redirect(url_for('.delete_user', id=id))
 		else:
 			flash(f'Человек: {user.username} админ!')
-			logger.warning(f'Admin: {current_user.username} tried delete user: {user.username}')
 			return redirect(url_for('.delete_user', id=id))
 
 	return render_template('confirm.html', id=user.id, msg=msg)

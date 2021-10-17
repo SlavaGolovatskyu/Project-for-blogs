@@ -17,8 +17,6 @@ from .models import (
 	Permission
 )
 
-from .logg.logger import logger
-
 
 class AddNewData:
 	@staticmethod
@@ -33,7 +31,6 @@ class AddNewData:
 			self.add_and_commit_obj(new_user)
 			return True
 		except Exception as e:
-			logger.error(f'Account not registered. Error: {e}')
 			flash(f'Error: {e}. Account not registered')
 			return False
 
@@ -41,11 +38,8 @@ class AddNewData:
 		try:
 			article = Article(**kwargs)
 			self.add_and_commit_obj(article)
-			logger.info(f'User {current_user.username} created article')
 			return True
 		except Exception as e:
-			logger.error(f"""When user {current_user.username} tried create article an error occurred.
-							 Error: {e}""")
 			flash(f"Error: {e}. Could not create article.")
 			return False
 
@@ -54,10 +48,8 @@ class AddNewData:
 			text, id = kwargs['text'], kwargs['post_id']
 			comment = Comment(**kwargs)
 			self.add_and_commit_obj(comment)
-			logger.info(f'User {current_user.username} wrote a comment: {text} on post_id: {id}')
 			return True
 		except Exception as e:
-			logger.error(f'Comment not created. Error: {e}')
 			flash(f'Error: {e}. Comment not created')
 			return False
 
@@ -67,7 +59,6 @@ class AddNewData:
 			self.add_and_commit_obj(user_which_viewed_post)
 			return True
 		except Exception as e:
-			logger.error(f'Something to wrong when app tried add user which viewed post. Error: {e}')
 			return False
 
 
@@ -80,34 +71,27 @@ class DeleteData:
 	def delete_user(self, user) -> bool:
 		try:
 			self.delete_and_commit_obj(user)
-			logger.info(f'User {current_user.username} success delete account: {user.username}.')
 			flash(f'Вы успешно удалили аккаунт: {user.username}')
 			return True
 		except Exception as e:
-			logger.error(f'failed to delete account from database. Error: {e}')
 			flash(f'Произошла ошибка: {e}. Не удалось удалить аккаунт')
 			return False
 
 	def delete_article(self, article) -> bool:
 		try:
 			self.delete_and_commit_obj(article)
-			logger.info(f'User {current_user.username} success delete user article with id: {article.id}')
 			flash(f'Статья человека: {article.author_name} была успешно удалена.')
 			return True
 		except Exception as e:
-			logger.error(f"An error occurred while trying to delete the article. Error: {e}.")
 			flash(f'Случилась ошибка при удалении поста. Ошибка: {e}')
 			return False
 
 	def delete_comment(self, comment) -> bool:
 		try:
 			self.delete_and_commit_obj(comment)
-			logger.info(f'User {current_user.username} has success delete comment {comment.id}.')
 			flash(f'Коментарий человека: {comment.author} был успешно удален.')
 			return True
 		except Exception as e:
-			logger.error(f"""When user {current_user.username} was wanted delete comment. 
-										 Has an error occurred. Error: {e}""")
 			flash(f'При удалении коментария произошла ошибка: {e}')
 			return False
 
@@ -149,11 +133,8 @@ class ChangeData:
 			article.text = kwargs['text']
 			article.intro = kwargs['intro']
 			db.session.commit()
-			logger.info(f'User {current_user.username} success update article_id: {article.id}')
 			flash('Статья была успешно обновлена.')
 			return True
 		except Exception as e:
-			logger.error(f"""When user {current_user.username} tried update article an error occurred.
-							 Error: {e}""")
 			flash(f'Не удалось обновить статью. Ошибка: {e}')
 			return False

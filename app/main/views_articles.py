@@ -25,8 +25,7 @@ from ..db_controll import (
 	FindData,
 	DeleteData,
 	AddNewData,
-	ChangeData,
-	logger
+	ChangeData
 )
 
 find_data = FindData()
@@ -114,8 +113,6 @@ def update_user_post(article_id):
 		return render_template('update_post.html', article=article)
 
 	else:
-		logger.warning(f'User {current_user.username} \
-         				wanted update article. But he does not admin or moderator, or founder')
 		abort(403)
 
 
@@ -129,7 +126,6 @@ def delete_post_user(article_id):
 		delete_data.delete_article(article)
 		return redirect(url_for('.posts', page=1))
 	else:
-		logger.warning(f'User {current_user.username} wanted delete article. But he does not admin, or founder')
 		abort(403)
 
 
@@ -170,8 +166,6 @@ def post_detail(id):
 										 user_id=current_user.id, post_id=id)
 				return redirect(url_for('.post_detail', id=id))
 			else:
-				logger.warning(f"""Comment\' user {current_user.username} does not wrote.
-								   Because user will spam.""")
 				flash('Коментарий не был записан. Вы флудите или спамите.')
 				return redirect(url_for('.post_detail', id=id))
 		else:
@@ -221,7 +215,6 @@ def posts(page: int = 1):
 @main.route('/user/posts/<int:page>')
 @login_required
 def user_posts(page: int = 1):
-	logger.info(f'User {current_user.username} watching himself articles')
 	user = find_data.find_user(current_user.id)
 
 	pagination = user.posts.order_by(Article.date.desc()).paginate(
@@ -243,5 +236,4 @@ def delete_user_comment(id):
 		delete_data.delete_comment(comment)
 		return redirect(url_for('.post_detail', id=comment.post_id))
 	else:
-		logger.warning(f'User {current_user.username} wanted delete comment. But he does not admin.')
 		abort(403)

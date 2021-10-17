@@ -2,7 +2,6 @@ import requests as _req
 import os
 from .. import db
 from . import main
-from ..logg.logger import logger
 from ..models import Avatar, Permission
 
 from flask import (
@@ -160,14 +159,12 @@ def edit_profile():
 
 				except Exception as e:
 					flash('Произошла ошибка. Не удалось загрузить фотографию.')
-					logger.error(f'Error: {e}. Image not upload')
 
 			db.session.commit()
 			return redirect(url_for('.edit_profile'))
 
 		except Exception as e:
 			flash('При сбережении данных случилась ошибка. Пожалуйста повторите позднее.')
-			logger.error(f'When app wanna to save data something to wrong. Error: {e}')
 			return redirect(url_for('.settings_profile'))
 
 	return render_template('edit_profile.html', form=form)
