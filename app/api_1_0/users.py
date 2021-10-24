@@ -11,7 +11,7 @@ def find_user_by_ip(ip: str):
 	return jsonify(False)
 
 
-@api.route('/users/<int:id>')
+@api.route('/user/<int:id>')
 def get_user(id):
 	user = User.query.get_or_404(id)
 	return jsonify(user.to_json())
