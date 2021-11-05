@@ -21,8 +21,8 @@ class Validators:
 		return User.query.filter(User.username == field).first()
 
 	@staticmethod
-	def check_article_or_comment_of_the_owner(author_id_com_or_art: int) -> bool:
-		return (current_user.id == author_id_com_or_art or current_user.is_administrator()
+	def is_owner(user_id: int) -> bool:
+		return (current_user.id == user_id or current_user.is_administrator()
 				or current_user.can(Permission.MODERATE_COMMENTS_AND_ARTICLES))
 
 

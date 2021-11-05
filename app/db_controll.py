@@ -4,17 +4,12 @@ from flask import (
 	flash
 )
 
-from flask_login import (
-	current_user
-)
-
 from .models import (
 	User,
 	Article,
 	Comment,
 	UsersWhichViewedPost,
-	Role,
-	Permission
+	Role
 )
 
 
@@ -100,22 +95,33 @@ class ChangeData:
 	def __init__(self):
 		self.find_data = FindData()
 	
+	
 	@staticmethod
-	def catch_error(obj, error_msg=None) -> bool:
+	def catch_error(obj, keys: dict, **kwargs) -> bool:
 		try:
 			pass
+			# for key in keys.keys():
+			# 	keys[key] = kwargs.get(key)
 		except:
-			pass
+			flash('Произошла ошибка при обновлении данных')
+			return False
+		return True
+
+
+	# def get_data_from_kwargs(self, keys: dict, **kwargs) -> dict:
+	# 	for key in keys.keys():
+	# 		keys[key] = kwargs.get(key)
+	# 	return keys
+
 
 	@staticmethod
 	def article_update_changes(article, **kwargs) -> bool:
 		try:
-			article.title = kwargs['title']
-			article.text = kwargs['text']
-			article.intro = kwargs['intro']
+			article.title = kwargs.get('title')
+			article.text = kwargs.get('text')
+			article.intro = kwargs.get('intro')
 			db.session.commit()
-			flash('Статья была успешно обновлена.')
-			return True
-		except Exception as e:
-			flash(f'Не удалось обновить статью. Ошибка: {e}')
+		except:
+			flash('При обновлении статьи произошла ошибка.')
 			return False
+		return True

@@ -68,8 +68,9 @@ def sign_up():
 	form = RegistrationForm()
 	if form.validate_on_submit():
 		email = validator.validate_email(form.email.data)
+		headers_list = request.headers.getlist("X-Forwarded-For")
+		ip = headers_list[0] if headers_list else request.remote_addr
 		if not email:
-			ip = request.remote_addr
 			if add_data.add_new_user(form.password.data,
 									 username=form.username.data,
 									 email=form.email.data,

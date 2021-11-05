@@ -10,6 +10,8 @@ from flask import (
 	flash
 )
 
+from ..decorators import moderator_required
+
 from flask_login import (
 	login_required,
 	current_user
@@ -21,8 +23,6 @@ from ..models import (
 )
 
 from .validators import Validators
-
-from ..models import Permission
 
 from ..db_controll import (
 	FindData,
@@ -38,7 +38,7 @@ change_data = ChangeData()
 
 validator = Validators()
 
-# If you want to increase count posts on page 
+# If you want to increase count posts on page
 # You must do change only this variable: MAX_COUNT_POSTS_ON_PAGE
 # And count posts on page will be changed
 # CONSTANT VARIABLE
@@ -70,7 +70,7 @@ def create_article():
 					return redirect(url_for('.posts', page=1))
 				return redirect(url_for('.create_article'))
 			else:
-				flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до 
+				flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до
 					   {MAX_LENGTH_TEXT} символов.""")
 				return redirect(url_for('.create_article'))
 		else:
@@ -87,7 +87,7 @@ def update_user_post(article_id):
 	article = find_data.find_article(article_id)
 
 	# checking if founder user of this article or user is admin
-	if validator.check_article_or_comment_of_the_owner(article.user_id):
+	if validator.is_owner(article.user_id):
 
 		if request.method == 'POST':
 
@@ -105,7 +105,7 @@ def update_user_post(article_id):
 					)
 					return redirect(url_for('.posts', page=1))
 				else:
-					flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до 
+					flash(f"""Длинна текста должна быть от {MIN_LENGTH_TEXT} до
 						   {MAX_LENGTH_TEXT} символов.""")
 					return redirect(url_for('.update_user_post', article_id=article_id))
 			else:
@@ -124,15 +124,15 @@ def update_user_post(article_id):
 def delete_post_user(article_id):
 	# Search needed article or 404
 	article = find_data.find_article(article_id)
-	msg = f'Вы действительно хотите удалить пост: {article.id}, {article.title} автора: {article.author_name}'
-	# if current_user.id == article.user_id or user is admin we deleting article.
-	if request.method == 'POST':
-		if validator.check_article_or_comment_of_the_owner(article.user_id):
+	if validator.is_owner(article.user_id):
+		msg = f'Вы действительно хотите удалить пост: {article.id}, {article.title} автора: {article.author_name}'
+		if request.method == 'POST':
 			delete_data.delete_article(article)
 			return redirect(url_for('.posts', page=1))
 		else:
-			abort(403)
-	return render_template('confirm.html', msg=msg)
+			return render_template('confirm.html', msg=msg)
+	else:
+		abort(403)
 
 
 @main.route('/post/<int:id>/detail', methods=['get', 'post'])
@@ -154,9 +154,10 @@ def post_detail(id):
 		current_count_comments_on_page = int(data)
 
 	# [::-1] reverse array and search need data
-	comments_need = article.comments.order_by(Comment.date.desc()).limit(current_count_comments_on_page) \
-																  .offset((page-1) * current_count_comments_on_page) \
-																  .all()
+	comments_need = article.comments.order_by(Comment.date.desc()) \
+						   .limit(current_count_comments_on_page) \
+						   .offset((page-1) * current_count_comments_on_page) \
+						   .all()
 
 	# if user a note comment to the article
 	if request.method == 'POST':
@@ -237,9 +238,13 @@ def user_posts(page: int = 1):
 @login_required
 def delete_user_comment(id):
 	comment = find_data.find_comment(id)
-	# check if comment belongs user's or current user is_admin
-	if validator.check_article_or_comment_of_the_owner(comment.user_id):
-		delete_data.delete_comment(comment)
-		return redirect(url_for('.post_detail', id=comment.post_id))
+	if validator.is_owner(comment.user_id):
+		msg = 'Вы уверенны что хотите удалить коментарий: {}?'.format(comment.id)
+		# check if comment belongs user's or current user is_admin
+		if request.method == 'POST':
+			delete_data.delete_comment(comment)
+			return redirect(url_for('.post_detail', id=comment.post_id))
+		else:
+			return render_template('confirm.html', msg=msg)
 	else:
 		abort(403)

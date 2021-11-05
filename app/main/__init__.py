@@ -10,7 +10,7 @@ validator = Val()
 @main.app_context_processor
 def inject_needed_function_and_more_other():
 	return dict(Permission=Perm,
-				validate_art_or_com_of_the_owner=validator.check_article_or_comment_of_the_owner)
+				validate_art_or_com_of_the_owner=validator.is_owner)
 
 
 from . import (
