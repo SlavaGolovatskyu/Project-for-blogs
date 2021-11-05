@@ -6,7 +6,8 @@
 body {
 	width: 100%;
 	min-width: 420px;
-	background: silver;
+	background: #563d7c;
+	background-color: #563d7c;
 }
 
 a {
@@ -36,11 +37,12 @@ img {
 .header__btn {
 	height: 100%;
 	width: 18%;
+	color: white;
 }
 
 .header__btn:hover {
-	background-color: silver;
-	transform: scale(1.04);
+	background-color: rgb(155, 73, 73);
+	transform: scale(1.1);
 }
 
 .header__user__img {

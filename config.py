@@ -16,7 +16,7 @@ class DevelopmentConfig(BaseConfig):
 
 
 class TestingConfig(BaseConfig):
-	DEBUG = False
+	DEBUG = True
 	WTF_CSRF_ENABLE = False
 	SQLALCHEMY_DATABASE_URI = os.environ.get('TESTING_DATABASE_URI') or \
 							  'sqlite:///test.db'

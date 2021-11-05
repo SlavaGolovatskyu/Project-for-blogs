@@ -23,17 +23,17 @@
 		{% endif %}
 	</style>
 </head>
-<body>
+<body style='background-color: #563d7c'>
     <div class="container">
         <header class="header border-bottom shadow-sm">
             <nav class="nav__header">
-                <a class="header__btn btn" href="{{ url_for('.index') }}">Главная</a>
-                <a class="header__btn btn" href="{{ url_for('.posts', page=1) }}">Статьи</a>
+                <a class="header__btn btn" style='color: white' href="{{ url_for('.index') }}">Главная</a>
+                <a class="header__btn btn" style='color: white' href="{{ url_for('.posts', page=1) }}">Статьи</a>
                 {% if current_user.is_authenticated %}
                         {% if current_user.is_administrator() %}
-                            <a href="{{ url_for('.admin') }}" class="header__btn btn">Админ панель</a>
+                            <a href="{{ url_for('.admin') }}" style='color: white' class="header__btn btn">Админ панель</a>
                         {% endif %}
-                        <a href="{{ url_for('.create_article') }}" class="header__btn btn">Создать статью</a>
+                        <a href="{{ url_for('.create_article') }}" style='color: white' class="header__btn btn">Создать статью</a>
 
                         {% if current_user.get_src_to_avatar() %}
                             <a id="menu"><img src="{{ url_for('static', filename=current_user.get_src_to_avatar()) }}" alt="noname_user" class="header__user__img"></a>
@@ -50,8 +50,8 @@
                             </ul>
                         </div>
                 {% else %}
-                      <a href="{{ url_for('.login') }}" class="header__btn btn">Войти</a>
-                      <a href="{{ url_for('.sign_up') }}" class="header__btn btn">Регистрация</a>
+                      <a href="{{ url_for('.login') }}" style='color: white' class="header__btn btn">Войти</a>
+                      <a href="{{ url_for('.sign_up') }}" style='color: white' class="header__btn btn">Регистрация</a>
                 {% endif %}
             </nav>
         </header>

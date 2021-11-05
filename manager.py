@@ -26,7 +26,7 @@ from app.models import (
 	Permission
 )
 
-app = create_app(os.getenv('FLASK_ENV') or 'config.ProductionConfig')
+app = create_app(os.getenv('FLASK_ENV') or 'config.TestingConfig')
 
 manager = Manager(app)
 
