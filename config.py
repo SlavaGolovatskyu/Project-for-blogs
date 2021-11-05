@@ -23,6 +23,6 @@ class TestingConfig(BaseConfig):
 
 
 class ProductionConfig(BaseConfig):
-	DEBUG = False
+	DEBUG = True
 	SQLALCHEMY_DATABASE_URI = os.environ.get('TESTING_DATABASE_URI') or \
 							  'sqlite:///blog.db'

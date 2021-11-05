@@ -21,6 +21,9 @@ from ..models import (
 )
 
 from .validators import Validators
+
+from ..models import Permission
+
 from ..db_controll import (
 	FindData,
 	DeleteData,
@@ -116,17 +119,20 @@ def update_user_post(article_id):
 		abort(403)
 
 
-@main.route('/posts/<int:article_id>/delete')
+@main.route('/posts/<int:article_id>/delete', methods=['GET', 'POST'])
 @login_required
 def delete_post_user(article_id):
 	# Search needed article or 404
 	article = find_data.find_article(article_id)
+	msg = f'Вы действительно хотите удалить пост: {article.id}, {article.title} автора: {article.author_name}'
 	# if current_user.id == article.user_id or user is admin we deleting article.
-	if validator.check_article_or_comment_of_the_owner(article.user_id):
-		delete_data.delete_article(article)
-		return redirect(url_for('.posts', page=1))
-	else:
-		abort(403)
+	if request.method == 'POST':
+		if validator.check_article_or_comment_of_the_owner(article.user_id):
+			delete_data.delete_article(article)
+			return redirect(url_for('.posts', page=1))
+		else:
+			abort(403)
+	return render_template('confirm.html', msg=msg)
 
 
 @main.route('/post/<int:id>/detail', methods=['get', 'post'])

@@ -124,8 +124,8 @@ class User(db.Model, UserMixin):
 			'member_since': self.created_on,
 			'posts_count': self.posts.count(),
 			'comments_count': self.comments.count(),
-			'posts_url': url_for('api.get_all_user_posts', id=self.id),
-			'comments_url': url_for('api.get_all_user_comments', id=self.id)
+			'posts_url': url_for('api.get_user_posts', id=self.id, page=1),
+			'comments_url': url_for('api.get_user_comments', id=self.id, page=1)
 		}
 		return json_user
 

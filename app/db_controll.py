@@ -20,80 +20,54 @@ from .models import (
 
 class AddNewData:
 	@staticmethod
-	def add_and_commit_obj(obj):
-		db.session.add(obj)
-		db.session.commit()
+	def add_and_commit_obj(obj, error_msg=None) -> bool:
+		try:
+			db.session.add(obj)
+			db.session.commit()
+		except:
+			if error_msg is not None:
+				flash('Произошла ошибка при добавление данных. Не удалось создать ', error_msg)
+			return False
+		return True
 
 	def add_new_user(self, *args, **kwargs) -> bool:
-		try:
-			new_user = User(**kwargs)
-			new_user.set_password(*args)
-			self.add_and_commit_obj(new_user)
-			return True
-		except Exception as e:
-			flash(f'Error: {e}. Account not registered')
-			return False
+		new_user = User(**kwargs)
+		new_user.set_password(*args)
+		return self.add_and_commit_obj(new_user, 'аккаунт')
 
 	def add_new_article(self, **kwargs) -> bool:
-		try:
-			article = Article(**kwargs)
-			self.add_and_commit_obj(article)
-			return True
-		except Exception as e:
-			flash(f"Error: {e}. Could not create article.")
-			return False
+		article = Article(**kwargs)
+		return self.add_and_commit_obj(article, 'пост')
 
 	def add_new_comment(self, **kwargs) -> bool:
-		try:
-			text, id = kwargs['text'], kwargs['post_id']
-			comment = Comment(**kwargs)
-			self.add_and_commit_obj(comment)
-			return True
-		except Exception as e:
-			flash(f'Error: {e}. Comment not created')
-			return False
+		comment = Comment(**kwargs)
+		return self.add_and_commit_obj(comment, 'коментарий')
 
 	def add_user_which_viewed_post(self, **kwargs) -> bool:
-		try:
-			user_which_viewed_post = UsersWhichViewedPost(**kwargs)
-			self.add_and_commit_obj(user_which_viewed_post)
-			return True
-		except Exception as e:
-			return False
+		user_which_viewed_post = UsersWhichViewedPost(**kwargs)
+		return self.add_and_commit_obj(user_which_viewed_post)
 
 
 class DeleteData:
 	@staticmethod
-	def delete_and_commit_obj(obj):
-		db.session.delete(obj)
-		db.session.commit()
+	def delete_and_commit_obj(obj, error_msg=None) -> bool:
+		try:
+			db.session.delete(obj)
+			db.session.commit()
+		except:
+			if error_msg is not None:
+				flash('Произошла ошибка при удалении ', error_msg)
+			return False
+		return True
 
 	def delete_user(self, user) -> bool:
-		try:
-			self.delete_and_commit_obj(user)
-			flash(f'Вы успешно удалили аккаунт: {user.username}')
-			return True
-		except Exception as e:
-			flash(f'Произошла ошибка: {e}. Не удалось удалить аккаунт')
-			return False
+		return self.delete_and_commit_obj(user, 'аккаунта')
 
 	def delete_article(self, article) -> bool:
-		try:
-			self.delete_and_commit_obj(article)
-			flash(f'Статья человека: {article.author_name} была успешно удалена.')
-			return True
-		except Exception as e:
-			flash(f'Случилась ошибка при удалении поста. Ошибка: {e}')
-			return False
+		return self.delete_and_commit_obj(article, 'поста')
 
 	def delete_comment(self, comment) -> bool:
-		try:
-			self.delete_and_commit_obj(comment)
-			flash(f'Коментарий человека: {comment.author} был успешно удален.')
-			return True
-		except Exception as e:
-			flash(f'При удалении коментария произошла ошибка: {e}')
-			return False
+		return self.delete_and_commit_obj(comment, 'коментария')
 
 
 class FindData:
@@ -125,6 +99,13 @@ class FindData:
 class ChangeData:
 	def __init__(self):
 		self.find_data = FindData()
+	
+	@staticmethod
+	def catch_error(obj, error_msg=None) -> bool:
+		try:
+			pass
+		except:
+			pass
 
 	@staticmethod
 	def article_update_changes(article, **kwargs) -> bool:
