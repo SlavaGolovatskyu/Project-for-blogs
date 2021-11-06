@@ -16,3 +16,5 @@ flask_moment
 email_validator
 pytimeparse
 forgery_py
+flask_migrate
+flask_login

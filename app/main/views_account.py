@@ -15,7 +15,6 @@ from flask import (
 	redirect,
 	request,
 	flash,
-	g
 )
 
 from flask_login import (
@@ -60,8 +59,8 @@ def before_request():
 
 	ip_is_banned = BannedIP.query.filter_by(ip=ip).first()
 
-	if ip_is_banned:
-		user = User.query.get_or_404(ip_is_banned.user_id)
+	if ip_is_banned or (current_user.is_authenticated and current_user.is_banned):
+		user = User.query.get_or_404(ip_is_banned.user_id if ip_is_banned else current_user.id)
 		if user.check_auto_unban():
 			return redirect(url_for('.index'))
 		else:

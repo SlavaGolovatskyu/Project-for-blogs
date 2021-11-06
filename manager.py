@@ -27,7 +27,7 @@ from app.models import (
 	BannedIP
 )
 
-app = create_app(os.getenv('FLASK_ENV') or 'config.TestingConfig')
+app = create_app(os.getenv('FLASK_ENV') or 'config.ProductionConfig')
 
 manager = Manager(app)
 
