@@ -120,14 +120,15 @@ class User(db.Model, UserMixin):
 
 			if is_ip_in_db:
 				flash('Данный человек уже забанен по ип')
+				return False
 			else:
 				banned_ip = BannedIP(ip=self.ip, user_id=self.id)
 				db.session.add(banned_ip)
 				db.session.commit()
+				return True
 		except:
 			flash('Произошла неизвестная ошибка при блокировке человека')
 			return False
-		return True
 	
 	def unban(self) -> bool:
 		try:
@@ -139,10 +140,10 @@ class User(db.Model, UserMixin):
 
 			db.session.delete(banned_ip)
 			db.session.commit()
+			return True
 		except:
 			flash('При разблокировке человека произошла ошибка.')
 			return False
-		return True
 
 	def ping(self) -> None:
 		self.last_seen = datetime.utcnow()
