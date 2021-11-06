@@ -92,6 +92,10 @@
                     <p>
                         {{ form.submit() }}
                         <a class="btn btn-danger" href="{{ url_for('.delete_user', id=user.id) }}">Удалить аккаунт</a>
+                        <a class="btn btn-danger" href="{{ url_for('.ban_user', id=user.id) }}">Забанить</a>
+                        {% if user.is_banned %}
+                            <a class="btn btn-danger" href="{{ url_for('.unban_user', id=user.id) }}">Разбанить</a>
+                        {% endif %}
                     </p>
                 </p>
             </div>

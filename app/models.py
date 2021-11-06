@@ -1,8 +1,8 @@
 from typing import Dict
 from app import db, login_manager
-from datetime import datetime
+from datetime import date, datetime
 
-from flask import url_for
+from flask import url_for, flash
 
 from flask_login import (
 	UserMixin,
@@ -23,6 +23,13 @@ class Permission:
 	USUAL_USER = 4
 	MODERATE_COMMENTS_AND_ARTICLES = 8
 	ADMINISTRATOR = 16
+
+
+class BannedIP(db.Model):
+	__tablename__ = 'bannedip'
+	id = db.Column(db.Integer(), primary_key=True)
+	ip = db.Column(db.String(30), nullable=True, index=True)
+	user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
 
 
 class Avatar(db.Model):
@@ -46,9 +53,16 @@ class User(db.Model, UserMixin):
 	about_me = db.Column(db.Text, nullable=True)
 	last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
 
+	# for ban
+	is_banned = db.Column(db.Boolean(), default=False)
+	time_banned = db.Column(db.DateTime(), nullable=True)
+	ban_time = db.Column(db.Integer(), nullable=True)
+
+
 	created_on = db.Column(db.DateTime(), default=datetime.utcnow)
 	updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
 
+	# relationships
 	avatar = db.relationship('Avatar', cascade='all,delete-orphan', lazy='dynamic')
 	comments = db.relationship('Comment', cascade='all,delete-orphan', lazy='dynamic')
 	posts = db.relationship('Article', cascade='all,delete-orphan', lazy='dynamic')
@@ -86,6 +100,49 @@ class User(db.Model, UserMixin):
 				db.session.commit()
 			except IntegrityError:
 				db.session.rollback()
+
+	def check_auto_unban(self) -> bool:
+		secs = (datetime.utcnow() - self.time_banned).seconds
+		if secs >= self.ban_time:
+			self.unban()
+			return True
+		else:
+			flash(f'До окончания бана осталось {self.ban_time - secs} секунд')
+			return False
+
+	def ban(self, time):
+		try:
+			self.is_banned = True
+			self.time_banned = datetime.utcnow()
+			self.ban_time = time
+
+			is_ip_in_db = BannedIP.query.filter_by(ip=self.ip).first()
+
+			if is_ip_in_db:
+				flash('Данный человек уже забанен по ип')
+			else:
+				banned_ip = BannedIP(ip=self.ip, user_id=self.id)
+				db.session.add(banned_ip)
+				db.session.commit()
+		except:
+			flash('Произошла неизвестная ошибка при блокировке человека')
+			return False
+		return True
+	
+	def unban(self) -> bool:
+		try:
+			banned_ip = BannedIP.query.filter_by(ip=self.ip).first()
+
+			self.is_banned = False
+			self.time_banned = None
+			self.ban_time = None
+
+			db.session.delete(banned_ip)
+			db.session.commit()
+		except:
+			flash('При разблокировке человека произошла ошибка.')
+			return False
+		return True
 
 	def ping(self) -> None:
 		self.last_seen = datetime.utcnow()

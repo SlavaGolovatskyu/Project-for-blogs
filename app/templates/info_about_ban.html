@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Информация о бане
+{% endblock %}
+
+
+{% block body %}
+    <h2>Ваш аккаунт {{ user.email }} был забанен
+        на {{ user.ban_time }} секунд. Дата блокировки: {{ moment(user.time_banned).format('LLL') }}
+    </h2>
+{% endblock %}

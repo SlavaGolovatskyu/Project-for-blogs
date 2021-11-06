@@ -1,8 +1,13 @@
-import requests as _req
 import os
 from .. import db
 from . import main
-from ..models import Avatar, Permission
+
+from ..models import (
+	Avatar, 
+	Permission, 
+	User,
+	BannedIP
+)
 
 from flask import (
 	render_template,
@@ -50,8 +55,20 @@ validator = Validators()
 
 @main.before_app_request
 def before_request():
-	if current_user.is_authenticated:
-		current_user.ping()
+	headers_list = request.headers.getlist("X-Forwarded-For")
+	ip = headers_list[0] if headers_list else request.remote_addr
+
+	ip_is_banned = BannedIP.query.filter_by(ip=ip).first()
+
+	if ip_is_banned:
+		user = User.query.get_or_404(ip_is_banned.user_id)
+		if user.check_auto_unban():
+			return redirect(url_for('.index'))
+		else:
+			return render_template('info_about_ban.html', user=user)
+	else:
+		if current_user.is_authenticated:
+			current_user.ping()
 
 
 @main.route('/logout/', methods=['get'])

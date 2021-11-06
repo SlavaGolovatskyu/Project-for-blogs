@@ -1,4 +1,6 @@
 import os
+
+from flask_login.utils import login_user
 from . import main
 from app import db
 
@@ -15,15 +17,18 @@ from flask_login import (
 	current_user
 )
 
+from pytimeparse import parse
+
 from ..models import (
+	BannedIP,
 	User,
-	Permission,
 	Role
 )
 
 from .forms import (
 	SearchNeedPeopleForm,
-	EditProfileAdminForm
+	EditProfileAdminForm,
+	BanForm
 )
 
 from werkzeug.datastructures import MultiDict
@@ -152,3 +157,56 @@ def edit_profile_admin(id):
 	return render_template('edit_profile_admin.html',
 						   form=form, user=user)
 # -----------------------------------------
+
+
+@main.route('/admin/ban-user/<int:id>', methods=['get', 'post'])
+@login_required
+@admin_required
+def ban_user(id):
+	user = User.query.get_or_404(id)
+	form = BanForm()
+
+	if request.method == 'POST':
+		if current_user.id != user.id:
+			# parse function return None
+			# if string is not valid
+			# else return time in seconds
+			time = parse(form.time.data)
+			are_you_sure = form.are_you_sure.data
+
+			black_ip = BannedIP.query.filter_by(ip=user.ip).first()
+
+			if black_ip:
+				flash('Данный человек уже забанен.')
+				return redirect(url_for('.ban_user', id=user.id))
+			else:
+				if are_you_sure and time is not None:
+					if user.ban(time):
+						flash(f'Вы успешно забанили: {user.email} на {time} секунд')
+					return redirect(url_for('.edit_profile_admin', id=user.id))
+				else:
+					flash('Вы указали неверное время блокировки. Ну или не подтвердили действие на блокировку.')
+					return redirect(url_for('.ban_user', id=user.id))
+		else:
+			flash('Вы не можете забанить самого себя')
+			return redirect(url_for('.ban_user', id=user.id))
+	
+	return render_template('ban.html', form=form, user=user)
+
+
+@main.route('/admin/unban-user/<int:id>', methods=['get', 'post'])
+@login_required
+@admin_required
+def unban_user(id):
+	user = User.query.get_or_404(id)
+	msg = 'Вы действительно хотите разбанить {}id, {}?'.format(user.id, user.email)
+	if request.method == 'POST':
+		if current_user.id != user.id and user.is_banned:
+			user.unban()
+			flash('Вы успешно разбанили человека')
+		else:
+			flash('Вы не можете разбанить человека который и так разбанен')
+		
+		return redirect(url_for('.ban_user', id=user.id))
+
+	return render_template('confirm.html', msg=msg)

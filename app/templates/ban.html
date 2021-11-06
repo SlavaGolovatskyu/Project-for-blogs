@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Забанить
+{% endblock %}
+
+
+{% block body %}
+  <style>
+    p {
+      min-width: 100%;
+    }
+  </style>
+  <div class="container">
+      <form method='post'>
+        {{ form.csrf_token }}
+        <p>
+          {% if form.time.errors %}
+              {% for error in form.time.errors %}
+                  {{ error }}
+              {% endfor %}
+          {% endif %}
+          {{ form.time() }}
+        </p>
+        <p>
+          {% if form.are_you_sure.errors %}
+              {% for error in form.are_you_sure.errors %}
+                  {{ error }}
+              {% endfor %}
+          {% endif %}
+          {{ form.are_you_sure() }}
+        </p>
+        <p>
+          {{ form.submit() }}
+        </p>
+      </form>
+  </div>
+{% endblock %}

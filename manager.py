@@ -23,7 +23,8 @@ from app.models import (
 	UsersWhichViewedPost,
 	Comment,
 	Role,
-	Permission
+	Permission,
+	BannedIP
 )
 
 app = create_app(os.getenv('FLASK_ENV') or 'config.TestingConfig')
@@ -34,7 +35,7 @@ manager = Manager(app)
 # эти переменные доступны внутри оболочки без явного импорта
 def make_shell_context():
 	return dict(app=app, db=db, User=User, Article=Article, Role=Role, Permission=Permission,
-				UsersWhichViewedPost=UsersWhichViewedPost, Comment=Comment)
+				UsersWhichViewedPost=UsersWhichViewedPost, Comment=Comment, BannedIP=BannedIP)
 
 
 @app.cli.command()

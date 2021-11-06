@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from app.models import Role
 
-from flask import flash
 
 from wtforms import (
 	StringField,
@@ -16,11 +15,17 @@ from wtforms import (
 from wtforms.validators import (
 	DataRequired, 
 	Email, 
-	Length,
-	Regexp
+	Length
 )
 
 from flask_wtf.file import FileAllowed
+
+
+class BanForm(FlaskForm):
+	time = StringField("Время: ", validators=[DataRequired()], 
+					   render_kw={"placeholder": "Укажите время. Например: 1d25m30s 1 day 25 mins 30 secs"})
+	are_you_sure = BooleanField("Вы уверены что хотите забанить?", validators=[DataRequired()])
+	submit = SubmitField('Сохранить изменения')
 
 
 class EditProfileAdminForm(FlaskForm):
