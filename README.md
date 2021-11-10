@@ -11,7 +11,7 @@ also you can see my project on http://slavik141.pythonanywhere.com/
 
 UPD (10.06.21)
 After the announcement of the end of work on the project. It occurred to me to add to it a chat built on sockets. 
-Now the main targets are: add mut(-), ban(-), update the chat itself(+), as well as logs(+)
+Now the main targets are: add mut(-) now that's not important, ban(+) ban was added, update the chat itself(+) chat deleted from web version pythonanywhere can't supports sockets, as well as logs(+)
 
 18.06.21
 The sqlite3 database was removed from the project because it cannot reset a column from the table.
