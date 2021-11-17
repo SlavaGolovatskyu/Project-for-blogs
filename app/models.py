@@ -104,8 +104,7 @@ class User(db.Model, UserMixin):
 	def check_auto_unban(self) -> bool:
 		secs = (datetime.utcnow() - self.time_banned).seconds
 		if secs >= self.ban_time:
-			self.unban()
-			return True
+			return self.unban()
 		else:
 			flash(f'До окончания бана осталось {self.ban_time - secs} секунд')
 			return False

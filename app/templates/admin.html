@@ -4,51 +4,14 @@
 Админка
 {% endblock %}
 
+{% block after_bootstrap %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_nav.css') }}">
+{% endblock %}
+
 {% block body %}
-<style>
-	@media screen and (min-width: 1500px) {
-		.mind-container {
-			width: 35%;
-		}
-	}
-
-	@media screen and (min-width: 750px) and (max-width: 1500px) {
-		.mind-container {
-			width: 25%;
-		}
-	}
-
-	@media screen and (max-width: 750px) {
-		.mind-container {
-			width: 47%;
-		}
-	}
-
-	.alert {
-		display: block;
-	}
-
-	.alert-info > a {
-		text-decoration: none;
-		text-align: center;
-	}
-
-	.menu {
-		font-size: 20px;
-		color: green;
-		display: block;
-	}
-
-	.menu:hover {
-		background-color: #88DAA7;
-	}
-
-</style>
-<div class="body">
-	<div class="mind-container">
-		<div class='alert alert-info'>
-		    <a href="/admin-panel/1" class='menu'>adding new admin & delete user account</a>
-		</div>
-	</div>
-</div>
+	<section class="admin_nav">
+		<a href="/admin-panel/1" class='admin_nav_menu'>adding new admin & delete user account</a>
+		<a href="/admin-panel/1" class='admin_nav_menu'>adding new admin & delete user account</a>
+		<a href="/admin-panel/1" class='admin_nav_menu'>adding new admin & delete user account</a>
+	</section>
 {% endblock %}

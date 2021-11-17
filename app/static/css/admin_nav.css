@@ -1,0 +1,20 @@
+.admin_nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background:darkcyan;
+    width: 27%;
+}
+
+.admin_nav .admin_nav_menu {
+    text-decoration: none;
+    color: white;
+    word-wrap: break-word;
+}
+
+.admin_nav .admin_nav_menu:hover {
+    background-color: rgb(155, 73, 73);
+	transform: scale(1.05);
+}

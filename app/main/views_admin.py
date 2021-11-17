@@ -1,6 +1,6 @@
 import os
 
-from flask_login.utils import login_user
+
 from . import main
 from app import db
 
@@ -202,8 +202,8 @@ def unban_user(id):
 	msg = 'Вы действительно хотите разбанить {}id, {}?'.format(user.id, user.email)
 	if request.method == 'POST':
 		if current_user.id != user.id and user.is_banned:
-			user.unban()
-			flash('Вы успешно разбанили человека')
+			if user.unban():
+				flash('Вы успешно разбанили человека')
 		else:
 			flash('Вы не можете разбанить человека который и так разбанен')
 		

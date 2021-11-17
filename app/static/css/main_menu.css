@@ -1,18 +1,23 @@
+.menu {
+    display: none;
+}
+
 .menu__open {
-    position: absolute;
-    display: block !important;
-    background: #FAFFFF;
-    z-index: 500000;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: flex-end;
+    background: #563d7c;
+    z-index: 5000;
 }
 
 .profile_menu {
-    width: 100%;
     color: #829DFF;
 }
 
 .profile_menu:hover {
     text-decoration: none;
-    background: silver;
-    color: black;
+    background-color: rgb(155, 73, 73);
+	transform: scale(1.1);
     transition: 0.85s ease;
 }
