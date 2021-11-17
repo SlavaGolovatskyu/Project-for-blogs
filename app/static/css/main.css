@@ -55,6 +55,12 @@ img {
 	border-radius: 50%;
 }
 
+.header__user__img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
 .header__user__img:hover {
 	background-color: silver;
 	transform: scale(1.1);
