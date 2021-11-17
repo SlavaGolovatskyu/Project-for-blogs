@@ -75,3 +75,25 @@ img {
 	width: 40%;
 	margin: 0 auto;
 }
+
+.round {
+    border-radius: 50%; /* Радиус скругления */
+    border: 3px solid green; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+    width: 300px;
+    height: 300px;
+}
+
+@media only screen and (max-width:768px) and (min-width: 450px) {
+    .round {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width:449px) {
+    .round {
+        width: 150px;
+        height: 150px;
+    }
+}
