@@ -1,6 +1,14 @@
 from flask import jsonify, url_for
-from ..models import User
+from ..models import ActiveIP, User
 from . import api
+
+
+@api.route('/users/active-ip/<string:ip>')
+def find_active_ip(ip):
+	ip = ActiveIP.query.filter_by(ip=ip).first()
+	if ip:
+		return jsonify(True)
+	return jsonify(False)
 
 
 @api.route('/users/find-by-ip/<string:ip>')

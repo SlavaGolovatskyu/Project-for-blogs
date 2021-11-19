@@ -21,6 +21,11 @@ from wtforms.validators import (
 from flask_wtf.file import FileAllowed
 
 
+class AddIpForm(FlaskForm):
+	ip = StringField('Ип: ', validators=[DataRequired()],
+					  render_kw={"placeholder": "192.168.1.1"})
+	submit = SubmitField('Добавить/Удалить Ип')
+
 class BanForm(FlaskForm):
 	time = StringField("Время: ", validators=[DataRequired()], 
 					   render_kw={"placeholder": "Укажите время. Например: 1d25m30s 1 day 25 mins 30 secs"})

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавить IP
+{% endblock %}
+
+{% block body %} 
+<div class="container">
+    <form method='post'>
+      {{ form.csrf_token }}
+      <p>
+        {% if form.ip.errors %}
+            {% for error in form.ip.errors %}
+                {{ error }}
+            {% endfor %}
+        {% endif %}
+        {{ form.ip() }}
+      </p>
+      <p>
+        {{ form.submit() }}
+      </p>
+    </form>
+</div>
+{% endblock %}

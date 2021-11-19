@@ -10,8 +10,7 @@
 
 {% block body %}
 	<section class="admin_nav">
-		<a href="/admin-panel/1" class='admin_nav_menu'>adding new admin & delete user account</a>
-		<a href="/admin-panel/1" class='admin_nav_menu'>adding new admin & delete user account</a>
-		<a href="/admin-panel/1" class='admin_nav_menu'>adding new admin & delete user account</a>
+		<a href="{{ url_for('.admin_panel', page=1) }}" class='admin_nav_menu'>adding new admin & delete user account</a>
+		<a href="{{ url_for('.add_delete_ip') }}" class='admin_nav_menu'>adding/delete active ip</a>
 	</section>
 {% endblock %}

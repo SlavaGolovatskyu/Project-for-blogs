@@ -20,12 +20,14 @@ from flask_login import (
 from pytimeparse import parse
 
 from ..models import (
+	ActiveIP,
 	BannedIP,
 	User,
 	Role
 )
 
 from .forms import (
+	AddIpForm,
 	SearchNeedPeopleForm,
 	EditProfileAdminForm,
 	BanForm
@@ -38,6 +40,7 @@ from app.decorators import (
 )
 
 from ..db_controll import (
+	AddNewData,
 	DeleteData,
 	FindData,
 	ChangeData
@@ -210,3 +213,23 @@ def unban_user(id):
 		return redirect(url_for('.ban_user', id=user.id))
 
 	return render_template('confirm.html', msg=msg)
+
+
+@main.route('/admin/add-delete-ip/', methods=['POST', 'GET'])
+@login_required
+@admin_required
+def add_delete_ip():
+	form = AddIpForm()
+
+	if form.validate_on_submit():
+		is_ip = ActiveIP.query.filter_by(ip=form.ip.data).first()
+		if is_ip:
+			if DeleteData.delete_and_commit_obj(is_ip, 'ип'):
+				flash(f'Вы успешно удалили ip {form.ip.data}')
+		else:
+			ip = ActiveIP(ip=form.ip.data)
+			if AddNewData.add_and_commit_obj(ip, 'ип'):
+				flash(f'Вы успешно добавили ип {form.ip.data}')
+		return redirect(url_for('.add_delete_ip'))
+
+	return render_template('add_ip.html', form=form)

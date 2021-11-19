@@ -25,6 +25,12 @@ class Permission:
 	ADMINISTRATOR = 16
 
 
+class ActiveIP(db.Model):
+	__tablename__ = 'activeip'
+	id = db.Column(db.Integer(), primary_key=True)
+	ip = db.Column(db.String(30), nullable=True, index=True)
+
+
 class BannedIP(db.Model):
 	__tablename__ = 'bannedip'
 	id = db.Column(db.Integer(), primary_key=True)
