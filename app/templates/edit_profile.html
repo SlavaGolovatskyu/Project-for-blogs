@@ -71,6 +71,16 @@
                         {{ form.about_me() }}
                     </p>
                 </p>
+                <p class='new_pass'>
+                    <p>
+                        {% if form.new_pass.errors %}
+                            {% for error in form.new_pass.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.new_pass() }}
+                    </p>
+                </p>
                 <p>
                     <p>
                         {{ form.submit() }}

@@ -140,6 +140,14 @@ def edit_profile():
 			current_user.location = form.city.data
 			current_user.about_me = form.about_me.data
 			email = form.email.data
+			new_password = form.new_pass.data
+
+			if new_password:
+				if current_user.check_password(new_password):
+					flash('Вы указали старый пароль')
+				else:
+					current_user.set_password(new_password)
+					flash('Вы успешно изменили пароль')
 
 			if find_data.find_user(email=email) and current_user.email != email:
 				flash(f'Аккаунт с почтой {email} уже существует!')

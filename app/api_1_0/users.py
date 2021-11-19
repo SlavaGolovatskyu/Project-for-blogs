@@ -1,4 +1,4 @@
-from flask import jsonify, url_for
+from flask import json, jsonify, url_for
 from ..models import ActiveIP, User
 from . import api
 
@@ -8,6 +8,15 @@ def find_active_ip(ip):
 	ip = ActiveIP.query.filter_by(ip=ip).first()
 	if ip:
 		return jsonify(True)
+	return jsonify(False)
+
+
+@api.route('/users/check-password/<string:email>/<string:password>')
+def check_exist_user_n_pass(email, password):
+	user = User.query.filter_by(email=email).first()
+	if user:
+		if user.check_password(password):
+			return jsonify(True)
 	return jsonify(False)
 
 

@@ -54,6 +54,7 @@ class EditProfileForm(FlaskForm):
 	about_me = TextAreaField('About me: ', validators=[DataRequired(),
 													   Length(min=1, max=500, message=None)],
 										   render_kw={"placeholder": "Расскажите о себе"})
+	new_pass = StringField('New password: ', render_kw={"placeholder": "Введите новый пароль."})
 	submit = SubmitField("Сохранить изменения")
 
 
