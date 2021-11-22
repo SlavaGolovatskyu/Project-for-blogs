@@ -1,6 +1,7 @@
-from flask import json, jsonify, url_for
+from flask import jsonify, url_for
 from ..models import ActiveIP, User
 from . import api
+from .authentication import auth
 
 
 @api.route('/users/active-ip/<string:ip>')
@@ -29,6 +30,7 @@ def find_user_by_ip(ip: str):
 
 
 @api.route('/user/<int:id>')
+@auth.login_required
 def get_user(id):
 	user = User.query.get_or_404(id)
 	return jsonify(user.to_json())

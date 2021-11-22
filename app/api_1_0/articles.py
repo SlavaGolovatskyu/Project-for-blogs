@@ -4,9 +4,11 @@ from ..models import Article, User, Permission
 from . import api
 from app import db
 from .decorators import permission_required
+from .authentication import auth
 
 
 @api.route('/post/<int:id>')
+@auth.login_required
 def get_post(id):
 	post = Article.query.get_or_404(id)
 	return jsonify(post.to_json())

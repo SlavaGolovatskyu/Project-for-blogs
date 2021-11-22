@@ -52,14 +52,14 @@ class APITestCase(unittest.TestCase):
 
 		# authenticate with bad password
 		response = self.client.get(
-			'/api/v1.0/posts/new-post',
+			'/api/v1.0/post/1',
 			headers=self.get_api_headers('john@example.com', '1111111416g')
 		)
 		self.assertEqual(response.status_code, 401)
 
 	def test_anonymous(self):
 		response = self.client.get(
-			'/api/v1.0/posts/new-post',
+			'/api/v1.0/post/1',
 			headers=self.get_api_headers('', '')
 		)
 		self.assertEqual(response.status_code, 401)
@@ -81,21 +81,47 @@ class APITestCase(unittest.TestCase):
 
 		self.assertEqual(response.status_code, 404)
 
-		response = self.client.post(
-			'/api/v1.0/posts/new-post',
-			headers=self.get_api_headers('john@example.com', '111111'),
-			data=json.dumps({'title': '90ETRIHJFTRIOJHOIFYTRJIOFYRJHOIFYRJKYTFJOKYTGJOKYRFTJKOYTFJOLYT',
-							 'intro': 'HDRTJYFUTKHYILHIKJLHIKUYIKUYTIKUYKUYKUHJGK',
-							 'text': '1234567890FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'})
-		)
+		# response = self.client.post(
+		# 	'/api/v1.0/posts/new-post',
+		# 	headers=self.get_api_headers('john@example.com', '111111'),
+		# 	data=json.dumps({'title': '90ETRIHJFTRIOJHOIFYTRJIOFYRJHOIFYRJKYTFJOKYTGJOKYRFTJKOYTFJOLYT',
+		# 					 'intro': 'HDRTJYFUTKHYILHIKJLHIKUYIKUYTIKUYKUYKUHJGK',
+		# 					 'text': '1234567890FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'})
+		# )
 
-		self.assertEqual(response.status_code, 201)
-		url = response.headers.get('Location')
-		self.assertIsNotNone(url)
+		# self.assertEqual(response.status_code, 200)
+		# url = response.headers.get('Location')
+		# self.assertIsNotNone(url)
+
+		# response = self.client.get(
+		# 	url,
+		# 	headers=self.get_api_headers('john@example.com', '111111')
+		# )
+		# self.assertEqual(response.status_code, 200)
+	
+	def test_users(self):
+		r = Role.query.filter_by(name='User').first()
+
+		self.assertIsNotNone(r)
+		u = User(username='slavik', email='john@example.com', real_location=get_location('146.120.168.159'))
+		u.set_password('111111')
+		db.session.add(u)
+		db.session.commit()
 
 		response = self.client.get(
-			url,
+			'/api/v1.0/user/1',
 			headers=self.get_api_headers('john@example.com', '111111')
 		)
+
 		self.assertEqual(response.status_code, 200)
+
+		response = self.client.get(
+			'/api/v1.0/users/active-ip/1'
+		)
+
+		self.assertEqual(response.status_code, 200)
+
+		
+
+
 
